@@ -23,5 +23,8 @@ An Undertale / Just Shapes & Beats inspired fan mashup: bullet-dodging boss figh
 
 This is a non-commercial fan project. It is not affiliated with Undertale or Just Shapes & Beats.
 
-- Music: "Agrobacter (Corrupted Mix)" from *Just Shapes & Beats*. All rights belong to its respective owners.
+- Music: "Agrobacter (Corrupted Mix)" from *Just Shapes & Beats*.
+- “RALLY-X A GO GO” by Hiroyuki Kawada and Nobuyuki Onogi.
+- “TILA EN STEREO” by Rainbowdragoneyes.
+- “Splash Woman” by Mega Ran.
 - All other music is generated in the game's code.
