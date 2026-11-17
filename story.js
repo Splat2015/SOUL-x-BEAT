@@ -85,9 +85,9 @@ const VILLAGES = {
     name: 'SQUARE VILLAGE', tname: 'Square Village',
     shop: false, soon: true,
     foes: [
-      { id: 'racer', bi: 4, def: 5, bc: 25, exp: 60, sr: 2 },
-      { id: 'tanga', bi: 5, def: 6, bc: 27, exp: 70, sr: 2 },
-      { id: 'slug', bi: 6, def: 4, bc: 20, exp: 75, sr: 2 },   // $lug Thug (SR doubles if the Salt ACT finishes him)
+      { id: 'racer', bi: 4, def: 6, bc: 25, exp: 60, sr: 2 },
+      { id: 'tanga', bi: 5, def: 7, bc: 27, exp: 70, sr: 2 },
+      { id: 'slug', bi: 6, def: 5, bc: 20, exp: 75, sr: 2 },   // $lug Thug (SR doubles if the Salt ACT finishes him)
     ],
     soulcerer: null,
     arrive: [
@@ -164,11 +164,14 @@ const ITEMS_RAW = {
   ppie: { name: 'Pink Pie', type: 'food', heal: 12, info: 'A slice of pink pie. Smells... odd.', eat: '* It tastes a little... Corrupted?' },
   sshades: { name: 'Shattered Shades', type: 'armor', def: 3, dur: 30, info: "Cracked and blurry. You can hardly see out of these things." },   // left behind by $lug Thug (killed 3 times)
   /* Skill Trinkets: abilities that go in the box next to equipped weapon / armor (either slot). col = the aura color of an enemy carrying one. */
-  poison: { name: 'Poison Trinket', type: 'trinket', col: '#b45bff', info: 'Your hits poison the enemy: 3 damage at the end of each turn, for 3 turns.' },
-  speed: { name: 'Speed Trinket', type: 'trinket', col: '#ffd23f', info: 'The wearer moves 20% faster.' },
+  poison: { name: 'Poison Trinket', type: 'trinket', col: '#b45bff', info: 'Your hits poison the enemy: 6 damage at the end of each turn, for 3 turns.' },
+  speed: { name: 'Speed Trinket', type: 'trinket', col: '#2a45e0', info: 'The wearer moves 20% faster.' },
+  regen: { name: 'Regen Trinket', type: 'trinket', col: '#1fbf6b', info: 'The wearer heals 2 HP at the end of every turn.' },
+  thorns: { name: 'Thorns Trinket', type: 'trinket', col: '#d6203a', info: 'Whenever the wearer gets hit, the enemy takes 2 damage.' },
 };
-const TRINKET_IDS = ['poison', 'speed'];
-const TRINKET_AURA = .1, POISON_DMG = 3, POISON_TURNS = 3, SPEED_MUL = 1.2;   // 10% of enemies carry a trinket (never a Soulcerer)
+const TRINKET_IDS = ['poison', 'speed', 'regen', 'thorns'];
+const REGEN_HP = 2, FOE_REGEN = 3, THORNS_DMG = 2, FOE_THORNS = 1;   // player Regen / enemy Regen per turn; player Thorns / enemy Thorns damage
+const TRINKET_AURA = .1, POISON_DMG = 6, POISON_TURNS = 3, SPEED_MUL = 1.2;   // 10% of enemies carry a trinket (never a Soulcerer)
 /* A weapon / armor you own is stored as its id plus its current DUR, e.g. 'ndagger:37' (a plain 'ndagger' = full DUR).
    It travels that way between the slots, the shared items, drops and the fight snapshot, so its wear is never lost.
    ITEMS[...] understands both forms (it ignores the ":37" part). */
@@ -217,6 +220,7 @@ const ST = {
   fight: null,    // story battle in progress: { id }
   breaks: [],     // "Your Wooden Sword broke..." texts waiting for the end of the turn
   poison: 0,      // turns of poison left on the enemy (Poison Trinket)
+  thornsOut: 0, thornsTaken: {},   // damage dealt to the enemy / to attackers by Thorns this turn (shown at the end of the turn)
   lst: null,      // list dialog (equip a trinket / make room for one): { title, rows, i, pick, cancel }
   nbT: 0,         // "But nobody came" text start time
   msg: '', msgT: 0, msgCol: '#fff',
@@ -401,7 +405,7 @@ function restoreFightSnap() {
 /* Battle start: each player's bar gets the party's max HP and their saved current HP. */
 function storySetup(ps) {
   const s = cur(), max = maxHp(s.lv);
-  ST.breaks = []; ST.poison = 0;
+  ST.breaks = []; ST.poison = 0; ST.thornsOut = 0; ST.thornsTaken = {};
   /* items and equipment: remember them at the start of a fight; RETRY after a game over starts again with the same ones */
   if (ST.fightItems) restoreFightSnap(); else ST.fightItems = { items: s.items.slice(), gear: s.players.map(p => [p.weapon, p.armor]), held: s.held.slice() };
   ps.forEach((p, k) => { p.max = max; p.hp = Math.max(1, Math.min(max, s.players[k].hp)); p.spMax = maxSp(s.lv); p.sp = Math.max(0, Math.min(p.spMax, s.players[k].sp)); });
@@ -410,21 +414,56 @@ function storySetup(ps) {
 function storyHit(k, d) {
   if (!ST.fight || d <= 0) return d;
   const s = cur(), pl = s.players[k] || s.players[0];
+  if (ST.fight.tr == 'speed' && Math.random() < FOE_DODGE) return 0;   // a Speed enemy dodges: 0 damage, and the weapon doesn't hit anything so it costs no DUR (and no poison)
+  if (ST.fight.tr == 'thorns' && players[k] && players[k].hp > 1) { players[k].hp -= FOE_THORNS; ST.thornsTaken[k] = (ST.thornsTaken[k] || 0) + FOE_THORNS; }   // a Thorns enemy pricks whoever lands a hit (never knocks them out)
   const dmg = Math.max(1, d + baseAtk(s.lv) + itemAtk(pl.weapon) - foeDef(s, fightFoe()));
   if (hasTrinket(pl, 'poison')) ST.poison = POISON_TURNS;   // a Poison Trinket in either slot: every hit (re)poisons for 3 turns
   storyWear(k, 'weapon');   // every attack you actually press costs the weapon 1 DUR (after this hit's damage is worked out)
   return dmg;
+}
+/* Enemies carrying a trinket get its ability: Poison = its hits poison the player (3 damage at the end of each of 3 turns, never below 1 HP);
+   Speed = each attack you press has a 15% chance to be dodged. */
+const FOE_POISON_DMG = 3, FOE_DODGE = .15;
+const FOE_NAMES = { prism: 'Prism', pulsar: 'Pulsar', maw: 'Maw', star: 'The Star Soulcerer', racer: 'Racer', tanga: 'Tanga', slug: '$lug Thug' };
+const storyDodgeMsg = () => '* ' + (ST.fight && FOE_NAMES[ST.fight.id] || 'It') + ' dodged!';
+function storyFoePoison(p) { if (ST.fight && ST.fight.tr == 'poison') p.pois = POISON_TURNS; }   // called when a hit lands on player p
+/* Thorns Trinket: when a hit lands on a wearer, the enemy takes 2 damage right away (the text comes at the end of the turn) */
+function storyThorns(p) {
+  const pl = cur().players[p.i] || cur().players[0];
+  if (!hasTrinket(pl, 'thorns') || bhp <= 0) return;
+  bhp = Math.max(0, bhp - THORNS_DMG); ST.thornsOut += THORNS_DMG;
 }
 const hasTrinket = (pl, t) => trinketOf(pl.weapon) == t || trinketOf(pl.armor) == t;
 /* Speed Trinket: the wearer's walking speed multiplier (the dash is left alone) */
 function storySpeed(k) { const pl = cur().players[k] || cur().players[0]; return hasTrinket(pl, 'speed') ? SPEED_MUL : 1; }
 /* End of a turn (after the dodge): poison ticks. Returns the text boxes to show before the boss's line; may leave the boss at 0 HP. */
 function storyTurnEnd() {
-  const out = [];
+  const out = [], solo = players.length == 1;
+  if (ST.thornsOut > 0) { out.push('* The thorns deal ' + ST.thornsOut + ' damage.'); ST.thornsOut = 0; }
+  Object.keys(ST.thornsTaken).forEach(k => { out.push('* ' + (solo ? 'You were' : 'P' + (+k + 1) + ' was') + ' pricked by the thorns for ' + ST.thornsTaken[k] + '.'); });
+  ST.thornsTaken = {};
   if (ST.poison > 0) {
     ST.poison--;
     bhp = Math.max(0, bhp - POISON_DMG);
     out.push('* The poison deals ' + POISON_DMG + ' damage.');
+  }
+  players.forEach((p, i) => {   // players poisoned by a Poison enemy
+    if (!(p.pois > 0) || p.down || p.gone) return;
+    p.pois--;
+    const dmg = Math.min(FOE_POISON_DMG, p.hp - 1);   // never knocks anyone out
+    if (dmg > 0) { p.hp -= dmg; out.push('* ' + (players.length > 1 ? 'P' + (i + 1) + ' took' : 'You took') + ' ' + dmg + ' poison damage.'); }
+  });
+  /* Regen: wearers heal 2 HP; a Regen enemy heals 3 HP (never past max, and not if it is already beaten) */
+  const s = cur();
+  players.forEach((p, i) => {
+    const pl = s.players[i] || s.players[0];
+    if (!hasTrinket(pl, 'regen') || p.down || p.gone || p.hp >= p.max) return;
+    const g2 = Math.min(REGEN_HP, p.max - p.hp); p.hp += g2;
+    out.push('* ' + (solo ? 'You recovered ' : 'P' + (i + 1) + ' recovered ') + g2 + ' HP.');
+  });
+  if (ST.fight.tr == 'regen' && bhp > 0 && bhp < BO.hp) {
+    const g3 = Math.min(FOE_REGEN, BO.hp - bhp); bhp += g3;
+    out.push('* ' + (FOE_NAMES[ST.fight.id] || 'It') + ' recovered ' + g3 + ' HP.');
   }
   return out.concat(storyBreaks());
 }
@@ -824,6 +863,8 @@ const battleUsable = id => isFood(id) || (ITEMS[id] && !!slotOf(id));
 const battleKinds = () => [...new Set(cur().items.filter(battleUsable))];   // each kind once, in inventory order
 /* battle ITEM menu lines, e.g. "Pink Pie x2", "Neon Dagger" */
 function storyItemList() { const s = cur(); return battleKinds().map(id => { const n = s.items.filter(x => x == id).length; return ITEMS[id].name + (n > 1 ? ' x' + n : ''); }); }
+/* trinket color for line idx of that list (gear carrying a Skill Trinket), else null */
+const storyItemCol = idx => { const t = trinketOf(battleKinds()[idx]); return t ? ITEMS[t].col : null; };
 const storyIsGear = idx => { const id = battleKinds()[idx]; return !!id && !isFood(id); };
 /* take the chosen item out of the shared items (co-op takes it when picked, gives it back if the pick is undone) */
 function storyTake(idx) { const s = cur(), id = battleKinds()[idx]; if (!id) return null; s.items.splice(s.items.indexOf(id), 1); return { id, ...ITEMS[id] }; }
@@ -1438,6 +1479,8 @@ function drawItems() {
     if (on) soul(L0 - 2, ry - 6, '#19e3ff');
     const it = ITEMS[id], tag = it.type == 'weapon' ? '+' + it.atk + ' ATK  DUR ' + durOf(id) : it.type == 'armor' ? '+' + it.def + ' DEF  DUR ' + durOf(id) : it.type == 'food' ? '+' + it.heal + ' HP  +' + foodSp(it) + ' SP' : it.type == 'trinket' ? 'Skill Trinket' : '';
     txt('* ' + it.name, L0 + 20, ry, 18, on ? '#ff0' : '#fff', 'left', 0, true);
+    const tr = trinketOf(id);   // gear with a Skill Trinket: a square in the trinket's color right after the name
+    if (tr) { g.font = 'bold 18px monospace'; g.fillStyle = g.shadowColor = ITEMS[tr].col; g.shadowBlur = 9; g.fillRect(L0 + 20 + g.measureText('* ' + it.name).width + 10, ry - 12, 13, 13); g.shadowBlur = 0; g.shadowColor = 'transparent'; }   // slight glow
     if (tag) txt(tag, PAN.x + PAN.w - 40, ry, 15, '#aaa', 'right', 0, true);
   });
   if (s.items.length) ITEM_OPTS.forEach((o, j) => {
