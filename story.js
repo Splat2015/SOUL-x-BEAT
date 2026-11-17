@@ -57,7 +57,15 @@ const VILLAGES = {
       killed: [
         '* The Star Soulcerer crumbles to dust.',
         '* Its light goes out.',
-        '* You feel as though this is only the\n  beginning of a long journey.',
+        '* For a moment, you couldn\'t help but\n  feel a bit of guilt.',
+        '* VILLAGE 1 COMPLETE.',
+      ],
+      /* killed on the genocide route (every mini boss killed 3 times) */
+      genoKilled: [
+        '* The Star Soulcerer crumbles to dust.',
+        '* Its light goes out.',
+        '* The whole village is silent now.',
+        '* You feel nothing.',
         '* VILLAGE 1 COMPLETE.',
       ],
       rest: '* The Star Soulcerer rests peacefully.',
@@ -146,15 +154,30 @@ const potionRoast = sr => [
 const FOE_IDS = ['prism', 'pulsar', 'maw', 'star', 'racer', 'tanga', 'slug'];
 
 /* Items. type: 'weapon' | 'armor' (more types come with the shop round). */
-const ITEMS = {
-  wsword: { name: 'Wooden Sword', type: 'weapon', atk: 1, info: 'A sturdy practice sword carved from oak.' },
-  wshield: { name: 'Wooden Shield', type: 'armor', def: 1, info: "A light shield. It's seen a few dents." },
-  ndagger: { name: 'Neon Dagger', type: 'weapon', atk: 3, bar: 1.3, info: 'It hums with a faint electric glow.' },   // bar: attack bar speed (1 = normal)
-  rvisor: { name: 'Radiant Visor', type: 'armor', def: 3, info: 'Shiny enough to see your reflection.' },
+/* dur = DUR (durability): a weapon loses 1 per attack, armor loses 1 per hit taken; at 0 it breaks (slot becomes none). */
+const ITEMS_RAW = {
+  wsword: { name: 'Wooden Sword', type: 'weapon', atk: 1, dur: 30, info: 'A sturdy practice sword carved from oak.' },
+  wshield: { name: 'Wooden Shield', type: 'armor', def: 1, dur: 50, info: "A light shield. It's seen a few dents." },
+  ndagger: { name: 'Neon Dagger', type: 'weapon', atk: 3, dur: 40, bar: 1.3, info: 'It hums with a faint electric glow.' },   // bar: attack bar speed (1 = normal)
+  rvisor: { name: 'Radiant Visor', type: 'armor', def: 3, dur: 60, info: 'Shiny enough to see your reflection.' },
   pcandy: { name: 'Pure Candy', type: 'food', heal: 8, info: 'It tastes like Paradise.', eat: "* It's sweet and sparkly." },
   ppie: { name: 'Pink Pie', type: 'food', heal: 12, info: 'A slice of pink pie. Smells... odd.', eat: '* It tastes a little... Corrupted?' },
-  sshades: { name: 'Shattered Shades', type: 'armor', def: 2, info: "$lug Thug's old sunglasses. Cracked, but still cool." },   // left behind by $lug Thug (killed 3 times)
+  sshades: { name: 'Shattered Shades', type: 'armor', def: 3, dur: 30, info: "Cracked and blurry. You can hardly see out of these things." },   // left behind by $lug Thug (killed 3 times)
+  /* Skill Trinkets: abilities that go in the box next to equipped weapon / armor (either slot). col = the aura color of an enemy carrying one. */
+  poison: { name: 'Poison Trinket', type: 'trinket', col: '#b45bff', info: 'Your hits poison the enemy: 3 damage at the end of each turn, for 3 turns.' },
+  speed: { name: 'Speed Trinket', type: 'trinket', col: '#ffd23f', info: 'The wearer moves 20% faster.' },
 };
+const TRINKET_IDS = ['poison', 'speed'];
+const TRINKET_AURA = .1, POISON_DMG = 3, POISON_TURNS = 3, SPEED_MUL = 1.2;   // 10% of enemies carry a trinket (never a Soulcerer)
+/* A weapon / armor you own is stored as its id plus its current DUR, e.g. 'ndagger:37' (a plain 'ndagger' = full DUR).
+   It travels that way between the slots, the shared items, drops and the fight snapshot, so its wear is never lost.
+   ITEMS[...] understands both forms (it ignores the ":37" part). */
+const ITEMS = new Proxy(ITEMS_RAW, { get: (t, k) => { if (typeof k != 'string') return t[k]; const b = k.split(':')[0]; return Object.prototype.hasOwnProperty.call(t, b) ? t[b] : undefined; } });
+const baseId = e => String(e).split(':')[0];
+const durOf = e => { const it = ITEMS[e]; if (!it || !it.dur) return 0; const d = String(e).split(':')[1]; return d == null || d === '' ? it.dur : +d; };
+/* a Skill Trinket on a piece of gear is the third part: 'ndagger:37:poison' (DUR is then always written out) */
+const trinketOf = e => { if (!e) return null; const t = String(e).split(':')[2]; return t && ITEMS[t] && ITEMS[t].type == 'trinket' ? t : null; };
+const withTrinket = (e, t) => okItem(baseId(e) + ':' + durOf(e) + (t ? ':' + t : ''));   // t = null takes the trinket off
 const starterPlayer = () => ({ weapon: 'wsword', armor: 'wshield' });
 
 /* Stats work like Undertale, extended to a max LV of 30.
@@ -164,6 +187,10 @@ const EXP_TABLE = [0, 10, 30, 70, 120, 200, 300, 500, 800, 1200, 1700, 2500, 350
   15000, 25000, 50000, 70000, 95000, 125000, 160000, 200000, 250000, 310000, 380000, 460000, 550000, 650000];
 const lvFromExp = exp => { let lv = 1; while (lv < MAX_LV && exp >= EXP_TABLE[lv]) lv++; return lv; };
 const maxHp = lv => 16 + 4 * lv;
+/* SP (stamina/skill points): each dash in a story fight costs 1; 0 SP = no dashing. 30 at LV1, +4 per LV.
+   Carries between fights like HP, +4 after every won fight; food gives back half its HP as SP. */
+const maxSp = lv => 26 + 4 * lv, SP_PER_FIGHT = 4;
+const foodSp = it => Math.floor(it.heal / 2);
 const baseAtk = lv => 2 * (lv - 1);
 const baseDef = lv => Math.floor((lv - 1) / 4);
 const itemAtk = id => (ITEMS[id] && ITEMS[id].atk) || 0;
@@ -188,6 +215,9 @@ const ST = {
   fightItems: null, // { items, gear } when the current story fight started (a game over gives them back)
   cut: null,      // text box pages to show when back in the hub (cutscenes)
   fight: null,    // story battle in progress: { id }
+  breaks: [],     // "Your Wooden Sword broke..." texts waiting for the end of the turn
+  poison: 0,      // turns of poison left on the enemy (Poison Trinket)
+  lst: null,      // list dialog (equip a trinket / make room for one): { title, rows, i, pick, cancel }
   nbT: 0,         // "But nobody came" text start time
   msg: '', msgT: 0, msgCol: '#fff',
   last: 0, sinceSave: 0,
@@ -196,14 +226,22 @@ const ST = {
 
 /* ---------- saves (localStorage, separate key from settings) ---------- */
 const nInt = (v, min, max) => Number.isInteger(v) && v >= min && v <= (max == null ? Infinity : max);
-const okItem = (id, type) => typeof id == 'string' && ITEMS[id] && (!type || ITEMS[id].type == type) ? id : null;
+const okItem = (id, type) => {
+  if (typeof id != 'string') return null;
+  const [b, d, t] = id.split(':'), it = ITEMS[b];
+  if (!it || (type && it.type != type)) return null;
+  if (!it.dur) return b;
+  const n = nInt(+d, 1, it.dur) ? +d : it.dur, tr = t && ITEMS[t] && ITEMS[t].type == 'trinket' ? t : null;
+  return tr ? b + ':' + n + ':' + tr : n < it.dur ? b + ':' + n : b;   // full DUR with no trinket is just the plain id
+};
 /* Each player keeps their own current HP; the max is shared (from the party's LV). */
-function cleanPlayer(p, max, hp) {
+function cleanPlayer(p, max, hp, maxS) {
   if (!p || typeof p != 'object') p = starterPlayer();
   return {
     weapon: 'weapon' in p ? okItem(p.weapon, 'weapon') : 'wsword',
     armor: 'armor' in p ? okItem(p.armor, 'armor') : 'wshield',
     hp: nInt(p.hp, 1, max) ? p.hp : hp,
+    sp: nInt(p.sp, 0, maxS) ? p.sp : maxS,   // older saves start with full SP
   };
 }
 const cleanItems = a => Array.isArray(a) ? a.map(id => okItem(id)).filter(Boolean) : [];
@@ -231,10 +269,11 @@ function cleanSave(s) {
     time: typeof s.time == 'number' && isFinite(s.time) && s.time >= 0 ? s.time : 0,
     created: nInt(s.created, 0) ? s.created : Date.now(),
     foes,
-    players: [...Array(s.np)].map((_, k) => cleanPlayer(ps[k], maxHp(lv), oldHp)),
+    players: [...Array(s.np)].map((_, k) => cleanPlayer(ps[k], maxHp(lv), oldHp, maxSp(lv))),
     items,   // shared party inventory (item ids)
     seen: cleanSeen(s.seen),   // one-time events already shown, e.g. { geno1: 1 }
     stock: cleanStock(s.stock),   // abandoned-stand items taken so far, e.g. { pcandy: 2 }
+    held: Array.isArray(s.held) ? s.held.filter(t => typeof t == 'string' && ITEMS[t] && ITEMS[t].type == 'trinket').slice(0, 8) : [],   // trinkets waiting for an item slot
   };
 }
 function cleanStock(o) {
@@ -325,7 +364,8 @@ function askAnswer(yes) {
    Corrupted mix: hub + empty battles, once every mini boss in the village has been killed 3 times. */
 const villageGone = s => { const v = s && VILLAGES[s.village]; return !!v && !v.soon && v.foes.length > 0 && v.foes.every(f => s.foes[f.id].k >= 3); };
 function updStoryMusic() {
-  const want = S == 'story' && (ST.scr == 'hub' || ST.scr == 'nobody') && villageGone(cur()) ? 'corrupted' : null;
+  /* silent for good once the village's Soulcerer is beaten (spared or killed) */
+  const want = S == 'story' && (ST.scr == 'hub' || ST.scr == 'nobody') && villageGone(cur()) && !cur().seen['done' + cur().village] ? 'corrupted' : null;
   if (want) playTrack(want);
   else if (MP3.id == 'corrupted' || MP3.want == 'corrupted') stopTrack();   // also cancels a song still loading
 }
@@ -355,21 +395,54 @@ const soulcererDone = s => { const f = s.foes[VILLAGES[s.village].soulcerer.id];
 function restoreFightSnap() {
   const s = cur(), f = ST.fightItems;
   s.items = f.items.slice();
+  s.held = (f.held || []).slice();
   s.players.forEach((p, k) => { if (f.gear[k]) [p.weapon, p.armor] = f.gear[k]; });
 }
 /* Battle start: each player's bar gets the party's max HP and their saved current HP. */
 function storySetup(ps) {
   const s = cur(), max = maxHp(s.lv);
+  ST.breaks = []; ST.poison = 0;
   /* items and equipment: remember them at the start of a fight; RETRY after a game over starts again with the same ones */
-  if (ST.fightItems) restoreFightSnap(); else ST.fightItems = { items: s.items.slice(), gear: s.players.map(p => [p.weapon, p.armor]) };
-  ps.forEach((p, k) => { p.max = max; p.hp = Math.max(1, Math.min(max, s.players[k].hp)); });
+  if (ST.fightItems) restoreFightSnap(); else ST.fightItems = { items: s.items.slice(), gear: s.players.map(p => [p.weapon, p.armor]), held: s.held.slice() };
+  ps.forEach((p, k) => { p.max = max; p.hp = Math.max(1, Math.min(max, s.players[k].hp)); p.spMax = maxSp(s.lv); p.sp = Math.max(0, Math.min(p.spMax, s.players[k].sp)); });
 }
 /* Your hit: timing damage + ATK (LV + weapon) - boss DEF, never below 1. */
 function storyHit(k, d) {
   if (!ST.fight || d <= 0) return d;
   const s = cur(), pl = s.players[k] || s.players[0];
-  return Math.max(1, d + baseAtk(s.lv) + itemAtk(pl.weapon) - foeDef(s, fightFoe()));
+  const dmg = Math.max(1, d + baseAtk(s.lv) + itemAtk(pl.weapon) - foeDef(s, fightFoe()));
+  if (hasTrinket(pl, 'poison')) ST.poison = POISON_TURNS;   // a Poison Trinket in either slot: every hit (re)poisons for 3 turns
+  storyWear(k, 'weapon');   // every attack you actually press costs the weapon 1 DUR (after this hit's damage is worked out)
+  return dmg;
 }
+const hasTrinket = (pl, t) => trinketOf(pl.weapon) == t || trinketOf(pl.armor) == t;
+/* Speed Trinket: the wearer's walking speed multiplier (the dash is left alone) */
+function storySpeed(k) { const pl = cur().players[k] || cur().players[0]; return hasTrinket(pl, 'speed') ? SPEED_MUL : 1; }
+/* End of a turn (after the dodge): poison ticks. Returns the text boxes to show before the boss's line; may leave the boss at 0 HP. */
+function storyTurnEnd() {
+  const out = [];
+  if (ST.poison > 0) {
+    ST.poison--;
+    bhp = Math.max(0, bhp - POISON_DMG);
+    out.push('* The poison deals ' + POISON_DMG + ' damage.');
+  }
+  return out.concat(storyBreaks());
+}
+/* DUR: take 1 off player k's weapon / armor. At 0 it breaks: the slot becomes none and the text waits in ST.breaks
+   (shown at the end of the turn, before the boss's line; a win shows it under the win text). Only in story fights. */
+function storyWear(k, slot) {
+  if (!ST.fight) return;
+  const s = cur(), i = s.players[k] ? k : 0, pl = s.players[i], e = pl[slot];
+  if (!e) return;
+  const d = durOf(e) - 1;
+  const tr = trinketOf(e);
+  if (d > 0) { pl[slot] = okItem(baseId(e) + ':' + d + (tr ? ':' + tr : '')); return; }
+  pl[slot] = null;
+  ST.breaks.push((s.np > 1 ? 'P' + (i + 1) + "'s " : 'Your ') + ITEMS[e].name + ' broke...');
+  if (tr) { s.held.push(tr); ST.breaks.push('The ' + ITEMS[tr].name + ' came loose.'); }   // goes to your items after the fight
+}
+/* the pending "broke..." texts as separate text boxes (one each), cleared once taken */
+function storyBreaks() { const b = ST.breaks.map(t => '* ' + t); ST.breaks = []; return b; }
 /* How fast player k's white attack bar moves (their weapon's "bar" value; 1 = normal speed) */
 function storyBarSpeed(k) {
   if (!ST.fight) return 1;
@@ -409,12 +482,13 @@ function storyPay(bc) {
   return true;
 }
 /* Save each player's HP after the fight (downed players come back with a few HP). */
-function keepHp(gain) {
-  const s = cur(), max = maxHp(s.lv);
+function keepHp(gain, spGain) {
+  const s = cur(), max = maxHp(s.lv), maxS = maxSp(s.lv);
   players.forEach((p, k) => {
     if (!s.players[k]) return;
     const hp = p.down || p.hp <= 0 ? DOWNED_HP : p.hp;
     s.players[k].hp = Math.max(1, Math.min(max, hp + (gain || 0)));
+    s.players[k].sp = Math.max(0, Math.min(maxS, (p.sp == null ? maxS : p.sp) + (spGain || 0)));   // dashes stay spent
   });
 }
 /* Battle won: sp = spared. Records the result, gives rewards, returns the win text. */
@@ -426,7 +500,7 @@ function storyWin(sp) {
   const v = VILLAGES[s.village], key = 'geno' + s.village, isSoul = foe === v.soulcerer;
   if (isSoul) {
     /* Soulcerer beaten (one fight only): its ending scene, and the village is complete */
-    ST.cut = sp ? foe.spared : foe.killed;
+    ST.cut = sp ? foe.spared : (foe.genoKilled && genoRoute(s) ? foe.genoKilled : foe.killed);
     s.seen['done' + s.village] = 1;
   } else if (!sp && v.genoCut && !s.seen[key] && villageGone(s) && v.foes.every(x => !s.foes[x.id].sp)) {
     /* Genocide cutscene: the last mini boss killed for the 3rd time, and none ever spared */
@@ -437,9 +511,46 @@ function storyWin(sp) {
   const exp = sp ? 0 : foe.exp, bc = foe.bc, sr = foe.sr * (salted ? 2 : 1), oldLv = s.lv;
   s.exp += exp; s.coins += bc; s.relics += sr;
   s.lv = lvFromExp(s.exp);
-  keepHp(maxHp(s.lv) - maxHp(oldLv));   // level-up raises current HP by the same amount as max HP
+  keepHp(maxHp(s.lv) - maxHp(oldLv), maxSp(s.lv) - maxSp(oldLv) + SP_PER_FIGHT);   // level-up raises current HP / SP by the same amount as the max; every won fight gives +4 SP
+  let drop = '';
+  if (ST.fight && ST.fight.tr) { s.held.push(ST.fight.tr); drop = '\n* It dropped the ' + ITEMS[ST.fight.tr].name + '!'; }   // spared or killed: you get it back in the hub
   storySave();
-  return '* YOU WON!\n* You earned ' + exp + ' EXP, ' + bc + ' BC and ' + sr + ' SR.' + (s.lv > oldLv ? '\n* You leveled up.' : '');
+  return '* YOU WON!\n* You earned ' + exp + ' EXP, ' + bc + ' BC and ' + sr + ' SR.' + (s.lv > oldLv ? '\n* You leveled up.' : '') + drop + storyBreaks().map(t => '\n' + t).join('');   // gear that broke on the last blow
+}
+/* Trinkets waiting in s.held (dropped by an enemy, or shaken loose by broken gear): into your items if there is room,
+   otherwise you must drop an item or the trinket itself. Called whenever the hub shows up. */
+function resolveHeld() {
+  const s = cur();
+  if (!s.held.length) return;
+  const got = [];
+  while (s.held.length && s.items.length < MAX_ITEMS) { const t = s.held.shift(); s.items.push(t); got.push(t); }
+  storySave();
+  const pages = got.map(t => '* The ' + ITEMS[t].name + ' went into your items.');
+  if (s.held.length) {
+    pages.push('* Your items are full.\n* Make room for the ' + ITEMS[s.held[0]].name + ',\n  or drop it.');
+    hubSay(pages, openSwap);
+  } else if (pages.length) hubSay(pages);
+}
+/* items full: choose an item to drop for the waiting trinket, or drop the trinket (no backing out) */
+function openSwap() {
+  const s = cur(), t = s.held[0];
+  ST.panel = 'lst'; ST.pr = 0;
+  ST.lst = {
+    title: 'ITEMS FULL', i: 0, cancel: false,
+    rows: [...s.items.map(e => ITEMS[e].name), 'DROP THE ' + ITEMS[t].name.toUpperCase()],
+    pick(i) {
+      if (i == s.items.length) { s.held.shift(); closeSwap('* The ' + ITEMS[t].name + ' was thrown away.'); return; }
+      const nm = ITEMS[s.items[i]].name;
+      askYesNo('DROP ITEM?', ['Drop the ' + nm + '?', 'The ' + ITEMS[t].name + ' takes its place.'], () => {
+        s.items.splice(i, 1); s.items.push(s.held.shift());
+        closeSwap('* The ' + nm + ' was thrown away.\n* The ' + ITEMS[t].name + ' went into your items.');
+      });
+    },
+  };
+}
+function closeSwap(msg) {
+  ST.lst = null; ST.panel = null; storySave();
+  hubSay(msg, resolveHeld);   // more waiting? ask again
 }
 /* Battle over (won, fled or left the game-over screen): back to the hub. Returns true if handled.
    Fleeing keeps your HP; a game over restores HP to what it was when the fight started. */
@@ -456,13 +567,14 @@ function storyReturn() {
   const k = villageFoes(VILLAGES[cur().village]).findIndex(f => f.id == ST.fight.id);
   ST.fight = null;
   S = 'story'; ST.scr = 'hub'; ST.i = 1; ST.j = Math.max(0, k); ST.panel = null; ST.tb = null;
-  if (ST.cut) { hubSay(ST.cut); ST.cut = null; }
+  if (ST.cut) { hubSay(ST.cut, resolveHeld); ST.cut = null; } else resolveHeld();
   storySave();
   return true;
 }
 function startStoryFight(f) {
   const s = cur();
-  ST.fight = { id: f.id };
+  /* tr = the Skill Trinket this enemy carries (a rare aura in battle, its color = the trinket); dropped when it is spared or killed. Soulcerers never carry one. */
+  ST.fight = { id: f.id, tr: f !== VILLAGES[s.village].soulcerer && Math.random() < TRINKET_AURA ? TRINKET_IDS[Math.floor(Math.random() * TRINKET_IDS.length)] : null };
   ST.fightItems = null;
   bi = f.bi; mode = s.np;
   if (f === VILLAGES[s.village].soulcerer)   // CHECK shows the route's ATK
@@ -482,7 +594,7 @@ function storyGo(scr, i, j) {
   if ((ST.scr == 'hub' || ST.scr == 'nobody') && scr == 'slots') storySave();   // leaving a file: keep its playtime
   ST.scr = scr; ST.i = i || 0; ST.j = j || 0; ST.panel = null; ST.tb = null;
 }
-const toHub = () => storyGo('hub', 1, 0);
+const toHub = () => { storyGo('hub', 1, 0); if (ST.slot >= 0 && cur()) resolveHeld(); };   // trinkets still waiting from last time
 function storyExit() { S = 'mode'; AC && sfxSel(); }
 function cancelAct() { ST.act = null; ST.src = -1; ST.pending = null; ST.i = ROW_ACTS; AC && sfxSel(); }
 
@@ -591,7 +703,7 @@ function takeShades() {
   hubSay(["* It seems that all that's left of him are some glasses.", '* Take them?'], () =>
     askYesNo('', ['Take the broken glasses?'], () => {
       const s = cur();
-      if (s.items.length >= MAX_ITEMS) { hubSay("* Your items are full.\n* The glasses stay where they are."); return; }
+      if (s.items.length >= MAX_ITEMS) { hubSay("* Your items are full."); return; }
       s.items.push('sshades'); s.seen.shades = 1; storySave();
       if (AC) { tone(1046, T0(), .08, 'square', .1); tone(1568, T0() + .07, .12, 'square', .1); }
       hubSay('* You got the Shattered Shades.');
@@ -646,22 +758,29 @@ function useItem(k) {
   if (!id) return;
   ST.iopt = null;
   const food = ITEMS[id].type == 'food';
-  if (!food && !slotOf(id)) { storyErr("That can't be used here."); return; }
+  if (!food && !slotOf(id)) { storyErr(ITEMS[id].type == 'trinket' ? 'Equip it in STATS: pick the box beside your gear.' : "That can't be used here."); return; }
   if (s.np == 1) (food ? eatItem : equipItem)(k, 0);
   else { ST.who = { k, sel: 0, act: food ? 'eat' : 'equip' }; AC && sfxSel(); }
 }
 /* eating outside battle: heal that player (not past max HP); the text box says what happened */
 function eatItem(k, pi) {
-  const s = cur(), p = s.players[pi], it = ITEMS[s.items[k]], max = maxHp(s.lv), solo = s.np == 1, nm = 'P' + (pi + 1);
+  const s = cur(), p = s.players[pi], it = ITEMS[s.items[k]], max = maxHp(s.lv), maxS = maxSp(s.lv), solo = s.np == 1, nm = 'P' + (pi + 1);
   ST.who = null;
-  if (p.hp >= max) { storyErr((solo ? 'You are' : nm + ' is') + ' already at full HP.'); return; }
-  const full = p.hp + it.heal >= max;
+  if (p.hp >= max && p.sp >= maxS) { storyErr((solo ? 'You are' : nm + ' is') + ' already at full HP and SP.'); return; }   // full HP still eats if SP is low
+  const hpFull = p.hp + it.heal >= max, spFull = p.sp + foodSp(it) >= maxS;
   p.hp = Math.min(max, p.hp + it.heal);
+  p.sp = Math.min(maxS, p.sp + foodSp(it));
   s.items.splice(k, 1);
   ST.pr = Math.min(ST.pr, Math.max(0, s.items.length - 1));
   storySave(); if (AC) sfxHeal();
-  hubSay((solo ? '* You ate the ' : '* ' + nm + ' ate the ') + it.name + '.\n' + it.eat + '\n* ' +
-    (full ? (solo ? 'Your HP was maxed out.' : nm + "'s HP was maxed out.") : (solo ? 'You' : nm) + ' recovered ' + it.heal + ' HP.'));
+  hubSay((solo ? '* You ate the ' : '* ' + nm + ' ate the ') + it.name + '.\n' + it.eat + '\n* ' + recLine(solo, nm, hpFull, it.heal, spFull, foodSp(it)));
+}
+/* the "what happened" line after eating: HP part + SP part, e.g. "You recovered 8 HP and 4 SP." */
+function recLine(solo, nm, hpFull, hp, spFull, sp) {
+  const subj = solo ? 'You' : nm, poss = solo ? 'Your' : nm + "'s";
+  if (hpFull && spFull) return poss + ' HP and SP were maxed out.';
+  if (!hpFull && !spFull) return subj + ' recovered ' + hp + ' HP and ' + sp + ' SP.';
+  return hpFull ? poss + ' HP was maxed out. ' + subj + ' recovered ' + sp + ' SP.' : poss + ' SP was maxed out. ' + subj + ' recovered ' + hp + ' HP.';
 }
 
 /* ---------- stands ---------- */
@@ -725,17 +844,19 @@ function storyFeed(i, t, it) {
   if (!it) return '* Nothing happened.';
   if (!T || T.gone) return '* The ' + it.name + ' goes to waste...';
   const was = T.down, b4 = T.hp, solo = players.length == 1, nm = 'P' + (t + 1);
+  const b4s = T.sp == null ? 0 : T.sp;
   if (was) { T.down = 0; T.hp = Math.min(T.max, it.heal); T.rev = 0; } else T.hp = Math.min(T.max, T.hp + it.heal);
+  if (T.sp != null) T.sp = Math.min(T.spMax, T.sp + foodSp(it));
   sfxPie(was);
   const l1 = solo ? '* You ate the ' + it.name + '.' : t == i ? '* ' + nm + ' ate the ' + it.name + '.' : '* P' + (i + 1) + ' fed the ' + it.name + ' to ' + nm + '.';
-  const l3 = was ? nm + ' gets back up!' : b4 + it.heal <= T.max ? (solo ? 'You' : nm) + ' recovered ' + it.heal + ' HP.' : (solo ? 'Your HP was maxed out.' : nm + "'s HP was maxed out.");
+  const l3 = was ? nm + ' gets back up!' : recLine(solo, nm, b4 + it.heal > T.max, it.heal, b4s + foodSp(it) > T.spMax, foodSp(it));
   return l1 + '\n' + it.eat + '\n* ' + l3;
 }
 function storyUseSolo(idx) { const it = storyTake(idx); return storyUsePicked(0, 0, it); }
 const ITEM_OPTS = ['INFO', 'USE', 'DROP'];
 function itemInfo(k) {
   const it = ITEMS[cur().items[k]];
-  const kind = it.type == 'weapon' ? 'Weapon, +' + it.atk + ' ATK' : it.type == 'armor' ? 'Armor, +' + it.def + ' DEF' : it.type == 'food' ? 'Heals ' + it.heal + ' HP' : 'Item';
+  const e = cur().items[k], tn = trinketOf(e) ? ', ' + ITEMS[trinketOf(e)].name : '', kind = it.type == 'weapon' ? 'Weapon, +' + it.atk + ' ATK, DUR ' + durOf(e) + tn : it.type == 'armor' ? 'Armor, +' + it.def + ' DEF, DUR ' + durOf(e) + tn : it.type == 'trinket' ? 'Skill Trinket' : it.type == 'food' ? 'Heals ' + it.heal + ' HP, +' + foodSp(it) + ' SP' : 'Item';
   AC && sfxSel();
   hubSay('* "' + it.name + '" - ' + kind + '\n* ' + (it.info || ''));
 }
@@ -755,8 +876,41 @@ function itemOption(j) {
   else if (j == 1) useItem(k);
   else dropItem(k);
 }
+/* ---------- Skill Trinkets: the box next to each equipped weapon / armor in STATS ---------- */
+function trinketSlot(slot) {
+  const s = cur(), p = s.players[ST.pp], e = p[slot], t = trinketOf(e);
+  if (!e) { storyErr('Nothing is equipped there.'); return; }
+  if (t) {   // take it off: back to your items
+    if (s.items.length >= MAX_ITEMS) { storyErr('Your items are full.'); return; }
+    askYesNo('REMOVE?', ['Move the ' + ITEMS[t].name + ' to your items?'], () => {
+      p[slot] = withTrinket(p[slot], null); s.items.push(t); storySave();
+      AC && sfxSel(); storyMsg(ITEMS[t].name + ' moved to your items.', '#fff');
+    });
+    return;
+  }
+  const ks = s.items.map((_, k) => k).filter(k => ITEMS[s.items[k]].type == 'trinket');
+  if (!ks.length) { storyErr('You have no Skill Trinkets.'); return; }
+  ST.panel = 'lst'; AC && sfxSel();
+  ST.lst = {
+    title: 'WHICH TRINKET?', i: 0, cancel: true, back: 'stats',
+    rows: ks.map(k => ITEMS[s.items[k]].name),
+    pick(i) {
+      const tid = s.items.splice(ks[i], 1)[0];
+      p[slot] = withTrinket(p[slot], tid); storySave();
+      ST.lst = null; ST.panel = 'stats'; AC && sfxGo();
+      storyMsg(ITEMS[tid].name + ' equipped.', '#7dff3d');
+    },
+  };
+}
+function listPress(is) {
+  const L = ST.lst, n = L.rows.length;
+  if (is(U) || is(Dn)) { L.i = (L.i + (is(U) ? n - 1 : 1)) % n; AC && sfxSel(); }
+  else if (is(OK)) L.pick(L.i);
+  else if (is(NO) && L.cancel) { ST.lst = null; ST.panel = L.back || null; AC && sfxSel(); }
+}
 function panelPress(c, is) {
   const s = cur(), np = s.np;
+  if (ST.panel == 'lst' && ST.lst) { listPress(is); return; }
   if (ST.who) {
     if (is(L) || is(R)) { ST.who.sel = (ST.who.sel + (is(L) ? np - 1 : 1)) % np; AC && sfxSel(); }
     else if (is(OK)) (ST.who.act == 'eat' ? eatItem : equipItem)(ST.who.k, ST.who.sel);
@@ -783,11 +937,11 @@ function panelPress(c, is) {
     else if (is(NO)) { ST.iopt = null; AC && sfxSel(); }
     return;
   }
-  const rows = ST.panel == 'stats' ? 2 : s.items.length;
+  const rows = ST.panel == 'stats' ? 4 : s.items.length;   // stats: weapon, weapon's trinket box, armor, armor's trinket box
   if (is(L) || is(R)) { if (ST.panel == 'stats' && np > 1) { ST.pp = (ST.pp + (is(L) ? np - 1 : 1)) % np; ST.pr = 0; AC && sfxSel(); } }
   else if (is(U) || is(Dn)) { if (rows > 1) { ST.pr = (ST.pr + (is(U) ? rows - 1 : 1)) % rows; AC && sfxSel(); } }
   else if (is(OK)) {
-    if (ST.panel == 'stats') unequip(ST.pr ? 'armor' : 'weapon');
+    if (ST.panel == 'stats') (ST.pr % 2 ? trinketSlot : unequip)(ST.pr < 2 ? 'weapon' : 'armor');
     else if (rows) { ST.iopt = 0; AC && sfxSel(); }
   }
   else if (is(NO)) { ST.panel = null; AC && sfxSel(); }
@@ -930,10 +1084,15 @@ function panelTap(x, y, inR) {
   }
   if (ST.panel == 'stats' && s.np > 1 && inR(PAN.x + PAN.w - 72, PAN.y + 62, 34, 40)) { press(L[0]); return; }
   if (ST.panel == 'stats' && s.np > 1 && inR(PAN.x + PAN.w - 38, PAN.y + 62, 34, 40)) { press(R[0]); return; }
+  if (ST.panel == 'lst' && ST.lst) {   // list dialog: click a row to choose it
+    ST.lst.rows.forEach((_, k) => { if (inR(PAN.x + 20, PAN.y + LST_ROW_Y - 22 + k * 30, PAN.w - 40, 30)) { if (ST.lst.i == k) press(OK[0]); else { ST.lst.i = k; AC && sfxSel(); } } });
+    return;
+  }
   const rows = ST.panel == 'stats' ? [STAT_ROW_Y, STAT_ROW_Y + 30] : s.items.map((_, k) => ITEM_ROW_Y + k * 30);
   rows.forEach((ry, k) => {
     if (inR(PAN.x + 20, PAN.y + ry - 22, PAN.w - 40, 30)) {
-      if (ST.pr == k) press(OK[0]); else { ST.pr = k; AC && sfxSel(); }
+      const kk = ST.panel == 'stats' ? k * 2 : k;   // stats rows: mouse picks the weapon / armor name (the boxes are keyboard)
+      if (ST.pr == kk) press(OK[0]); else { ST.pr = kk; AC && sfxSel(); }
     }
   });
 }
@@ -948,7 +1107,8 @@ const playerX = k => 130 + k * 180;
 const CARD_Y = 130, CARD_W = 170, CARD_H = 300, cardX = k => 30 + k * 190;
 const CARD_DX = { 4: 12 };   // per-boss nudge of the card art (Racer: his exhaust puffs drift out to the left)
 const PAN = { x: 170, y: 90, w: 460, h: 410 };
-const STAT_ROW_Y = 225, ITEM_ROW_Y = 105;
+const LST_ROW_Y = 105;   // first row of the list dialog (trinket picker / items-full chooser)
+const STAT_ROW_Y = 237, ITEM_ROW_Y = 105;   // ATK/DEF + WEAPON/ARMOR rows (moved down 12 to make room for SP above)
 const WHO = { x: PAN.x + 30, y: PAN.y + 110, w: PAN.w - 60, h: 200 };
 const whoX = (k, np) => W / 2 + (k - (np - 1) / 2) * 90;
 const OPT_Y = PAN.y + PAN.h - 48, optX = j => W / 2 + (j - 1) * 120;   // INFO / USE / DROP row
@@ -1004,7 +1164,7 @@ function drawStandPanel() {
   const s = cur(), st = standsHere()[ST.stand], y = PAN.y, gone = standsAbandoned();
   panelBox(st.n);
   txt(gone ? '* "Take it."' : st.line, PAN.x + 30, y + 80, 15, '#bbb', 'left', PAN.w - 60, true);
-  const rows = st.sell ? st.sell.map(([id, p]) => { const it = ITEMS[id], out = outOfStock(id); return [it.name, out ? 'OUT OF STOCK' : standPrice(p) + ' BC', it.type == 'food' ? 'Heals ' + it.heal + ' HP' : it.type == 'weapon' ? 'Weapon, +' + it.atk + ' ATK' : 'Armor, +' + it.def + ' DEF', out ? '#ff5a5a' : '#ffd23f']; })
+  const rows = st.sell ? st.sell.map(([id, p]) => { const it = ITEMS[id], out = outOfStock(id); return [it.name, out ? 'OUT OF STOCK' : standPrice(p) + ' BC', it.type == 'food' ? 'Heals ' + it.heal + ' HP, +' + foodSp(it) + ' SP' : it.type == 'weapon' ? 'Weapon, +' + it.atk + ' ATK, DUR ' + it.dur : 'Armor, +' + it.def + ' DEF, DUR ' + it.dur, out ? '#ff5a5a' : '#ffd23f']; })
     : st.potions.map(([n, sr, d]) => [n, sr + ' SR', d, '#7dff3d']);
   rows.forEach((r, k) => {
     const ry = y + STAND_ROW_Y + k * 62, on = ST.pr == k;
@@ -1178,6 +1338,7 @@ function drawHub() {
   else if (ST.panel == 'item') drawItems();
   else if (ST.panel == 'stand') drawStandPanel();
   else if (ST.panel == 'travel') drawTravel();
+  else if (ST.panel == 'lst' && ST.lst) drawList();
   if (ST.tb) drawTextBox();
 }
 function drawTravel() {
@@ -1224,23 +1385,48 @@ function panelPlayer(p) {
   }
 }
 function drawStats() {
-  const s = cur(), p = ST.pp, pl = s.players[p], L0 = PAN.x + 40, R0 = L0 + 190, y = PAN.y;
+  const s = cur(), p = ST.pp, pl = s.players[p], L0 = PAN.x + 40, R0 = L0 + 150, y = PAN.y;   // R0: WEAPON / ARMOR / NEXT column, close to the left to leave room for "... DUR 30"
   panelBox('STATS');
+  let statsHint = 'Enter: unequip    X / B: close';
   panelPlayer(p);
   txt('LV  ' + s.lv, L0, y + 145, 18, '#fff', 'left', 0, true);
   txt('HP  ' + pl.hp + ' / ' + maxHp(s.lv), L0, y + 175, 18, '#fff', 'left', 0, true);
+  txt('SP  ' + pl.sp + ' / ' + maxSp(s.lv), L0, y + 200, 18, '#fff', 'left', 0, true);
   txt('ATK ' + baseAtk(s.lv) + '  (' + itemAtk(pl.weapon) + ')', L0, y + STAT_ROW_Y, 18, '#fff', 'left', 0, true);
   txt('DEF ' + baseDef(s.lv) + '  (' + itemDef(pl.armor) + ')', L0, y + STAT_ROW_Y + 30, 18, '#fff', 'left', 0, true);
   [['WEAPON', pl.weapon], ['ARMOR', pl.armor]].forEach(([lab, id], k) => {
-    const on = ST.pr == k, ry = y + STAT_ROW_Y + k * 30;
+    const on = ST.pr == k * 2, onBox = ST.pr == k * 2 + 1, ry = y + STAT_ROW_Y + k * 30;
     if (on) soul(R0 - 18, ry - 6, '#19e3ff');
-    txt(lab + ': ' + (id ? ITEMS[id].name.toUpperCase() : 'NONE'), R0, ry, 15, on ? '#ff0' : '#aaa', 'left', 220, true);
+    const line = lab + ': ' + (id ? ITEMS[id].name.toUpperCase() + ' DUR ' + durOf(id) : 'NONE');
+    txt(line, R0, ry, 14, on ? '#ff0' : '#aaa', 'left', 250, true);
+    if (id) {   // small empty box after the DUR number (an empty slot for something coming with the shop)
+      g.font = 'bold 14px monospace';
+      const bx = R0 + Math.min(250, g.measureText(line).width) + 8;
+      const tr = trinketOf(id);   // the Skill Trinket box: gray when empty, filled with the trinket's color when equipped, yellow when selected
+      g.strokeStyle = onBox ? '#ff0' : '#888'; g.lineWidth = onBox ? 3 : 2; g.strokeRect(bx, ry - 15, 20, 20);
+      if (tr) { g.fillStyle = ITEMS[tr].col; g.fillRect(bx + 4, ry - 11, 12, 12); }
+      if (onBox) {
+        if (ST.msgT <= 0) txt(tr ? ITEMS[tr].info : 'Equip a Skill Trinket from your items.', W / 2, y + PAN.h + 30, 15, '#aaa', 'center', W - 60, true);   // under the panel, where messages go
+        statsHint = tr ? 'Enter: remove ' + ITEMS[tr].name + '    X / B: close' : 'Enter: equip a trinket    X / B: close';
+      }
+    }
   });
   txt('EXP ' + s.exp, L0, y + 305, 18, '#fff', 'left', 0, true);
   txt('NEXT ' + (s.lv >= MAX_LV ? 'MAX' : EXP_TABLE[s.lv] - s.exp), R0, y + 305, 16, '#aaa', 'left', 0, true);
   txt('BEAT COINS ' + s.coins, L0, y + 342, 18, '#fff', 'left', 0, true);
   txt('SOUL RELICS ' + s.relics, L0, y + 368, 18, '#fff', 'left', 0, true);
-  txt('Enter: unequip    X / B: close', W / 2, y + PAN.h - 16, 13, '#777', 'center', 0, true);
+  txt(statsHint, W / 2, y + PAN.h - 16, 13, '#777', 'center', 0, true);
+  drawMsg(PAN.y + PAN.h + 30);
+}
+function drawList() {
+  const L = ST.lst, L0 = PAN.x + 40, y = PAN.y;
+  panelBox(L.title);
+  L.rows.forEach((r, k) => {
+    const on = L.i == k, ry = y + LST_ROW_Y + k * 30;
+    if (on) soul(L0 - 2, ry - 6, '#19e3ff');
+    txt('* ' + r, L0 + 20, ry, 18, on ? '#ff0' : '#fff', 'left', PAN.w - 90, true);
+  });
+  txt(L.cancel ? 'Enter: choose    X / B: back' : 'Enter: choose', W / 2, y + PAN.h - 16, 13, '#777', 'center', 0, true);
   drawMsg(PAN.y + PAN.h + 30);
 }
 function drawItems() {
@@ -1250,7 +1436,7 @@ function drawItems() {
   s.items.forEach((id, k) => {
     const on = ST.pr == k, ry = y + ITEM_ROW_Y + k * 30;
     if (on) soul(L0 - 2, ry - 6, '#19e3ff');
-    const it = ITEMS[id], tag = it.type == 'weapon' ? '+' + it.atk + ' ATK' : it.type == 'armor' ? '+' + it.def + ' DEF' : it.type == 'food' ? '+' + it.heal + ' HP' : '';
+    const it = ITEMS[id], tag = it.type == 'weapon' ? '+' + it.atk + ' ATK  DUR ' + durOf(id) : it.type == 'armor' ? '+' + it.def + ' DEF  DUR ' + durOf(id) : it.type == 'food' ? '+' + it.heal + ' HP  +' + foodSp(it) + ' SP' : it.type == 'trinket' ? 'Skill Trinket' : '';
     txt('* ' + it.name, L0 + 20, ry, 18, on ? '#ff0' : '#fff', 'left', 0, true);
     if (tag) txt(tag, PAN.x + PAN.w - 40, ry, 15, '#aaa', 'right', 0, true);
   });

@@ -493,7 +493,7 @@ const ACTS=[null,
  {n:'Polish Armor',m:20,t:"* You polish the Soulcerer's armor.\n* It shines a little brighter.",t2:"* The Soulcerer's next attack weakens!",adj:-2},
  {n:'Mock',m:0,t:"* You laugh at the statue.\n* Its visor glows brighter. It didn't like that.",t2:"* The Soulcerer's next attack strengthens!",adj:2}],
 /* Racer */
-[{n:'Race',m:35,t:'* You challenge Racer to a race.\n* You lose badly, but Racer seems thrilled to have a rival.'},
+[{n:'Race',m:35,fx:'race',t:'* You challenge Racer to a race.\n* You lose badly, but Racer seems thrilled to have a rival.'},
  {n:'Pit Stop',m:20,t:'* You give Racer a quick pit stop and fresh tires.\n* He cools down a little.',t2:"* Racer's next attack weakens!",adj:-2},
  {n:'Honk',m:0,t:'* You honk at Racer to hurry up.\n* Racer takes it as a challenge!',t2:"* Racer's next attack strengthens!",adj:2}],
 /* Tanga */
@@ -896,7 +896,7 @@ if(p<=0){g.globalAlpha=1;g.drawImage(wimg,q.x,q.y,6,6,ox+q.x,oy+q.y,6,6)}
 else{const k=p+p*p*.5;g.globalAlpha=1-p;g.drawImage(wimg,q.x,q.y,6,6,ox+q.x+(30+q.r*60)*k,oy+q.y-(40+hr(q.x+q.y*7)*80)*k,6,6)}}
 g.globalAlpha=1;
 /* $lug Thug: his sunglasses drop to the floor once his face turns to dust, bounce once, and stay there */
-if(bi==6){const[sx,sy]=SLUG_SHADES0(),fy=SLUG_FLOOR(),t0=.75,f=Math.max(0,t-t0),fall=Math.sqrt(2*(fy-sy)/900);let y=sy,rot=.12;
+if(bi==6&&slugDrops()){const[sx,sy]=SLUG_SHADES0(),fy=SLUG_FLOOR(),t0=.75,f=Math.max(0,t-t0),fall=Math.sqrt(2*(fy-sy)/900);let y=sy,rot=.12;
  if(f>0){if(f<fall){y=sy+450*f*f;rot=.12-.3*f/fall}else{const b=f-fall,bh=b<.3?Math.sin(b/.3*Math.PI)*8:0;y=fy-bh;rot=-.18}}
  if(f>0&&f>=fall)drawFallenShades(sx,y,1,Math.min(1,(f-fall)/.5));else{g.save();g.translate(sx,y);g.scale(SLUG_SC,SLUG_SC);g.rotate(rot);slugShades(2,1);g.restore()}}
 return}
@@ -927,12 +927,12 @@ function upd(p,dt){p.inv=Math.max(0,p.inv-dt);p.dcd=Math.max(0,p.dcd-dt);if(p.do
 if(p.rem){if(p.rdi===dodgeId){p.x=Math.min(BX+BW-12,Math.max(BX+12,p.rx));p.y=Math.min(BY+BH-12,Math.max(BY+12,p.ry))}
 const rd=performance.now()-(p.rt||0)<400?p.rd:0;if(rd&&!p.rdp)p.inv=Math.max(p.inv,.2);p.rdp=rd;p.dash=rd?.05:0;if(p.dash>0)p.tr.push({x:p.x,y:p.y,a:.6});p.tr.forEach(t=>t.a-=dt*4);p.tr=p.tr.filter(t=>t.a>0);return}
 const[x,y,d]=input(p);if(x||y){p.fx=x;p.fy=y}
-if(d&&!p.dp&&p.dcd<=0){p.dash=.14;p.dcd=.6;p.inv=Math.max(p.inv,.2);sfxDash()}p.dp=d;
-let vx=x*250,vy=y*250;
+if(d&&!p.dp&&p.dcd<=0){if(p.sp!=null&&p.sp<=0){p.spF=performance.now();sfxNoSp()}/* story: 0 SP = no dash */else{if(p.sp!=null)p.sp--;p.dash=.14;p.dcd=.6;p.inv=Math.max(p.inv,.2);sfxDash()}}p.dp=d;
+const spm=storyFighting()?storySpeed(p.i):1;/* Speed Trinket: +20% walking speed */let vx=x*250*spm,vy=y*250*spm;
 if(p.dash>0){p.dash-=dt;const l=Math.hypot(p.fx,p.fy)||1;vx=p.fx/l*760;vy=p.fy/l*760;p.tr.push({x:p.x,y:p.y,a:.6})}
 p.x=Math.min(BX+BW-12,Math.max(BX+12,p.x+vx*dt));p.y=Math.min(BY+BH-12,Math.max(BY+12,p.y+vy*dt));
 p.tr.forEach(t=>t.a-=dt*4);p.tr=p.tr.filter(t=>t.a>0)}
-function hurt(p){if(p.inv>0||p.dash>0||p.down)return;p.hp=Math.max(0,p.hp-storyTaken(p.i,BO.dmg+dmgNow));p.inv=1.2;p.hit=performance.now();shake=10;sfxHit();if(!p.hp){p.down=1;p.rev=0;lastDn=p.i}}
+function hurt(p){if(p.inv>0||p.dash>0||p.down)return;p.hp=Math.max(0,p.hp-storyTaken(p.i,BO.dmg+dmgNow));if(storyFighting())storyWear(p.i,'armor');/* each landed hit costs the armor 1 DUR */p.inv=1.2;p.hit=performance.now();shake=10;sfxHit();if(!p.hp){p.down=1;p.rev=0;lastDn=p.i}}
 /* ---------- battle flow ---------- */
 function wrapTxt(t){const cw=ch=>ch.charCodeAt(0)>0x2e7f?1.75:1,vw=q=>{let w=0;for(const ch of q)w+=cw(ch);return w},cut=(q,n)=>{let w=0,k=0;for(const ch of q){w+=cw(ch);if(w>n)break;k+=ch.length}return k};return t.split('\n').map(l=>{const o=[];let c=l;while(vw(c)>43){const n=cut(c,43),cj=/[\u2e80-\uffff]/.test(c.slice(0,n));let k=cj?n:c.lastIndexOf(' ',n);if(k<2)k=n;o.push(c.slice(0,k));c=(cj?'':'  ')+c.slice(k).trim()}o.push(c);return o.join('\n')}).join('\n')}
 function showMsg(t,fn){S='msg';TXT=t;tc=0;nextFn=fn;msgWho=-1}
@@ -953,7 +953,7 @@ function runQ(q,j,f){if(j>=q.length){if(f.length)startBars(f);else startDodge();
 const i=q[j],k=picks[i],nx=()=>runQ(q,j+1,f),N=players.length,P=(t,fn)=>showMsgP(i,t,fn);
 if(k.k=='a'){
 if(k.s==0)P(BO.chk,nx);
-else if(bi){const a=slugAct(ACTS[bi][k.s-1]),go=a.kill?()=>win(0):nx;hapT=a.fx=='salt'?[]:[a.t,a.t2];spare=Math.max(0,Math.min(100,spare+(a.m<0?a.m:shareOf(a.m,i,N))));if(a.adj)dmgAdj=a.adj;if(a.gr)greenTooth=1;P(a.t,a.t2?()=>P(a.t2,go):go)}
+else if(bi){const A0=ACTS[bi][k.s-1],a=slugAct(A0,A0.m<0?A0.m:shareOf(A0.m,i,N)),go=a.kill?()=>win(0):nx;hapT=a.fx=='salt'?[]:[a.t,a.t2];spare=Math.max(0,Math.min(100,spare+(a.m<0?a.m:shareOf(a.m,i,N))));if(a.adj)dmgAdj=a.adj;if(a.gr)greenTooth=1;P(a.t,a.t2?()=>P(a.t2,go):go)}
 else if(k.s==1){spare=Math.min(100,spare+shareOf(BO.act,i,N));hapT=['* You dance! Prism sways.'];P('* You dance! Prism sways.',nx)}
 else{spare=Math.min(100,spare+shareOf(BO.hum||BO.act/2,i,N));players.forEach(p=>{if(!p.down)p.hp=Math.min(p.max,p.hp+4)});hapT=['* You hum along. Prism starts to feel a little better.'];P('* You hum along. Prism starts to feel a little better.',nx)}}
 else if(k.k=='i'){const t=players[k.t];
@@ -992,7 +992,7 @@ function endAtk(miss){let d=0,q=0;if(!miss){q=Math.max(2,Math.abs(atk.x-260)<=6?
 atkFx(d>0?[{k:0,d,q}]:[],d,miss?'* Miss...':'* '+d+' damage!')}
 function doSub(){
 if(players.length>1){coSub();return}
-if(mi==1){if(subI==0)showMsg(BO.chk,startDodge);else if(bi){const a=slugAct(ACTS[bi][subI-1]),go=a.kill?()=>win(0):startDodge;hapT=a.fx=='salt'?[]:[a.t,a.t2];spare=Math.max(0,Math.min(100,spare+a.m));if(a.adj)dmgAdj=a.adj;if(a.gr)greenTooth=1;showMsg(a.t,a.t2?()=>showMsg(a.t2,go):go)}
+if(mi==1){if(subI==0)showMsg(BO.chk,startDodge);else if(bi){const A0=ACTS[bi][subI-1],a=slugAct(A0,A0.m),go=a.kill?()=>win(0):startDodge;hapT=a.fx=='salt'?[]:[a.t,a.t2];spare=Math.max(0,Math.min(100,spare+a.m));if(a.adj)dmgAdj=a.adj;if(a.gr)greenTooth=1;showMsg(a.t,a.t2?()=>showMsg(a.t2,go):go)}
 else if(subI==1){spare=Math.min(100,spare+BO.act);hapT=['* You dance! Prism sways.'];showMsg('* You dance! Prism sways.',startDodge)}else{spare=Math.min(100,spare+(BO.hum||BO.act/2));players.forEach(p=>{if(!p.down)p.hp=Math.min(p.max,p.hp+4)});hapT=['* You hum along. Prism starts to feel a little better.'];showMsg('* You hum along. Prism starts to feel a little better.',startDodge)}}
 else if(mi==2&&storyFighting())showMsg(storyUseSolo(subI),startDodge);/* story: food or gear from the shared items */
 else if(mi==2){items--;const rev=players.some(p=>p.down&&!p.gone),low=rev||players.some(p=>!p.gone&&p.hp<p.max-12);players.forEach(p=>{if(p.gone)return;if(p.down){p.down=0;p.hp=Math.min(p.max,8)}else p.hp=Math.min(p.max,p.hp+12)});sfxPie(rev);showMsg('* You ate the Pink Pie.\n* It tastes a little... Corrupted?\n* '+(low?'You recovered 12 HP.':'Your HP was maxed out.')+(rev?'\n* Fallen allies get up!':''),startDodge)}
@@ -1060,13 +1060,21 @@ else if(h.t=='shot'){/* Racer's Shotgun Blast */
  const p=players[h.tg];
  if(age<SHOT.grow+SHOT.aim){if(p&&!p.down)h.ang+=(Math.atan2(p.y-py,p.x-px)-h.ang)*Math.min(1,dt*6)}
  else if(h.lx==null){h.lx=p&&!p.down?p.x:BX+BW/2;h.ly=p&&!p.down?p.y:BY+BH/2;h.ang=Math.atan2(h.ly-py,h.lx-px);tone(900,T0(),.08,'square',.08)}   // lock onto where they stood
- for(let v=0;v<2;v++)if(!h['f'+v]&&age>=F+v*SHOT.gap){h['f'+v]=1;shake=6;noise(T0(),.25,.5,700);tone(110,T0(),.2,'square',.25,50);
+ if(h.fire==null)h.fire=lowHp()?1:0;
+ if(h.fire){/* low HP: flamethrower. Both pipes spray flame puffs along the locked aim for SHOT.burn beats, with a fire whoosh + crackle */
+  if(age>=F&&age<F+SHOT.burn){
+   if(!h.f0){h.f0=1;h.sn=0;tone(70,T0(),.3,'sawtooth',.18,40)}
+   h.sn-=dt;if(h.sn<=0){h.sn=.11;noise(T0(),.2,.22,500+Math.random()*500);noise(T0(),.03,.14,3500+Math.random()*3500)}
+   h.fa=(h.fa||0)+dt*70;const[mx,my]=shotMuzzle(h);
+   while(h.fa>=1){h.fa--;const a=h.ang+(Math.random()-.5)*.26,sp=330+Math.random()*90,off=Math.random()<.5?-5:5,lf=.9+Math.random()*.25;
+    hz.push({t:'b',fp:1,x:mx-Math.sin(h.ang)*off,y:my+Math.cos(h.ang)*off,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,r:7,lf,lf0:lf})}}}
+ else{for(let v=0;v<2;v++)if(!h['f'+v]&&age>=F+v*SHOT.gap){h['f'+v]=1;shake=6;noise(T0(),.25,.5,700);tone(110,T0(),.2,'square',.25,50);
   const[mx,my]=shotMuzzle(h);[-.2,-.1,0,.1,.2].forEach(o=>{const a=h.ang+o+(v?.05:-.05);hz.push({t:'b',x:mx,y:my,vx:Math.cos(a)*250,vy:Math.sin(a)*250,r:6,free:1,lf:3.5})})}
- /* reload: "chk" as the pipes pull back, "chk" as they push out again */
- const R=shotReload();if(!h.c0&&age>=R){h.c0=1;noise(T0(),.06,.35,3000);tone(240,T0(),.05,'square',.14)}
- if(!h.c1&&age>=R+SHOT.pull+SHOT.hold+SHOT.push*.8){h.c1=1;noise(T0(),.07,.4,2400);tone(320,T0(),.06,'square',.16)}
+  /* reload: "chk" as the pipes pull back, "chk" as they push out again */
+  const R=shotReload();if(!h.c0&&age>=R){h.c0=1;noise(T0(),.06,.35,3000);tone(240,T0(),.05,'square',.14)}
+  if(!h.c1&&age>=R+SHOT.pull+SHOT.hold+SHOT.push*.8){h.c1=1;noise(T0(),.07,.4,2400);tone(320,T0(),.06,'square',.16)}}
  lastShotAng=h.ang;
- if(age>=(h.last?shotReloaded()+.3+SHOT.ret:SHOT.cyc))h.dead=1}
+ if(age>=(h.last?(h.fire?shotFire()+SHOT.burn:shotReloaded())+.3+SHOT.ret:SHOT.cyc))h.dead=1}
 else if(h.t=='road'){if(age>=h.dur)h.dead=1}
 else if(h.t=='lane'){if(!h.snd&&age>=h.warn){h.snd=1;noise(T0(),.3,.2,2500);tone(300,T0(),.3,'sawtooth',.06,700)}
  if(age>h.warn+(h.n-1)*h.gap+.5&&[...Array(h.n)].every((_,j)=>laneCarX(h,j)==null))h.dead=1}
@@ -1106,7 +1114,7 @@ else if(h.t=='sword'){if(h.side==null)swordSetup(h);if(!h.snd&&age>=h.warn){h.sn
 else if(h.t=='b'){if(h.dr){const d=Math.pow(h.dr,dt);h.vx*=d;h.vy=h.vy*d+h.fl*(1-d)}if(h.gy)h.vy+=h.gy*dt;
  h.x+=h.vx*dt+(h.wob!=null?Math.sin(bt*3+h.wob)*.25:0);h.y+=h.vy*dt;if(h.spin)h.rot=(h.rot||0)+h.spin*dt;
  if(h.free){if(h.y<-30)h.dead=1}   /* the beam's squares float right off the top of the screen */
- else{const mx=h.m||20;if(h.x<BX-mx||h.x>BX+BW+mx||h.y<BY-30||h.y>BY+BH+20)h.dead=1}
+ else{const mx=h.m||20;if(h.x<BX-mx||h.x>BX+BW+mx||(h.y<BY-30&&!h.fp)||h.y>BY+BH+20)h.dead=1}   /* flame puffs (fp) start above the board, so they're exempt from the top-edge cull */
  if(h.lf!=null){h.lf-=dt;if(h.lf<=0)h.dead=1}   /* small stars fade after 2 s so the board doesn't fill up */
  if(!h.dead&&h.bur!=null&&age>=h.bur){h.dead=1;for(let k=0;k<6;k++){const a=k*Math.PI/3+Math.random()*.3,v=110+Math.random()*30;hz.push({t:'b',x:h.x,y:h.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,r:8,st:11,spin:6,gy:60,lf:2})}}}}
 hz=hz.filter(h=>!h.dead);
@@ -1131,7 +1139,7 @@ else if(h.t=='b'&&Math.hypot(h.x-p.x,h.y-p.y)<h.r+6)hurt(p)}}
 for(const p of players)if(p.down&&!p.gone){const o=players.find(q=>q!==p&&!q.down&&Math.hypot(q.x-p.x,q.y-p.y)<36);
 if(o){p.rev+=dt;if(p.rev>=5){p.down=0;p.hp=10;p.inv=1.5;sfxUp()}}else p.rev=Math.max(0,p.rev-dt)}
 if(players.every(p=>p.down)){loseInit(lastDn);S='lose';stopMusic();return}
-if(bt>=tb+TL){hz=[];turn++;curFl=pickFl();if(slugCaught>0)curFl='* You caught '+slugCaught+' BC!';slugCaught=0;slugMad=0;if(tangaNoPom)tangaPomsReturn();tangaNoPom=0;toMenu()}}   /* $lug Thug's lucky coins */
+if(bt>=tb+TL){hz=[];turn++;curFl=pickFl();if(slugCaught>0)curFl='* You caught '+slugCaught+' BC!';slugCaught=0;slugMad=0;if(tangaNoPom)tangaPomsReturn();tangaNoPom=0;const bk=storyFighting()?storyTurnEnd():[];/* story: poison damage + "Your X broke..." boxes come before the boss's line; poison can finish the boss */const showBk=l=>l.length?showMsg(l[0],()=>showBk(l.slice(1))):bhp<=0?win(0):toMenu();showBk(bk)}}   /* $lug Thug's lucky coins */
 /* ---------- drawing ---------- */
 function txt(s,x,y,sz,col,al,mx,raw){s=raw?String(s):lx(s);al=al||'left';const f=n=>'bold '+n+'px monospace'+(FONTS[SET.lang]?','+FONTS[SET.lang]:'')+',sans-serif';g.font=f(sz);g.fillStyle=col||'#fff';g.textAlign=al;const mw=mx||(al=='center'?2*Math.min(x,W-x)-24:al=='right'?x-12:W-x-12),w=g.measureText(s).width;if(w>mw&&mw>40)g.font=f(sz*mw/w);g.fillText(s,x,y)}
 function lines(t,x,y,sz,col){t.split('\n').forEach((l,i)=>txt(l,x,y+i*34,sz,col))}
@@ -1165,7 +1173,10 @@ const TANGA_HEAL=6;   /* slugMad: annoyed after Salt, until the turn's attack en
    luck: +2 lucky coins in his next Make It Rain. pay: costs 10 BC (story fights; not enough = nothing happens).
    salt: 10 damage, mercy goes DOWN; if it takes his last HP, the fight is won and SR is doubled. */
 const SALT_DMG=10,PAY_BC=10;
-function slugAct(a){if(!a.fx)return a;const o={...a};
+function slugAct(a,d){if(!a.fx)return a;const o={...a};
+ /* Racer's Race: lose normally; if THIS Race fills the mercy meter you win; if it was already full it's a tie. d = mercy this ACT adds. */
+ if(a.fx=='race'){if(spare>=100)o.t='* You challenge Racer to a race.\n* You both finish in a tie, neither of you win.';
+  else if(spare+d>=100)o.t='* You challenge Racer to a race.\n* You win! Racer is stunned... then absolutely thrilled to finally have a real rival.'}
  /* Tanga's Water: the party gets sprinkled and heals 6 HP. Boo: she drops her pom-poms (her next turn can't be
     Pom-Pom Toss, and she's bare-handed), and her next Twirl Tornado gets a 3rd spiral arm. */
  if(a.fx=='water'){players.forEach(p=>{if(!p.down&&!p.gone)p.hp=Math.min(p.max,p.hp+TANGA_HEAL)});if(typeof sfxHeal=='function')sfxHeal();
@@ -1223,11 +1234,12 @@ const racerShot=()=>S=='dodge'&&bi==4?hz.find(h=>h.t=='shot'&&!h.dead):null,race
 /* Shotgun Blast timing (beats from the hazard's start): grow (1st shot only; later ones just keep aiming), aim (follows
    the target), lock (the spot is fixed), two shots one beat apart, then RELOAD: the pipes pump short and long again
    ("chk-chk"). The pipes stay out between shots; after the last reload they slide back to rest. One shot = 8 beats. */
-const SHOT={grow:1,aim:3,lock:1,gap:1,pull:.45,hold:.15,push:.6,ret:1,cyc:8,long:70,short:22},shotFire=()=>SHOT.grow+SHOT.aim+SHOT.lock,
+const SHOT={grow:1,aim:3,lock:1,gap:1,pull:.45,hold:.15,push:.6,ret:1,cyc:8,long:70,short:22,burn:2},   /* burn: low HP only, the pipes breathe fire for 2 beats instead of bang-bang, and there is no reload */
+shotFire=()=>SHOT.grow+SHOT.aim+SHOT.lock,
  shotReload=()=>shotFire()+SHOT.gap+.4,shotReloaded=()=>shotReload()+SHOT.pull+SHOT.hold+SHOT.push;
 let lastShotAng=null;
 const racerPivot=()=>[W/2+RACER_X*RACER_SC,95+RACER_Y*RACER_SC];
-function shotPipe(h){const a=bt-h.b,R=shotReload(),RE=shotReloaded(),sm=x=>x*x*(3-2*x),cl=x=>Math.max(0,Math.min(1,x)),
+function shotPipe(h){const a=bt-h.b,R=h.fire?1e9:shotReload(),RE=h.fire?shotFire()+SHOT.burn:shotReloaded(),sm=x=>x*x*(3-2*x),cl=x=>Math.max(0,Math.min(1,x)),
  tgt=h.ang==null?RPIPE_A:h.ang,d=((tgt-RPIPE_A+Math.PI*3)%(Math.PI*2))-Math.PI;
  let len=SHOT.long,e=1;   /* e: 0 = resting pipes, 1 = aimed */
  if(h.first&&a<SHOT.grow){e=sm(cl(a/SHOT.grow));len=RPIPE_L+(SHOT.long-RPIPE_L)*e}
@@ -1275,7 +1287,7 @@ function tangaPom(cx,cy,r,rot,o){const leaf=o.pure?'#5fd63a':'#ff2e88',leaf2=o.p
  g.save();g.translate(cx,cy);g.rotate(rot||0);for(let k=0;k<9;k++){const a=k/9*Math.PI*2;b(Math.cos(a)*r*.55,Math.sin(a)*r*.55,r*.55,k%2?leaf:leaf2)}b(0,0,r*.6,leaf3);
  if(o.low){b(r*.25,r*.15,r*.32,'#6a3a4a');b(-r*.3,-r*.25,r*.22,'#6a3a4a')}g.restore()}
 /* o: {pure,hurt,low}; pose; bare: [left, right] hands without their pom-pom (thrown) */
-function tangaArt(o,pose,bare){const pure=o.pure,low=o.low&&!o.hurt&&!pure,hurt=o.hurt&&!pure,t=performance.now()/1000;
+function tangaArt(o,pose,bare){const pure=o.pure,low=o.low&&!pure,hurt=o.hurt&&!pure&&!low,t=performance.now()/1000;
  const leaf=pure?'#5fd63a':'#ff2e88',leaf2=pure?'#3fae22':'#c4006a',leaf3=pure?'#9cf27a':'#ff86bd',bark=pure?'#8a5a3a':'#5a2a3a',bark2=pure?'#6b4228':'#3e1a28';
  const b=(x,y,r,c)=>{g.fillStyle=c;g.beginPath();g.arc(x,y,r,0,7);g.fill()},crack=(pts)=>{g.strokeStyle='#000';g.lineWidth=2;g.lineJoin='round';g.beginPath();pts.forEach((p,k)=>g[k?'lineTo':'moveTo'](p[0],p[1]));g.stroke();g.lineJoin='miter'};
  g.save();g.translate(0,-(pose.jump||0)*18);if(pose.tw!=null)g.scale(Math.max(.15,Math.abs(Math.cos(pose.tw*Math.PI))),1);
@@ -1305,7 +1317,7 @@ function drawTangaBoss(pure,hurt,low){const pose=tangaPose(),pm=S=='dodge'&&bi==
    else if(pd.state=='down'){x=fx;y=fy;rot=s*2.5}
    else{const f=sm(Math.min(1,e/.9));x=fx+(hx-fx)*f;y=fy+(hy-fy)*f-Math.sin(f*Math.PI)*22;rot=s*2.5*(1-f);
     g.globalAlpha=.5*(1-f);for(let q=0;q<3;q++){const a2=now*6+q*2.1+k;g.fillStyle='#fff';g.beginPath();g.arc(x+Math.cos(a2)*20,y+Math.sin(a2)*20,2,0,7);g.fill()}g.globalAlpha=1}   // little sparkles as they float back
-   tangaPom(x,y,low&&!hurt&&!pure?13:17,rot,{pure,hurt,low})});
+   tangaPom(x,y,low&&!pure?13:17,rot,{pure,hurt,low})});
   if(pd.state=='fall'&&e>=.85)pd.state='down';if(pd.state=='return'&&e>=.9)tangaPomDrop=null}}
 /* Boo: drop the pom-poms (start = where her hands are right now, in her own units) */
 let tangaPomDrop=null;
@@ -1373,12 +1385,14 @@ function slugShades(cr,rim){const L=()=>{g.beginPath();g.moveTo(-26,-6);g.lineTo
  if(cr>=1){g.strokeStyle='#fff';g.lineWidth=1.3;g.beginPath();g.moveTo(8,-6);g.lineTo(12,0);g.lineTo(9,6);g.moveTo(12,0);g.lineTo(18,2);g.stroke()}
  if(cr>=2){g.strokeStyle='#fff';g.lineWidth=1.3;g.beginPath();g.moveTo(-20,-6);g.lineTo(-15,1);g.lineTo(-19,6);g.moveTo(-15,1);g.lineTo(-9,-1);g.stroke()}}
 /* while he fades away after being fought, his body turns to dust without the shades; they fall on their own */
-function drawSlugBoss(pure,hurt,low){g.translate(-6,SLUG_DY);g.scale(SLUG_SC,SLUG_SC);slugArt({pure,hurt,low,spit:slugSpitting(),noShades:S=='win'&&!wsp,mad:slugMad&&bi==6&&S!='win'})}
+function drawSlugBoss(pure,hurt,low){g.translate(-6,SLUG_DY);g.scale(SLUG_SC,SLUG_SC);slugArt({pure,hurt,low,spit:slugSpitting(),noShades:S=='win'&&!wsp&&slugDrops(),mad:slugMad&&bi==6&&S!='win'})}
 /* the fallen sunglasses lying on the floor (both lenses cracked, tipped a little): win screen and his empty hub card */
 function drawFallenShades(x,y,sc,puddle,noShades){g.save();g.translate(x,y);g.scale(sc*SLUG_SC,sc*SLUG_SC);
  if(puddle!==0){g.globalAlpha=.75*(puddle==null?1:puddle);g.fillStyle='#ff2e88';g.beginPath();g.ellipse(-4,8,46,9,0,0,7);g.fill();g.fillStyle='#ff86bd';g.beginPath();g.ellipse(-18,6,14,3,0,0,7);g.fill();g.globalAlpha=1}   /* a little slime puddle: what's left of him */
  if(!noShades){g.rotate(-.18);slugShades(2,1)}g.restore()}
 /* where the shades start (on his face, battle size) and the floor they land on */
+/* kills 1 and 2: the shades turn to dust with him. Only the 3rd kill (the foe's kill count is already 3 on the win screen) makes them drop */
+const slugDrops=()=>{const f=typeof cur=='function'&&storyFighting()&&cur().foes.slug;return !!f&&f.k>=3};
 const SLUG_SHADES0=()=>[W/2-6+72*SLUG_SC,95+SLUG_DY-24*SLUG_SC],SLUG_FLOOR=()=>95+SLUG_DY+36*SLUG_SC;
 /* his mouth (where slime balls come out), on screen in battle */
 const slugMouth=()=>[W/2+(-6+84*SLUG_SC),95+SLUG_DY+(-1)*SLUG_SC];
@@ -1456,6 +1470,7 @@ sparkCracks(cr,low,now);
 if(low){g.fillStyle=PINK;for(let k=0;k<6;k++){const a=k*1.1+(RF?0:now/600),d=60+(RF?0:8*Math.sin(k*3+now/300));g.fillRect(Math.cos(a)*d-3,Math.sin(a)*d-3,6,6)}}}
 addTR({"IT'S OVER":["SE ACABÓ","C'EST FINI","もう終わりだ","結束了","结束了","È FINITA","ES IST VORBEI","ВСЁ КОНЧЕНО","BİTTİ"],"Stay determined...":["Mantente decidido...","Reste déterminé...","あきらめるな...","保持決心……","坚定你的决心……","Resta determinato...","Bleib entschlossen...","Не сдавайся...","Kararlı kal..."],"RETRY":["REINTENTAR","RÉESSAYER","リトライ","重試","重试","RIPROVA","NOCHMAL","ЗАНОВО","TEKRAR DENE"],"BOSS SELECT":["ELEGIR JEFE","CHOIX DU BOSS","ボス選択","選擇首領","选择首领","SCELTA BOSS","BOSS-AUSWAHL","ВЫБОР БОССА","BOSS SEÇİMİ"]});
 function loseInit(k){const q=players[k];loseK=q&&!q.gone?k:Math.max(0,players.findIndex(p=>!p.gone));loseT0=performance.now();loseI=0;loseGo=0}
+function sfxNoSp(){if(AC)tone(170,T0(),.1,'square',.1,110)}   /* dash tried with 0 SP */
 function sfxNav(){if(AC)tone(660,T0(),.05,'triangle',.12)}
 function sfxGo(){if(!AC)return;tone(660,T0(),.08,'sine',.16);tone(990,T0()+.07,.14,'sine',.16);tone(1320,T0()+.14,.2,'sine',.1)}
 function sfxPie(rev){if(!AC)return;noise(T0(),.05,.12,1800);noise(T0()+.09,.05,.1,1800);tone(523,T0()+.22,.2,'sine',.16);tone(659,T0()+.3,.2,'sine',.16);tone(784,T0()+.38,.3,'sine',.16);tone(1047,T0()+.46,.45,'sine',.14);if(rev){tone(1568,T0()+.62,.5,'sine',.1);tone(2093,T0()+.7,.5,'sine',.08)}}
@@ -1525,6 +1540,31 @@ g.globalAlpha=1;g.restore();
 if(ex>=0){while(exSn<7&&ex>=.15+exSn*.1){if(ex-(.15+exSn*.1)<.3){const f=mtof(84-exSn*2);tone(f,T0(),.25,'sine',.08,f/2)}exSn++}if(ex>=1.8&&net.role!='guest'){if(!storyReturn())S='boss';fiT=performance.now()}}if(loseGo&&tr>=3.5){if(net.role=='guest'){if(S!='lose')loseGo=0}else{if(S=='lose')startBattle();loseGo=0}}}
 function shp(x,y,s,k){g.beginPath();if(k==1){g.moveTo(x,y-s-1);g.lineTo(x+s+1,y+s);g.lineTo(x-s-1,y+s)}else if(k==2){for(let j=0;j<5;j++){const a=-Math.PI/2+j*Math.PI*.4,r=s*1.2;j?g.lineTo(x+Math.cos(a)*r,y+Math.sin(a)*r):g.moveTo(x+Math.cos(a)*r,y+Math.sin(a)*r)}}else if(k==3){g.arc(x,y,s*1.1,0,7)}else g.rect(x-s,y-s,s*2,s*2);g.closePath()}
 function soul(x,y,col,tri,out){if(out){g.fillStyle='#fff';shp(x,y,10,tri);g.fill()}g.fillStyle=col;shp(x,y,8,tri);g.fill()}
+/* Shattered Shades (story armor): the wearer sees the fight through cracked, blurry lenses. drawLens() blurs the world
+   and the HUD too, on purpose: it's a handicap) and lays fixed cracks over it. draw() calls it last. Cracks flash when a player is hit. */
+const LENS_CR=[[[0,70],[90,110],[150,100],[260,160],[300,150]],[[90,110],[110,200],[80,280]],[[150,100],[210,40],[240,0]],
+ [[800,500],[700,470],[640,520],[540,480],[480,520]],[[700,470],[690,380],[740,300]],[[640,520],[620,600]],[[540,480],[500,430]]];
+let lensC=null,lensG=null,lensS=null;
+const lensOn=()=>{try{if(typeof ST=='undefined'||!ST.fight||typeof cur!='function')return false;const s=cur(),pl=s.players[net.role?net.me:0]||s.players[0];return !!pl&&pl.armor=='sshades'}catch(e){return false}};
+function drawLens(){
+ if(!lensOn())return;   /* every phase of the fight: intro, win, flee and game over too, not just while the song plays */
+ if(!lensC){lensC=document.createElement('canvas');lensC.width=W;lensC.height=H;lensG=lensC.getContext('2d')}
+ const RF=SET.reduceFlash,now=performance.now(),b=RF?1.8:1.6+Math.sin(now/1000*1.3)*.7,hit=!RF&&players.some(p=>now-(p.hit||0)<250);
+ g.save();g.setTransform(1,0,0,1,0,0);g.globalAlpha=1;
+ lensG.clearRect(0,0,W,H);lensG.drawImage(g.canvas,0,0,W,H);
+ if('filter' in g){g.filter='blur('+b.toFixed(2)+'px)';g.drawImage(lensC,0,0,W,H);g.filter='none'}
+ else{if(!lensS){lensS=document.createElement('canvas');lensS.width=W/3|0;lensS.height=H/3|0}const q=lensS.getContext('2d');q.drawImage(lensC,0,0,lensS.width,lensS.height);g.imageSmoothingEnabled=true;g.drawImage(lensS,0,0,W,H)}   /* no ctx.filter (Safari): cheap down/up-scale blur */
+ g.globalAlpha=.07;g.drawImage(lensC,3,1,W,H);g.drawImage(lensC,-3,-1,W,H);g.globalAlpha=1;   /* faint double image */
+ g.lineCap='round';g.lineJoin='round';
+ for(const [lw,col,a] of [[hit?5:3,'#000',.35],[hit?2.2:1.2,hit?'#fff':'#e8f4ff',hit?1:.8]]){g.lineWidth=lw;g.strokeStyle=col;g.globalAlpha=a;
+  for(const p of LENS_CR){g.beginPath();p.forEach(([x,y],i)=>i?g.lineTo(x,y):g.moveTo(x,y));g.stroke()}}
+ g.restore()}
+/* story fights: a player's SP bar (yellow) under their HP bar; the label flashes red when a dash is tried at 0 SP */
+function spBar(p,x,y,w,h,lx,nx,fs){const f=performance.now()-(p.spF||0)<350,c=f&&Math.floor(performance.now()/60)%2||p.sp<=0?'#f55':'#ff0';g.fillStyle='#553';g.fillRect(x,y,w,h);g.fillStyle='#ff0';g.fillRect(x,y,w*p.sp/p.spMax,h);txt('SP',lx,y+h,fs,c);txt(p.sp+(w>80?' / ':'/')+p.spMax,nx,y+h,fs,c)}
+/* story: an enemy carrying a Skill Trinket glows with that trinket's color (battle only, never on the hub cards) */
+function drawAura(x,y,col){const t=performance.now()/1000,RF=SET.reduceFlash,p=RF?1:.88+.12*Math.sin(t*3.2);g.save();
+const gr=g.createRadialGradient(x,y,14,x,y,112*p);gr.addColorStop(0,col+'aa');gr.addColorStop(.55,col+'44');gr.addColorStop(1,col+'00');g.fillStyle=gr;g.beginPath();g.arc(x,y,115,0,6.29);g.fill();
+g.fillStyle=col;for(let i=0;i<10;i++){const a=t*.9+i*.628,r=66+8*Math.sin(t*2+i*1.7);g.globalAlpha=.55+.35*Math.sin(t*3+i);g.beginPath();g.arc(x+Math.cos(a)*r,y+Math.sin(a)*r*.92,2.6,0,6.29);g.fill()}g.restore()}
 function draw(){g.setTransform(1,0,0,1,0,0);g.fillStyle='#000';g.fillRect(0,0,W,H);
 if(S=='set'||S=='ctl'||S=='src'||S=='keys'){const k=S;S=setFrom;try{draw()}finally{S=k}if(k=='set')drawSet();else if(k=='ctl')drawCtl();else if(k=='src')drawSrc();else drawKeys();return}drawBG();
 if(S=='story'){drawStory();return}
@@ -1551,6 +1591,7 @@ if(SET.shake)g.translate((Math.random()-.5)*shake,(Math.random()-.5)*shake);
 g.fillStyle='#000';g.fillRect(BX,BY,BW,BH);
 const RF=SET.reduceFlash,pu=mus?1-(((bt%1)+1)%1):0,dodge=S=='dodge';
 if(dodge){g.strokeStyle='rgba(25,227,255,'+((RF?.06:.3)*pu)+')';g.lineWidth=3;const s=(1-pu)*260;g.strokeRect(BX-s,BY-s*.6,BW+2*s,BH+s*1.2)}
+if(storyFighting()&&ST.fight&&ST.fight.tr&&S!='win'&&S!='lose'&&S!='intro')drawAura(W/2,95,ITEMS[ST.fight.tr].col);
 if(flash>0){if(RF)g.globalAlpha=1-.35*Math.min(1,flash*2);else if(Math.floor(flash*20)%2==0)g.globalAlpha=.4}if(S=='win')drawWinBoss();else{const hy=net.role=='guest'?bhap:S=='msg'&&hapT.includes(TXT),ha=1-bhurt,bsx=SET.shake&&bhurt>0&&ha<.45?Math.sin(ha*60)*7*(1-ha/.45):0;drawBoss(bi,W/2+bsx,95,RF?pu*.3:pu,1,0,bhurt>0,lowHp()||bhp<=0,hy)}g.globalAlpha=1;
 g.strokeStyle=!RF&&dodge&&pu>.7?'#9ff':'#fff';g.lineWidth=4+(RF?.8:3)*pu;g.strokeRect(BX,BY,BW,BH);
 if(S=='msg'||S=='menu'){const FT=wrapTxt(lx(TXT));msgLines(FT.slice(0,Math.floor(Math.min(1,tc/Math.max(1,TXT.length))*FT.length)),FT,BX+24,BY+50,22)}
@@ -1592,7 +1633,8 @@ else if(h.t=='shot'){const age=bt-h.b,F=shotFire();   /* aim cone (clipped to th
   g.save();g.beginPath();g.rect(BX,BY,BW,BH);g.clip();g.globalAlpha=lk?(SET.reduceFlash?.3:.22+.12*Math.abs(Math.sin(now/90))):.15;g.fillStyle=PINK;g.beginPath();g.moveTo(mx,my);g.arc(mx,my,800,h.ang-sp,h.ang+sp);g.closePath();g.fill();
   g.globalAlpha=.85;g.setLineDash([8,6]);g.strokeStyle=PINK;g.lineWidth=2;g.beginPath();[h.ang-sp,h.ang+sp].forEach(a=>{g.moveTo(mx,my);g.lineTo(mx+Math.cos(a)*800,my+Math.sin(a)*800)});g.stroke();g.setLineDash([]);g.globalAlpha=1;g.restore();
   if(lk&&h.lx!=null){g.strokeStyle='#ff0';g.lineWidth=2;g.beginPath();g.arc(h.lx,h.ly,14,0,6.29);g.moveTo(h.lx-20,h.ly);g.lineTo(h.lx+20,h.ly);g.moveTo(h.lx,h.ly-20);g.lineTo(h.lx,h.ly+20);g.stroke()}}
- for(let v=0;v<2;v++){const f=age-(F+v*SHOT.gap);if(f>=0&&f<.35){const[mx,my]=shotMuzzle(h);g.globalAlpha=1-f/.35;g.fillStyle='#ffe27a';g.beginPath();g.arc(mx,my,13,0,6.29);g.fill();g.globalAlpha=1}}}
+ if(h.fire){if(age>=F&&age<F+SHOT.burn){const[mx,my]=shotMuzzle(h);g.globalAlpha=SET.reduceFlash?.5:.55+.25*Math.sin(performance.now()/40);g.fillStyle='#ff9a2a';g.beginPath();g.arc(mx,my,15,0,6.29);g.fill();g.fillStyle='#fff3a0';g.beginPath();g.arc(mx,my,8,0,6.29);g.fill();g.globalAlpha=1}}
+ else for(let v=0;v<2;v++){const f=age-(F+v*SHOT.gap);if(f>=0&&f<.35){const[mx,my]=shotMuzzle(h);g.globalAlpha=1-f/.35;g.fillStyle='#ffe27a';g.beginPath();g.arc(mx,my,13,0,6.29);g.fill();g.globalAlpha=1}}}
 else if(h.t=='road'){g.save();g.beginPath();g.rect(BX,BY,BW,BH);g.clip();g.strokeStyle='rgba(255,255,255,.35)';g.lineWidth=3;g.setLineDash([26,18]);g.lineDashOffset=-bt*20;
  for(let k=1;k<LANES;k++){g.beginPath();g.moveTo(BX,BY+k*LANE_H);g.lineTo(BX+BW,BY+k*LANE_H);g.stroke()}g.setLineDash([]);g.lineDashOffset=0;g.restore()}
 else if(h.t=='lane'){const age=bt-h.b,cy=laneY(h.lane),d=h.dir;g.save();g.beginPath();g.rect(BX,BY,BW,BH);g.clip();
@@ -1628,6 +1670,7 @@ else if(h.t=='shellw'){const a=bt-h.b,now=performance.now()/1000,gh=BH/SHELL.n;g
  if(a<SHELL.warn){const ex=h.dir>0?BX+14:BX+BW-14;g.globalAlpha=SET.reduceFlash?.8:.4+.5*Math.abs(Math.sin(now*9));g.fillStyle=PINK;   /* arrows only where shells will be: the gaps have none */
   for(let r=0;r<SHELL.n;r++){if(h.gaps.includes(r))continue;const cy=BY+gh*(r+.5);g.beginPath();g.moveTo(ex+h.dir*8,cy);g.lineTo(ex-h.dir*5,cy-7);g.lineTo(ex-h.dir*5,cy+7);g.closePath();g.fill()}g.globalAlpha=1}
  else{const x=shellX(h);if(x!=null)for(let r=0;r<SHELL.n;r++){if(h.gaps.includes(r))continue;drawShell(x,BY+gh*(r+.5),h.dir*Math.PI/2+Math.sin(now*6+r)*.15)}}g.restore()}
+else if(h.t=='b'&&h.fp){const u=1-h.lf/h.lf0,c=u<.25?'#fff3a0':u<.55?'#ffb12a':u<.8?'#ff5a1f':'#b02a1a';g.globalAlpha=Math.min(1,h.lf/.25)*.9;g.fillStyle=c;g.beginPath();g.arc(h.x,h.y,h.r*(.5+1.1*u),0,6.29);g.fill();g.globalAlpha=1}   /* Racer's low-HP flame puff */
 else if(h.t=='b'&&h.leaf){g.save();g.beginPath();g.rect(BX,BY,BW,BH);g.clip();drawLeaf(h.x,h.y,h.rot||0,h.lf!=null?Math.min(1,h.lf/.4):1);g.restore()}
 else if(h.t=='b'&&h.st){g.save();g.beginPath();g.rect(BX,BY,BW,BH);g.clip();if(h.lf!=null)g.globalAlpha=Math.min(1,h.lf/.3);starShape(h.x,h.y,h.st,h.rot||0);g.fillStyle=PINK;g.fill();starShape(h.x,h.y,h.st*.45,h.rot||0);g.fillStyle='#fff';g.fill();g.restore()}
 else if(h.t=='b'&&h.sqr){const sp=Math.hypot(h.vx,h.vy);if(sp>90){g.strokeStyle='#fff';g.globalAlpha=Math.min(1,(sp-90)/120);g.lineWidth=2;g.beginPath();g.moveTo(h.x-h.vx*.09,h.y-h.vy*.09);g.lineTo(h.x-h.vx*.035,h.y-h.vy*.035);g.stroke();g.globalAlpha=1}
@@ -1641,7 +1684,7 @@ if(p.rev>0){g.strokeStyle='#7dff3d';g.lineWidth=4;g.beginPath();g.arc(p.x,p.y,18
 else{const hitF=performance.now()-(p.hit||0)<200;g.globalAlpha=p.inv>0&&p.dash<=0&&!hitF?(SET.reduceFlash?.55:Math.floor(p.inv*20)%2?.3:1):1;soul(p.x,p.y,hitF?PINK:p.col,p.i,p.dash>0);g.globalAlpha=1;
 if(p.dcd>0&&dodge){g.strokeStyle='rgba(255,255,255,.4)';g.lineWidth=2;g.beginPath();g.arc(p.x,p.y,15,-1.57,-1.57+6.28*(1-p.dcd/.6));g.stroke()}
 if(players.length>1)txt('P'+(p.i+1),p.x,p.y-14,11,p.col,'center')}}
-{const tp=players.length>1&&(S=='menu'||S=='tgt'||S=='sub'||S=='ptg')?pk:-1;players.forEach((p,i)=>{const n=players.length;if(n<3){const x=i?BX+BW-250:BX;if(i==tp){g.strokeStyle=p.col;g.lineWidth=3;g.strokeRect(x-8,452,258,40)}txt('P'+(i+1),x,478,18,p.col);txt('HP',x+40,478,14,'#fff');g.fillStyle='#600';g.fillRect(x+66,462,100,18);g.fillStyle=p.col;g.fillRect(x+66,462,100*p.hp/p.max,18);txt(p.gone?'LEFT':p.hp+' / '+p.max,x+176,478,16,'#fff')}else{const cw=W/n,x=i*cw+(cw-170)/2+8;if(i==tp){g.strokeStyle=p.col;g.lineWidth=3;g.strokeRect(x-8,452,170,40)}txt('P'+(i+1),x,478,16,p.col);txt('HP',x+30,478,11,'#fff');g.fillStyle='#600';g.fillRect(x+48,464,60,14);g.fillStyle=p.col;g.fillRect(x+48,464,60*p.hp/p.max,14);txt(p.gone?'LEFT':p.hp+'/'+p.max,x+114,478,13,'#fff')}})}
+{const tp=players.length>1&&(S=='menu'||S=='tgt'||S=='sub'||S=='ptg')?pk:-1;players.forEach((p,i)=>{const n=players.length;if(n<3){const x=i?BX+BW-250:BX;if(i==tp){g.strokeStyle=p.col;g.lineWidth=3;g.strokeRect(x-8,452,258,p.sp!=null?54:40)}txt('P'+(i+1),x,478,18,p.col);txt('HP',x+40,478,14,'#fff');g.fillStyle='#600';g.fillRect(x+66,462,100,18);g.fillStyle=p.col;g.fillRect(x+66,462,100*p.hp/p.max,18);txt(p.gone?'LEFT':p.hp+' / '+p.max,x+176,478,16,'#fff');if(p.sp!=null&&!p.gone)spBar(p,x+66,486,100,8,x+40,x+176,12)}else{const cw=W/n,x=i*cw+(cw-170)/2+8;if(i==tp){g.strokeStyle=p.col;g.lineWidth=3;g.strokeRect(x-8,452,170,p.sp!=null?54:40)}txt('P'+(i+1),x,478,16,p.col);txt('HP',x+30,478,11,'#fff');g.fillStyle='#600';g.fillRect(x+48,464,60,14);g.fillStyle=p.col;g.fillRect(x+48,464,60*p.hp/p.max,14);txt(p.gone?'LEFT':p.hp+'/'+p.max,x+114,478,13,'#fff');if(p.sp!=null&&!p.gone)spBar(p,x+48,483,60,7,x+30,x+114,11)}})}
 g.globalAlpha=dodge?.45:1;['FIGHT','ACT','ITEM','MERCY'].forEach((s,i)=>{const x=BX+i*150,on=S=='menu'&&mi==i,c=on?'#ff0':(S=='win'&&i==3&&wsp?'#ff0':'#ff9d00');g.strokeStyle=c;g.lineWidth=3;g.strokeRect(x,525,140,44);txt(s,x+70,555,22,c,'center');if(on)mSoul(x+22,547)});g.globalAlpha=1;
 if(net.role&&net.ok)txt(lx('ONLINE  you = P'+(net.me+1))+(players.length>1&&(S=='menu'||S=='tgt'||S=='sub'||S=='ptg')?'  -  '+(pk==net.me?lx('YOUR TURN'):lx('P'+(pk+1)+' is choosing')):''),W-12,595,12,'#888','right',0,1);
 if(BO){g.font='bold 18px monospace';const tw=g.measureText(lx(BO.n)+' ('+lx(BO.d)+')').width,ns=tw>180?18*180/tw:18;/* long names (Star Soulcerer) shrink so they don't run into the HP bar */
@@ -1652,7 +1695,7 @@ if(g.measureText(lx(sl)).width<=348)txt(sl,W-12,26,14,'#aaa','right');else{txt('
 /* the second part sits beside the MERCY label, so it gets less room; long credits wrap onto more lines */
 g.font='bold 14px monospace';const rows=[];let cur='';info.split(' ').forEach(w=>{const t=cur?cur+' '+w:w;if(cur&&g.measureText(t).width>270){rows.push(cur);cur=w}else cur=t});rows.push(cur);
 rows.forEach((r,k)=>txt(r,W-12,44+k*18,14,'#aaa','right',270,1))}}
-if(dodge){g.fillStyle='#19e3ff';g.fillRect(0,0,Math.min(1,Math.max(0,(bt-tb)/TL))*W,4);if(bt<tb+2)txt('DODGE!',W/2,170,24,'#19e3ff','center')}}if(S=='lose'||S=='lexit'||loseGo)drawLose();if(S=='intro')drawIntro();if(S=='flee')drawFlee();drawSlash();if(S=='win'&&wxT)drawWx()}
+if(dodge){g.fillStyle='#19e3ff';g.fillRect(0,0,Math.min(1,Math.max(0,(bt-tb)/TL))*W,4);if(bt<tb+2)txt('DODGE!',W/2,170,24,'#19e3ff','center')}}if(S=='lose'||S=='lexit'||loseGo)drawLose();if(S=='intro')drawIntro();if(S=='flee')drawFlee();if(storyFighting()&&ST.poison>0&&BO&&S!='win'&&S!='lose')txt('POISONED  '+ST.poison,12,46,13,'#b45bff');drawSlash();drawLens();if(S=='win'&&wxT)drawWx()}
 
 /* ---------- online co-op (PeerJS): host runs the game, guest sends its own position + button presses ---------- */
 const net={role:null,peer:null,conn:null,slots:[null,null,null,null],ok:0,code:'',me:0},ALPHA='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',PFX='soulxbeat-',SIGERR=['network','server-error','socket-error','socket-closed','disconnected'];
