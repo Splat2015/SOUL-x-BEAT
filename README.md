@@ -28,3 +28,5 @@ This is a non-commercial fan project. It is not affiliated with Undertale or Jus
 - “TILA EN STEREO” by Rainbowdragoneyes.
 - “Splash Woman” by Mega Ran.
 - All other music is generated in the game's code.
+
+This game was made with code by Claude, and ideas by me.
