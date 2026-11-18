@@ -115,6 +115,10 @@ const STANDS = {
     { n: 'POTIONS', awn: '#7dff3d', icon: 'flask', line: '* "Finest potions in Star Village! Only the best for you."',
       potions: [['Rhythm Elixir', 3, "Fully restores the party's HP"], ['Tempo Tonic', 5, 'A mysterious fizzy drink']] },
   ],
+  /* Square Village: no vendors, just the Slap Strap lying bottom left (pickup: the item id; gone once taken, see s.seen.strap) */
+  2: [
+    { n: 'STRAP', pickup: 'slap', seen: 'strap' },
+  ],
 };
 /* Genocide route: after the genocide scene the vendors are gone. SNACKS / GEAR are empty stalls that
    give items away ("Take it.", 0 BC); the POTIONS stand is replaced by a NOTE and a broken flask. */
@@ -159,6 +163,7 @@ const ITEMS_RAW = {
   wsword: { name: 'Wooden Sword', type: 'weapon', atk: 1, dur: 30, info: 'A sturdy practice sword carved from oak.' },
   wshield: { name: 'Wooden Shield', type: 'armor', def: 1, dur: 50, info: "A light shield. It's seen a few dents." },
   ndagger: { name: 'Neon Dagger', type: 'weapon', atk: 3, dur: 40, bar: 1.3, info: 'It hums with a faint electric glow.' },   // bar: attack bar speed (1 = normal)
+  slap: { name: 'Slap Strap', type: 'weapon', atk: 5, dur: 50, bar: .9, lines: 4, info: "It's tight, secure, and perfect for beatings." },   // lines: 4 white lines to stop in the center (like Undertale's Burnt Pan); found in Square Village
   rvisor: { name: 'Radiant Visor', type: 'armor', def: 3, dur: 60, info: 'Shiny enough to see your reflection.' },
   pcandy: { name: 'Pure Candy', type: 'food', heal: 8, info: 'It tastes like Paradise.', eat: "* It's sweet and sparkly." },
   ppie: { name: 'Pink Pie', type: 'food', heal: 12, info: 'A slice of pink pie. Smells... odd.', eat: '* It tastes a little... Corrupted?' },
@@ -482,6 +487,12 @@ function storyWear(k, slot) {
 }
 /* the pending "broke..." texts as separate text boxes (one each), cleared once taken */
 function storyBreaks() { const b = ST.breaks.map(t => '* ' + t); ST.breaks = []; return b; }
+/* how many white lines player k's weapon makes you stop in the center (1 normally, 4 for the Slap Strap) */
+function storyBarLines(k) {
+  if (!ST.fight) return 1;
+  const pl = cur().players[k] || cur().players[0], w = ITEMS[pl.weapon];
+  return (w && w.lines) || 1;
+}
 /* How fast player k's white attack bar moves (their weapon's "bar" value; 1 = normal speed) */
 function storyBarSpeed(k) {
   if (!ST.fight) return 1;
@@ -688,7 +699,7 @@ function actButton(j) {
 const hubBtns = () => ['STATS', 'ITEM', 'SHOP', 'TRAVEL'];
 const hubBtnX = (j, n) => j < 2 ? 20 + j * 120 : W - 130 - (n - 1 - j) * 120;
 /* bottom row: the village's stands (while its shop is closed), then BACK */
-const standsHere = () => { const s = cur(); return VILLAGES[s.village].shop ? null : STANDS[s.village] || null; };
+const standsHere = () => { const s = cur(); if (VILLAGES[s.village].shop) return null; const st = STANDS[s.village]; return st ? st.filter(x => !x.seen || !s.seen[x.seen]) : null; };   // a taken pickup (Slap Strap) is no longer there
 const hubCols = i => i == 0 ? hubBtns().length : i == 1 ? 4 : standsHere() ? standsHere().length + 1 : 1;
 const backCol = () => hubCols(2) - 1;
 /* Undertale-style text box at the bottom of the hub (SHOP messages, cutscenes, travel) */
@@ -823,7 +834,20 @@ function recLine(solo, nm, hpFull, hp, spFull, sp) {
 }
 
 /* ---------- stands ---------- */
+/* the Slap Strap lying in Square Village: take it once */
+function takeStrap() {
+  AC && sfxSel();
+  hubSay(['* A leather strap lies in the grass.\n* It looks like it would sting.', '* Take it?'], () =>
+    askYesNo('', ['Take the strap?'], () => {
+      const s = cur();
+      if (s.items.length >= MAX_ITEMS) { hubSay('* Your items are full.'); return; }
+      s.items.push('slap'); s.seen.strap = 1; storySave();
+      if (AC) { tone(1046, T0(), .08, 'square', .1); tone(1568, T0() + .07, .12, 'square', .1); }
+      hubSay('* You got the Slap Strap.');
+    }));
+}
 function openStand(k) {
+  if (standsHere()[k].pickup) { takeStrap(); return; }
   if (standsAbandoned() && standsHere()[k].potions) { readPotionNote(); return; }   // the potion stand is gone: read the note
   ST.panel = 'stand'; ST.stand = k; ST.pr = 0; ST.who = null; ST.iopt = null; AC && sfxSel();
 }
@@ -1158,6 +1182,7 @@ const STAND_ROW_Y = 130;                                                  // fir
 const TRAVEL_ROW_Y = 110, TRAVEL_GAP = 52;                                // TRAVEL list rows
 /* a little market stall: striped awning in the stand's color, a counter, and what it sells */
 function drawStand(x, y, st, on) {
+  if (st.pickup) { drawStrapSpot(x, y, on); return; }
   const w = 86, cx = x + w / 2, cy = y + 40, gone = standsAbandoned();
   if (gone && st.potions) { drawNoteSpot(x, y, on); return; }
   g.fillStyle = '#2a1d14'; g.fillRect(x + 6, y + 26, w - 12, 34); g.fillStyle = '#4a3424'; g.fillRect(x + 2, y + 50, w - 4, 10);
@@ -1184,7 +1209,17 @@ function drawStand(x, y, st, on) {
   if (on) soul(x - 14, y + 34, '#19e3ff');
   txt(st.n, cx, y + 82, 13, on ? '#ff0' : '#aaa', 'center', 0, true);
 }
-/* where the potion stand stood (genocide route): the vendor's note on the left, the stand's green flask broken and spilled on the right */
+/* the Slap Strap's spot in Square Village: a small white four-pointed star (select it to pick the strap up) */
+function drawStrapSpot(x, y, on) {
+  const cx = x + 44, cy = y + 38, t = performance.now() / 1000, r = 14 + (SET.reduceFlash ? 0 : Math.sin(t * 3) * 1.5), n = r * .3;
+  g.save();
+  g.shadowColor = '#fff'; g.shadowBlur = on ? 16 : 9;   // soft glow
+  g.fillStyle = on ? '#ffff9a' : '#fff'; g.beginPath();
+  g.moveTo(cx, cy - r); g.lineTo(cx + n, cy - n); g.lineTo(cx + r, cy); g.lineTo(cx + n, cy + n);
+  g.lineTo(cx, cy + r); g.lineTo(cx - n, cy + n); g.lineTo(cx - r, cy); g.lineTo(cx - n, cy - n); g.closePath(); g.fill();
+  g.restore();
+  if (on) soul(x - 14, y + 34, '#19e3ff');
+}/* where the potion stand stood (genocide route): the vendor's note on the left, the stand's green flask broken and spilled on the right */
 function drawNoteSpot(x, y, on) {
   g.save(); g.translate(x + 20, y + 44); g.rotate(-.15);
   g.fillStyle = '#e8e2c8'; g.fillRect(-12, -15, 24, 30); g.strokeStyle = '#8a8470'; g.lineWidth = 1;
