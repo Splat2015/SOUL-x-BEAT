@@ -16,7 +16,10 @@
 const TRACKS = {
   corrupted: { file: 'song-agrobacter.js', title: 'Agrobacter (Corrupted Mix)', artist: 'Just Shapes & Beats' },
   racer: { file: 'song-racer.js', title: 'RALLY-X A GO GO', artist: 'Hiroyuki Kawada & Nobuyuki Ohnogi' },
-  tanga: { file: 'song-tanga.js', title: 'TILA EN STEREO', artist: 'Rainbowdragoneyes' },   // Tanga's battle song (160 BPM; 32-beat intro plays once, then 128 beats loop)   // Racer's battle song (144 BPM)
+  tanga: { file: 'song-tanga.js', title: 'TILA EN STEREO', artist: 'Rainbowdragoneyes' },
+  neutlin: { file: 'song-neutlin.js', title: 'Come and Find Me (B Mix)', artist: 'Eric Skiff' },   // Neutlin's battle song (CC BY 3.0): 111 BPM, first beat .0635 s; plays 0-4 s once (introBeats 7.2825), then loops 4.0 s to 99.1 s (loopBeats 176 = 44 bars)
+  pancy: { file: 'song-pancy.js', title: 'Drifting Deeper', artist: 'Zef (feat. Stemage)' },   // Pancy's battle song: 120 BPM, first beat .087 s; plays 0-16 s once (introBeats 32), then loops 16.1 s to 112.1 s (loopBeats 192 = 48 bars)
+  slug: { file: 'song-slug.js', title: 'Splash Woman', artist: 'Mega Ran' },   // $lug Thug's battle song (instrumental; 107 BPM, 112 beats loop)   // Tanga's battle song (160 BPM; 32-beat intro plays once, then 128 beats loop)   // Racer's battle song (144 BPM)
 };
 
 window.SONGS = window.SONGS || {};   // filled in by the song files: SONGS[id] = Base64 mp3

@@ -83,11 +83,13 @@ const VILLAGES = {
      genocide route / corrupted music stay off until all 9 mini bosses exist. Soul Relics start here. */
   2: {
     name: 'SQUARE VILLAGE', tname: 'Square Village',
-    shop: false, soon: true,
+    shop: false, soon: true, slots: 10,   // 9 mini bosses + the Soulcerer: small cards in 2 rows of 5
     foes: [
       { id: 'racer', bi: 4, def: 6, bc: 25, exp: 60, sr: 2 },
       { id: 'tanga', bi: 5, def: 7, bc: 27, exp: 70, sr: 2 },
       { id: 'slug', bi: 6, def: 5, bc: 20, exp: 75, sr: 2 },   // $lug Thug (SR doubles if the Salt ACT finishes him)
+      { id: 'neutlin', bi: 7, def: 7, bc: 30, exp: 80, sr: 2 },   // Neutlin: DEF 7, 30 BC, 80 EXP, 2 SR (all final)
+      { id: 'pancy', bi: 8, def: 7, bc: 30, exp: 85, sr: 2 },   // Pancy: DEF 7, 30 BC, 85 EXP, 2 SR (all final)
     ],
     soulcerer: null,
     arrive: [
@@ -155,7 +157,7 @@ const potionRoast = sr => [
   '* "HAHAHAHA! You walked up to a POTION stand\n* with ZERO Soul Relics?!"\n* "You have to be joking me."',
   "* \"Come back when you're a little...\n* hmm, RICHER!\"",
 ];   // HP a downed player comes back with after a won (or fled) fight
-const FOE_IDS = ['prism', 'pulsar', 'maw', 'star', 'racer', 'tanga', 'slug'];
+const FOE_IDS = ['prism', 'pulsar', 'maw', 'star', 'racer', 'tanga', 'slug', 'neutlin', 'pancy'];
 
 /* Items. type: 'weapon' | 'armor' (more types come with the shop round). */
 /* dur = DUR (durability): a weapon loses 1 per attack, armor loses 1 per hit taken; at 0 it breaks (slot becomes none). */
@@ -399,7 +401,7 @@ const fightFoe = () => ST.fight && villageFoes(VILLAGES[cur().village]).find(f =
 /* Genocide route for a village: every mini boss killed 3 times */
 const genoRoute = s => villageGone(s);
 /* a foe's DEF for this file's route (the Soulcerer is tougher on the genocide route) */
-const foeDef = (s, f) => f.genoDef != null && genoRoute(s) ? f.genoDef : f.def;
+const foeDef = (s, f) => Math.max(0, (f.genoDef != null && genoRoute(s) ? f.genoDef : f.def) - (f.id == 'neutlin' ? neutDefDrop : 0));   // Neutlin's Tug Hood lowers its DEF for the rest of the fight
 const soulcererDone = s => { const f = s.foes[VILLAGES[s.village].soulcerer.id]; return f.k > 0 || f.sp; };
 function restoreFightSnap() {
   const s = cur(), f = ST.fightItems;
@@ -429,7 +431,7 @@ function storyHit(k, d) {
 /* Enemies carrying a trinket get its ability: Poison = its hits poison the player (3 damage at the end of each of 3 turns, never below 1 HP);
    Speed = each attack you press has a 15% chance to be dodged. */
 const FOE_POISON_DMG = 3, FOE_DODGE = .15;
-const FOE_NAMES = { prism: 'Prism', pulsar: 'Pulsar', maw: 'Maw', star: 'The Star Soulcerer', racer: 'Racer', tanga: 'Tanga', slug: '$lug Thug' };
+const FOE_NAMES = { prism: 'Prism', pulsar: 'Pulsar', maw: 'Maw', star: 'The Star Soulcerer', racer: 'Racer', tanga: 'Tanga', slug: '$lug Thug', neutlin: 'Neutlin', pancy: 'Pancy' };
 const storyDodgeMsg = () => '* ' + (ST.fight && FOE_NAMES[ST.fight.id] || 'It') + ' dodged!';
 function storyFoePoison(p) { if (ST.fight && ST.fight.tr == 'poison') p.pois = POISON_TURNS; }   // called when a hit lands on player p
 /* Thorns Trinket: when a hit lands on a wearer, the enemy takes 2 damage right away (the text comes at the end of the turn) */
@@ -700,7 +702,7 @@ const hubBtns = () => ['STATS', 'ITEM', 'SHOP', 'TRAVEL'];
 const hubBtnX = (j, n) => j < 2 ? 20 + j * 120 : W - 130 - (n - 1 - j) * 120;
 /* bottom row: the village's stands (while its shop is closed), then BACK */
 const standsHere = () => { const s = cur(); if (VILLAGES[s.village].shop) return null; const st = STANDS[s.village]; return st ? st.filter(x => !x.seen || !s.seen[x.seen]) : null; };   // a taken pickup (Slap Strap) is no longer there
-const hubCols = i => i == 0 ? hubBtns().length : i == 1 ? 4 : standsHere() ? standsHere().length + 1 : 1;
+const hubCols = i => i == 0 ? hubBtns().length : i == 1 ? Math.max(4, cardCount(VILLAGES[cur().village])) : standsHere() ? standsHere().length + 1 : 1;
 const backCol = () => hubCols(2) - 1;
 /* Undertale-style text box at the bottom of the hub (SHOP messages, cutscenes, travel) */
 /* t = one page of text, or an array of pages (each page up to 3 lines); Enter goes to the next page */
@@ -771,13 +773,19 @@ function hubActivate() {
   else { AC && sfxSel(); storyGo('slots', ST.slot); }
 }
 function hubMove(dr, dc) {
+  const v = VILLAGES[cur().village], sm = smallCards(v), cols = cardCols(v), n = hubCols(1);
+  if (dr && sm && ST.i == 1) {   // small cards: up / down moves between the two card rows first
+    if (dr > 0 && ST.j < cols && ST.j + cols < n) { ST.j += cols; AC && sfxSel(); return; }
+    if (dr < 0 && ST.j >= cols) { ST.j -= cols; AC && sfxSel(); return; }
+  }
   if (dr) {
-    const from = ST.i, to = (from + dr + 3) % 3;
-    if (to == 0) ST.j = from == 1 ? Math.min(ST.j, hubCols(0) - 1) : 0;   // cards -> buttons: the button above
-    else if (to == 1) ST.j = Math.min(ST.j, 3);                           // to the cards: the card in the same column
-    else ST.j = from == 1 ? Math.min(ST.j, backCol()) : 0;                // cards -> stands / BACK below
+    const from = ST.i, to = (from + dr + 3) % 3, col = from == 1 && sm ? ST.j % cols : ST.j;
+    if (to == 0) ST.j = from == 1 ? Math.min(col, hubCols(0) - 1) : 0;   // cards -> buttons: the button above
+    else if (to == 1) ST.j = !sm ? Math.min(ST.j, 3) : from == 0 ? Math.min(ST.j, cols - 1) : Math.min(cols + ST.j, n - 1);   // to the cards: the card in the same column (bottom row when coming up)
+    else ST.j = from == 1 ? Math.min(col, backCol()) : 0;                // cards -> stands / BACK below
     ST.i = to;
-  } else ST.j = (ST.j + dc + hubCols(ST.i)) % hubCols(ST.i);
+  } else if (sm && ST.i == 1) { const top = ST.j < cols, rowN = top ? cols : n - cols; ST.j = (top ? 0 : cols) + ((ST.j % cols) + dc + rowN) % rowN; }   // left / right stay in the row
+  else ST.j = (ST.j + dc + hubCols(ST.i)) % hubCols(ST.i);
   if (dr || hubCols(ST.i) > 1) AC && sfxSel();
 }
 
@@ -1093,7 +1101,7 @@ function storyTap(x, y, inR) {
     const pick2 = (i, j) => { if (ST.i == i && ST.j == j) hubActivate(); else { ST.i = i; ST.j = j; AC && sfxSel(); } };
     const nb = hubCols(0);
     for (let j = 0; j < nb; j++) if (inR(hubBtnX(j, nb), 22, 110, 40)) { pick2(0, j); return; }
-    for (let j = 0; j < 4; j++) if (inR(cardX(j), CARD_Y, CARD_W, CARD_H)) { pick2(1, j); return; }
+    { const v = VILLAGES[cur().village]; for (let j = 0; j < hubCols(1); j++) { const b = cardBox(v, j); if (inR(b.x, b.y, b.w, b.h)) { pick2(1, j); return; } } }
     const stands = standsHere();
     if (stands) {
       for (let k = 0; k < stands.length; k++) if (inR(STAND_X(k) - 2, STAND_Y, 90, 90)) { pick2(2, k); return; }
@@ -1170,6 +1178,15 @@ const ACT_Y = 448, BACK_Y = 505;
 const actX = j => W / 2 + (j - 1.5) * 150;
 const playerX = k => 130 + k * 180;
 const CARD_Y = 130, CARD_W = 170, CARD_H = 300, cardX = k => 30 + k * 190;
+/* card layout: up to 4 big cards in a row (Star Village); more (Square Village: 9 mini bosses + Soulcerer = 10) become small cards in 2 rows */
+const cardCount = v => v.slots || v.foes.length + (v.soulcerer ? 1 : 0);
+const smallCards = v => cardCount(v) > 4;
+const cardCols = v => smallCards(v) ? Math.ceil(cardCount(v) / 2) : 4;
+function cardBox(v, k) {
+  if (!smallCards(v)) return { x: cardX(k), y: CARD_Y, w: CARD_W, h: CARD_H, cx: cardX(k) + 85, ay: CARD_Y + 85, sc: .62, ny: CARD_Y + 205, dy: CARD_Y + 237, ly: CARD_Y + 277, nf: 22, df: 18, lf: 16, big: 1 };
+  const cols = cardCols(v), r = k < cols ? 0 : 1, c = k % cols, w = 144, h = 152, x = 16 + c * (w + 12), y = 114 + r * (h + 8);
+  return { x, y, w, h, cx: x + w / 2, ay: y + 50, sc: .34, ny: y + 106, dy: y + 124, ly: y + 142, nf: 14, df: 12, lf: 11 };
+}
 const CARD_DX = { 4: 12 };   // per-boss nudge of the card art (Racer: his exhaust puffs drift out to the left)
 const PAN = { x: 170, y: 90, w: 460, h: 410 };
 const LST_ROW_Y = 105;   // first row of the list dialog (trinket picker / items-full chooser)
@@ -1344,14 +1361,15 @@ function drawPlayers() {
 }
 
 /* Soulcerer card art: locked (dim + lock), open (corrupted), spared (pure), killed (empty) */
-function drawSoulCard(x, y, sc, st, open, bounce) {
-  const cx = x + 85, cy = y + 88;
+function drawSoulCard(b, sc, st, open, bounce) {
+  const q = b.sc / .62, cx = b.cx, cy = b.ay + 3 * q;
   if (st.k > 0 && !st.sp) return;
   if (!open) {
-    g.globalAlpha = .35; drawBoss(sc.bi, cx, cy, 0, .62); g.globalAlpha = 1;
+    g.globalAlpha = .35; drawBoss(sc.bi, cx, cy, 0, b.sc); g.globalAlpha = 1;
+    g.save(); g.translate(cx, cy); g.scale(q, q);
     g.fillStyle = '#aaa'; g.strokeStyle = '#aaa'; g.lineWidth = 3;
-    g.beginPath(); g.arc(cx, cy - 2, 8, Math.PI, 0); g.stroke(); g.fillRect(cx - 11, cy - 2, 22, 17);
-  } else drawBoss(sc.bi, cx, cy, bounce, .62, !!st.sp);
+    g.beginPath(); g.arc(0, -2, 8, Math.PI, 0); g.stroke(); g.fillRect(-11, -2, 22, 17); g.restore();
+  } else drawBoss(sc.bi, cx, cy, bounce, b.sc, !!st.sp);
 }
 
 function drawHub() {
@@ -1371,33 +1389,29 @@ function drawHub() {
   /* village name after the buttons, so long names (SQUARE VILLAGE) sit in front of the ITEM / SHOP borders */
   txt(v.name, W / 2, 70, 40, '#fff', 'center', 0, true);
   txt('VILLAGE ' + s.village, W / 2, 102, 16, '#aaa', 'center', 0, true);
-  if (v.soon) for (let k = v.foes.length; k < 4; k++) {   // card slots with no boss yet
-    const x = cardX(k), on = ST.i == 1 && ST.j == k;
-    g.strokeStyle = on ? '#19e3ff' : '#444'; g.lineWidth = on ? 5 : 2; g.strokeRect(x, CARD_Y, CARD_W, CARD_H);
-    txt('???', x + 85, CARD_Y + 100, 40, '#555', 'center', 150, true);
-    txt('???', x + 85, CARD_Y + 205, 22, on ? '#ff0' : '#888', 'center', 150, true);
-    txt('COMING SOON', x + 85, CARD_Y + 277, 16, '#555', 'center', 150, true);
-  }
-  v.foes.forEach((f, k) => {
-    const x = cardX(k), on = ST.i == 1 && ST.j == k, st = s.foes[f.id], B = BOSSES[f.bi], gone = st.k >= 3;
-    g.strokeStyle = on ? '#19e3ff' : '#444'; g.lineWidth = on ? 5 : 2; g.strokeRect(x, CARD_Y, CARD_W, CARD_H);
-    if (!gone) drawBoss(f.bi, x + 85 + (CARD_DX[f.bi] || 0), CARD_Y + 85, bounce, .62, !!st.sp, !st.sp && st.k == 1, !st.sp && st.k == 2);
-    else if (f.id == 'slug') drawFallenShades(x + 85, CARD_Y + 115, .95, null, !!s.seen.shades);   // all that's left of $lug Thug (just the puddle once his glasses are taken)
-    txt(B.n, x + 85, CARD_Y + 205, 22, gone ? '#555' : on ? '#ff0' : '#fff', 'center', 150, true);
-    txt(B.d, x + 85, CARD_Y + 237, 18, gone ? '#555' : B.dc, 'center', 150);
-    if (!gone) txt('FIGHT', x + 85, CARD_Y + 277, 16, on ? '#fff' : '#888', 'center', 150);
-  });
-  if (v.soulcerer) {
-    const k = v.foes.length, x = cardX(k), on = ST.i == 1 && ST.j == k, open = soulcererOpen(s),
-      sc = v.soulcerer, st = s.foes[sc.id], gone = st.k > 0 && !st.sp, dim = !open || gone;
-    g.strokeStyle = on ? '#19e3ff' : '#444'; g.lineWidth = on ? 5 : 2; g.strokeRect(x, CARD_Y, CARD_W, CARD_H);
-    drawSoulCard(x, CARD_Y, sc, st, open, bounce);
-    txt(sc.name, x + 85, CARD_Y + 205, 15, dim ? '#555' : on ? '#ff0' : '#fff', 'center', 150, true);
-    txt(open ? BOSSES[sc.bi].d : '???', x + 85, CARD_Y + 237, 18, dim ? '#555' : BOSSES[sc.bi].dc, 'center', 150, true);
-    const lab = !open ? 'LOCKED' : st.sp ? 'SPARED' : gone ? '' : 'FIGHT';
-    if (lab) txt(lab, x + 85, CARD_Y + 277, 16, !open ? '#555' : st.sp ? '#ffd23f' : on ? '#fff' : '#888', 'center', 150, true);
-  }
-  const stands = standsHere();
+  for (let k = 0; k < hubCols(1); k++) {
+    const b = cardBox(v, k), on = ST.i == 1 && ST.j == k, tw = b.w - 10, q = b.sc / .62, f = v.foes[k];
+    g.strokeStyle = on ? '#19e3ff' : '#444'; g.lineWidth = on ? (b.big ? 5 : 4) : 2; g.strokeRect(b.x, b.y, b.w, b.h);
+    if (f) {
+      const st = s.foes[f.id], B = BOSSES[f.bi], gone = st.k >= 3;
+      if (!gone) drawBoss(f.bi, b.cx + (CARD_DX[f.bi] || 0) * q, b.ay, bounce, b.sc, !!st.sp, !st.sp && st.k == 1, !st.sp && st.k == 2);
+      else if (f.id == 'slug') drawFallenShades(b.cx, b.ay + 30 * q, .95 * q, null, !!s.seen.shades);   // all that's left of $lug Thug (just the puddle once his glasses are taken)
+      txt(B.n, b.cx, b.ny, b.nf, gone ? '#555' : on ? '#ff0' : '#fff', 'center', tw, true);
+      txt(B.d, b.cx, b.dy, b.df, gone ? '#555' : B.dc, 'center', tw);
+      if (!gone) txt('FIGHT', b.cx, b.ly, b.lf, on ? '#fff' : '#888', 'center', tw);
+    } else if (v.soulcerer && k == v.foes.length) {
+      const open = soulcererOpen(s), sc = v.soulcerer, st = s.foes[sc.id], gone = st.k > 0 && !st.sp, dim = !open || gone;
+      drawSoulCard(b, sc, st, open, bounce);
+      txt(sc.name, b.cx, b.ny, b.big ? 15 : 11, dim ? '#555' : on ? '#ff0' : '#fff', 'center', tw, true);
+      txt(open ? BOSSES[sc.bi].d : '???', b.cx, b.dy, b.df, dim ? '#555' : BOSSES[sc.bi].dc, 'center', tw, true);
+      const lab = !open ? 'LOCKED' : st.sp ? 'SPARED' : gone ? '' : 'FIGHT';
+      if (lab) txt(lab, b.cx, b.ly, b.lf, !open ? '#555' : st.sp ? '#ffd23f' : on ? '#fff' : '#888', 'center', tw, true);
+    } else {   // a card slot with no boss yet
+      txt('???', b.cx, b.ay + 15 * q, b.big ? 40 : 26, '#555', 'center', tw, true);
+      txt('???', b.cx, b.ny, b.nf, on ? '#ff0' : '#888', 'center', tw, true);
+      txt('COMING SOON', b.cx, b.ly, b.lf, '#555', 'center', tw, true);
+    }
+  }  const stands = standsHere();
   if (stands) {
     stands.forEach((st, k) => drawStand(STAND_X(k), STAND_Y, st, ST.i == 2 && ST.j == k));
     drawParty(W - 110, 500, s.np, 11, 36);
