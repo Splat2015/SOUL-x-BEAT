@@ -12,18 +12,29 @@
          stopTrack()              pause whatever mp3 is playing
    ========================================================================== */
 
-/* file: the song file that sets SONGS[<id>] to the Base64 mp3 */
+/* file: the song file that sets SONGS[<id>] to the Base64 mp3.
+   lufs: the song's measured loudness (integrated LUFS, whole file). Every song is played at LUFS_TARGET:
+   it is turned up or down by (LUFS_TARGET - lufs) dB, so all mp3s sound equally loud.
+   EVERY NEW SONG gets measured and its lufs added here (a song without one plays unchanged). */
+const LUFS_TARGET = -17;
 const TRACKS = {
-  corrupted: { file: 'song-agrobacter.js', title: 'Agrobacter (Corrupted Mix)', artist: 'Just Shapes & Beats' },
-  racer: { file: 'song-racer.js', title: 'RALLY-X A GO GO', artist: 'Hiroyuki Kawada & Nobuyuki Ohnogi' },
-  tanga: { file: 'song-tanga.js', title: 'TILA EN STEREO', artist: 'Rainbowdragoneyes' },
-  neutlin: { file: 'song-neutlin.js', title: 'Come and Find Me (B Mix)', artist: 'Eric Skiff' },   // Neutlin's battle song (CC BY 3.0): 111 BPM, first beat .0635 s; plays 0-4 s once (introBeats 7.2825), then loops 4.0 s to 99.1 s (loopBeats 176 = 44 bars)
-  pancy: { file: 'song-pancy.js', title: 'Drifting Deeper', artist: 'Zef (feat. Stemage)' },   // Pancy's battle song: 120 BPM, first beat .087 s; plays 0-16 s once (introBeats 32), then loops 16.1 s to 112.1 s (loopBeats 192 = 48 bars)
-  slug: { file: 'song-slug.js', title: 'Splash Woman', artist: 'Mega Ran' },   // $lug Thug's battle song (instrumental; 107 BPM, 112 beats loop)   // Tanga's battle song (160 BPM; 32-beat intro plays once, then 128 beats loop)   // Racer's battle song (144 BPM)
+  corrupted: { file: 'song-agrobacter.js', title: 'Agrobacter (Corrupted Mix)', artist: 'Just Shapes & Beats', lufs: -19.13 },   // peak -2.64 dB
+  racer: { file: 'song-racer.js', title: 'RALLY-X A GO GO', artist: 'Hiroyuki Kawada & Nobuyuki Ohnogi', lufs: -12.49 },   // peak -0.11 dB
+  tanga: { file: 'song-tanga.js', title: 'TILA EN STEREO', artist: 'Rainbowdragoneyes', lufs: -7.66 },   // peak 0 dB
+  neutlin: { file: 'song-neutlin.js', title: 'Come and Find Me (B Mix)', artist: 'Eric Skiff', lufs: -16.84 },   // peak -3.25 dB.   // Neutlin's battle song (CC BY 3.0): 111 BPM, first beat .0635 s; plays 0-4 s once (introBeats 7.2825), then loops 4.0 s to 99.1 s (loopBeats 176 = 44 bars)
+  pancy: { file: 'song-pancy.js', title: 'Drifting Deeper', artist: 'Zef (feat. Stemage)', lufs: -16.9 },   // peak -5.65 dB.   // Pancy's battle song: 120 BPM, first beat .087 s; plays 0-16 s once (introBeats 32), then loops 16.1 s to 112.1 s (loopBeats 192 = 48 bars)
+  slug: { file: 'song-slug.js', title: 'Splash Woman', artist: 'Mega Ran', lufs: -12.17 },   // peak 0 dB.   // $lug Thug's battle song (instrumental; 107 BPM, 112 beats loop)   // Tanga's battle song (160 BPM; 32-beat intro plays once, then 128 beats loop)   // Racer's battle song (144 BPM)
 };
 
 window.SONGS = window.SONGS || {};   // filled in by the song files: SONGS[id] = Base64 mp3
-const MP3 = { id: null, audio: null, cache: {}, loading: {}, want: null };
+const MP3 = { id: null, audio: null, cache: {}, loading: {}, want: null, out: {}, el: {} };
+/* volume multiplier that brings track id to LUFS_TARGET */
+const trackGain = id => { const t = TRACKS[id]; return t && typeof t.lufs == 'number' ? Math.pow(10, (LUFS_TARGET - t.lufs) / 20) : 1; };
+/* the track's own gain node, feeding the game's music volume (mG = SET.music); battle songs and the hub song both play through it */
+function trackOut(id) {
+  if (!MP3.out[id]) { const g = AC.createGain(); g.gain.value = trackGain(id); g.connect(mG); MP3.out[id] = g; }
+  return MP3.out[id];
+}
 
 /* load a song file once; calls done() when its data is ready */
 function loadSong(id, done) {
@@ -60,7 +71,9 @@ function playTrack(id) {
     MP3.id = id;
     MP3.audio = MP3.cache[id];
   }
-  MP3.audio.volume = Math.max(0, Math.min(1, SET.music / 10));
+  /* through the game's audio (so a quiet song can be turned UP): element -> track gain -> music volume */
+  if (!MP3.el[id] && AC && mG) { try { AC.createMediaElementSource(MP3.audio).connect(trackOut(id)); MP3.el[id] = 1; } catch (e) { MP3.el[id] = -1; } }
+  MP3.audio.volume = MP3.el[id] == 1 ? 1 : Math.max(0, Math.min(1, SET.music / 10 * trackGain(id)));   // no Web Audio: plain volume (can only turn down)
   if (MP3.audio.paused) MP3.audio.play().catch(() => {});
 }
 
