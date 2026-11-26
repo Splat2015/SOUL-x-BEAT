@@ -10,17 +10,33 @@
 /* ---------- data ---------- */
 const SHOP_NAMES = ["DANIEL'S SHOP", '???', '???'];
 const shopOpen = (s, k) => k == 0 && !!s.seen.been2;   // Daniel's shop: once you've been to Square Village
-const SHOP_MENU = ['WEAPONS', 'ARMOR', 'ITEMS', 'STORAGE', 'SELL', 'EXIT'];
+/* his menu: BUY (opens the categories), DEALS, SELL, EXIT */
+const MAIN_MENU = ['BUY', 'DEALS', 'SELL', 'EXIT'], BUY_MENU = ['WEAPONS', 'ARMOR', 'ITEMS', 'STORAGE', 'BACK'];
+const shopMenu = () => ST.shop && ST.shop.menu == 'buy' ? BUY_MENU : MAIN_MENU;
+/* special deals: after each won fight there's a DEAL_CHANCE chance he gets one of his weapons / armor with a random Skill Trinket on it.
+   One at a time (a new one replaces it), kept until bought; it costs the gear's BC price + DEAL_SR Soul Relics. */
+const DEAL_CHANCE = .25, DEAL_SR = 5, DEAL_GEAR = ['tslinger', 'slap', 'bbonnet', 'wcloak'];
+function shopDealRoll(s) {
+  if (!shopOpen(s, 0) || Math.random() >= DEAL_CHANCE) return;
+  s.deal = newDeal();
+}
+/* a random deal (gear + trinket), never the same as `old` */
+function newDeal(old) {
+  let d, n = 0;
+  do { d = withTrinket(DEAL_GEAR[Math.floor(Math.random() * DEAL_GEAR.length)], TRINKET_IDS[Math.floor(Math.random() * TRINKET_IDS.length)]); n++; } while (d == old && n < 20);
+  return d;
+}
+const DEAL_REFRESH = 10;   // BC to swap the current deal for a new one
 /* Daniel's stock: [item id, price in BC]. Storage Boxes aren't items: each gives +8 item slots (s.boxes). */
 const SHOP1 = {
-  WEAPONS: [['tslinger', 45], ['slap', 30]],
-  ARMOR: [['wcloak', 40]],
+  WEAPONS: [['slap', 30], ['tslinger', 55]],
+  ARMOR: [['bbonnet', 35], ['wcloak', 50]],
   ITEMS: [['smelon', 14], ['jerky', 18]],
   STORAGE: [['box1', 100], ['box2', 200]],
 };
 const SHOP_BOXES = { box1: { name: 'Storage Box I', n: 1 }, box2: { name: 'Storage Box II', n: 2 } };
 /* selling: half of what the item costs to buy (shop or stand price); items nobody sells go for 5 BC */
-const BUY_PRICE = { pcandy: 12, ppie: 15, ndagger: 15, rvisor: 15, tslinger: 45, slap: 30, wcloak: 40, smelon: 14, jerky: 18 };
+const BUY_PRICE = { pcandy: 12, ppie: 15, ndagger: 15, rvisor: 15, tslinger: 55, slap: 30, bbonnet: 35, wcloak: 50, smelon: 14, jerky: 18 };
 const SELL_DEFAULT = 5;
 const sellPrice = e => { const p = BUY_PRICE[baseId(e)]; return p ? Math.floor(p / 2) : SELL_DEFAULT; };
 
@@ -50,6 +66,11 @@ const DANIEL = {
   sold: "* I'll take it. Don't expect me to be happy about it.",
   hoard: '* Out of boxes. You bought them all, you hoarder.',
   bye: "* Bye. Or don't. I'm not your mom.",
+  deals: "* Special deals. It doesn't happen often.",
+  noDeal: '* No deals today. Check back later, maybe.',
+  dealBuy: "* Enjoy. No, I won't tell you where I got it.",
+  noSR: '* No relics, no deal. Those are the rules.',
+  refresh: '* Picky, huh? Fine. Let me dig around in the back.',
 };
 
 /* ---------- state ---------- */
@@ -63,7 +84,7 @@ function leaveShops() { AC && sfxSel(); storyGo('hub', 0, hubBtns().indexOf('SHO
 function enterShop1() {
   const s = cur();
   ST.scr = 'shop1';
-  ST.shop = { mode: 'menu', m: 0, cat: null, li: 0, top: 0, line: '', t0: 0, pages: null, pi: 0, after: null };
+  ST.shop = { mode: 'menu', menu: 'main', m: 0, cat: null, li: 0, top: 0, line: '', t0: 0, pages: null, pi: 0, after: null };
   AC && sfxGo();
   if (!s.seen.daniel) shopTalk(DANIEL.intro, () => { s.seen.daniel = 1; storySave(); });
   else shopSay(DANIEL.greet[Math.floor(Math.random() * DANIEL.greet.length)]);
@@ -78,6 +99,8 @@ const shopTyping = () => shopChars() < ST.shop.line.length;
 function shopRows(cat) {
   const s = cur();
   if (cat == 'SELL') return s.items.map(e => ({ id: e, name: ITEMS[e].name, price: sellPrice(e), detail: shopDetail(e) }));
+  if (cat == 'DEALS') return s.deal ? [{ id: s.deal, deal: 1, name: ITEMS[s.deal].name, price: BUY_PRICE[baseId(s.deal)], sr: DEAL_SR, detail: shopDetail(s.deal) },
+    { refresh: 1, name: 'Refresh deal', price: DEAL_REFRESH, detail: 'Swap this deal for a new random one.' }] : [];
   if (cat == 'STORAGE') return SHOP1.STORAGE.map(([b, p]) => ({ box: b, name: SHOP_BOXES[b].name, price: p, sold: (s.boxes || 0) >= SHOP_BOXES[b].n, detail: 'Holds ' + BOX_CAP + ' items (open it from ITEM)' }));
   return (SHOP1[cat] || []).map(([id, p]) => ({ id, name: ITEMS[id].name, price: p, detail: shopDetail(id) }));
 }
@@ -106,6 +129,24 @@ function shopPick() {
     });
     return;
   }
+  if (r.refresh) {   // swap the deal for a new one
+    if (s.coins < r.price) { shopSay(DANIEL.broke); AC && tone(160, T0(), .18, 'square', .12, 90); return; }
+    askYesNo('', ['Refresh the deal', 'for ' + r.price + ' BC?'], () => {
+      s.coins -= r.price; s.deal = newDeal(s.deal); P.li = 0;
+      storySave(); shopCoin(); shopSay(DANIEL.refresh);
+    });
+    return;
+  }
+  if (r.deal) {
+    if (s.coins < r.price) { shopSay(DANIEL.broke); AC && tone(160, T0(), .18, 'square', .12, 90); return; }
+    if (s.relics < r.sr) { shopSay(DANIEL.noSR); AC && tone(160, T0(), .18, 'square', .12, 90); return; }
+    if (itemsFull(s)) { shopSay(DANIEL.full); AC && tone(160, T0(), .18, 'square', .12, 90); return; }
+    askYesNo('', ['Buy the ' + r.name + ' (' + ITEMS[trinketOf(r.id)].name + ')', 'for ' + r.price + ' BC + ' + r.sr + ' SR?'], () => {
+      s.coins -= r.price; s.relics -= r.sr; s.items.push(r.id); s.deal = null;
+      storySave(); shopChime(); shopSay(DANIEL.dealBuy); P.mode = 'menu';
+    });
+    return;
+  }
   if (r.box) {
     if (r.sold) { if ((s.boxes || 0) >= MAX_BOXES) shopSay(DANIEL.hoard); else storyErr('You already have that box.'); return; }
     if (SHOP_BOXES[r.box].n > (s.boxes || 0) + 1) { storyErr('Buy Storage Box I first.'); return; }
@@ -120,14 +161,19 @@ function shopPick() {
   });
 }
 function shopMenuPick(m) {
-  const P = ST.shop, s = cur(), c = SHOP_MENU[m];
+  const P = ST.shop, s = cur(), c = shopMenu()[m];
   P.m = m;
   if (c == 'EXIT') { AC && sfxSel(); shopTalk([DANIEL.bye], () => { ST.shop = null; storyGo('shops', 0); }); return; }
+  if (c == 'BUY') { AC && sfxSel(); P.mode = 'menu'; P.menu = 'buy'; P.m = 0; return; }   // the categories
+  if (c == 'BACK') { shopBack(); return; }
   if (c == 'SELL' && !s.items.length) { storyErr('You have no items to sell.'); return; }
+  if (c == 'DEALS' && !s.deal) { AC && sfxSel(); P.mode = 'menu'; shopSay(DANIEL.noDeal); return; }
   AC && sfxSel();
   P.mode = 'list'; P.cat = c; P.li = 0; P.top = 0;
-  shopSay(c == 'STORAGE' && (s.boxes || 0) >= MAX_BOXES ? DANIEL.hoard : DANIEL.cat[c]);
+  shopSay(c == 'DEALS' ? DANIEL.deals : c == 'STORAGE' && (s.boxes || 0) >= MAX_BOXES ? DANIEL.hoard : DANIEL.cat[c]);
 }
+/* X / B in the BUY menu: back to the main menu, on BUY */
+function shopBack() { const P = ST.shop; AC && sfxSel(); P.mode = 'menu'; P.menu = 'main'; P.m = MAIN_MENU.indexOf('BUY'); }
 
 /* ---------- input ---------- */
 function shopPress(c, is) {
@@ -150,10 +196,10 @@ function shopPress(c, is) {
     return;
   }
   if (P.mode == 'menu') {
-    const n = SHOP_MENU.length;
+    const n = shopMenu().length;
     if (is(U) || is(Dn)) { P.m = (P.m + (is(U) ? n - 1 : 1)) % n; AC && sfxSel(); }
     else if (is(OK)) shopMenuPick(P.m);
-    else if (is(NO)) shopMenuPick(SHOP_MENU.indexOf('EXIT'));
+    else if (is(NO)) { if (P.menu == 'buy') shopBack(); else shopMenuPick(MAIN_MENU.indexOf('EXIT')); }
     return;
   }
   const n = shopRows(P.cat).length;   // list
@@ -174,10 +220,11 @@ function shopTap(x, y, inR) {
   }
   const P = ST.shop, press = code => shopPress(code, a => a.includes(code));
   if (P.mode == 'talk') { press(OK[0]); return; }
-  for (let m = 0; m < SHOP_MENU.length; m++) if (inR(SHOPR.x, SHOPR.y + SHOP_MENU_Y + m * SHOP_MENU_GAP - 22, SHOPR.w, SHOP_MENU_GAP)) {
+  const menu = shopMenu();
+  for (let m = 0; m < menu.length; m++) if (inR(SHOPR.x, SHOPR.y + SHOP_MENU_Y + m * SHOP_MENU_GAP - 22, SHOPR.w, SHOP_MENU_GAP)) {
     if (P.mode == 'menu' && P.m == m) shopMenuPick(m);
-    else if (P.mode == 'list' && P.cat == SHOP_MENU[m]) { P.mode = 'menu'; AC && sfxSel(); }
-    else if (SHOP_MENU[m] == 'EXIT' || P.mode == 'list') shopMenuPick(m);   // in a list: another category opens right away
+    else if (P.mode == 'list' && P.cat == menu[m]) { P.mode = 'menu'; AC && sfxSel(); }
+    else if (menu[m] == 'EXIT' || menu[m] == 'BACK' || P.mode == 'list') shopMenuPick(m);   // in a list: another category opens right away
     else { P.m = m; AC && sfxSel(); }
     return;
   }
@@ -286,9 +333,9 @@ function drawShop1() {
       const on = P.li == k, ry = SHOPL.y + SHOP_ROW_Y + (k - top) * SHOP_ROW_GAP, sell = P.cat == 'SELL';
       if (on) soul(x0 + 2, ry - 6, '#19e3ff');
       txt('* ' + r.name, x0 + 22, ry, 17, on ? '#ff0' : '#fff', 'left', 300, true);
-      const tr = sell && trinketOf(r.id);
+      const tr = r.id && trinketOf(r.id);
       if (tr) { g.font = 'bold 17px monospace'; g.fillStyle = ITEMS[tr].col; g.fillRect(x0 + 22 + Math.min(300, g.measureText('* ' + r.name).width) + 8, ry - 12, 12, 12); }
-      txt(r.sold ? 'SOLD OUT' : (sell ? '+' : '') + r.price + ' BC', SHOPL.x + SHOPL.w - 36, ry, 15, r.sold ? '#555' : sell ? '#7dff3d' : s.coins < r.price ? '#ff5a5a' : '#ffd23f', 'right', 0, true);
+      txt(r.sold ? 'SOLD OUT' : (sell ? '+' : '') + r.price + ' BC' + (r.sr ? ' + ' + r.sr + ' SR' : ''), SHOPL.x + SHOPL.w - 36, ry, 15, r.sold ? '#555' : sell ? '#7dff3d' : s.coins < r.price || s.relics < (r.sr || 0) ? '#ff5a5a' : '#ffd23f', 'right', 0, true);
     });
     scrollArrows(SHOPL.x + SHOPL.w - 18, SHOPL.y + SHOP_ROW_Y - 14, SHOPL.y + SHOP_ROW_Y + (SHOP_ROWS - 1) * SHOP_ROW_GAP + 4, top > 0, top + SHOP_ROWS < rows.length);
     const r = rows[P.li];
@@ -296,17 +343,22 @@ function drawShop1() {
     else if (r) txt(r.detail, x0 + 22, SHOPL.y + 196, 14, '#888', 'left', SHOPL.w - 60, true);
   } else if (!big && ST.msgT > 0) txt(ST.msg, x0, SHOPL.y + 196, 14, ST.msgCol, 'left', SHOPL.w - 40, true);
   if (!big) {
-    txt('BEAT COINS ' + s.coins, x0, SHOPL.y + SHOPL.h - 16, 16, '#fff', 'left', 0, true);
+    txt('BC ' + s.coins + '   SR ' + s.relics, x0, SHOPL.y + SHOPL.h - 16, 16, '#fff', 'left', 0, true);
     txt('ITEMS ' + s.items.length + ' / ' + MAX_ITEMS, SHOPL.x + SHOPL.w - 20, SHOPL.y + SHOPL.h - 16, 16, itemsFull(s) ? '#ff5a5a' : '#fff', 'right', 0, true);
   }
   /* right box: the menu */
   shopBox(SHOPR);
-  SHOP_MENU.forEach((c, m) => {
+  shopMenu().forEach((c, m) => {
     const ry = SHOPR.y + SHOP_MENU_Y + m * SHOP_MENU_GAP, sel = P.mode == 'menu' && P.m == m, open = P.mode == 'list' && P.cat == c;
     if (sel) soul(SHOPR.x + 24, ry - 6, '#19e3ff');
     txt(c, SHOPR.x + 44, ry, 17, sel ? '#ff0' : open ? '#fff' : P.mode == 'talk' ? '#444' : '#888', 'left', 0, true);
+    if (c == 'DEALS' && s.deal) {   // a deal is waiting: yellow "!"
+      g.font = 'bold 17px monospace'; const bx = SHOPR.x + 44 + g.measureText(c).width + 16, by = ry - 6;
+      g.fillStyle = '#000'; g.strokeStyle = '#ff0'; g.lineWidth = 2; g.beginPath(); g.arc(bx, by, 10, 0, 7); g.fill(); g.stroke();
+      txt('!', bx, by + 6, 15, '#ff0', 'center', 0, true);
+    }
   });
-  if (!big) txt(P.mode == 'list' ? 'X / B: back' : 'X / B: leave', SHOPR.x + SHOPR.w / 2, SHOPR.y + SHOPR.h - 16, 13, '#777', 'center', 0, true);
+  if (!big) txt(P.mode == 'list' || P.menu == 'buy' ? 'X / B: back' : 'X / B: leave', SHOPR.x + SHOPR.w / 2, SHOPR.y + SHOPR.h - 16, 13, '#777', 'center', 0, true);
 }
 
 function drawShopChoice() {

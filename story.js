@@ -53,6 +53,7 @@ const VILLAGES = {
        Its hits do 7 on the genocide route, 5 otherwise (see storyTaken). */
     soulcerer: {
       id: 'star', bi: 3, name: 'STAR SOULCERER', def: 5, genoDef: 9, bc: 100, exp: 100, sr: 0,
+      chkTail: '* A hero of the old war, sealed in stone.',   // the CHECK's last line(s); ATK / DEF are filled in per route
       spared: [
         '* The corruption drains from the Star Soulcerer.',
         '* Its light settles into a warm, quiet glow.\n* For a moment, it almost looks... relieved.',
@@ -83,19 +84,52 @@ const VILLAGES = {
       "* Far ahead, the Star statue's light flickers.\n* It knows what you've done.",
     ],
   },
-  /* Square Village: still being built (soon = true), so the empty card slots show "???" / COMING SOON and its
-     genocide route / corrupted music stay off until all 8 mini bosses exist. Soul Relics start here. */
+  /* Square Village: complete (8 mini bosses + the Square Soulcerer, 2026-11-26), so its genocide route and corrupted music are live.
+     Soul Relics start here. */
   2: {
     name: 'SQUARE VILLAGE', tname: 'Square Village',
-    shop: false, soon: true, slots: 9,   // 8 mini bosses + the Soulcerer: small cards, 5 on top and 4 (centred) below
+    shop: false, slots: 9,   // 8 mini bosses + the Soulcerer: small cards, 5 on top and 4 (centred) below
     foes: [
       { id: 'racer', bi: 4, def: 6, bc: 25, exp: 60, sr: 2 },
       { id: 'tanga', bi: 5, def: 7, bc: 27, exp: 70, sr: 2 },
       { id: 'slug', bi: 6, def: 5, bc: 20, exp: 75, sr: 2 },   // $lug Thug (SR doubles if the Salt ACT finishes him)
       { id: 'neutlin', bi: 7, def: 7, bc: 30, exp: 80, sr: 2 },   // Neutlin: DEF 7, 30 BC, 80 EXP, 2 SR (all final)
       { id: 'pancy', bi: 8, def: 7, bc: 30, exp: 85, sr: 2 },   // Pancy: DEF 7, 30 BC, 85 EXP, 2 SR (all final)
+      { id: 'darius', bi: 9, def: 8, bc: 32, exp: 90, sr: 2 },   // Darius & Kipto: DEF 8, 32 BC, 90 EXP, 2 SR (all final)
+      { id: 'turret', bi: 10, def: 8, bc: 34, exp: 95, sr: 2 },   // Tourette Turret: DEF 8, 34 BC, 95 EXP, 2 SR (all final)
+      { id: 'pretender', bi: 11, def: 8, bc: 36, exp: 100, sr: 2 },   // The Pretender: DEF 8, 36 BC, 100 EXP, 2 SR (all final; HP 150)
     ],
-    soulcerer: null,
+    /* Square Soulcerer (all final): hits 12 genocide / 10 otherwise (BOSSES dmg 12, storyTaken -2), DEF 9 / 12 genocide, 150 BC, 150 EXP, 10 SR. */
+    soulcerer: {
+      id: 'square', bi: 12, name: 'SQUARE SOULCERER', def: 9, genoDef: 12, bc: 150, exp: 150, sr: 10,
+      chkTail: '* A knight of the old war.\n* It never left its post.',
+      spared: [
+        '* The corruption drains from the Square Soulcerer.',
+        '* Its armor shines again, clean and bright.\n* It kneels, as if its watch is finally over.',
+        '* VILLAGE 2 COMPLETE.',
+      ],
+      killed: [
+        '* The Square Soulcerer cracks apart.',
+        '* Its crown clatters to the ground.',
+        '* For a moment, the whole village holds its breath.',
+        '* VILLAGE 2 COMPLETE.',
+      ],
+      genoKilled: [
+        '* The Square Soulcerer cracks apart.',
+        '* Its crown clatters to the ground.',
+        '* No one is left to pick it up.',
+        '* You can feel the power in your hands.',
+        '* VILLAGE 2 COMPLETE.',
+      ],
+      rest: '* The Square Soulcerer stands guard peacefully.',
+    },
+    /* Genocide: the shops stay open (the user's call). */
+    genoCut: [
+      '* ...',
+      '* Square Village has gone silent.\n* Not a single track left playing.',
+      '* Every door in the village is locked.\n* Only the shopkeepers still dare to look at you.',
+      "* At the heart of the village, the Square statue's crown flickers.\n* It knows what you've done.",
+    ],
     arrive: [
       '* You leave Star Village behind.',
       '* The road stretches on for days.\n* The air grows heavier the further you go.',
@@ -117,7 +151,7 @@ const DOWNED_HP = 4;
 const STANDS = {
   1: [
     { n: 'SNACKS', awn: '#ff7eb3', icon: 'pie', line: '* "Fresh from the oven! Well... mostly fresh."', sell: [['pcandy', 12], ['ppie', 15]] },
-    { n: 'GEAR', awn: '#19e3ff', icon: 'blade', line: '* "Upgrades! Shiny ones! No refunds."', sell: [['ndagger', 15], ['rvisor', 15]] },
+    { n: 'GEAR', awn: '#19e3ff', icon: 'blade', line: '* "Upgrades! Bright and shiny ones!"', sell: [['ndagger', 15], ['rvisor', 15]] },
     { n: 'POTIONS', awn: '#7dff3d', icon: 'flask', line: '* "Finest potions in Star Village! Only the best for you."',
       potions: [['Rhythm Elixir', 3, "Fully restores the party's HP"], ['Tempo Tonic', 5, 'A mysterious fizzy drink']] },
   ],
@@ -162,7 +196,7 @@ const potionRoast = sr => [
   '* "HAHAHAHA! You walked up to a POTION stand\n* with ZERO Soul Relics?!"\n* "You have to be joking me."',
   "* \"Come back when you're a little...\n* hmm, RICHER!\"",
 ];   // HP a downed player comes back with after a won (or fled) fight
-const FOE_IDS = ['prism', 'pulsar', 'maw', 'star', 'racer', 'tanga', 'slug', 'neutlin', 'pancy'];
+const FOE_IDS = ['prism', 'pulsar', 'maw', 'star', 'racer', 'tanga', 'slug', 'neutlin', 'pancy', 'darius', 'turret', 'pretender', 'square'];
 
 /* Items. type: 'weapon' | 'armor' | 'food' | 'potion' | 'trinket'. Shop stock and prices are in shop.js. */
 /* dur = DUR (durability): a weapon loses 1 per attack, armor loses 1 per hit taken; at 0 it breaks (slot becomes none). */
@@ -175,6 +209,7 @@ const ITEMS_RAW = {
   pcandy: { name: 'Pure Candy', type: 'food', heal: 8, info: 'It tastes like Paradise.', eat: "* It's sweet and sparkly." },
   ppie: { name: 'Pink Pie', type: 'food', heal: 12, info: 'A slice of pink pie. Smells... odd.', eat: '* It tastes a little... Corrupted?' },
   tslinger: { name: 'Twinkle Slinger', type: 'weapon', atk: 7, dur: 45, aim: 1, info: "It's a slingshot that shoots starlight. Aim for the center." },   // Daniel's shop; aim: the Bullseye attack (a crosshair on a target instead of the white bar, script.js)
+  bbonnet: { name: 'Block Bonnet', type: 'armor', def: 3, dur: 45, info: 'Sturdy, blocky, and a little too tight around the ears.' },   // Daniel's shop
   wcloak: { name: 'Wistful Cloak', type: 'armor', def: 5, dur: 40, info: "It's a bit worn down, it almost gives feelings of dread and longing." },   // Daniel's shop
   smelon: { name: 'Squaremelon', type: 'food', heal: 6, sp: 9, info: 'Grown in a box. Tastes like summer.', eat: "* It's crunchy and perfectly cubed." },   // Daniel's shop
   jerky: { name: 'Beat Jerky', type: 'food', heal: 15, sp: 0, info: 'Chewy strips of meat, pounded flat to the beat.', eat: '* Chewy. Very chewy. It has a nice rhythm.' },   // Daniel's shop
@@ -184,7 +219,7 @@ const ITEMS_RAW = {
   spot: { name: 'SP Potion', type: 'potion', sp: 10, short: 'Recovers 10 SP', info: 'Recovers 10 SP.' },
   hppot: { name: 'HP Potion', type: 'potion', cost: 10, fx: 'regen', short: 'Heals 10 HP for 3 turns', info: 'Costs 10 SP to drink. Heals 10 HP at the end of each of the next 3 turns.' },
   atkpot: { name: 'ATK Potion', type: 'potion', cost: 15, fx: 'atk', short: '+3 ATK for one battle', info: 'Costs 15 SP to drink. Raises ATK by 3 for one battle.' },
-  defpot: { name: 'DEF Potion', type: 'potion', cost: 15, fx: 'def', short: '+3 DEF for one battle', info: 'Costs 15 SP to drink. Raises DEF by 3 for one battle.' },
+  defpot: { name: 'DEF Potion', type: 'potion', cost: 15, fx: 'def', short: '+1 DEF for one battle', info: 'Costs 15 SP to drink. Raises DEF by 1 for one battle.' },
   /* Skill Trinkets: abilities that go in the box next to equipped weapon / armor (either slot). col = the aura color of an enemy carrying one. */
   poison: { name: 'Poison Trinket', type: 'trinket', col: '#b45bff', info: 'Your hits poison the enemy: 6 damage at the end of each turn, for 3 turns.' },
   speed: { name: 'Speed Trinket', type: 'trinket', col: '#2a45e0', info: 'The wearer moves 20% faster.' },
@@ -192,7 +227,8 @@ const ITEMS_RAW = {
   thorns: { name: 'Thorns Trinket', type: 'trinket', col: '#d6203a', info: 'Whenever the wearer gets hit, the enemy takes 2 damage.' },
 };
 const TRINKET_IDS = ['poison', 'speed', 'regen', 'thorns'];
-const POT_HEAL = 10, POT_TURNS = 3, POT_BOOST = 3;   // HP Potion: +10 HP x 3 turns; ATK / DEF Potions: +3 for one battle
+const POT_HEAL = 10, POT_TURNS = 3, POT_BOOST = 3, POT_DEF = 1;   // HP Potion: +10 HP x 3 turns; ATK Potion: +3 ATK, DEF Potion: +1 DEF, for one battle
+const potBoost = fx => fx == 'def' ? POT_DEF : POT_BOOST;
 const REGEN_HP = 2, FOE_REGEN = 3, THORNS_DMG = 2, FOE_THORNS = 1;   // player Regen / enemy Regen per turn; player Thorns / enemy Thorns damage
 const TRINKET_AURA = .1, POISON_DMG = 6, POISON_TURNS = 3, SPEED_MUL = 1.2;   // 10% of enemies carry a trinket (never a Soulcerer)
 const THEFT_CHANCE = .3;   // each lost story fight: 30% chance one carried item is stolen (see storyLost)
@@ -214,13 +250,13 @@ const EXP_TABLE = [0, 10, 30, 70, 120, 200, 300, 500, 800, 1200, 1700, 2500, 350
   15000, 25000, 50000, 70000, 95000, 125000, 160000, 200000, 250000, 310000, 380000, 460000, 550000, 650000];
 const lvFromExp = exp => { let lv = 1; while (lv < MAX_LV && exp >= EXP_TABLE[lv]) lv++; return lv; };
 const maxHp = lv => 16 + 4 * lv;
-/* SP (stamina/skill points): each dash in a story fight costs 1; 0 SP = no dashing. 30 at LV1, +4 per LV.
+/* SP (stamina/skill points): each dash in a story fight costs 1; 0 SP = no dashing. 30 at LV1, +2 per LV.
    Carries between fights like HP, +4 after every won fight; food gives back half its HP as SP. */
-const maxSp = lv => 26 + 4 * lv, SP_PER_FIGHT = 4;
+const maxSp = lv => 28 + 2 * lv, SP_PER_FIGHT = 4;   // 30 at LV1, +2 per LV
 const foodSp = it => it.sp != null ? it.sp : Math.floor(it.heal / 2);   // it.sp overrides (Squaremelon 9, Beat Jerky 0)
 const foodTxt = it => 'Heals ' + it.heal + ' HP' + (foodSp(it) ? ', +' + foodSp(it) + ' SP' : '');
 const baseAtk = lv => 2 * (lv - 1);
-const baseDef = lv => Math.floor((lv - 1) / 4);
+const baseDef = lv => Math.floor((lv - 1) / 6);   // +1 DEF every 6 levels (LV 7, 13, 19, 25)
 const itemAtk = id => (ITEMS[id] && ITEMS[id].atk) || 0;
 const itemDef = id => (ITEMS[id] && ITEMS[id].def) || 0;
 
@@ -276,7 +312,7 @@ function cleanPlayer(p, max, hp, maxS) {
 }
 function cleanNext(o) {
   if (!o || typeof o != 'object') return null;
-  const r = { regen: nInt(o.regen, 0, POT_TURNS) ? o.regen : 0, atk: o.atk ? POT_BOOST : 0, def: o.def ? POT_BOOST : 0 };
+  const r = { regen: nInt(o.regen, 0, POT_TURNS) ? o.regen : 0, atk: o.atk ? POT_BOOST : 0, def: o.def ? POT_DEF : 0 };
   return r.regen || r.atk || r.def ? r : null;
 }
 const cleanItems = a => Array.isArray(a) ? a.map(id => okItem(id)).filter(Boolean) : [];
@@ -314,6 +350,7 @@ function cleanSave(s) {
     seen: cleanSeen(s.seen),   // one-time events already shown, e.g. { geno1: 1 }
     stock: cleanStock(s.stock),   // abandoned-stand items taken so far, e.g. { pcandy: 2 }
     well: cleanWell(s.well),   // the well in Square Village (well.js)
+    deal: (d => d && slotOf(d) && trinketOf(d) ? d : null)(okItem(s.deal)),   // Daniel's special deal: gear with a Skill Trinket on it, e.g. 'tslinger:45:poison' (shop.js)
     held: Array.isArray(s.held) ? s.held.map(t => okItem(t)).filter(Boolean).slice(0, 8) : [],   // items waiting for an item slot (dropped trinkets, a removed player's gear)
     left: cleanLeft(s.left, maxHp(lv), maxSp(lv)),   // HP / SP of removed players by slot ("2" = P3), given back when that slot is added again
     thefts: Array.isArray(s.thefts) ? s.thefts.map(t => okItem(t)).filter(Boolean).slice(0, 20) : [],   // stolen items not yet announced ("* Your X was stolen." back in the village)
@@ -444,7 +481,7 @@ const fightFoe = () => ST.fight && villageFoes(VILLAGES[cur().village]).find(f =
 /* Genocide route for a village: every mini boss killed 3 times */
 const genoRoute = s => villageGone(s);
 /* a foe's DEF for this file's route (the Soulcerer is tougher on the genocide route) */
-const foeDef = (s, f) => Math.max(0, (f.genoDef != null && genoRoute(s) ? f.genoDef : f.def) - (f.id == 'neutlin' ? neutDefDrop : 0));   // Neutlin's Tug Hood lowers its DEF for the rest of the fight
+const foeDef = (s, f) => Math.max(0, (f.genoDef != null && genoRoute(s) ? f.genoDef : f.def) - (f.id == 'neutlin' ? neutDefDrop : f.id == 'turret' ? trDefDrop : 0));   // Neutlin's Tug Hood / the Turret's Crank It Up lower its DEF for the rest of the fight
 const soulcererDone = s => { const f = s.foes[VILLAGES[s.village].soulcerer.id]; return f.k > 0 || f.sp; };
 function restoreFightSnap() {
   const s = cur(), f = ST.fightItems;
@@ -479,7 +516,7 @@ function storyHit(k, d) {
 /* Enemies carrying a trinket get its ability: Poison = its hits poison the player (3 damage at the end of each of 3 turns, never below 1 HP);
    Speed = each attack you press has a 15% chance to be dodged. */
 const FOE_POISON_DMG = 3, FOE_DODGE = .15;
-const FOE_NAMES = { prism: 'Prism', pulsar: 'Pulsar', maw: 'Maw', star: 'The Star Soulcerer', racer: 'Racer', tanga: 'Tanga', slug: '$lug Thug', neutlin: 'Neutlin', pancy: 'Pancy' };
+const FOE_NAMES = { prism: 'Prism', pulsar: 'Pulsar', maw: 'Maw', star: 'The Star Soulcerer', racer: 'Racer', tanga: 'Tanga', slug: '$lug Thug', neutlin: 'Neutlin', pancy: 'Pancy', darius: 'Darius & Kipto', turret: 'Tourette Turret', pretender: 'The Pretender', square: 'The Square Soulcerer' };
 const storyDodgeMsg = () => '* ' + (ST.fight && FOE_NAMES[ST.fight.id] || 'It') + ' dodged!';
 function storyFoePoison(p) { if (ST.fight && ST.fight.tr == 'poison') p.pois = POISON_TURNS; }   // called when a hit lands on player p
 /* Thorns Trinket: when a hit lands on a wearer, the enemy takes 2 damage right away (the text comes at the end of the turn) */
@@ -608,12 +645,17 @@ function keepHp(gain, spGain) {
     s.players[k].sp = Math.max(0, Math.min(maxS, (p.sp == null ? maxS : p.sp) + (spGain || 0)));   // dashes stay spent
   });
 }
+/* EXP for a kill: the foe's full EXP, or 25% less (rounded) once ANY enemy in this file has been spared (a one-time cut, for good) */
+const SPARE_EXP_CUT = .25;
+const anySpared = s => FOE_IDS.some(id => s.foes[id] && s.foes[id].sp);
+const killExp = (s, foe) => anySpared(s) ? Math.round(foe.exp * (1 - SPARE_EXP_CUT)) : foe.exp;
 /* Battle won: sp = spared. Records the result, gives rewards, returns the win text. */
 function storyWin(sp) {
   const s = cur(), foe = fightFoe(), f = foe && s.foes[foe.id];
   if (!f) return '* YOU WON!';
   if (sp) f.sp = 1; else f.k = Math.min(3, f.k + 1);
   if (s.well.st == 1) s.well.st = 2;   // the well: after a finished fight, Lucaster is heard properly
+  shopDealRoll(s);   // Daniel may get a special deal (shop.js)
   ST.fightItems = null;   // won: food eaten / gear swapped in this fight stays that way
   const v = VILLAGES[s.village], key = 'geno' + s.village, isSoul = foe === v.soulcerer;
   if (isSoul) {
@@ -626,7 +668,7 @@ function storyWin(sp) {
     ST.cut = v.genoCut;
   }
   const salted = !sp && saltKill;   // $lug Thug finished off with the Salt ACT: double Soul Relics
-  const exp = sp ? 0 : foe.exp, bc = foe.bc, sr = foe.sr * (salted ? 2 : 1), oldLv = s.lv;
+  const exp = sp ? 0 : killExp(s, foe), bc = foe.bc, sr = foe.sr * (salted ? 2 : 1), oldLv = s.lv;
   s.exp += exp; s.coins += bc; s.relics += sr;
   s.lv = lvFromExp(s.exp);
   keepHp(maxHp(s.lv) - maxHp(oldLv), maxSp(s.lv) - maxSp(oldLv) + SP_PER_FIGHT);   // level-up raises current HP / SP by the same amount as the max; every won fight gives +4 SP
@@ -733,7 +775,7 @@ function startStoryFight(f) {
   ST.fightItems = null;
   bi = f.bi; mode = s.np;
   if (f === VILLAGES[s.village].soulcerer)   // CHECK shows the route's ATK
-    BOSSES[f.bi].chk = '* ' + f.name + ' - ' + (genoRoute(s) ? 7 : 5) + ' ATK ' + foeDef(s, f) + ' DEF\n* DIFFICULTY: SOULCERER\n* A hero of the old war, sealed in stone.';
+    BOSSES[f.bi].chk = '* ' + f.name + ' - ' + (BOSSES[f.bi].dmg - (genoRoute(s) ? 0 : 2)) + ' ATK ' + foeDef(s, f) + ' DEF\n* DIFFICULTY: SOULCERER\n' + f.chkTail;
   AC && sfxGo();
   startBattle();
 }
@@ -847,7 +889,7 @@ function pickCard(k) {
     if (s.foes[f.id].k >= 3 && f.id == 'slug' && !s.seen.shades) { takeShades(); return; }   // his glasses are still lying there
     if (s.foes[f.id].k >= 3) { AC && sfxGo(); ST.scr = 'nobody'; ST.nbT = performance.now(); return; }
     startStoryFight(f);
-  } else if (!soulcererOpen(s)) storyErr('Spare or defeat all three to face the ' + v.soulcerer.name + '.');
+  } else if (!soulcererOpen(s)) storyErr('Spare or defeat all ' + ({ 3: 'three', 8: 'eight' }[v.foes.length] || v.foes.length) + ' to face the ' + v.soulcerer.name + '.');
   else {
     const st = s.foes[v.soulcerer.id];
     if (st.sp) { AC && sfxSel(); hubSay(v.soulcerer.rest); }                                   // spared: one fight only
@@ -972,7 +1014,7 @@ function drinkItem(k, pi) {
   else {
     p.next = p.next || { regen: 0, atk: 0, def: 0 };
     if (it.fx == 'regen') { p.next.regen = POT_TURNS; line = subj + ' will heal ' + POT_HEAL + ' HP for ' + POT_TURNS + ' turns\n  in the next fight.'; }
-    else { p.next[it.fx] = POT_BOOST; line = poss + ' ' + it.fx.toUpperCase() + ' will rise by ' + POT_BOOST + ' in the next fight.'; }
+    else { p.next[it.fx] = potBoost(it.fx); line = poss + ' ' + it.fx.toUpperCase() + ' will rise by ' + potBoost(it.fx) + ' in the next fight.'; }
   }
   storySave(); if (AC) sfxHeal();
   hubSay('* ' + subj + ' drank the ' + it.name + (cost ? ' (-' + cost + ' SP)' : '') + '.\n* ' + line);
@@ -1071,7 +1113,7 @@ function storyDrink(i, t, it) {
   let l2;
   if (it.sp) { const g = T.sp == null ? it.sp : Math.min(it.sp, T.spMax - T.sp); if (T.sp != null) T.sp += g; l2 = subj + ' recovered ' + g + ' SP.'; }
   else if (it.fx == 'regen') { P.regen = POT_TURNS; l2 = subj + ' will heal ' + POT_HEAL + ' HP for ' + POT_TURNS + ' turns.'; }
-  else { P[it.fx] = POT_BOOST; l2 = poss + ' ' + it.fx.toUpperCase() + ' rose by ' + POT_BOOST + '!'; }
+  else { P[it.fx] = potBoost(it.fx); l2 = poss + ' ' + it.fx.toUpperCase() + ' rose by ' + potBoost(it.fx) + '!'; }
   if (AC) sfxHeal();
   const l1 = solo ? '* You drank the ' + it.name + '.' : t == i ? '* ' + nm + ' drank the ' + it.name + '.' : '* P' + (i + 1) + ' gave the ' + it.name + ' to ' + nm + '.';
   return l1 + '\n* ' + l2;
@@ -1676,7 +1718,7 @@ function drawHub() {
     const on = ST.i == 0 && ST.j == j, x = hubBtnX(j, btns.length);
     g.strokeStyle = on ? '#ff0' : '#888'; g.lineWidth = on ? 3 : 2; g.strokeRect(x, 22, 110, 40);
     txt(b, x + 55, 49, 18, on ? '#ff0' : '#888', 'center', 0, true);
-    if (b == 'TRAVEL' && newVillageReady(s)) {   // yellow "!" on the corner: the next village is open but not visited yet
+    if ((b == 'TRAVEL' && newVillageReady(s)) || (b == 'SHOP' && shopOpen(s, 0) && !s.seen.daniel)) {   // yellow "!" on the corner: the next village is open but not visited yet / Daniel's shop is open but you haven't been in
       const bx = x + 104, by = 20 - bounce * 3;
       g.fillStyle = '#000'; g.beginPath(); g.arc(bx, by, 13, 0, 7); g.fill();
       g.strokeStyle = '#ff0'; g.lineWidth = 2.5; g.beginPath(); g.arc(bx, by, 13, 0, 7); g.stroke();

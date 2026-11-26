@@ -179,7 +179,7 @@ addTR({
 "* Maw grinds its teeth.":["* Maw rechina los dientes.","* Maw grince des dents.","* Maw が歯ぎしりしている。","* Maw 咬牙切齒。","* Maw 咬牙切齿。","* Maw digrigna i denti.","* Maw knirscht mit den Zähnen.","* Maw скрежещет зубами.","* Maw dişlerini gıcırdatıyor."],
 "* The bass wobbles the air.":["* El bajo hace vibrar el aire.","* La basse fait vibrer l'air.","* ベースの揺れで空気がうねっている。","* 低音讓空氣都在震盪。","* 低音让空气都在震荡。","* Il basso fa vibrare l'aria.","* Der Bass lässt die Luft wabern.","* Бас заставляет воздух дрожать.","* Bas havayı titretiyor."],
 "* Maw stares with three eyes.":["* Maw te mira con tres ojos.","* Maw vous fixe de ses trois yeux.","* Maw が3つの目でじっと見つめている。","* Maw 用三隻眼睛盯著你。","* Maw 用三只眼睛盯着你。","* Maw ti fissa con tre occhi.","* Maw starrt dich mit drei Augen an.","* Maw смотрит на тебя тремя глазами.","* Maw üç gözüyle bakıyor."],
-"* Maw - 6 ATK 4 DEF\n* DIFFICULTY: HARD\n* Rumble rectangle who goes hard with the bass, and teeth.":["* Maw - 6 ATQ 4 DEF\n* DIFICULTAD: DIFÍCIL\n* Un rectángulo rugiente que lo da todo con el bajo... y los dientes.","* Maw - 6 ATQ 4 DÉF\n* DIFFICULTÉ : DIFFICILE\n* Un rectangle grondant qui se déchaîne sur la basse, et les dents.","* Maw - ATK 6 DEF 4\n* 難易度：むずかしい\n* ベースと歯で全力をぶつけてくる、うなる長方形。","* Maw - 攻擊 6 防禦 4\n* 難度：困難\n* 隨著低音瘋狂輸出的轟隆長方形，還有牙齒。","* Maw - 攻击 6 防御 4\n* 难度：困难\n* 随着低音疯狂输出的轰隆长方形，还有牙齿。","* Maw - 6 ATT 4 DIF\n* DIFFICOLTÀ: DIFFICILE\n* Un rettangolo rombante che va a tutto basso, e a denti.","* Maw - 6 ANG 4 VER\n* SCHWIERIGKEIT: SCHWER\n* Ein grollendes Rechteck, das bei Bass und Zähnen alles gibt.","* Maw - АТК 6 ЗАЩ 4\n* СЛОЖНОСТЬ: СЛОЖНЫЙ\n* Громыхающий прямоугольник: выкладывается на басу и зубах.","* Maw - SAV 6 SVN 4\n* ZORLUK: ZOR\n* Basla ve dişlerle kendini ortaya koyan gürleyen bir dikdörtgen."],
+"* MAW - 6 ATK 4 DEF\n* DIFFICULTY: HARD\n* Rumble rectangle who goes hard with the bass, and teeth.":["* MAW - 6 ATQ 4 DEF\n* DIFICULTAD: DIFÍCIL\n* Un rectángulo rugiente que lo da todo con el bajo... y los dientes.","* MAW - 6 ATQ 4 DÉF\n* DIFFICULTÉ : DIFFICILE\n* Un rectangle grondant qui se déchaîne sur la basse, et les dents.","* MAW - ATK 6 DEF 4\n* 難易度：むずかしい\n* ベースと歯で全力をぶつけてくる、うなる長方形。","* MAW - 攻擊 6 防禦 4\n* 難度：困難\n* 隨著低音瘋狂輸出的轟隆長方形，還有牙齒。","* MAW - 攻击 6 防御 4\n* 难度：困难\n* 随着低音疯狂输出的轰隆长方形，还有牙齿。","* MAW - 6 ATT 4 DIF\n* DIFFICOLTÀ: DIFFICILE\n* Un rettangolo rombante che va a tutto basso, e a denti.","* MAW - 6 ANG 4 VER\n* SCHWIERIGKEIT: SCHWER\n* Ein grollendes Rechteck, das bei Bass und Zähnen alles gibt.","* MAW - АТК 6 ЗАЩ 4\n* СЛОЖНОСТЬ: СЛОЖНЫЙ\n* Громыхающий прямоугольник: выкладывается на басу и зубах.","* MAW - SAV 6 SVN 4\n* ZORLUK: ZOR\n* Basla ve dişlerle kendini ortaya koyan gürleyen bir dikdörtgen."],
 "* You clap along with the beat.\n* Pulsar seems pleased with your contribution.":["* Aplaudes al ritmo.\n* Pulsar parece contento con tu aportación.","* Vous applaudissez en rythme.\n* Pulsar semble apprécier votre contribution.","* ビートに合わせて手をたたいた。\n* Pulsar は君の参加を喜んでいるようだ。","* 你跟著節拍拍手。\n* Pulsar 似乎很滿意你的參與。","* 你跟着节拍拍手。\n* Pulsar 似乎很满意你的参与。","* Applaudi a ritmo.\n* Pulsar sembra apprezzare il tuo contributo.","* Du klatschst im Takt mit.\n* Pulsar scheint von deinem Beitrag angetan.","* Ты хлопаешь в такт.\n* Pulsar, кажется, доволен твоим вкладом.","* Ritme göre alkışlıyorsun.\n* Pulsar katkından memnun görünüyor."],
 "* You sway your arms and hips.\n* Pulsar seems impressed by your moves.":["* Mueves los brazos y las caderas.\n* Pulsar parece impresionado por tus pasos.","* Vous balancez les bras et les hanches.\n* Pulsar semble impressionné par vos mouvements.","* 腕と腰をゆらした。\n* Pulsar は君の動きに感心しているようだ。","* 你擺動手臂和腰身。\n* Pulsar 似乎對你的舞步印象深刻。","* 你摆动手臂和腰身。\n* Pulsar 似乎对你的舞步印象深刻。","* Muovi le braccia e i fianchi.\n* Pulsar sembra colpito dalle tue mosse.","* Du wiegst Arme und Hüften.\n* Pulsar scheint von deinen Moves beeindruckt.","* Ты покачиваешь руками и бёдрами.\n* Pulsar, кажется, впечатлён твоими движениями.","* Kollarını ve kalçanı sallıyorsun.\n* Pulsar hareketlerinden etkilenmiş görünüyor."],
 "* Pulsar's ATTACK decreases!":["* ¡El ATAQUE de Pulsar disminuye!","* L'ATTAQUE de Pulsar diminue !","* Pulsar の攻撃力が下がった！","* Pulsar 的攻擊力下降了！","* Pulsar 的攻击力下降了！","* L'ATTACCO di Pulsar diminuisce!","* Pulsars ANGRIFF sinkt!","* АТАКА Pulsar снижается!","* Pulsar'ın SALDIRISI azaldı!"],
@@ -473,8 +473,8 @@ const dl=s=>s=='LEFT'?lx('LEFT (direction)').replace(/ \(direction\)$/,''):lx(s)
 /* ---------- bosses ---------- */
 const BOSSES=[
 {n:'PRISM',d:'EASY',dc:'#7dff3d',hp:50,bpm:132,key:60,gen:'chip',song:'Sunny Square',genre:'Chiptune',dmg:4,warn:2,bn:10,rs:200,rn:8,act:40,intro:'* Prism floats in, humming an upbeat tune.',fl:['* Prism bounces to the beat.','* Prism is smiling.','* Prism hums along.'],chk:"* PRISM - 4 ATK 2 DEF\n* DIFFICULTY: EASY\n* He's just looking for someone to dance with."},
-{n:'PULSAR',d:'NORMAL',dc:'#ffb000',hp:70,bpm:128,key:57,gen:'edm',song:'Neon Drop',genre:'EDM',dmg:5,warn:1.5,bn:16,rs:260,rn:10,act:30,intro:'* Pulsar spins up. The bass kicks in!',fl:['* Pulsar throbs with the kick drum.','* The lights are blinding.','* Pulsar is charging up.'],chk:'* PULSAR - 5 ATK 3 DEF\n* DIFFICULTY: NORMAL\n* A star who really likes to rave.'},
-{n:'MAW',d:'HARD',dc:'#ff3030',hp:90,bpm:140,key:53,gen:'dub',song:'Wobble Crown',genre:'Dubstep',dmg:6,warn:1,bn:22,rs:320,rn:14,act:25,hum:10,intro:'* Maw rumbles. The floor shakes.',fl:['* Maw grinds its teeth.','* The bass wobbles the air.','* Maw stares with three eyes.'],chk:'* Maw - 6 ATK 4 DEF\n* DIFFICULTY: HARD\n* Rumble rectangle who goes hard with the bass, and teeth.'},
+{n:'PULSAR',d:'NORMAL',dc:'#ff0',hp:70,bpm:128,key:57,gen:'edm',song:'Neon Drop',genre:'EDM',dmg:5,warn:1.5,bn:16,rs:260,rn:10,act:30,intro:'* Pulsar spins up. The bass kicks in!',fl:['* Pulsar throbs with the kick drum.','* The lights are blinding.','* Pulsar is charging up.'],chk:'* PULSAR - 5 ATK 3 DEF\n* DIFFICULTY: NORMAL\n* A star who really likes to rave.'},
+{n:'MAW',d:'HARD',dc:'#ff3030',hp:90,bpm:140,key:53,gen:'dub',song:'Wobble Crown',genre:'Dubstep',dmg:6,warn:1,bn:22,rs:320,rn:14,act:25,hum:10,intro:'* Maw rumbles. The floor shakes.',fl:['* Maw grinds its teeth.','* The bass wobbles the air.','* Maw stares with three eyes.'],chk:'* MAW - 6 ATK 4 DEF\n* DIFFICULTY: HARD\n* Rumble rectangle who goes hard with the bass, and teeth.'},
 /* story-only (Village 1's Soulcerer): not shown in SOLO / CO-OP / ONLINE boss select. dmg 7 = genocide route; story.js lowers it to 5 otherwise */
 {n:'STAR SOULCERER',d:'SOULCERER',dc:'#ffd23f',hp:150,bpm:150,key:57,gen:'orch',song:'Fallen Constellation',genre:'Synth-orchestral',dmg:7,warn:1.25,bn:12,rs:300,rn:14,act:25,story:1,intro:'* The Star Soulcerer awakens. Its visor flickers.',fl:['* The Soulcerer hums a low, ancient note.','* Starlight gathers around the statue.','* The visor watches you.'],chk:'* STAR SOULCERER - 7 ATK 5 DEF\n* DIFFICULTY: SOULCERER\n* A hero of the old war, sealed in stone.'},
 /* story-only (Square Village mini boss 1). Song: an mp3 (music.js 'racer'): 144 BPM, first beat 0.025 s in, loops every 172 beats.
@@ -492,7 +492,27 @@ const BOSSES=[
 {n:'NEUTLIN',d:'EASY',dc:'#7dff3d',hp:110,bpm:111,mp3:'neutlin',off:.0635,introBeats:7.2825,loopBeats:176,song:'Come and Find Me (B Mix)',artist:'Eric Skiff',dmg:8,warn:2,bn:10,rs:200,rn:8,act:35,story:1,intro:'* Neutlin pops out from the shadows.\n* ...Then regrets doing that.',fl:['* Neutlin shuffles in place, pouting.',"* Neutlin's tail twitches under the cloak.",'* Neutlin tugs the hood a little lower.'],chk:'* NEUTLIN - 8 ATK 7 DEF\n* DIFFICULTY: EASY\n* Hides in its cloak. Secretly wants to be found.'},
 /* story-only (Square Village mini boss 5): PANCY, an angel archer. Song: an mp3 (music.js 'pancy'): 120 BPM, first beat 0.087 s; plays 0-16 s once
    (introBeats 32), then loops 16.1 s to 112.1 s (192 beats). HP 120 / 8 ATK / 7 DEF (the DEF lives in story.js). */
-{n:'PANCY',d:'EASY',dc:'#7dff3d',hp:120,bpm:120,mp3:'pancy',off:.087,introBeats:32,loopBeats:192,song:'Drifting Deeper',artist:'Zef (feat. Stemage)',dmg:8,warn:2,bn:10,rs:200,rn:8,act:35,story:1,intro:'* Pancy descends, bow already drawn.',fl:['* Pancy polishes her golden bowtie.','* Pancy checks her aim. Twice.','* Pancy hums a hymn, slightly off-key.'],chk:'* PANCY - 8 ATK 7 DEF\n* DIFFICULTY: EASY\n* An angel archer. She claims she never misses.'}];
+{n:'PANCY',d:'EASY',dc:'#7dff3d',hp:120,bpm:120,mp3:'pancy',off:.087,introBeats:32,loopBeats:192,song:'Drifting Deeper',artist:'Zef (feat. Stemage)',dmg:8,warn:2,bn:10,rs:200,rn:8,act:35,story:1,intro:'* Pancy descends, bow already drawn.',fl:['* Pancy polishes her golden bowtie.','* Pancy checks her aim. Twice.','* Pancy hums a hymn, slightly off-key.'],chk:'* PANCY - 8 ATK 7 DEF\n* DIFFICULTY: EASY\n* An angel archer. She blames every miss on the wind.'},
+/* story-only (Square Village mini boss 6): DARIUS & KIPTO, a kid riding his Chinese dragon. Darius's attacks are YELLOW and drain SP;
+   Kipto's are PINK and hurt HP. Song: an mp3 (music.js 'darius'): 160 BPM, first beat 0.93 s; plays 0-36.93 s once (introBeats 96), then loops
+   36.93 s to 96.93 s (160 beats). HP 135 / 9 ATK / 8 DEF (the DEF lives in story.js). */
+{n:'DARIUS & KIPTO',d:'EASY',dc:'#7dff3d',hp:135,bpm:160,mp3:'darius',off:.93,introBeats:96,loopBeats:160,song:'Counter Format',artist:'Shirobon',dmg:9,warn:2,bn:10,rs:200,rn:8,act:35,story:1,intro:'* The troublemaker and the firemaker\n  swoop into your sight!',fl:['* Darius and Kipto flash the same sharp grin.','* Darius pumps his fist to the beat.','* Kipto curls lazily through the air.'],chk:"* DARIUS & KIPTO - 9 ATK 8 DEF\n* DIFFICULTY: EASY\n* A brat and his lovable dragon.\n* Watch out: the yellow blobs drain SP."},
+/* story-only (Square Village mini boss 7): TOURETTE TURRET, a round speaker-bot on treads (it). Song: an mp3 (music.js 'turret'): 132 BPM (the user's
+   correction; it was wrongly set to 176 = 4/3 of it); the file is the user's own cut of the song's 2:10 breakdown, after the "hey" (beat 0 at .016 s), plays it once
+   (introBeats 32 = 8 bars), then loops the drop 14.56 s to 72.74 s, the end of the file (loopBeats 128 = 32 bars).
+   HP 140 / 9 ATK / 8 DEF (the DEF lives in story.js). */
+{n:'TOURETTE TURRET',d:'EASY',dc:'#7dff3d',hp:140,bpm:132,mp3:'turret',off:.016,introBeats:32,loopBeats:128,song:'1985',artist:'Sabrepulse',dmg:9,warn:2,bn:10,rs:200,rn:8,act:35,story:1,intro:'* Tourette Turret rolls into position.\n* Its speaker crackles to life.',fl:['* Tourette Turret adjusts its volume knob.','* Static hums from its side speakers.','* Tourette Turret swivels back and forth.'],chk:'* TOURETTE TURRET - 9 ATK 8 DEF\n* DIFFICULTY: EASY\n* A speaker-bot on treads. Loud.'},
+/* story-only (Square Village mini boss 8): THE PRETENDER (real name Jack, he): a nervous figure in a pink-painted scout cloak and smiley mask,
+   pretending to be corrupted (yellow mask / brown cloak underneath). Song: an mp3 (music.js 'pretender'), the user's
+   re-uploaded cut (2026-11-25): 48 bars. Beat 0 = its first hit at .02 s; it loops from there to beat 192 (86.60 s, introBeats 0, loopBeats 192,
+   whole: no beat skip). bpm 133.05 (the user's 133, measured; at 133 the loop ended 30 ms after the last sound faded, a tiny gap the user heard).
+   The file's last .35 s are silent export padding (skipped).
+   HP 150 / 9 ATK / 8 DEF (the DEF lives in story.js), all final. */
+{n:'THE PRETENDER',d:'EASY',dc:'#7dff3d',hp:150,bpm:133.05,mp3:'pretender',off:.02,introBeats:0,loopBeats:192,song:'Electric Children Sucks',artist:'Electric Children',dmg:9,warn:2,bn:10,rs:200,rn:8,act:35,story:1,intro:'* The Pretender shuffles into view.\n* He seems bothered about something.',fl:['* The Pretender adjusts his mask. Twice.','* The Pretender hums along. Off-key. Nervously.','* He looks like he wants to say something\n* But can\'t bring the courage to do so.'],chk:'* THE PRETENDER - 9 ATK 8 DEF\n* DIFFICULTY: EASY\n* Real name Jack.\n* He\'s just trying to blend in.'},
+/* story-only (Square Village boss): SQUARE SOULCERER, a big white square in fancy armor (corner guards with filigree, shoulder plates, crown,
+   cape); pink corruption cracks; pure = pale blue + gold. Song generated in code ('march': "Iron Oath", G minor, 120 BPM).
+   HP 220; hits 12 on the genocide route, 10 otherwise (storyTaken -2); DEF 9 / 12 genocide (story.js); all final. The CHECK is rebuilt per route. */
+{n:'SQUARE SOULCERER',d:'SOULCERER',dc:'#ffd23f',hp:220,bpm:120,key:55,gen:'march',song:'Iron Oath',genre:'Synth-march',dmg:12,warn:1.25,bn:12,rs:300,rn:14,act:25,story:1,intro:'* The Square Soulcerer rises on its pedestal.\n* Its crown catches the light.',fl:['* The Soulcerer stands perfectly still.\n* Not a single corner out of place.','* Its cape stirs, though there is no wind.','* The jewel in its crown pulses with the beat.'],chk:'* SQUARE SOULCERER - 12 ATK 9 DEF\n* DIFFICULTY: SOULCERER\n* A knight of the old war.\n* It never left its post.'}];
 const ACTS=[null,
 [{n:'Clap',m:35,t:'* You clap along with the beat.\n* Pulsar seems pleased with your contribution.'},
  {n:'Vibe',m:25,t:'* You sway your arms and hips.\n* Pulsar seems impressed by your moves.',t2:"* Pulsar's ATTACK decreases!",adj:-2}],
@@ -522,7 +542,28 @@ const ACTS=[null,
    Each plays an ACT animation; Ruffle Feathers plays even though it gives no mercy (anx). */
 [{n:'Applaud',m:35,an:'applaud',t:"* You applaud Pancy's archery.\n* She takes a proud little bow."},
  {n:'Straighten Halo',m:20,fx:'halo',an:'halo',t:"* You reach up and straighten Pancy's halo.\n* She calms down a little.",t2:"* Pancy's next attack will be slower."},
- {n:'Ruffle Feathers',m:0,fx:'ruffle',an:'ruffle',anx:1,t:"* You ruffle Pancy's wings.\n* She gets all flustered!",t2:"* Pancy's next attack will give less warning!"}]];
+ {n:'Ruffle Feathers',m:0,fx:'ruffle',an:'ruffle',anx:1,t:"* You ruffle Pancy's wings.\n* She gets all flustered!",t2:"* Pancy's next attack will give less warning!"}],
+/* Darius & Kipto: Fist Bump (+35, the party recovers SHARE_SP SP), Scratch Chin (+30; Kipto's NEXT attack moves at 75% speed),
+   Mess Up Hair (0; Darius is furious: the NEXT attack is a bigger Blob Splat, 10 blobs, so Kipto doesn't sweep). Each plays an ACT animation. */
+[{n:'Fist Bump',m:35,fx:'bump',an:'bump',t:'* You hold out your fist.\n* Darius bumps it, grinning.'},
+ {n:'Scratch Chin',m:30,fx:'chin',an:'chin',t:"* You scratch under Kipto's chin.\n* Kipto melts into it.",t2:"* Kipto's next attack will be slower."},
+ {n:'Mess Up Hair',m:0,fx:'hair',an:'hair',anx:1,t:"* You ruffle Darius's spiky hair.\n* He is NOT happy about it.",t2:"* Darius's next attack will be bigger!\n* ...but Kipto is staying out of it."}],
+/* Tourette Turret: Polish Speaker (+35), Turn Down (+25; its NEXT attack has fewer shots), Crank It Up (0; its NEXT attack has about a third
+   more shots, but its DEF drops by 2 for the rest of the fight, no stacking). Each plays an ACT animation; Crank It Up plays even though it gives no mercy (anx). */
+[{n:'Polish Speaker',m:35,an:'polish',t:'* You polish the grille of its speaker-eye.\n* Tourette Turret blinks, its eye shining.'},
+ {n:'Turn Down',m:25,fx:'quiet',an:'quiet',t:"* You turn Tourette Turret's volume knob down.\n* It hums a little quieter.",t2:"* Tourette Turret's next attack will be quieter."},
+ {n:'Crank It Up',m:0,fx:'crank',an:'crank',anx:1,t:'* You crank its volume all the way up!\n* Tourette Turret shakes and screeches!',t2:'* Its next attack will be LOUDER!\n* ...but its armor rattled loose.'}],
+/* The Pretender: Call Him Jack (+35; +50 once you have Scratched the Paint), Play Along (+25; his NEXT attack runs at 75% speed),
+   Scratch the Paint (0; his NEXT attack runs at 125% speed, and Call Him Jack gives +50 for the rest of the fight; a brown scratch stays on his cloak).
+   Each plays an ACT animation; Scratch the Paint plays even though it gives no mercy (anx). */
+[{n:'Call Him Jack',m:35,fx:'jack',an:'jack',t:'* You call him by his real name.\n* The Pretender freezes... then gives a tiny nod.'},
+ {n:'Play Along',m:25,fx:'along',an:'along',t:'* You act corrupted too. "Rrrgh. Corruption."\n* The Pretender relaxes a little.',t2:"* The Pretender's next attack will be slower."},
+ {n:'Scratch the Cloak',m:0,fx:'scratch',an:'scratch',anx:1,t:"* You scratch his cloak. It's brown underneath!\n* The Pretender panics!",t2:'* His next attack will be faster...\n* ...but now you know the truth.'}],
+/* Square Soulcerer: Salute (+25), Kneel (+20; its next attack weakens, adj -2), Challenge (0; its next attack strengthens, adj +2,
+   and if NOBODY is hit that turn it gains +35 mercy out of respect: sqChal / sqDuel / sqHit). */
+[{n:'Salute',m:25,t:'* You give the Soulcerer a firm salute.\n* It straightens. Somehow, it seems proud.'},
+ {n:'Kneel',m:20,t:'* You kneel before the Soulcerer.\n* Its cape settles around it.',t2:"* The Soulcerer's next attack weakens!",adj:-2},
+ {n:'Challenge',m:0,fx:'duel',t:'* You challenge the Soulcerer to a duel!\n* Its crown flares. It accepts.',t2:'* Its next attack strengthens...\n* Take no hits, and it will respect you.',adj:2}]];
 /* ---------- input ---------- */
 const L=['ArrowLeft','KeyA','KeyF','KeyJ','PadL'],R=['ArrowRight','KeyD','KeyH','KeyL','PadR'],U=['ArrowUp','KeyW','KeyT','KeyI','PadU'],Dn=['ArrowDown','KeyS','KeyG','KeyK','PadD'],OK=['Enter','KeyZ','Space','KeyR','KeyU','PadA'],NO=['KeyX','Escape','Backspace','KeyY','KeyO','PadB'];
 addEventListener('keydown',e=>{if(e.target&&e.target.tagName=='INPUT')return;if(['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Slash'].includes(e.code))e.preventDefault();initAudio();if(!keys[e.code]&&!(coopTurn()&&keyFreed(e.code)))press(e.code);keys[e.code]=1});
@@ -741,6 +782,32 @@ if(i>=6)noise(t,.05,.05+.03*(i-6)+.004*st,2000);else if(i>=4&&st%2==0)noise(t,.0
 else if(n=='chorus'){if(i==0&&st==0)noise(t,.9,.18,3500);if(st%4==0)kick();if(st==4||st==12)snare();if(st%2)hat(.07);if(st%2==0)tone(mtof(root+12*((st>>1)&1)),t,spb*.45,'sawtooth',.2);
 lead(st%2==0?ORCH_MEL.chorus[i%4][st>>1]:null,.07);if(st%8==4)bell(mtof(key+24+c[2]),.05)}
 else{if(st==0)tone(mtof(root),t,spb*4,'sine',.22);if(st%2==0){const m=ORCH_MEL.brk[i%4][st>>1];if(m!=null)bell(mtof(key+12+m),.1)}}}
+/* ---------- Square Soulcerer: "Iron Oath" (approved draft) ----------
+   A heavy march in sections (56 bars, ~112 s at 120 BPM): intro 8 > march 16 > build 8 > anthem 16 > breakdown 8, then back to the march.
+   Chords are semitones above the key (G minor); melodies are 8th notes above key+12 (null = rest). */
+const MC={i:[0,3,7],VI:[-4,0,3],VII:[-2,2,5],V:[7,11,14],iv:[5,8,12]};
+const MARCH=[{n:'intro',len:8,ch:[MC.i,MC.i,MC.VI,MC.VI,MC.iv,MC.iv,MC.V,MC.V]},{n:'march',len:16,ch:[MC.i,MC.i,MC.VI,MC.VII,MC.i,MC.iv,MC.V,MC.i]},{n:'build',len:8,ch:[MC.iv,MC.iv,MC.VI,MC.VI,MC.VII,MC.VII,MC.V,MC.V]},{n:'anthem',len:16,ch:[MC.i,MC.VI,MC.iv,MC.V]},{n:'brk',len:8,ch:[MC.VI,MC.iv,MC.i,MC.V,MC.VI,MC.iv,MC.V,MC.V]}];
+const MARCH_MEL={march:[[0,__,0,3,7,__,5,3],[2,__,__,__,-2,__,__,__],[3,__,3,5,7,__,8,7],[5,__,__,__,2,__,__,__],[7,__,7,8,10,__,8,7],[5,__,3,__,2,__,-2,__],[0,__,3,__,2,__,-2,__],[0,__,__,__,__,__,__,__]],
+ anthem:[[12,__,10,__,8,__,7,__],[8,__,7,__,5,__,3,__],[5,__,7,__,8,__,10,__],[11,__,__,__,7,__,__,__]],
+ horn:[[0,__,__,__,7,__,__,__],[3,__,__,__,2,__,__,__],[5,__,__,__,3,__,__,__],[2,__,__,__,__,__,__,__]],
+ brk:[[7,__,__,__,5,__,__,__],[3,__,__,__,2,__,__,__],[0,__,__,__,-2,__,__,__],[2,__,__,__,__,__,__,__]]};
+const MARCH_LEN=56,MARCH_LOOP=8;
+function marchSec(sb){let s=0;for(const sec of MARCH){if(sb<s+sec.len)return{sec,i:sb-s};s+=sec.len}return{sec:MARCH[0],i:0}}
+function marchBar(bar){if(mus.lb===bar)return;mus.lb=bar;mus.sb=mus.sb==null?0:mus.sb+1;if(mus.sb>=MARCH_LEN)mus.sb=MARCH_LOOP}
+/* brass: saw + sub square through a lowpass that opens on the attack */
+function brass(f,t,d,v){if(!AC)return;const o=AC.createOscillator(),o2=AC.createOscillator(),fl=AC.createBiquadFilter(),g2=AC.createGain();o.type='sawtooth';o2.type='square';o.frequency.value=f;o2.frequency.value=f/2;fl.type='lowpass';fl.frequency.setValueAtTime(400,t);fl.frequency.linearRampToValueAtTime(2200,t+.06);fl.frequency.linearRampToValueAtTime(1200,t+d);
+ g2.gain.setValueAtTime(.0001,t);g2.gain.linearRampToValueAtTime(v,t+.04);g2.gain.setValueAtTime(v,t+d*.75);g2.gain.linearRampToValueAtTime(.0001,t+d);o.connect(fl);o2.connect(fl);fl.connect(g2);g2.connect(master);[o,o2].forEach(q=>{q.start(t);q.stop(t+d+.05)})}
+function marchStep(b,t,st,spb){const key=b.key,{sec,i}=marchSec(mus.sb||0),n=sec.n,c=sec.ch[i%sec.ch.length],root=key-24+c[0],
+ timp=(m,v)=>{tone(mtof(m),t,.6,'sine',v||.5,mtof(m)*.85);noise(t,.08,.15,400)},snare=v=>{noise(t,.12,v||.28,1900);tone(200,t,.06,'triangle',.1,120)},kick=v=>tone(140,t,.2,'sine',v||.8,40),
+ lead=(m,v,d)=>{if(m!=null)brass(mtof(key+12+m),t,d,v)};
+ if(st==0&&n!='build')for(const q of c)strg(mtof(key+q),t,spb*4,n=='anthem'?.05:.035);
+ if(n=='intro'){if(i<4)snare(.05+.05*(i+st/16)/4);if(st==0)timp(root+12,.55);if(st==8&&i%2)timp(root+19,.4);if(i>=4&&st%2==0)lead(MARCH_MEL.horn[i%4][st>>1],.08,spb*.9)}
+ else if(n=='march'){if(st==0||st==8)kick();if(st==4||st==12)snare();if(st==14||st==15)snare(.12);if(st==6)snare(.08);if(st%4==0)timp(root+12,.25);
+  if(st%2==0){tone(mtof(root+(st%4?7:0)),t,spb*.45,'triangle',.3);lead(MARCH_MEL.march[i%8][st>>1],.065,spb*.45)}}
+ else if(n=='build'){snare(.05+.02*i);if(i>=6&&st%2==0)kick(.7);if(st==0)tone(mtof(root),t,spb*4,'sawtooth',.1);if(st%4==0)brass(mtof(key+c[(st>>2)%3]),t,spb*.9,.04+.006*i)}
+ else if(n=='anthem'){if(i==0&&st==0)noise(t,1.2,.2,3500);if(st%4==0)kick();if(st==4||st==12)snare(.32);if(st%2)noise(t,.03,.06,9000);if(st%2==0)tone(mtof(root+12*((st>>1)&1)),t,spb*.45,'sawtooth',.18);
+  lead(st%2==0?MARCH_MEL.anthem[i%4][st>>1]:null,.075,spb*.45);if(st==0){tone(mtof(key+24+c[2]),t,1,'triangle',.06);tone(mtof(key+24+c[2])*2.01,t,.6,'sine',.024);timp(root+12,.45)}}
+ else{if(st==0){timp(root+12,.4);tone(mtof(root),t,spb*4,'sine',.2)}if(st%2==0){const m=MARCH_MEL.brk[i%4][st>>1];if(m!=null)brass(mtof(key+12+m),t,spb*1.8,.05)}}}
 const CHM=[[0,4,7],[7,11,14],[9,12,16],[5,9,12]],CHN=[[0,3,7],[-4,0,3],[3,7,10],[-2,2,5]];
 function startMusic(b){if(!AC)initAudio();const spb=60/b.bpm;mus={b,spb,t0:(AC?AC.currentTime:0)+.2,step:0,timer:setInterval(sched,25)};bt=-.2/spb;if(b.mp3&&typeof trackBuffer=='function')trackBuffer(b.mp3)}
 function stopMusic(){if(mus){clearInterval(mus.timer);if(mus.src)try{mus.src.stop()}catch(e){}mus=null}}
@@ -748,17 +815,22 @@ function sched(){if(!mus||!AC)return;if(mus.b.mp3){mp3Sched();return}master=mG;t
 /* mp3 boss songs (music.js): beat 0 is b.off seconds into the mp3. b.introBeats (optional) play once; after that the
    next b.loopBeats beats loop forever, so the beat clock (bt) stays on the song's beat. Restarted at the right spot
    if the clock is re-synced. */
+/* Off-beat loops (a loopBeats that isn't whole, like the Turret's): the music jumps back 1/3 beat "early", so the beat
+   clock skips ahead to the next whole beat at each loop. musBt: raw clock beats -> game beats; musRaw: the reverse. */
+const musLoop=()=>{const b=mus&&mus.b;if(!b||!b.mp3||!b.loopBeats||b.loopBeats%1==0)return null;return{B0:b.introBeats!=null?b.introBeats:-(b.off||0)/mus.spb,L:b.loopBeats,W:Math.ceil(b.loopBeats)}};
+function musBt(r){const o=musLoop();if(!o||r<o.B0+o.L)return r;const n=Math.floor((r-o.B0)/o.L);return o.B0+n*o.W+(r-o.B0-n*o.L)}
+function musRaw(x){const o=musLoop();if(!o||x<o.B0+o.L)return x;const n=Math.floor((x-o.B0)/o.W);return o.B0+n*o.L+Math.min(x-o.B0-n*o.W,o.L)}
 function mp3Sched(){const b=mus.b,buf=typeof BUF!='undefined'&&BUF.ready[b.mp3];
 if(mus.src&&AC.state=='running'&&Math.abs(mus.srcT0-mus.t0)>.03){try{mus.src.stop()}catch(e){}mus.src=null}
 if(mus.src)return;if(!buf){trackBuffer(b.mp3);return}
-const sp=mus.spb,ls=b.introBeats?(b.off||0)+b.introBeats*sp:0,L=b.loopBeats?b.loopBeats*sp:buf.duration-ls,le=Math.min(ls+L,buf.duration),
+const sp=mus.spb,ls=b.introBeats!=null?(b.off||0)+b.introBeats*sp:0/* introBeats 0 = loop from beat 0 itself (skips any padding before it) */,L=b.loopBeats?b.loopBeats*sp:buf.duration-ls,le=Math.min(ls+L,buf.duration),
  zero=mus.t0-(b.off||0),at=Math.max(AC.currentTime+.05,zero),p=at-zero,pos=p<le?p:ls+((p-ls)%(le-ls));
-const s=AC.createBufferSource();s.buffer=buf;s.loop=true;s.loopStart=ls;s.loopEnd=le;s.connect(typeof trackOut=='function'?trackOut(b.mp3):mG)/* each song's loudness gain (music.js) */;s.start(at,pos);mus.src=s;mus.srcT0=mus.t0}
+const s=AC.createBufferSource();s.buffer=buf;s.loop=true;s.loopStart=Math.max(0,ls);s.loopEnd=le;s.connect(typeof trackOut=='function'?trackOut(b.mp3):mG)/* each song's loudness gain (music.js) */;s.start(at,pos);mus.src=s;mus.srcT0=mus.t0}
 function sched2(){if(!mus||!AC)return;const{b,spb,t0}=mus,key=b.key;
 while(t0+mus.step*spb/4<AC.currentTime+.15){const k=mus.step,t=t0+k*spb/4,st=k%16,bar=k>>4,ch=(b.gen=='chip'?CHM:CHN)[bar%4],r=key-24+ch[0];
-if(b.gen=='orch'&&st==0)orchBar(bar);
+if(b.gen=='orch'&&st==0)orchBar(bar);if(b.gen=='march'&&st==0)marchBar(bar);
 if(t<AC.currentTime-.1){mus.step++;continue}
-if(b.gen=='orch')orchStep(b,t,st,spb);
+if(b.gen=='orch')orchStep(b,t,st,spb);else if(b.gen=='march')marchStep(b,t,st,spb);
 else if(b.gen=='chip'){
 if(st%4==0)tone(150,t,.15,'sine',.8,45);if(st==4||st==12)noise(t,.12,.3,1800);noise(t,.03,st%2?.05:.09,8000);
 if(st%2==0)tone(mtof(r+(st%8==6?12:0)),t,spb*.4,'triangle',.3);
@@ -848,9 +920,59 @@ else{for(let j=0;j<5;j++){const B=1+j*6,p1=[BX+60+r()*(BW-120),BY+40+r()*(BH-80)
    1 Volley: arrows fall straight down through the board in columns marked on the top edge; solid pink clouds drift left over them (they hurt).
    2 Swoop: she flies up out of sight; 4 dives, each down a lane near the middle marked with 3 down arrows first. */
 ()=>{const opts=[0,1,2].filter(k=>k!==lastPancyAtk),k=opts[Math.floor(r()*opts.length)];lastPancyAtk=k;
-if(k==0){e.push({b:0,t:'pmove',dur:TL});let lx=-999;for(let j=0;j<10;j++){let x,n=0;do{x=BX+40+r()*(BW-80);n++}while(Math.abs(x-lx)<90&&n<30);lx=x;e.push({b:2+j*2.4,t:'arw',x,warn:ARW.warn*pancyWarn})}e.push({b:26.5,t:'snk',fw:SNK.fire*pancyWarn})}
-else if(k==1){for(let B=1;B<30;B+=4.5)e.push({b:B,t:'cloud',y:BY+40+r()*(BH-80)});for(let B=2;B<28;B+=2){const n=r()<.5?1:2,xs=[];for(let j=0;j<n;j++){let x,m=0;do{x=BX+30+r()*(BW-60);m++}while(xs.some(q=>Math.abs(q-x)<90)&&m<30);xs.push(x);e.push({b:B,t:'col',x,warn:COL.warn*pancyWarn})}}}
-else{e.push({b:0,t:'pgone',dur:TL});let lc=BX+BW/2;[3,10,17,24].forEach(B=>{let c,n=0;do{c=BX+BW/2+(r()*2-1)*110;n++}while(Math.abs(c-lc)<50&&n<30);lc=c;e.push({b:B,t:'swp',cx:c,warn:SWP.warn*pancyWarn})})}}][i];
+if(k==0){e.push({b:0,t:'pmove',dur:TL});let lx=-999;for(let j=0;j<10;j++){let x,n=0;do{x=BX+40+r()*(BW-150);n++}while(Math.abs(x-lx)<90&&n<30);lx=x;e.push({b:2+j*2.4,t:'arw',x,warn:ARW.warn*pancyWarn})}e.push({b:26.5,t:'snk',fw:SNK.fire*pancyWarn})}
+else if(k==1){for(let B=1;B<30;B+=4.5)e.push({b:B,t:'cloud',y:BY+40+r()*(BH-80)});e.push({b:.5,t:'vup'});let lx=-999;for(let j=0;j<COL.n;j++){let x,m=0;do{x=BX+30+r()*(BW-60);m++}while(Math.abs(x-lx)<120&&m<40);lx=x;e.push({b:1.5+j*COL.gap,t:'col',x,warn:COL.warn*pancyWarn})}}   /* Volley: one fan of 24 shot up at the start, then they come down one by one */
+else{e.push({b:0,t:'pgone',dur:TL});let la=null;for(let j=0;j<SWP.n;j++){let a,n=0;do{a=r()*Math.PI*2;n++}while(la!=null&&Math.abs((((a-la)%6.2832)+9.4248)%6.2832-3.1416)<.8&&n<30);la=a;e.push({b:3+j*SWP.gap,t:'swp',ang:a,off:(r()*2-1)*SWP.off,warn:SWP.warn*pancyWarn})}}}   /* Swoop: 5 dives, any direction, through the middle */,
+/* 9 DARIUS & KIPTO: one attack per turn, never the same twice in a row. Yellow (Darius) drains SP, pink (Kipto) hurts HP.
+   0 Blob Splat (Darius): 7 big yellow blobs lobbed onto marked spots, each splats into 6 small blobs flying outward.
+   1 Serpent Sweep (Kipto): 5 sweeps along wavy paths shown first, alternating sides; his whole body hurts.
+   2 Team attack: Kipto flies straight through lanes in the upper board while Darius drops 2 blobs per pass onto the floor; they splash up in a fan. */
+()=>{const opts=dkMad?[0]:[0,1,2].filter(k=>k!==lastDariusAtk),k=opts[Math.floor(r()*opts.length)];lastDariusAtk=k;   /* after Mess Up Hair: always Blob Splat, 10 blobs */
+if(k==0){const nb=dkMad?10:7,gp=dkMad?2.6:3.8;let last=null;for(let j=0;j<nb;j++){let x,y,n=0;do{x=BX+60+r()*(BW-120);y=BY+40+r()*(BH-80);n++}while(last&&Math.hypot(x-last[0],y-last[1])<160&&n<30);last=[x,y];e.push({b:1.5+j*gp,t:'blb',x,y,a0:r()*6.28,warn:BLB.warn})}}
+else if(k==1){e.push({b:0,t:'dkgone',dur:TL});for(let j=0;j<5;j++)e.push({b:1+j*6,t:'ksw',dir:j%2?-1:1,amp:35+r()*45,wl:180+r()*140,mid:BY+60+r()*(BH-120),ph:r()*6.28,warn:KSW.warn})}
+else{e.push({b:0,t:'dkgone',dur:TL});for(let j=0;j<5;j++){const xs=[];let n=0;while(xs.length<2&&n<40){const x=BX+90+r()*(BW-180);if(xs.every(q=>Math.abs(q-x)>170))xs.push(x);n++}e.push({b:1+j*6,t:'kst',dir:j%2?-1:1,y:BY+35+r()*80,xs,warn:KST.warn})}}},
+/* 10 TOURETTE TURRET: one attack per turn, never the same twice in a row. All pink (HP).
+   0 Sound Waves: a ring from its speaker eye every 3 beats (11), each with a gap at a new angle.
+   1 Volume Bars: 4 volume bars on the floor (2 per wall) snap to new heights every 2 beats (dashed preview); 2 rectangular speakers take
+     turns landing on every beat of the song, each firing 6 pellets as it lands.
+   2 Beam Fire: it rolls along the top, stops, shows a dashed beam path with 2 bounces, then fires the beam along it (10 per turn).
+   trQ (this turn, from the ACTs): 1 = Turn Down: 8 rings every 4 beats / 4 pellets per burst / 7 beams every 4 beats. 2 = Crank It Up: 15 rings every
+   2 beats / 8 pellets per burst / 3 of the 10 stops fire a second beam at once (13 beams). */
+()=>{const opts=[0,1,2].filter(k=>k!==lastTurretAtk),k=opts[Math.floor(r()*opts.length)],Q=trQ;lastTurretAtk=k;
+if(k==0){const N=Q==1?8:Q==2?15:11,gp=Q==1?4:Q==2?2:3;let la=null;for(let j=0;j<N;j++){let a,n=0;do{a=Math.PI*(.15+.7*r());n++}while(la!=null&&Math.abs(a-la)<.45&&n<20);la=a;e.push({b:1+j*gp,t:'swv',a})}}   /* a ring every 3 beats */
+else if(k==1){const hs=[];for(let s=0;s<19;s++)hs.push([.45+r()*.45,.25+r()*.45,.25+r()*.45,.45+r()*.45]);e.push({b:0,t:'vol',dur:TL,hs,ln:-1,a0:r(),np:Q==1?4:Q==2?8:6})}
+else{const N=Q==1?7:10,gp=Q==1?4:3,aim=(ox,a)=>{const[ex,ey]=trEye(ox),en=ex+(BY-ey)*Math.cos(a)/Math.sin(a);return en>BX+20&&en<BX+BW-20};let lo=0;
+ for(let j=0;j<N;j++){let ox=0,a=Math.PI/2,n=0,ok=false;do{ox=-200+r()*400;a=Math.PI*(.25+.5*r());ok=aim(ox,a)&&Math.abs(ox-lo)>60;n++}while(!ok&&n<40);lo=ox;e.push({b:1+j*gp,t:'tbm',ox,a});
+  if(Q==2&&j%3==1){let a2=0,n2=0,ok2=false;do{a2=Math.PI*(.25+.5*r());ok2=aim(ox,a2)&&Math.abs(a2-a)>.4;n2++}while(!ok2&&n2<40);if(ok2)e.push({b:1+j*gp,t:'tbm',ox,a:a2,dup:1})}}}},
+/* 11 THE PRETENDER: one attack per turn, never the same twice in a row. All pink (HP).
+   0 Mask Boomerang: 4 throws, 7 beats each (2 warn: the dashed path flashes, 4 flight, 1 back on): the spinning mask drops into one side of the
+     board, sweeps across to the other side and returns to his face; the direction alternates and the sweep height changes each throw.
+   1 Wet Paint: a drip every beat at a random spot (never next to the last): it forms at the top edge (1 beat), runs down (1 beat) and splats;
+     the puddle hurts while wet (3 beats), then dries brown (safe) and fades.
+   2 Copycat: a pink fake soul retraces its target's path 1 beat behind for 8 beats, then mirrors it across the centre line for 8, and so on;
+     it flickers the beat before switching. Co-op: ONE copy; at each switch it picks the next player (outlined in that player's color). */
+()=>{const opts=[0,1,2].filter(k=>k!==lastPretAtk),k=opts[Math.floor(r()*opts.length)];lastPretAtk=k;
+const sp=prSpd;   /* Play Along .75 / Scratch the Paint 1.25: 3 or 5 throws, 3 or 5 drips per 4 beats, a lazier or snappier copy */
+if(k==0){const d0=r()<.5?1:-1,gp=PMK.warn+PMK.back+PMK.fly/sp,N=Math.floor((TL-2)/gp);for(let j=0;j<N;j++)e.push({b:1+j*gp,t:'pmk',d:j%2?-d0:d0,row:250+r()*110,sp})}
+else if(k==1){let lx=W/2;const B=[];for(let j=0;j<27;j++){if(sp<1&&j%4==3)continue;B.push(j);if(sp>1&&j%4==1)B.push(j+.5)}
+ for(const b of B){let x,n=0;do{x=BX+30+r()*(BW-60);n++}while(Math.abs(x-lx)<120&&n<20);lx=x;const kk=[];for(let q=0;q<10;q++)kk.push(.8+r()*.4);e.push({b,t:'pdr',x,y:BY+40+r()*(BH-70),r:26+r()*16,k:kk,sp})}}
+else e.push({b:0,t:'pcc',dur:TL,t0i:Math.floor(r()*12),sp})},
+/* 12 SQUARE SOULCERER: one of four attacks per turn, never the same one twice in a row. Phase 2 (low HP): denser and faster.
+   0 Checkerboard: a 10x4 grid; every 4 beats a pattern of squares is outlined (2 beats), then lights up and hurts (1 beat), then a beat's rest. P2: every 3 beats (2 + 1).
+   1 Cornerstones: a corner guard flies off (1 beat marker, half-beat throw), slams on the beat with a square shockwave, then returns;
+     corners one at a time every 4 beats, then all four at once. P2: two at a time, bigger + faster shockwave.
+   2 Royal Cape: every 4 beats an arrow + gap marker (1 beat), then a rippling cape wall with one gap sweeps across (2 beats); alternates sides.
+     P2: every 3 beats, a slightly smaller gap.
+   3 Crown Jewels: the crown fires a spinning square gem (1 beat path preview) that bounces off the walls 3 times; one every 2 beats, then one
+     every beat for the second half of each 16 beats. P2: one every beat, 4 bounces. */
+()=>{const p2=lowHp(),opts=[0,1,2,3].filter(k=>k!==lastSqAtk),k=opts[Math.floor(r()*opts.length)];lastSqAtk=k;
+if(k==0){e.push({b:0,t:'qgrid',dur:TL});if(p2){for(let j=0;j<10;j++)e.push({b:1+3*j,t:'qck',p:j%10,w:2,on:1})}else for(let j=0;j<8;j++)e.push({b:1+4*j,t:'qck',p:j%10,w:2,on:1})}   /* slowed twice (user): every 4 beats (2 warn + 1 lit + 1 rest); P2 every 3 beats (2 + 1) */
+else if(k==1){let lp=null;const tg=q=>{if(q!=null)return{x:BX+BW*(q%2?.78:.22)+(r()-.5)*50,y:BY+BH*(q>>1?.74:.26)+(r()-.5)*24};   /* spread out (user: wider gaps): together = opposite quadrants, near their outer corners */
+  let p,n=0;do{p={x:BX+70+r()*(BW-140),y:BY+60+r()*(BH-120)};n++}while(lp&&Math.hypot(p.x-lp.x,p.y-lp.y)<240&&n<30);lp=p;return p};   /* one at a time: at least 240 px from the last one */
+ if(p2){for(let j=0;j<8;j++){const a=j%2,b2=a+2;[a,b2].forEach((c,z)=>e.push({b:1+4*j,t:'qcs',c,big:1,...tg(z*3)}))}}
+ else{[0,1,2,3].forEach(c=>e.push({b:1+4*c,t:'qcs',c,...tg()}));[0,1,2,3].forEach(c=>e.push({b:17,t:'qcs',c,...tg(c)}));[0,1,2].forEach(c=>e.push({b:21+4*c,t:'qcs',c,...tg()}))}}
+else if(k==2){const N=p2?10:8,gp=p2?3:4,gap=p2?84:100/* widened (user): was 74 / 62 */,sw=p2?1.7:2,d0=r()<.5?1:-1;for(let j=0;j<N;j++)e.push({b:1+gp*j,t:'qcp',dir:j%2?-d0:d0,gy:BY+30+r()*(BH-60-gap),gap,sw})}
+else{const bn=p2?4:3;for(let f=2;f<=32;f++){if(!p2&&!((f%16)>=8||f%2==0))continue;const P=sqGemPath(Math.PI/2+(r()-.5)*1.7,bn);e.push({b:f-1,t:'qcj',P,L:sqCum(P)})}}}][i];   /* Crank It Up: a second beam from the same stop */
 if((uniq||D.story)&&uq)uq();else for(let k=1;k<8;k++){const B=k*4,p=Math.floor(r()*5);
 if(p==0){vb(B,rx());vb(B+2,rx());if(i>1)vb(B+1,rx())}
 else if(p==1){hb(B,ry());hb(B+2,ry());if(i)vb(B+1,rx())}
@@ -893,7 +1015,7 @@ else{tri(a);g.globalAlpha=.3;g.fillStyle='#7dff3d';g.fill();g.globalAlpha=1;g.st
 g.restore()}
 /* ---------- victory animations ---------- */
 let wsp=0,wanim=0,wimg=null,wtiles=[];
-const PUREC=['#d9ffc4','#ffe8b0','#ffc4c4','#ffe27a','#bfe3ff','#5fd63a','#d8c4ff','#bfe3ff','#fdf6ff'],hr=n=>{const x=Math.sin(n*12.9898)*43758.5453;return x-Math.floor(x)};
+const PUREC=['#d9ffc4','#ffe8b0','#ffc4c4','#ffe27a','#bfe3ff','#5fd63a','#d8c4ff','#bfe3ff','#fdf6ff','#4fcf8f','#eef3ff','#8a5a35','#bfe3ff'],hr=n=>{const x=Math.sin(n*12.9898)*43758.5453;return x-Math.floor(x)};
 function winInit(sp){wxT=0;wsp=sp?1:0;wanim=0;wimg=null;wtiles=[];rBoom=0}
 /* Racer doesn't fade away when fought: he shakes, glows, and EXPLODES (fireball, flying parts, smoke, a scorch mark) */
 let rBoom=0;const BOOM_T=.5;
@@ -938,6 +1060,7 @@ if(bi==6&&slugDrops()){const[sx,sy]=SLUG_SHADES0(),fy=SLUG_FLOOR(),t0=.75,f=Math
  if(f>0&&f>=fall)drawFallenShades(sx,y,1,Math.min(1,(f-fall)/.5));else{g.save();g.translate(sx,y);g.scale(SLUG_SC,SLUG_SC);g.rotate(rot);slugShades(2,1);g.restore()}}
 return}
 /* spared: corruption flakes off, boss turns pure */
+if(bi==11){prSpare(t,bx,by);return}   /* The Pretender was never corrupted: his paint chips fall to the floor; no glow, no sparkles */
 const p=Math.min(1,Math.max(0,(t-.5)/1.8)),sh=t<.5?Math.sin(t*90)*3:0;
 if(p<1){g.globalAlpha=1-p;drawBoss(bi,bx+sh,by,0,1,0)}
 g.globalAlpha=p;drawBoss(bi,bx+sh,by+Math.sin(t*3)*3*p,0,1,1);g.globalAlpha=1;
@@ -969,7 +1092,14 @@ const spm=storyFighting()?storySpeed(p.i):1;/* Speed Trinket: +20% walking speed
 if(p.dash>0){p.dash-=dt;const l=Math.hypot(p.fx,p.fy)||1;vx=p.fx/l*760;vy=p.fy/l*760;p.tr.push({x:p.x,y:p.y,a:.6})}
 p.x=Math.min(BX+BW-12,Math.max(BX+12,p.x+vx*dt));p.y=Math.min(BY+BH-12,Math.max(BY+12,p.y+vy*dt));
 p.tr.forEach(t=>t.a-=dt*4);p.tr=p.tr.filter(t=>t.a>0)}
-function hurt(p){if(p.inv>0||p.dash>0||p.down)return;p.hp=Math.max(0,p.hp-storyTaken(p.i,BO.dmg+dmgNow));if(storyFighting()){storyWear(p.i,'armor');/* each landed hit costs the armor 1 DUR */storyFoePoison(p)/* a Poison enemy's hit poisons you */;storyThorns(p)/* your Thorns Trinket pricks the enemy */}p.inv=1.2;p.hit=performance.now();shake=10;sfxHit();if(!p.hp){p.down=1;p.rev=0;lastDn=p.i}}
+/* Darius's YELLOW hits: they drain SP instead of HP (the same amount an HP hit would take: ATK - DEF, at least 1).
+   At 0 SP they do nothing more. Fights without SP (free modes) take it as a normal hit. */
+function hurtSP(p){if(p.sp==null){hurt(p);return}
+ if(p.inv>0||p.dash>0||p.down||p.sp<=0)return;
+ p.sp=Math.max(0,p.sp-storyTaken(p.i,BO.dmg+dmgNow));if(storyFighting()){storyWear(p.i,'armor');storyThorns(p)}
+ p.inv=1.2;p.hit=performance.now();p.spH=performance.now();shake=5;sfxSpHit()}
+function sfxSpHit(){if(!AC)return;tone(700,T0(),.14,'square',.1,240);noise(T0(),.06,.08,3000)}
+function hurt(p){if(p.inv>0||p.dash>0||p.down)return;p.hp=Math.max(0,p.hp-storyTaken(p.i,BO.dmg+dmgNow));if(storyFighting()){storyWear(p.i,'armor');/* each landed hit costs the armor 1 DUR */storyFoePoison(p)/* a Poison enemy's hit poisons you */;storyThorns(p)/* your Thorns Trinket pricks the enemy */}if(bi==12)sqHit=1;p.inv=1.2;p.hit=performance.now();shake=10;sfxHit();if(!p.hp){p.down=1;p.rev=0;lastDn=p.i}}
 /* ---------- battle flow ---------- */
 function wrapTxt(t){const cw=ch=>ch.charCodeAt(0)>0x2e7f?1.75:1,vw=q=>{let w=0;for(const ch of q)w+=cw(ch);return w},cut=(q,n)=>{let w=0,k=0;for(const ch of q){w+=cw(ch);if(w>n)break;k+=ch.length}return k};return t.split('\n').map(l=>{const o=[];let c=l;while(vw(c)>43){const n=cut(c,43),cj=/[\u2e80-\uffff]/.test(c.slice(0,n));let k=cj?n:c.lastIndexOf(' ',n);if(k<2)k=n;o.push(c.slice(0,k));c=(cj?'':'  ')+c.slice(k).trim()}o.push(c);return o.join('\n')}).join('\n')}
 function showMsg(t,fn){S='msg';TXT=t;tc=0;nextFn=fn;msgWho=-1}
@@ -990,7 +1120,7 @@ function runQ(q,j,f){if(j>=q.length){if(f.length)startBars(f);else startDodge();
 const i=q[j],k=picks[i],nx=()=>runQ(q,j+1,f),N=players.length,P=(t,fn)=>showMsgP(i,t,fn);
 if(k.k=='a'){
 if(k.s==0)P(BO.chk,nx);
-else if(bi){const A0=ACTS[bi][k.s-1],a=slugAct(A0,A0.m<0?A0.m:shareOf(A0.m,i,N)),go=a.kill?()=>win(0):nx;hapT=a.fx=='salt'||(bi==3&&!(a.m>0))?[]:[a.t,a.t2];angT=bi==3&&a.adj>0?[a.t,a.t2]:[]/* Soulcerer's Mock: angry visor */;spare=Math.max(0,Math.min(100,spare+(a.m<0?a.m:shareOf(a.m,i,N))));if(a.adj)dmgAdj=a.adj;if(a.gr)greenTooth=1;P(a.t,a.t2?()=>P(a.t2,go):go)}
+else if(bi){const A0=ACTS[bi][k.s-1],a=slugAct(A0,A0.m<0?A0.m:shareOf(A0.m,i,N)),go=a.kill?()=>win(0):nx;hapT=a.fx=='salt'||((bi==3||bi==12)&&!(a.m>0))?[]:[a.t,a.t2];angT=(bi==3||bi==12)&&a.adj>0?[a.t,a.t2]:[]/* Soulcerer's Mock: angry visor */;spare=Math.max(0,Math.min(100,spare+(a.m<0?a.m:shareOf(a.m,i,N))));if(a.adj)dmgAdj=a.adj;if(a.gr)greenTooth=1;P(a.t,a.t2?()=>P(a.t2,go):go)}
 else if(k.s==1){spare=Math.min(100,spare+shareOf(BO.act,i,N));hapT=['* You dance! Prism sways.'];P('* You dance! Prism sways.',nx)}
 else{spare=Math.min(100,spare+shareOf(BO.hum||BO.act/2,i,N));players.forEach(p=>{if(!p.down)p.hp=Math.min(p.max,p.hp+4)});hapT=['* You hum along. Prism starts to feel a little better.'];P('* You hum along. Prism starts to feel a little better.',nx)}}
 else if(k.k=='i'){const t=players[k.t];
@@ -1063,7 +1193,7 @@ bars.forEach((b,i)=>{const p=players[b.k],y=BY+54+i*(hb+8);g.fillStyle='#222';g.
 if(aims.length)drawBull(aims.map(b=>b.bull));
 txt(n?'Press your confirm key near the center!':'Shoot when your crosshair is over the center!',BX+BW/2,BY+30,16,'#fff','center')}
 let curFl='',flLast=-1,flRep=0;
-const LOWFL=[["* Prism's smile is flickering.","* Prism's glow is fading.","* Prism is out of breath, but still swaying."],["* Pulsar is sputtering.","* Pulsar's lights are flickering.","* Pulsar's beat is starting to skip."],["* Maw is wheezing, one eye half shut.","* Maw's teeth are chattering.","* Maw is wobbling, but won't fall."],["* The Soulcerer's light flickers.","* Cracks spread across the armor.","* The statue trembles, but holds."],["* Racer's engine is sputtering.","* Black smoke pours from Racer's pipes.","* Racer's paint is cracking all over."],["* Tanga's leaves are falling.","* Tanga's twirls are getting wobbly.","* Cracks run down Tanga's bark."],["* $lug Thug's shades are cracked.","* $lug Thug is drying out.","* $lug Thug's antennae droop."],["* Neutlin's cloak is coming apart at the seams.","* Neutlin's eyes keep drooping, but they stay hidden.","* Neutlin sniffles under the hood."],["* Pancy's halo flickers and cracks.","* Pancy's wings are losing feathers.","* Pancy's aim is getting shaky."]];
+const LOWFL=[["* Prism's smile is flickering.","* Prism's glow is fading.","* Prism is out of breath, but still swaying."],["* Pulsar is sputtering.","* Pulsar's lights are flickering.","* Pulsar's beat is starting to skip."],["* Maw is wheezing, one eye half shut.","* Maw's teeth are chattering.","* Maw is wobbling, but won't fall."],["* The Soulcerer's light flickers.","* Cracks spread across the armor.","* The statue trembles, but holds."],["* Racer's engine is sputtering.","* Black smoke pours from Racer's pipes.","* Racer's paint is cracking all over."],["* Tanga's leaves are falling.","* Tanga's twirls are getting wobbly.","* Cracks run down Tanga's bark."],["* $lug Thug's shades are cracked.","* $lug Thug is drying out.","* $lug Thug's antennae droop."],["* Neutlin's cloak is coming apart at the seams.","* Neutlin's eyes keep drooping, but they stay hidden.","* Neutlin sniffles under the hood."],["* Pancy's halo flickers and cracks.","* Pancy's wings are losing feathers.","* Pancy's aim is getting shaky."],["* Darius and Kipto are both out of breath.","* Darius is holding on tighter.","* Kipto's whiskers droop."],["* Tourette Turret's sp-sp-speaker is crrrackling.","* Sparks fly from its s-s-side vent. BZZT!","* Its tr-tr-treads keep sl-sl-slipping."],["* The Pretender's paint is flaking off.","* The Pretender is sweating under his mask.","* The Pretender keeps glancing at the exit."],["* Cracks race along the Soulcerer's corners.","* Its armor rattles with every beat.","* The crown's jewel flickers, dim."]];
 function lowHp(){return!!BO&&bhp>0&&bhp<=BO.hp*.4}
 function pickFl(){if(spare>=100)return MERCYFL[BOSSES.indexOf(BO)];
 if(neutSulk==1&&bi==7){neutSulk=2;return '* Neutlin is sulking inside the hood.'}   /* after Tug Hood *//* 100% mercy: one fixed line, beats the low-HP lines */
@@ -1071,17 +1201,17 @@ if(neutSulk==1&&bi==7){neutSulk=2;return '* Neutlin is sulking inside the hood.'
 const L=lowHp()?LOWFL[BOSSES.indexOf(BO)]:BO.fl.concat(storyFighting()&&typeof storyExtraFl=='function'?storyExtraFl():[]),c=L.length;
 let n=Math.floor(Math.random()*c);if(n==flLast&&flRep>=2)n=(n+1+Math.floor(Math.random()*(c-1)))%c;if(n==flLast)flRep++;else{flLast=n;flRep=1}
 return L[n]}
-const MERCYFL=["* Prism is glowing softly.\n* It doesn't want to fight anymore.","* Pulsar's beat has slowed to a calm rhythm.","* Maw's jaw hangs loose.\n* It looks almost peaceful.","* The Soulcerer's light steadies.","* Racer's engine settles into a calm idle.","* Tanga sways gently, swishing her pom-poms.","* $lug Thug kicks back. He's done with the beef.","* Neutlin pushes the hood back a little.\n* They almost look relieved.","* Pancy lowers her bow and smiles."];
+const MERCYFL=["* Prism is glowing softly.\n* It doesn't want to fight anymore.","* Pulsar's beat has slowed to a calm rhythm.","* Maw's jaw hangs loose.\n* It looks almost peaceful.","* The Soulcerer's light steadies.","* Racer's engine settles into a calm idle.","* Tanga sways gently, swishing her pom-poms.","* $lug Thug kicks back. He's done with the beef.","* Neutlin pushes the hood back a little.\n* They almost look relieved.","* Pancy lowers her bow and smiles.","* Darius lowers his fist.\n* Kipto rumbles softly.","* Tourette Turret's speaker hums a gentle tune.","* The Pretender's shoulders drop.\n* He looks tired of pretending.","* The Soulcerer lowers its cape.\n* It seems ready to rest."];
 function toMenu(){S='menu';mi=0;TXT=curFl;tc=0;if(players.length>1){picks=players.map(()=>null);pk=Math.max(0,players.findIndex(p=>!p.down&&!p.gone))}}
-function startDodge(){dodgeId++;if(neutSulk==2)neutSulk=0;if(bi==8){pancySpd=pancySlow?.8:1;pancyWarn=pancyRush?.6:1;pancySlow=0;pancyRush=0}   /* Pancy: this turn only, after Straighten Halo / Ruffle Feathers */slugCaught=0;S='dodge';hz=[];dmgNow=dmgAdj;dmgAdj=0;ev=genA(bi,Math.random()<.5);ei=0;tb=(Math.floor(bt/4)+2)*4;players.forEach((p,i)=>{if(!(p.down&&!p.gone)){p.x=spx(i,players.length);p.y=BY+BH/2}p.inv=0;p.dash=0;p.dp=1;p.tr=[];p.rd=0;p.rdp=0})}/* dp=1: the confirm key (often also Dash) may still be held, so a fresh press is needed to dash */
-function startBattle(){BO=BOSSES[bi];slugLuck=0;saltKill=0;slugMad=0;tangaNoPom=0;tangaAngry=0;tangaPomDrop=null;neutSulk=0;neutDefDrop=0;pancySlow=0;pancyRush=0;pancySpd=1;pancyWarn=1;BOSSES[7].chk=BOSSES[7].chk.replace(/\d+ DEF/,'7 DEF');if(net.role=='host')netAssign();players=[...Array(mode)].map((_,i)=>mkP(i));if(storyFighting())storySetup(players);if(net.role=='host')players.forEach(p=>{if(p.i)p.rem=1});bhp=BO.hp;spare=0;items=storyFighting()?0:2;turn=0;dmgAdj=0;dmgNow=0;greenTooth=0;stopMusic();curFl=BO.intro+(storyFighting()?storyIntroExtra():'')/* a thief holding your trinket */;flLast=-1;flRep=0;S='intro';introT=performance.now();introSn=0}
+function startDodge(){dodgeId++;if(neutSulk==2)neutSulk=0;if(bi==8){pancySpd=pancySlow?.8:1;pancyWarn=pancyRush?.6:1;pancySlow=0;pancyRush=0}if(bi==12){sqDuel=sqChal;sqChal=0;sqHit=0}   /* Square Soulcerer: this turn is the duel */if(bi==11){prSpd=prFast&&!prSlow?1.25:prSlow&&!prFast?.75:1;prSlow=0;prFast=0}   /* The Pretender: Play Along / Scratch the Paint, this turn only */if(bi==10){trX=null;trLook=null;trQ=trLoud&&!trQuiet?2:trQuiet&&!trLoud?1:0;trQuiet=0;trLoud=0}   /* Tourette Turret: Turn Down / Crank It Up, this turn only (both at once cancel out) */if(bi==9){dkSpd=kiptoSlow?.75:1;dkMad=dariusMad;kiptoSlow=0;dariusMad=0}   /* Darius & Kipto: Scratch Chin / Mess Up Hair, this turn only */   /* Pancy: this turn only, after Straighten Halo / Ruffle Feathers */slugCaught=0;S='dodge';hz=[];dmgNow=dmgAdj;dmgAdj=0;ev=genA(bi,Math.random()<.5);ei=0;tb=(Math.floor(bt/4)+2)*4;players.forEach((p,i)=>{if(!(p.down&&!p.gone)){p.x=spx(i,players.length);p.y=BY+BH/2}p.inv=0;p.dash=0;p.dp=1;p.tr=[];p.rd=0;p.rdp=0})}/* dp=1: the confirm key (often also Dash) may still be held, so a fresh press is needed to dash */
+function startBattle(){BO=BOSSES[bi];slugLuck=0;saltKill=0;slugMad=0;tangaNoPom=0;tangaAngry=0;tangaPomDrop=null;neutSulk=0;neutDefDrop=0;trQuiet=0;trLoud=0;trQ=0;trDefDrop=0;prSlow=0;prFast=0;prSpd=1;prKnown=0;sqChal=0;sqDuel=0;sqHit=0;BOSSES[10].chk=BOSSES[10].chk.replace(/\d+ DEF/,'8 DEF');pancySlow=0;pancyRush=0;pancySpd=1;pancyWarn=1;BOSSES[7].chk=BOSSES[7].chk.replace(/\d+ DEF/,'7 DEF');if(net.role=='host')netAssign();players=[...Array(mode)].map((_,i)=>mkP(i));if(storyFighting())storySetup(players);if(net.role=='host')players.forEach(p=>{if(p.i)p.rem=1});bhp=BO.hp;spare=0;items=storyFighting()?0:2;turn=0;dmgAdj=0;dmgNow=0;greenTooth=0;stopMusic();curFl=BO.intro+(storyFighting()?storyIntroExtra():'')/* a thief holding your trinket */;flLast=-1;flRep=0;S='intro';introT=performance.now();introSn=0}
 function win(sp){stopMusic();jingle();S='win';tc=0;winInit(sp);if(storyFighting()){winTxt=storyWin(sp);return}const bk='  (Enter: back to boss select)';winTxt=sp?'* YOU WON!\n* You spared '+BO.n+'.\n\n'+bk:'* YOU WON!\n* '+BO.n+' fades away...\n\n'+bk}
 function endAtk(miss){let d=0,q=0;if(!miss){q=atk.bull?atk.bull.q:Math.max(2,Math.abs(atk.x-260)<=6?25:Math.min(24,Math.round(25*(1-(Math.abs(atk.x-260)-6)/254))));d=storyHit(0,q)}
 /* q = timing score (25 = perfect): it picks the slash size, so ATK bonuses don't turn an imperfect hit into a double slash */
 atkFx(d>0?[{k:0,d,q}]:[],d,miss?'* Miss...':d>0?'* '+d+' damage!':storyDodgeMsg()/* a Speed enemy dodged */)}
 function doSub(){
 if(players.length>1){coSub();return}
-if(mi==1){if(subI==0)showMsg(BO.chk,startDodge);else if(bi){const A0=ACTS[bi][subI-1],a=slugAct(A0,A0.m),go=a.kill?()=>win(0):startDodge;hapT=a.fx=='salt'||(bi==3&&!(a.m>0))?[]:[a.t,a.t2];angT=bi==3&&a.adj>0?[a.t,a.t2]:[]/* Soulcerer's Mock: angry visor */;spare=Math.max(0,Math.min(100,spare+a.m));if(a.adj)dmgAdj=a.adj;if(a.gr)greenTooth=1;showMsg(a.t,a.t2?()=>showMsg(a.t2,go):go)}
+if(mi==1){if(subI==0)showMsg(BO.chk,startDodge);else if(bi){const A0=ACTS[bi][subI-1],a=slugAct(A0,A0.m),go=a.kill?()=>win(0):startDodge;hapT=a.fx=='salt'||((bi==3||bi==12)&&!(a.m>0))?[]:[a.t,a.t2];angT=(bi==3||bi==12)&&a.adj>0?[a.t,a.t2]:[]/* Soulcerer's Mock: angry visor */;spare=Math.max(0,Math.min(100,spare+a.m));if(a.adj)dmgAdj=a.adj;if(a.gr)greenTooth=1;showMsg(a.t,a.t2?()=>showMsg(a.t2,go):go)}
 else if(subI==1){spare=Math.min(100,spare+BO.act);hapT=['* You dance! Prism sways.'];showMsg('* You dance! Prism sways.',startDodge)}else{spare=Math.min(100,spare+(BO.hum||BO.act/2));players.forEach(p=>{if(!p.down)p.hp=Math.min(p.max,p.hp+4)});hapT=['* You hum along. Prism starts to feel a little better.'];showMsg('* You hum along. Prism starts to feel a little better.',startDodge)}}
 else if(mi==2&&storyFighting())showMsg(storyUseSolo(subI),startDodge);/* story: food or gear from the shared items */
 else if(mi==2){items--;const rev=players.some(p=>p.down&&!p.gone),low=rev||players.some(p=>!p.gone&&p.hp<p.max-12);players.forEach(p=>{if(p.gone)return;if(p.down){p.down=0;p.hp=Math.min(p.max,8)}else p.hp=Math.min(p.max,p.hp+12)});sfxPie(rev);showMsg('* You ate the Pink Pie.\n* It tastes a little... Corrupted?\n* '+(low?'You recovered 12 HP.':'Your HP was maxed out.')+(rev?'\n* Fallen allies get up!':''),startDodge)}
@@ -1118,7 +1248,7 @@ if(net.role=='guest'){gUpdate(dt);return}
 if(S=='intro'&&(performance.now()-introT)/1000>=2){startMusic(BO);toMenu()}
 if(S=='slash')slashStep();if(S=='win'&&wxT&&net.role!='guest'&&performance.now()-wxT>=600){wxT=0;if(!storyReturn())S='boss';fiT=performance.now()}
 if(net.role!='host')players.forEach(p=>{p.rem=0});
-if(mus){if(AC&&AC.state=='running')bt=(AC.currentTime-mus.t0)/mus.spb;else{bt+=dt/mus.spb;if(AC)mus.t0=AC.currentTime-bt*mus.spb}}else bt=0;tc+=dt*36;if(S=='win')wanim+=dt;
+if(mus){if(AC&&AC.state=='running')bt=musBt((AC.currentTime-mus.t0)/mus.spb);else{bt+=dt/mus.spb;if(AC)mus.t0=AC.currentTime-musRaw(bt)*mus.spb}}else bt=0;tc+=dt*36;if(S=='win')wanim+=dt;
 if(S=='atk'){if(players.length>1){fb.forEach(b=>{if(b.bull){bullStep(b.bull,dt);if(b.bull.end&&!b.done){b.done=1;b.miss=1}return}if(b.done)return;if(b.ls){linesMove(b,347*storyBarSpeed(b.k),dt);if(linesDone(b))finishLines(b)}else{b.x+=dt*347*storyBarSpeed(b.k);if(b.x>=520){b.x=520;b.done=1;b.miss=1}}});if(fb.length&&fb.every(b=>b.done)){fbDone+=dt;if(fbDone>.45){fbDone=0;finishBars()}}}else if(atk.bull){bullStep(atk.bull,dt);if(atk.bull.end)endAtk(atk.bull.miss?1:0)}else if(atk.ls){linesMove(atk,480*storyBarSpeed(0),dt);if(linesDone(atk))endAtkLines()}else{atk.x+=dt*480*storyBarSpeed(0);if(atk.x>=520){atk.x=520;endAtk(1)}}return}
 if(S!='dodge')return;
 while(ei<ev.length&&tb+ev[ei].b<=bt){const e=ev[ei++];hz.push({...e,b:tb+e.b})}
@@ -1199,7 +1329,7 @@ else if(h.t=='spit'){/* $lug Thug's Slime Puddles: pick a landing spot (corners 
  if(age>=SPIT.warn+SPIT.fly&&!h.s2){h.s2=1;noise(T0(),.2,.3,500);tone(140,T0(),.15,'sine',.2,60)}
  if(age>=SPIT.warn+SPIT.fly+SPIT.stay+SPIT.dry)h.dead=1}
 else if(h.t=='pmove'||h.t=='pgone'){if(age>=h.dur)h.dead=1}
-else if(h.t=='arw'){if(!h.s0){h.s0=1;tone(900,T0(),.12,'triangle',.08,300)}const y=arwY(h);if(y!=null&&!h.s1){h.s1=1;noise(T0(),.15,.08,3000)}if(y!=null&&y>=BY+BH-4&&h.stuckT==null){h.stuckT=bt;noise(T0(),.08,.25,700);tone(150,T0(),.1,'square',.1,80)}if(h.stuckT!=null&&(bt-h.stuckT)*SPB()>ARW.stick)h.dead=1}
+else if(h.t=='arw'){if(!h.s0){h.s0=1;tone(900,T0(),.12,'triangle',.08,300)}const u=arwU(h);if(u>=0&&!h.s1){h.s1=1;noise(T0(),.12,.1,3000);tone(600,T0(),.12,'triangle',.07,1300)}if(u>=1&&h.stuckT==null){h.stuckT=bt;noise(T0(),.08,.25,700);tone(150,T0(),.1,'square',.1,80)}if(h.stuckT!=null&&(bt-h.stuckT)*SPB()>ARW.stick)h.dead=1}
 else if(h.t=='snk'){if(!h.s0){h.s0=1;tone(220,T0(),.5,'sawtooth',.06,160)}
  if(age>=(h.fw||SNK.fire)&&h.ox==null){const al=players.filter(p=>!p.down&&!p.gone),tg=al.length?al[Math.floor(Math.random()*al.length)]:players[0],[bx,by]=pancyBow(),ox=Math.min(bx,BX+BW-14),oy=Math.max(BY+14,Math.min(BY+BH-14,by)),dx=tg.x-ox,dy=tg.y-oy,l=Math.hypot(dx,dy)||1;
   h.ox=ox;h.oy=oy;h.dx=dx/l;h.dy=dy/l;h.fb=bt;h.ang=Math.atan2(dy,dx);tone(1300,T0(),.08,'square',.08,400);noise(T0(),.08,.15,4000)}
@@ -1207,9 +1337,43 @@ else if(h.t=='snk'){if(!h.s0){h.s0=1;tone(220,T0(),.5,'sawtooth',.06,160)}
   for(let i=0;i<FIREB.n;i++){const a=na+(i/(FIREB.n-1)-.5)*Math.PI*.95;hz.push({t:'b',x:ex+Math.cos(na)*12,y:ey+Math.sin(na)*12,vx:Math.cos(a)*FIREB.sp*pancySpd,vy:Math.sin(a)*FIREB.sp*pancySpd,r:9,fire:1,lf:3})}
   hz.push({t:'smk',b:bt,x:ex,y:ey});shake=14;noise(T0(),.7,.55,350);tone(70,T0(),.6,'sine',.5,30);noise(T0()+.05,.4,.25,2500);h.dead=1}}}   /* the sneak shot explodes on the wall */
 else if(h.t=='smk'){if(age*SPB()>1.4)h.dead=1}
-else if(h.t=='col'){const y=colY(h);if(y!=null&&!h.s0){h.s0=1;noise(T0(),.18,.08,3200)}if(y!=null&&y-COL.len>BY+BH+10)h.dead=1}
+else if(h.t=='qgrid'){if(age>=h.dur)h.dead=1}   /* Square Soulcerer */
+else if(h.t=='qck'){if(age>=h.w&&!h.s0){h.s0=1;noise(T0(),.1,.12,700);tone(90,T0(),.15,'sine',.2,50)}if(age>=h.w+h.on)h.dead=1}
+else if(h.t=='qcs'){if(age>=QCS.warn&&!h.s0){h.s0=1;shake=Math.max(shake,8);noise(T0(),.25,.3,500);tone(80,T0(),.35,'sine',.45,35)}if(age>=QCS.warn+QCS.stay+QCS.ret)h.dead=1}
+else if(h.t=='qcp'){if(age>=1&&!h.s0){h.s0=1;noise(T0(),.6,.12,1500)}if(age>=1+h.sw+.3)h.dead=1}
+else if(h.t=='qcj'){if(age>=1&&!h.s0){h.s0=1;tone(1568,T0(),.25,'triangle',.08);tone(2349,T0(),.2,'sine',.04)}if(!qcjPos(h,age)&&age>1)h.dead=1}
+else if(h.t=='pmk'){if(age>=PMK.warn&&!h.s0){h.s0=1;tone(300,T0(),.5,'sawtooth',.06,900);noise(T0(),.4,.08,3000)}if(age>=PMK.warn+pmkF(h)&&!h.s1){h.s1=1;tone(1200,T0(),.06,'square',.06);noise(T0(),.05,.12,1500)}if(age>=PMK.warn+pmkF(h)+PMK.back)h.dead=1}   /* The Pretender: whoosh as the mask flies, a click as it goes back on */
+else if(h.t=='pdr'){if(age>=PDR.form+pdrF(h)&&!h.s0){h.s0=1;noise(T0(),.12,.12,1200);tone(180,T0(),.1,'sine',.12,90)}if(age>=PDR.form+pdrF(h)+PDR.wet+PDR.dry+PDR.gone)h.dead=1}   /* splat */
+else if(h.t=='pcc'){if(!h.H){h.H=[];h.x=BX+BW/2;h.y=BY+24;h.k=-1}
+ players.forEach((p,i)=>{const H=h.H[i]||(h.H[i]=[]);H.push([bt,p.x,p.y]);while(H.length>2&&H[0][0]<bt-pccD(h)-.5)H.shift()});   /* everyone's recent path */
+ const k=Math.floor(Math.max(0,age)/PCC.seg);if(k!=h.k){h.k=k;const al=players.map((p,i)=>i).filter(i=>!players[i].down&&!players[i].gone);h.ti=al.length?al[(h.t0i+k)%al.length]:0;h.mir=k%2==1;
+  if(k>0){tone(h.mir?660:440,T0(),.12,'square',.05);tone(h.mir?990:330,T0()+.08,.12,'square',.05)}}   /* switch mode (and target, in co-op) */
+ const T=players[h.ti];if(T){let wx,wy;if(h.mir){wx=2*(BX+BW/2)-T.x;wy=T.y}else{const H=h.H[h.ti],tt=bt-pccD(h);let q=H[0];for(const z of H){if(z[0]<=tt)q=z;else break}wx=q[1];wy=q[2]}
+  const bl=Math.min(1,dt*(h.mir?6:12)*(h.sp||1));h.x+=(wx-h.x)*bl;h.y+=(wy-h.y)*bl}
+ if(age>=h.dur)h.dead=1}
+else if(h.t=='swv'){if(!h.s0){h.s0=1;trFlash=performance.now();tone(90,T0(),.25,'sine',.25,45);noise(T0(),.12,.08,700)}if(swvR(h)>760)h.dead=1}
+else if(h.t=='vol'){if(!h.hq){h.hq=[[],[]];trDrumHits(h.b,h.dur).forEach((x,k)=>h.hq[k%2].push(x));h.pi=[-1,-1];h.hn=[0,0]}   /* the drum hits, speakers taking turns */
+ [0,1].forEach(sp=>{const a=h.hq[sp];while(h.hn[sp]<a.length&&a[h.hn[sp]]<=age){const ta=a[h.hn[sp]++];if(age-ta>.3)continue;const[cx,cy]=volCone(sp,age,h),a0=h.a0*6.28+ta*1.48;h['f'+sp]=age;
+  const np=h.np||6;for(let q=0;q<np;q++){const an=a0+q*6.2832/np;hz.push({t:'b',x:cx,y:cy,vx:Math.cos(an)*VOL.pel,vy:Math.sin(an)*VOL.pel,r:6,b:bt})}tone(110,T0(),.12,'sine',.2,60);noise(T0(),.05,.06,900)}});   /* a speaker lands and thumps out 6 pellets on each drum hit (4 after Turn Down, 8 after Crank It Up) */
+ if(age>=h.dur)h.dead=1}
+else if(h.t=='tbm'){if(age>=0){if(h.from==null){h.from=trX||0;h.P=trBeam(h.ox,h.a)}const e=age;trX=h.from+(h.ox-h.from)*sm2(Math.min(1,e/TBM.move));trLook=e>=TBM.move&&e<TBM.move+TBM.warn+TBM.on?h.a:null;
+  if(e>=TBM.move&&!h.s0){h.s0=1;tone(1400,T0(),.35,'square',.04,2200)}if(e>=TBM.move+TBM.warn&&!h.s1){h.s1=1;noise(T0(),.35,.18,2500);tone(220,T0(),.35,'sawtooth',.08,110)}
+  if(e>=TBM.move+TBM.warn+TBM.on)h.dead=1}}
+else if(h.t=='blb'){if(!h.s0){h.s0=1;tone(880,T0(),.08,'triangle',.06,600)}if(age>=h.warn&&!h.s1){h.s1=1;tone(300,T0(),.18,'sine',.1,600)}
+ if(age>=h.warn+BLB.fly&&!h.landed){h.landed=bt;noise(T0(),.15,.2,900);tone(160,T0(),.15,'sine',.25,70);for(const p of players)if(Math.hypot(p.x-h.x,p.y-h.y)<BLB.r+6)hurtSP(p);
+  for(let q=0;q<BLB.n;q++){const an=h.a0+q*6.2832/BLB.n;hz.push({t:'b',x:h.x,y:h.y,vx:Math.cos(an)*BLB.sp,vy:Math.sin(an)*BLB.sp,r:8,yb:1,b:bt})}}   /* splat: the landing spot hits, 6 small blobs fly out */
+ if(h.landed&&(bt-h.landed)*SPB()>.6)h.dead=1}
+else if(h.t=='ksw'||h.t=='kst'){const a=age-h.warn;if(a>=0&&!h.s0){h.s0=1;noise(T0(),.4,.2,1400);tone(220,T0(),.35,'sawtooth',.05,110)}
+ if(a>=0){const hd=kHead(h,a),body=h.t=='ksw'?KSW.body:KST.body;if(h.dir>0?hd-body>BX+BW+60:hd+body<BX-60)h.dead=1;
+  if(h.t=='kst'){h.tossed=h.tossed||[];const dx=hd-h.dir*150;h.xs.forEach((x,j)=>{if(!h.tossed[j]&&h.dir*(x-dx)<70){h.tossed[j]=1;hz.push({t:'bdr',b:bt,x0:dx,y0:h.y-40,x});tone(500,T0(),.1,'triangle',.07,250)}})}}}   /* Darius drops a blob as he passes over its spot */
+else if(h.t=='bdr'){const fy=BY+BH;if(age>=BDR.fall&&!h.landed){h.landed=bt;noise(T0(),.15,.2,900);tone(160,T0(),.15,'sine',.25,70);for(const p of players)if(Math.abs(p.x-h.x)<BDR.r&&p.y>fy-28)hurtSP(p);
+  for(let q=0;q<BDR.n;q++){const an=Math.PI+(q+.5)*Math.PI/BDR.n;hz.push({t:'b',x:h.x,y:fy-10,vx:Math.cos(an)*BDR.sp,vy:Math.sin(an)*BDR.sp,r:8,yb:1,b:bt})}}   /* splashes up in a fan */
+ if(h.landed&&(bt-h.landed)*SPB()>.6)h.dead=1}
+else if(h.t=='dkgone'){if(age>=h.dur)h.dead=1}
+else if(h.t=='vup'){if(!h.s0){h.s0=1;noise(T0(),.3,.14,3000);tone(500,T0(),.25,'triangle',.08,1500)}if(age*SPB()>.8)h.dead=1}
+else if(h.t=='col'){const y=colY(h);if(y!=null&&!h.s0){h.s0=1;noise(T0(),.12,.05,3200)}if(y!=null&&y-COL.len>BY+BH+10)h.dead=1}
 else if(h.t=='cloud'){if(cloudX(h)<BX-130)h.dead=1}
-else if(h.t=='swp'){const y=swpY(h);if(y!=null&&!h.s0){h.s0=1;noise(T0(),.35,.3,1600);tone(600,T0(),.3,'sawtooth',.06,150)}if(y!=null&&y>BY+BH+140)h.dead=1}
+else if(h.t=='swp'){const d=swpD(h);if(d!=null&&!h.s0){h.s0=1;noise(T0(),.35,.3,1600);tone(600,T0(),.3,'sawtooth',.06,150)}if(d!=null&&d>SWP.from)h.dead=1}
 else if(h.t=='peek'){if(age>=h.warn){h.dead=1;noise(T0(),.12,.2,2400);tone(520,T0(),.1,'triangle',.12,260);const a0=Math.random()*6.283;for(let i=0;i<PEEK.n;i++){const a=a0+i*6.2832/PEEK.n;hz.push({t:'b',x:h.x,y:h.y,vx:Math.cos(a)*PEEK.sp,vy:Math.sin(a)*PEEK.sp,r:7})}}
  else{if(!h.s1&&age>=1){h.s1=1;tone(1400,T0(),.04,'sine',.05)}if(!h.s2&&age>=1.7){h.s2=1;tone(1400,T0(),.04,'sine',.05)}}}
 else if(h.t=='curt'){if(age>=h.warn&&!h.snd){h.snd=1;noise(T0(),.45,.16,900);tone(180,T0(),.4,'sawtooth',.05,90)}if(age>=h.warn&&curtX(h)==null)h.dead=1}
@@ -1237,21 +1401,34 @@ else if(h.t=='cash'){const c=cashPos(h);if(c&&!h.dead){const dx=p.x-c[0],dy=p.y-
  if(h.kind=='gold'){if(Math.hypot(dx,dy)<22){h.dead=1;slugCaught++;if(typeof storyBonusCoin=='function')storyBonusCoin();[0,4,7].forEach((m,i)=>tone(mtof(84+m),T0()+i*.05,.12,'square',.09));hz.push({t:'pop',b:bt,x:c[0],y:c[1]})}}   /* lucky coin: +1 BC */
  else if(h.kind=='bill'?Math.abs(dx)<20&&Math.abs(dy)<13:Math.hypot(dx,dy)<16)hurt(p)}}
 else if(h.t=='spit'){const s=bt-h.b-SPIT.warn-SPIT.fly;if(h.x!=null&&s>.1&&s<SPIT.stay+SPIT.dry*.4){const rx=SPIT.r+5,ry=SPIT.r*.6+5,dx=(p.x-h.x)/rx,dy=(p.y-h.y)/ry;if(dx*dx+dy*dy<1)hurt(p)}}
-else if(h.t=='arw'){const y=arwY(h);if(y!=null&&h.stuckT==null&&segDist(p.x,p.y,{x1:h.x,y1:y,x2:h.x,y2:y-ARW.len})<9)hurt(p)}
+else if(h.t=='arw'){const u=arwU(h);if(u>=0&&h.stuckT==null){const[x,y,a]=arwPos(h,Math.min(1,u)),L=ARW.len*ARW.sc;if(segDist(p.x,p.y,{x1:x,y1:y,x2:x-Math.cos(a)*L,y2:y-Math.sin(a)*L})<ARW.hit)hurt(p)}}
 else if(h.t=='snk'){if(h.ox!=null){const[x,y]=snkPos(h);if(segDist(p.x,p.y,{x1:x,y1:y,x2:x-h.dx*ARW.len,y2:y-h.dy*ARW.len})<9)hurt(p)}}
 else if(h.t=='col'){const y=colY(h);if(y!=null&&segDist(p.x,p.y,{x1:h.x,y1:y,x2:h.x,y2:y-COL.len})<9)hurt(p)}
 else if(h.t=='cloud'){if(cloudParts(h).some(([cx,cy,cr])=>Math.hypot(p.x-cx,p.y-cy)<cr+4))hurt(p)}
-else if(h.t=='swp'){const y=swpY(h);if(y!=null&&Math.abs(p.x-h.cx)<SWP.half&&Math.abs(p.y-y)<50)hurt(p)}
+else if(h.t=='swp'){const d=swpD(h);if(d!=null){const G=swpGeo(h),rx=p.x-G.x0,ry=p.y-G.y0,along=rx*G.c+ry*G.s,side=-rx*G.s+ry*G.c;if(Math.abs(side)<SWP.half&&Math.abs(along-d)<50)hurt(p)}}
 else if(h.t=='curt'){const x=curtX(h);if(x!=null){const x2=x-h.dir*CURT.w,x0=Math.min(x,x2)-(h.dir<0?CURT.tooth:0),x1=Math.max(x,x2)+(h.dir>0?CURT.tooth:0);if(p.x+6>x0&&p.x-6<x1&&(p.y-6<h.gy-CURT.gapH/2||p.y+6>h.gy+CURT.gapH/2))hurt(p)}}
 else if(h.t=='stomp'){const s=(bt-h.b-h.warn)*(mus?mus.spb:.4);if(s>0){const d=Math.hypot(p.x-h.x,p.y-h.y);for(const q of[stompR(s),stompR(s-.45)])if(q!=null&&Math.abs(d-q)<9)hurt(p)}}
 else if(h.t=='shellw'){const x=shellX(h);if(x!=null&&Math.abs(p.x-x)<15){const gh=BH/SHELL.n;for(let r=0;r<SHELL.n;r++){if(h.gaps.includes(r))continue;if(Math.abs(p.y-(BY+gh*(r+.5)))<16){hurt(p);break}}}}
 else if(h.t=='puff'){const s=(bt-h.b)*(mus?mus.spb:.4);if(h.x!=null&&s>.3&&s<h.life-.6&&Math.hypot(p.x-h.x,p.y-h.y)<h.r*.8+5)hurt(p)}
 else if(h.t=='sq'){const a=bt-h.b;if(a>=h.warn&&a<h.warn+h.dur-.1&&Math.max(0,Math.abs(p.x-h.x)-7)+Math.max(0,Math.abs(p.y-h.y)-7)<h.s*.7071)hurt(p)}
+else if(h.t=='qck'){const a=bt-h.b;if(a>=h.w&&a<h.w+h.on){const c=Math.floor((p.x-BX)/QCK.cw),rr=Math.floor((p.y-BY)/QCK.cw);if(c>=0&&c<10&&rr>=0&&rr<4&&SQPAT[h.p](c,rr))hurt(p)}}   /* lit squares */
+else if(h.t=='qcs'){const a=bt-h.b;if(a>=QCS.warn&&a<QCS.warn+QCS.stay){const m=Math.max(Math.abs(p.x-h.x),Math.abs(p.y-h.y));if(m<20)hurt(p);const w=(a-QCS.warn)/(h.big?.8:1);if(w<1&&Math.abs(m-qcsRing(h,w)/2)<10)hurt(p)}}   /* the guard + its shockwave's edge */
+else if(h.t=='qcp'){const cx=qcpX(h,bt-h.b);if(cx!=null&&Math.abs(p.x-cx)<QCP.w/2+6&&!(p.y>h.gy+6&&p.y<h.gy+h.gap-6))hurt(p)}   /* the cape, except its gap */
+else if(h.t=='qcj'){const q=qcjPos(h,bt-h.b);if(q&&q[1]>BY&&Math.max(Math.abs(p.x-q[0]),Math.abs(p.y-q[1]))<QCJ.r+6)hurt(p)}   /* gems */
+else if(h.t=='pmk'){const a=bt-h.b;if(a>=PMK.warn&&a<PMK.warn+pmkF(h)){const[x,y]=prCR(pmkP(h),pmkE(h));if(Math.hypot(p.x-x,p.y-y)<PMK.r+5)hurt(p)}}   /* the flying mask */
+else if(h.t=='pdr'){const w=bt-h.b-PDR.form-pdrF(h);if(w>=.05&&w<PDR.wet){const sc=Math.min(1,.3+w*3),rx=h.r*sc+5,ry=h.r*.6*sc+5;if(((p.x-h.x)/rx)**2+((p.y-h.y)/ry)**2<1)hurt(p)}}   /* wet puddles only */
+else if(h.t=='pcc'){if(h.x!=null&&bt-h.b>=1&&Math.hypot(p.x-h.x,p.y-h.y)<PCC.hit)hurt(p)}   /* the copy (hurts anyone) */
+else if(h.t=='swv'){const[ox,oy]=trEye(),d=Math.hypot(p.x-ox,p.y-oy),rr=swvR(h);if(Math.abs(d-rr)<SWV.thk/2+6){const an=Math.atan2(p.y-oy,p.x-ox),df=Math.abs((((an-h.a)%6.2832)+9.4248)%6.2832-3.1416);if(df>SWV.gw/2)hurt(p)}}   /* the ring, except its gap */
+else if(h.t=='vol'){const F=BY+BH;let hit=false;VOL.bars.forEach((o,q)=>{const x=BX+o,hh=volH(h,q);if(p.x>x-6&&p.x<x+VOL.bw+6&&p.y>F-hh-6)hit=true});
+ [0,1].forEach(q=>{const x=BX+VOL.spk[q];if(p.x>x-6&&p.x<x+VOL.sw+6&&p.y>F-VOL.sh-volHop(h,q,bt-h.b)-6)hit=true});if(hit)hurt(p)}   /* the bars and the speakers themselves */
+else if(h.t=='tbm'){const e=bt-h.b-TBM.move-TBM.warn;if(h.P&&e>=0&&e<TBM.on){for(let q=1;q<h.P.length-1;q++)if(segDist(p.x,p.y,{x1:h.P[q][0],y1:h.P[q][1],x2:h.P[q+1][0],y2:h.P[q+1][1]})<TBM.thk/2+6){hurt(p);break}}}
+else if(h.t=='ksw'||h.t=='kst'){const P=kPts(h);if(P){let hit=Math.hypot(p.x-P[24][0],p.y-P[24][1])<22;for(let q=0;q<24&&!hit;q++)if(segDist(p.x,p.y,{x1:P[q][0],y1:P[q][1],x2:P[q+1][0],y2:P[q+1][1]})<KSW.half+6)hit=true;if(hit)hurt(p)}}
+else if(h.t=='b'&&h.yb){if(Math.hypot(h.x-p.x,h.y-p.y)<h.r+6)hurtSP(p)}   /* Darius's yellow blobs drain SP */
 else if(h.t=='b'&&Math.hypot(h.x-p.x,h.y-p.y)<h.r+6)hurt(p)}}
 for(const p of players)if(p.down&&!p.gone){const o=players.find(q=>q!==p&&!q.down&&Math.hypot(q.x-p.x,q.y-p.y)<36);
 if(o){p.rev+=dt;if(p.rev>=5){p.down=0;p.hp=10;p.inv=1.5;sfxUp()}}else p.rev=Math.max(0,p.rev-dt)}
 if(players.every(p=>p.down)){if(storyFighting())storyLost()/* 30%: an item is stolen */;loseInit(lastDn);S='lose';stopMusic();return}
-if(bt>=tb+TL){hz=[];turn++;curFl=pickFl();if(slugCaught>0)curFl='* You caught '+slugCaught+' BC!';slugCaught=0;slugMad=0;if(tangaNoPom)tangaPomsReturn();tangaNoPom=0;const bk=storyFighting()?storyTurnEnd():[];/* story: poison damage + "Your X broke..." boxes come before the boss's line; poison can finish the boss */const showBk=l=>l.length?showMsg(l[0],()=>showBk(l.slice(1))):bhp<=0?win(0):toMenu();showBk(bk)}}   /* $lug Thug's lucky coins */
+if(bt>=tb+TL){hz=[];turn++;curFl=pickFl();if(slugCaught>0)curFl='* You caught '+slugCaught+' BC!';slugCaught=0;slugMad=0;if(tangaNoPom)tangaPomsReturn();tangaNoPom=0;if(bi==12&&sqDuel){sqDuel=0;if(!sqHit){spare=Math.min(100,spare+35);curFl='* You took no hits.\n* The Soulcerer bows its crown in respect.'}}   /* Challenge won: +35 mercy */const bk=storyFighting()?storyTurnEnd():[];/* story: poison damage + "Your X broke..." boxes come before the boss's line; poison can finish the boss */const showBk=l=>l.length?showMsg(l[0],()=>showBk(l.slice(1))):bhp<=0?win(0):toMenu();showBk(bk)}}   /* $lug Thug's lucky coins */
 /* ---------- drawing ---------- */
 function txt(s,x,y,sz,col,al,mx,raw){s=raw?String(s):lx(s);al=al||'left';const f=n=>'bold '+n+'px monospace'+(FONTS[SET.lang]?','+FONTS[SET.lang]:'')+',sans-serif';g.font=f(sz);g.fillStyle=col||'#fff';g.textAlign=al;const mw=mx||(al=='center'?2*Math.min(x,W-x)-24:al=='right'?x-12:W-x-12),w=g.measureText(s).width;if(w>mw&&mw>40)g.font=f(sz*mw/w);g.fillText(s,x,y)}
 function lines(t,x,y,sz,col){t.split('\n').forEach((l,i)=>txt(l,x,y+i*34,sz,col))}
@@ -1351,26 +1528,36 @@ function drawNeutlin(pure,hurt,low){const A0=g.globalAlpha;   /* the spare cross
    1 Volley: arrows fall straight down through the board in columns marked on the top edge, under solid pink clouds that drift left (clouds hurt).
    2 Swoop: she flies up out of sight; a lane near the middle lights up with 3 down arrows, then she dives straight down through it, very fast. */
 const PANCY_SC=.74,PANCY_DY=24,SPB=()=>mus?mus.spb:.5,sm2=x=>x*x*(3-2*x);
-const ARW={warn:1.5,spd:1000,len:46,stick:1.2},SNK={fire:2,spd:900},COL={warn:2,spd:520,len:46},CLOUD={spd:95},SWP={warn:2.5,spd:1100,half:52,lane:120},FIREB={n:8,sp:170};
+const ARW={warn:1,fly:2,len:46,sc:1.4,hit:12,stick:1.2},SNK={fire:2,spd:900},COL={warn:1,spd:130,len:46,n:24,gap:1},CLOUD={spd:95},SWP={warn:2.5,spd:1100,half:52,lane:120,from:520,n:5,gap:6,off:40},FIREB={n:8,sp:170};
 const pancySide=()=>[BX+BW+36,BY+BH/2];   /* where her centre floats during Arrow Rain */
 const pancyHomeBow=()=>[W/2+(48-108)*PANCY_SC,95+PANCY_DY+(150-125)*PANCY_SC];   /* her bow hand when she is in her usual spot */
 const pancyBow=()=>{const[x,y]=pancySide();return[x+(48-108)*PANCY_SC,y+(150-125)*PANCY_SC]};   /* her bow hand there */
-const arwY=h=>{const a=bt-h.b-h.warn;return a<0?null:Math.min(BY+BH-4,BY-30+ARW.spd*pancySpd*a*SPB())};
+/* Arrow Rain: the floor mark shows for h.warn beats, then she lobs the arrow from her bow; it flies an arc (ARW.fly beats) over the board
+   and comes down nose-first into the mark. Arrows that land farther from her arc higher. arwU = flight progress (<0 not shot yet, 1 = landed). */
+const arwU=h=>(bt-h.b-h.warn)/(ARW.fly/pancySpd);
+function arwPos(h,u){const[bx,by]=pancyBow(),fy=BY+BH-4,pk=BY+30+(h.x-BX)/BW*60,H=(by+fy)/2-pk,y=by+(fy-by)*u-H*4*u*(1-u);
+ return[bx+(h.x-bx)*u,y,Math.atan2((fy-by)-H*4*(1-2*u),h.x-bx)]}   /* [x, y, angle of flight] */
 const snkPos=h=>{const s=(bt-h.fb)*SPB(),v=SNK.spd*pancySpd;return[h.ox+h.dx*v*s,h.oy+h.dy*v*s]};
 const colY=h=>{const a=bt-h.b-h.warn;return a<0?null:BY-50+COL.spd*pancySpd*a*SPB()};
 const cloudX=h=>BX+BW+90-CLOUD.spd*pancySpd*(bt-h.b)*SPB();
 const cloudParts=h=>{const x=cloudX(h),y=h.y;return[[x-30,y+6,26],[x,y-10,32],[x+30,y+6,26],[x,y+10,28]]};
-const swpY=h=>{const a=bt-h.b-h.warn;return a<0?null:BY-90+SWP.spd*pancySpd*a*SPB()};
+/* Swoop: each dive follows a lane through (near) the middle of the board at angle h.ang (any direction), h.off px to the side of the centre.
+   swpD = how far along the lane she is (-SWP.from = before the board, 0 = the middle, +SWP.from = gone); null while the warning shows. */
+const swpD=h=>{const a=bt-h.b-h.warn;return a<0?null:-SWP.from+SWP.spd*pancySpd*a*SPB()};
+const swpGeo=h=>{const c=Math.cos(h.ang),s=Math.sin(h.ang);return{x0:BX+BW/2-s*h.off,y0:BY+BH/2+c*h.off,c,s}};   /* lane centre point + direction */
 /* an arrow with its tip at (x,y) flying in direction ang: white shaft with a pink outline, fletching at the back; tip = tip colour */
-function pArrow(x,y,ang,len,tip,al){g.save();g.globalAlpha*=al==null?1:al;g.translate(x,y);g.rotate(ang);g.lineCap='round';
+function pArrow(x,y,ang,len,tip,al,sc){g.save();g.globalAlpha*=al==null?1:al;g.translate(x,y);g.rotate(ang);if(sc)g.scale(sc,sc);g.lineCap='round';
  g.strokeStyle=PINK;g.lineWidth=6;g.beginPath();g.moveTo(-len,0);g.lineTo(-10,0);g.stroke();g.strokeStyle='#fff';g.lineWidth=2;g.beginPath();g.moveTo(-len,0);g.lineTo(-10,0);g.stroke();
  g.strokeStyle=PINK;g.lineWidth=2.5;g.beginPath();g.moveTo(-len+2,0);g.lineTo(-len-6,-6);g.moveTo(-len+2,0);g.lineTo(-len-6,6);g.moveTo(-len+10,0);g.lineTo(-len+2,-6);g.moveTo(-len+10,0);g.lineTo(-len+2,6);g.stroke();
  g.fillStyle=tip||'#fff';g.strokeStyle=PINK;g.lineWidth=2;g.beginPath();g.moveTo(3,0);g.lineTo(-12,-6.5);g.lineTo(-12,6.5);g.closePath();g.fill();g.stroke();g.lineCap='butt';g.restore()}
-function drawArw(h){const age=bt-h.b,fy=BY+BH-4;
- if(age<.7){const[bx,by]=pancyBow();pArrow(bx,by-age*SPB()*900,-Math.PI/2,ARW.len)}   /* shot up out of sight */
- if(h.stuckT==null){g.globalAlpha=.3;g.strokeStyle=PINK;g.lineWidth=2;g.beginPath();g.moveTo(h.x,BY+4);g.lineTo(h.x,fy-8);g.stroke();
-  g.globalAlpha=SET.reduceFlash?.9:.6+.4*Math.abs(Math.sin(age*Math.PI*2));g.lineWidth=3;g.setLineDash([6,5]);g.beginPath();g.ellipse(h.x,fy-4,20,6,0,0,7);g.stroke();g.setLineDash([]);g.globalAlpha=1}   /* the mark on the floor */
- const y=arwY(h);if(y!=null){g.save();g.beginPath();g.rect(BX,BY,BW,BH);g.clip();pArrow(h.x,y,Math.PI/2,ARW.len,null,h.stuckT!=null?Math.max(0,1-(bt-h.stuckT)*SPB()/ARW.stick):1);g.restore()}}
+function drawArw(h){const age=bt-h.b,fy=BY+BH-4,u=arwU(h);
+ if(h.stuckT==null){g.strokeStyle=PINK;
+  g.globalAlpha=SET.reduceFlash?.9:.6+.4*Math.abs(Math.sin(age*Math.PI*2));g.lineWidth=3;g.setLineDash([6,5]);g.beginPath();g.ellipse(h.x,fy-4,26,7,0,0,7);g.stroke();g.setLineDash([]);g.globalAlpha=1}   /* the mark on the floor */
+ g.save();g.beginPath();g.rect(BX,BY,BW,BH);g.clip();
+ if(h.stuckT==null){const fa=u<0?(SET.reduceFlash?.75:.55+.35*Math.abs(Math.sin(age*Math.PI*2))):Math.max(0,.55*(1-u*1.4));if(fa>0){g.globalAlpha=fa;g.strokeStyle=PINK;g.lineWidth=2.5;g.setLineDash([8,7]);g.beginPath();for(let k=0;k<=24;k++){const[px,py]=arwPos(h,k/24);k?g.lineTo(px,py):g.moveTo(px,py)}g.stroke();g.setLineDash([]);g.globalAlpha=1}}   /* the path it will fly, shown in the air (blinks while waiting, fades once it's shot) */
+ if(u<0){g.restore();return}
+ if(u<1&&!SET.reduceFlash){g.fillStyle=pkCol('#ff86bd');for(let k=1;k<=5;k++){const[tx,ty]=arwPos(h,Math.max(0,u-k*.03));g.globalAlpha=.1*(6-k);g.beginPath();g.arc(tx,ty,3.5,0,7);g.fill()}g.globalAlpha=1}   /* a faint trail */
+ const[x,y,a]=arwPos(h,Math.min(1,u));pArrow(x,y,a,ARW.len,null,h.stuckT!=null?Math.max(0,1-(bt-h.stuckT)*SPB()/ARW.stick):1,ARW.sc);g.restore()}
 function drawSnk(h){if(h.ox==null)return;const[x,y]=snkPos(h);g.save();g.beginPath();g.rect(BX,BY,BW,BH);g.clip();
  g.strokeStyle='rgba(255,255,255,.35)';g.lineWidth=2;for(let k=1;k<4;k++){const o=k*7-14;g.beginPath();g.moveTo(x-h.dx*(ARW.len+10)-h.dy*o,y-h.dy*(ARW.len+10)+h.dx*o);g.lineTo(x-h.dx*(ARW.len+60+k*20)-h.dy*o,y-h.dy*(ARW.len+60+k*20)+h.dx*o);g.stroke()}   /* speed lines */
  pArrow(x,y,h.ang,ARW.len,'#ff2020');g.restore()}
@@ -1378,20 +1565,23 @@ function drawFireball(h){const t=performance.now()/1000,a=h.lf!=null?Math.min(1,
  g.fillStyle='#ffe27a';g.beginPath();g.arc(h.x-1,h.y-1,h.r*.45,0,7);g.fill();g.globalAlpha=1}
 function drawSmk(h){const s=(bt-h.b)*SPB(),u=Math.min(1,s/1.4);if(s<.25){g.globalAlpha=1-s/.25;g.fillStyle='#ffe27a';g.beginPath();g.arc(h.x,h.y,20+s*120,0,7);g.fill()}
  g.fillStyle='#777';[[-14,-20],[16,-8],[-6,18],[22,22],[-26,8]].forEach(([dx,dy],k)=>{g.globalAlpha=.6*(1-u);g.beginPath();g.arc(h.x+dx*(1+u*1.5),h.y+dy*(1+u*1.5)-u*20,10+u*18+k,0,7);g.fill()});g.globalAlpha=1}
+/* the Volley: the whole fan of arrows leaving her bow straight up at once (harmless; they come back down as 'col') */
+function drawVup(h){const s=Math.min(1,(bt-h.b)*SPB()/.6),[bx,by]=pancyHomeBow();for(let i=0;i<9;i++){const a=-Math.PI/2+(i/8-.5)*1.5,d=20+s*190;pArrow(bx+Math.cos(a)*d,by+Math.sin(a)*d,a,COL.len,null,1-s*.8)}}   /* a wide fan of 9 spreading up and out (stands for the whole volley; all COL.n come down) */
 function drawCol(h){const age=bt-h.b,y=colY(h);
- if(age<.6){const[bx,by]=pancyHomeBow();pArrow(bx+(h.x-W/2)*.04,by-age*SPB()*900,-Math.PI/2-(h.x-W/2)*.0006,COL.len)}   /* fired up out of sight */
+
  if(y==null||y<BY+BH){g.globalAlpha=y==null?(SET.reduceFlash?.9:.55+.45*Math.abs(Math.sin(age*Math.PI*2))):.5;g.fillStyle=PINK;g.beginPath();g.moveTo(h.x,BY-4);g.lineTo(h.x-9,BY-18);g.lineTo(h.x+9,BY-18);g.closePath();g.fill();g.globalAlpha=1}   /* column mark above the top edge */
  if(y!=null){g.save();g.beginPath();g.rect(BX,BY,BW,BH);g.clip();pArrow(h.x,y,Math.PI/2,COL.len);g.restore()}}
 function drawCloud(h){const P=cloudParts(h);g.save();g.beginPath();g.rect(BX,BY,BW,BH);g.clip();
  g.fillStyle=pkCol('#ff2e88');P.forEach(([x,y,r])=>{g.beginPath();g.arc(x,y,r+3,0,7);g.fill()});g.fillStyle=pkCol('#ff86bd');P.forEach(([x,y,r])=>{g.beginPath();g.arc(x,y,r,0,7);g.fill()});
  g.fillStyle='rgba(255,255,255,.25)';g.beginPath();g.ellipse(P[1][0]-8,P[1][1]-12,12,6,0,0,7);g.fill();g.restore()}
-function drawSwp(h){const age=bt-h.b,x0=h.cx-SWP.lane/2;
- if(age<h.warn){const f=Math.min(1,age/.5),pul=SET.reduceFlash?1:.55+.45*Math.abs(Math.sin(age*Math.PI*2));
-  g.globalAlpha=.16*f;g.fillStyle=PINK;g.fillRect(x0,BY+2,SWP.lane,BH-4);g.globalAlpha=f;g.strokeStyle=PINK;g.lineWidth=3;g.beginPath();g.moveTo(x0,BY+2);g.lineTo(x0,BY+BH-2);g.moveTo(x0+SWP.lane,BY+2);g.lineTo(x0+SWP.lane,BY+BH-2);g.stroke();
-  g.globalAlpha=f*pul;g.lineWidth=5;g.lineJoin='round';[BY+45,BY+120,BY+195].forEach(cy=>{g.beginPath();g.moveTo(h.cx-30,cy-14);g.lineTo(h.cx,cy+12);g.lineTo(h.cx+30,cy-14);g.stroke()});g.lineJoin='miter';g.globalAlpha=1;return}
- const y=swpY(h);if(y==null)return;g.globalAlpha=.08;g.fillStyle=PINK;g.fillRect(x0,BY+2,SWP.lane,BH-4);g.globalAlpha=.45;g.strokeStyle='#ff86bd';g.lineWidth=4;g.lineCap='round';
- [-30,-15,0,15,30].forEach(o=>{g.beginPath();g.moveTo(h.cx+o,y-150+Math.abs(o));g.lineTo(h.cx+o,y-60+Math.abs(o));g.stroke()});g.lineCap='butt';g.globalAlpha=1;   /* speed streaks */
- g.save();g.translate(h.cx,y);g.rotate(Math.PI);g.scale(PANCY_SC,PANCY_SC);g.translate(-108,-125);pancyBody({});g.restore()}   /* diving head first */
+function drawSwp(h){const age=bt-h.b,G=swpGeo(h),L=SWP.lane/2,d=swpD(h);
+ g.save();g.beginPath();g.rect(BX+2,BY+2,BW-4,BH-4);g.clip();g.translate(G.x0,G.y0);g.rotate(h.ang);   /* lane coordinates: +x = the way she flies */
+ if(d==null){const f=Math.min(1,age/.5),pul=SET.reduceFlash?1:.55+.45*Math.abs(Math.sin(age*Math.PI*2));
+  g.globalAlpha=.16*f;g.fillStyle=PINK;g.fillRect(-1000,-L,2000,SWP.lane);g.globalAlpha=f;g.strokeStyle=PINK;g.lineWidth=3;g.beginPath();g.moveTo(-1000,-L);g.lineTo(1000,-L);g.moveTo(-1000,L);g.lineTo(1000,L);g.stroke();
+  g.globalAlpha=f*pul;g.lineWidth=5;g.lineJoin='round';[-75,0,75].forEach(cx=>{g.beginPath();g.moveTo(cx-14,-30);g.lineTo(cx+12,0);g.lineTo(cx-14,30);g.stroke()});g.lineJoin='miter';g.globalAlpha=1;g.restore();return}   /* the lane + 3 chevrons pointing her way */
+ g.globalAlpha=.08;g.fillStyle=PINK;g.fillRect(-1000,-L,2000,SWP.lane);g.globalAlpha=.45;g.strokeStyle='#ff86bd';g.lineWidth=4;g.lineCap='round';
+ [-30,-15,0,15,30].forEach(o=>{g.beginPath();g.moveTo(d-150+Math.abs(o),o);g.lineTo(d-60+Math.abs(o),o);g.stroke()});g.lineCap='butt';g.globalAlpha=1;   /* speed streaks behind her */
+ g.translate(d,0);g.rotate(Math.PI/2);g.scale(PANCY_SC,PANCY_SC);g.translate(-108,-125);pancyBody({});g.restore()}   /* flying head first */
 const PP={wingL:new Path2D('M88 140 Q50 112 30 128 Q40 136 32 146 Q46 150 40 162 Q60 164 88 156 Z'),wingR:new Path2D('M128 140 Q166 112 186 128 Q176 136 184 146 Q170 150 176 162 Q156 164 128 156 Z'),
  wingLlow:new Path2D('M88 140 Q52 116 32 128 L40 136 L30 144 L44 150 L38 160 L58 162 Q72 160 88 156 Z'),wingRlow:new Path2D('M128 140 Q164 116 184 128 L176 136 L186 144 L172 150 L178 160 L158 162 Q144 160 128 156 Z'),
  robe:new Path2D('M92 124 L124 124 Q140 160 146 204 Q134 212 124 204 Q116 214 108 204 Q100 214 92 204 Q82 212 70 204 Q76 160 92 124 Z'),
@@ -1433,6 +1623,182 @@ function pancyBody(o){const pure=o.pure,lw=o.low&&!o.hurt&&!pure,hu=o.hurt&&!pur
  g.lineCap='butt';g.lineJoin='miter';
  g.fillStyle='#ffd23f';g.fill(PP.bowtie);g.beginPath();g.arc(108,124,3.5,0,7);g.fill();g.strokeStyle='#8a6a00';g.lineWidth=1.2;g.stroke()}   /* golden bowtie */
 /* the boss itself: floats; Arrow Rain moves her to the right side of the board, Swoop takes her out of sight between dives */
+/* ---------- DARIUS & KIPTO: art (from the approved mock-up, design coords: body x 2..244, y ~46..182) and attack pieces ---------- */
+const DK_SC=1.05,DK_DY=26,DK_DX=26,DKY='#ffd23f',DKY2='#c9a640';
+const BLB={warn:1.5,fly:2,r:26,n:6,sp:150},KSW={warn:3,spd:520,body:430,half:11},KST={warn:2.7,spd:430,body:360},BDR={fall:1.6,n:5,sp:170,r:26};
+const DKP={},dp=s=>DKP[s]||(DKP[s]=new Path2D(s));   /* cached static shapes */
+function dkCol(pure,low){return{body:pure?'#4fcf8f':low?'#e0287f':'#ff2e88',belly:pure?'#f6e7a8':'#ffb3d1',mane:pure?'#e8b84a':'#b8005a',horn:pure?'#fff4d6':'#ffd1e6',skin:pure?'#f2c9a8':'#ff86bd',hair:pure?'#3a2a20':'#b8005a',shirt:pure?'#1f1f26':'#3a1a2a',jeans:pure?'#4a6fb8':'#7a5fae',rip:pure?'#c8d6f0':'#d8c8f0'}}
+const dkS=(p,c,w)=>{g.strokeStyle=c;g.lineWidth=w;g.stroke(p)},dkF=(p,c)=>{g.fillStyle=c;g.fill(p)};
+/* Kipto's head (centre 188,76): mane, horns, eye, toothy grin, whiskers */
+function dkHead(C,o){const lw=o.lw,hu=o.hu,pure=o.pure,k='#14161c';
+ dkF(dp(lw?'M160 112 L156 96 L166 104 L166 88 L174 100 L178 86 L182 102 Z':'M160 108 L152 90 L164 98 L162 80 L172 94 L176 76 L182 96 Z'),C.mane);
+ dkF(dp('M176 60 L166 40 L182 56 Z M190 58 L188 38 L198 56 Z'),C.horn);
+ g.fillStyle=C.body;g.beginPath();g.ellipse(188,76,22,17,0,0,7);g.fill();dkF(dp('M198 66 Q222 66 222 80 Q222 92 204 92 L192 90 Z'),C.body);
+ g.fillStyle=k;g.beginPath();g.arc(216,72,2,0,7);g.fill();g.lineCap='round';
+ if(lw)dkS(dp('M180 70 q6 -3 12 0'),k,3);else if(hu)dkS(dp('M181 66 l9 6 M181 72 l9 -6'),k,2.5);else if(pure||o.happy)dkS(dp('M181 70 q5 -5 10 0'),k,2.5);
+ else if(o.side){g.fillStyle='#fff';g.beginPath();g.ellipse(186,70,5,2.6,0,0,7);g.fill();g.fillStyle=k;g.beginPath();g.arc(182.5,70.3,2.2,0,7);g.fill();dkS(dp('M180 67.5 L192 68.5'),k,2.5)}   /* Mess Up Hair: a sideways squint back at Darius */
+ else{g.fillStyle='#fff';g.beginPath();g.ellipse(186,69,5,6,0,0,7);g.fill();g.fillStyle=k;g.beginPath();g.arc(187,70,3,0,7);g.fill()}
+ const gy=lw?90:86;if(o.side&&!lw)dkS(dp('M192 89 Q206 84.5 219 88.5'),k,2.5);else dkS(dp('M190 '+gy+' Q206 '+(gy+(lw?2:8))+' 220 '+(gy-2)),k,2.5);   /* ...with his mouth shut in a slight frown */
+ if(!lw&&!o.side){const tp=dp('M196 '+(gy+2)+' l3 5 l3 -4 l3 5 l3 -4 l3 4 l3 -5');g.lineJoin='round';dkF(tp,'#fff');dkS(tp,'#fff',1);g.lineJoin='miter'}
+ const wd=(lw?14:4)+(o.wig||0);dkS(new Path2D('M214 84 Q228 '+(88+wd)+' 234 '+(78+wd*1.6)+' M210 88 Q220 '+(100+wd)+' 214 '+(106+wd)),C.horn,2);g.lineCap='butt'}
+/* Darius (hips ~110,140): skull shirt (X on the skull's left eye), ripped jeans, spiky hair, fist pumped up */
+function dkDarius(C,o){const lw=o.lw,hu=o.hu,pure=o.pure,k='#14161c',kn=pure?'#c98f6e':'#b8005a';g.lineCap='round';
+ dkF(dp('M98 140 L92 160 L100 160 L106 142 Z M120 140 L126 158 L118 160 L114 142 Z'),C.jeans);dkS(dp('M95 152 l4 2 l-3 2 M122 150 l3 3 l-4 1'),C.rip,1.5);
+ dkF(dp('M103 112 h14 a7 7 0 0 1 7 7 v16 a7 7 0 0 1 -7 7 h-14 a7 7 0 0 1 -7 -7 v-16 a7 7 0 0 1 7 -7 Z'),C.shirt);
+ g.fillStyle='#fff';g.beginPath();g.arc(110,124,7,0,7);g.fill();g.fillRect(106,128,8,6);
+ dkS(dp('M104.5 121 l4 4 M108.5 121 l-4 4'),C.shirt,1.6);g.strokeStyle=C.shirt;g.lineWidth=1.4;g.beginPath();g.arc(113.5,123,2,0,7);g.stroke();dkS(dp('M108 133 v-3 M110 133 v-3 M112 133 v-3'),C.shirt,1);
+ if(hu||lw){dkS(dp('M122 118 L134 128'),C.skin,6);g.fillStyle=C.skin;g.beginPath();g.arc(135,130,4.5,0,7);g.fill()}   /* holding on */
+ else{const fp=(o.pump||0)-(o.bump||0)*24,sx=o.shake||0;g.lineJoin='round';dkS(new Path2D('M121 118 L133 112 L'+(134+sx)+' '+(96-fp)),C.skin,6);g.lineJoin='miter';
+  if(o.bump>.85){g.save();g.strokeStyle='#fff';g.lineWidth=2;g.lineCap='round';g.beginPath();for(let q=0;q<4;q++){const a=q*Math.PI/2+.4;g.moveTo(146+Math.cos(a)*6,96+Math.sin(a)*6);g.lineTo(146+Math.cos(a)*12,96+Math.sin(a)*12)}g.stroke();g.restore()}   /* bump sparkle */
+  g.save();g.translate(sx,-fp);dkF(dp('M131.5 83 h5 a3.5 3.5 0 0 1 3.5 3.5 v6 a3.5 3.5 0 0 1 -3.5 3.5 h-5 a3.5 3.5 0 0 1 -3.5 -3.5 v-6 a3.5 3.5 0 0 1 3.5 -3.5 Z'),C.skin);
+  dkS(dp('M131 84.5 v4 M134 84 v4.5 M137 84.5 v4'),kn,1.3);dkS(dp('M128.5 91 q3 2 6 0'),kn,1.3);g.restore()}   /* the fist pump */
+ dkS(dp('M98 118 L88 132'),C.skin,6);g.fillStyle=C.skin;g.beginPath();g.arc(87,134,4.5,0,7);g.fill();g.beginPath();g.arc(110,98,13,0,7);g.fill();
+ dkF(dp(lw||o.flat?'M96 94 L94 84 L101 89 L102 80 L108 87 L111 79 L115 87 L120 81 L120 90 L126 88 L124 96 Q110 86 96 94 Z':'M96 94 L88 80 L100 86 L98 70 L107 82 L111 66 L115 82 L124 70 L122 86 L134 80 L124 96 Q110 86 96 94 Z'),C.hair);
+ if(lw){g.fillStyle=k;g.beginPath();g.arc(105,100,1.8,0,7);g.fill();dkS(dp('M112 100 h5'),k,2);dkS(dp('M106 108 q4 -3 8 0'),k,2)}
+ else if(hu){dkS(dp('M103 99 l4 2 l-4 2'),k,2);g.fillStyle=k;g.beginPath();g.arc(115,100,1.8,0,7);g.fill();dkS(dp('M106 107 h8'),k,2)}
+ else if(pure||o.grin)dkS(dp('M102 100 q3 -3 6 0 M112 100 q3 -3 6 0 M104 105 q6 6 12 0'),k,2);
+ else{dkS(dp('M101.5 95 L108 97.6 M118.5 95 L112 97.6'),k,2.2);dkF(dp('M102 98.6 L108.2 100.8 A3.3 3.3 0 0 1 102 98.6 Z M118 98.6 L111.8 100.8 A3.3 3.3 0 0 0 118 98.6 Z'),k);dkS(dp('M103.5 106.5 Q109 108.5 116.5 104'),k,2);dkF(dp('M113 106 L114.5 109.2 L116 105.6 Z'),'#fff')}   /* menacing: brows, tilted half-circle eyes, fanged smirk */
+ g.lineCap='butt'}
+/* Kipto lying level, his body an even wave from tail to neck (ph moves the wave along), with Darius riding the middle crest */
+const dkWave=(x,ph)=>140-8*Math.cos(6.2832*(x-41)/60-ph);
+function dkWhole(o){const C=dkCol(o.pure,o.lw),lw=o.lw,hu=o.hu,W8=x=>dkWave(x,o.ph)+(lw&&x>146?(x-146)/30*8:0);
+ g.save();g.translate(0,W8(26)-140);dkF(dp('M26 140 Q8 126 4 138 Q12 142 2 152 Q16 152 16 162 Q26 152 32 148 Z'),C.mane);g.restore();   /* tail tuft */
+ [69,129].forEach(x=>{const y=W8(x)+2;g.fillStyle=C.body;g.beginPath();g.moveTo(x-1,y);g.arcTo(x+6,y,x+6,y+20,5);g.arcTo(x+6,y+20,x-6,y+20,5);g.arcTo(x-6,y+20,x-6,y,5);g.arcTo(x-6,y,x+6,y,5);g.fill();
+  g.strokeStyle=C.horn;g.lineWidth=2.5;g.lineCap='round';g.beginPath();g.moveTo(x-6,y+20);g.lineTo(x-9,y+24);g.moveTo(x,y+21);g.lineTo(x,y+26);g.moveTo(x+6,y+20);g.lineTo(x+9,y+24);g.stroke();g.lineCap='butt'});   /* legs */
+ g.beginPath();for(let x=26;x<=176;x+=3){const y=W8(x);x==26?g.moveTo(x,y):g.lineTo(x,y)}
+ g.lineCap='round';g.lineJoin='round';g.strokeStyle=C.body;g.lineWidth=26;g.stroke();g.save();g.translate(0,8);g.strokeStyle=C.belly;g.lineWidth=7;g.setLineDash([7,7]);g.stroke();g.setLineDash([]);g.restore();g.lineCap='butt';g.lineJoin='miter';
+ g.fillStyle=C.mane;[41,101,161].forEach(x=>{const y=W8(x)-19;g.beginPath();g.moveTo(x-7,y);g.lineTo(x,y-12);g.lineTo(x+7,y);g.closePath();g.fill()});   /* spines */
+ if(hu||lw){g.strokeStyle='#fff';g.lineWidth=2;g.lineCap='round';g.save();g.translate(0,W8(70)-140);g.stroke(dp('M70 140 l6 -6 l-2 8 l7 -4'));g.restore();
+  if(lw){g.save();g.translate(0,W8(130)-140);g.stroke(dp('M130 142 l5 6 l3 -7'));g.restore();g.save();g.translate(0,W8(40)-140);g.stroke(dp('M40 138 l6 4 l-1 -8'));g.restore()}g.lineCap='butt'}   /* cracks */
+ g.save();g.translate(8,48+W8(176)-140);if(o.tilt){g.translate(176,84);g.rotate(o.tilt);g.translate(-176,-84)}dkHead(C,o);g.restore();
+ g.save();g.translate(-11,-20+(lw?4:0)+W8(101)-132);dkDarius(C,o);
+ if(o.steam>0){g.globalAlpha*=o.steam;g.fillStyle='#fff';const tt=performance.now()/1000;[[96,80],[124,78],[110,72]].forEach(([x,y],q)=>{const f=(tt*1.6+q*.33)%1;g.globalAlpha=o.steam*(1-f)*.8;g.beginPath();g.arc(x+Math.sin(tt*5+q)*3,y-f*22,4+f*4,0,7);g.fill()})}   /* angry steam */
+ g.restore()}
+/* in the boss spot: a slow wave runs along Kipto, Darius bobs and pumps his fist; Serpent Sweep / the team attack take them out of sight */
+function drawDarius(pure,hurt,low){const t=performance.now()/1000,RF=SET.reduceFlash;let oy=0,al=1;
+ if(S=='dodge'&&bi==9)for(const h of hz){if(h.dead||h.t!='dkgone')continue;const a=bt-h.b,up=a<1.5?sm2(a/1.5):a>h.dur-1.5?sm2(Math.max(0,(h.dur-a)/1.5)):1;oy=-230*up;al=1-up}
+ if(al<=.01)return;
+ const lw=low&&!hurt&&!pure,hu=hurt&&!pure;
+ /* ACT animations: Fist Bump (fist swings down to bump, sparkle, grin), Scratch Chin (Kipto tilts his head up, eyes shut happily, wave slows),
+    Mess Up Hair (Darius's spikes flatten then spring back, steam puffs, fist shakes) */
+ const ease=u=>u<0?0:Math.min(1,u/.2)*Math.min(1,(1-u)/.15),uB=actAnU('bump'),uC=actAnU('chin'),uH=actAnU('hair'),eB=ease(uB),eC=ease(uC),eH=ease(uH);
+ const bump=uB>=0?Math.sin(Math.min(1,uB/.35)*Math.PI/2)*eB:0;
+ g.save();g.globalAlpha*=al;g.translate(DK_DX,DK_DY+oy+(RF?0:Math.sin(t*2)*3));g.scale(DK_SC,DK_SC);g.translate(-122,-125);
+ dkWhole({pure,lw,hu,ph:RF?0:t*(2.6-1.8*eC),pump:RF||hu||lw?0:uH>=0?0:Math.abs(Math.sin(t*4.19))*3,wig:RF?0:Math.sin(t*3)*2+6*eC,
+  bump,grin:eB>.3,happy:eC>.3,side:eH>.15&&!hu&&!lw,tilt:-.18*eC,flat:uH>=0&&uH<.35,steam:eH,shake:eH&&!RF?Math.sin(t*40)*2.5:0});g.restore()}
+const dkHand=()=>[W/2+DK_DX+DK_SC,95+DK_DY+(63-125)*DK_SC];   /* Darius's raised fist, where Blob Splat is thrown from */
+function dkBlob(x,y,r,sq){g.save();g.translate(x,y);if(sq)g.scale(1+sq,1-sq);g.fillStyle=DKY;g.beginPath();g.arc(0,0,r,0,7);g.fill();g.strokeStyle=DKY2;g.lineWidth=Math.max(1.5,r*.15);g.stroke();g.fillStyle='#fff6c8';g.beginPath();g.arc(-r*.35,-r*.35,r*.28,0,7);g.fill();g.restore()}
+function dkRing(x,y,rx,ry,age){g.save();g.globalAlpha*=SET.reduceFlash?.8:.4+.5*Math.abs(Math.sin(age*Math.PI*2));g.strokeStyle=DKY;g.lineWidth=3;g.setLineDash([6,5]);g.beginPath();g.ellipse(x,y,rx,ry,0,0,7);g.stroke();g.setLineDash([]);g.restore()}
+function dkSplat(x,y,e){if(e<.6){g.save();g.globalAlpha*=1-e/.6;g.fillStyle=DKY;g.beginPath();g.ellipse(x,y,30+e*50,14+e*14,0,0,7);g.fill();g.restore()}}
+function drawBlb(h){const a=bt-h.b;if(h.landed){dkSplat(h.x,h.y,bt-h.landed);return}dkRing(h.x,h.y,BLB.r,BLB.r,a);
+ if(a>=h.warn){const u=Math.min(1,(a-h.warn)/BLB.fly),[hx,hy]=dkHand();dkBlob(hx+(h.x-hx)*u,hy+(h.y-hy)*u-120*4*u*(1-u),20,Math.sin(u*Math.PI)*.08)}}   /* lobbed from his fist */
+function drawBdr(h){const e=bt-h.b,fy=BY+BH;if(h.landed){dkSplat(h.x,fy-6,bt-h.landed);return}dkRing(h.x,fy-4,26,7,e);const u=Math.min(1,e/BDR.fall);dkBlob(h.x0+(h.x-h.x0)*u,h.y0+(fy-18-h.y0)*u*u-40*u*(1-u),18)}
+/* Kipto flying through the board: along a wavy path (ksw) or a straight lane (kst); the path / lane blinks first */
+function kHead(h,a){const s=a*SPB(),sp=(h.t=='ksw'?KSW.spd:KST.spd)*dkSpd;return h.dir>0?BX-40+s*sp:BX+BW+40-s*sp}
+const kPathY=(h,x)=>h.t=='kst'?h.y:h.mid+h.amp*Math.sin((x-BX)/h.wl*6.2832+h.ph);
+function kPts(h){const a=bt-h.b-h.warn;if(a<0)return null;const hd=kHead(h,a),tl=hd-h.dir*(h.t=='ksw'?KSW.body:KST.body),P=[];for(let q=0;q<=24;q++){const x=tl+(hd-tl)*q/24;P.push([x,kPathY(h,x)])}return P}
+function drawKfly(h){const a=bt-h.b-h.warn,P=kPts(h);g.save();g.beginPath();g.rect(BX+2,BY+2,BW-4,BH-4);g.clip();
+ const wa=a<0?(SET.reduceFlash?.8:.45+.45*Math.abs(Math.sin((bt-h.b)*Math.PI*2))):Math.max(0,.5-a/3);
+ if(wa>0){g.save();g.globalAlpha*=wa;g.strokeStyle=PINK;g.lineWidth=3;g.setLineDash([10,8]);g.beginPath();for(let x=BX;x<=BX+BW;x+=6){const y=kPathY(h,x);x==BX?g.moveTo(x,y):g.lineTo(x,y)}g.stroke();g.setLineDash([]);g.restore()}
+ if(P){const C={...dkCol(false,false),body:pkCol('#ff2e88'),belly:pkCol('#ffb3d1'),mane:pkCol('#b8005a',1)};
+  g.lineCap='round';g.lineJoin='round';g.beginPath();P.forEach(([x,y],q)=>q?g.lineTo(x,y):g.moveTo(x,y));g.strokeStyle=C.body;g.lineWidth=KSW.half*2;g.stroke();
+  g.save();g.translate(0,6);g.strokeStyle=C.belly;g.lineWidth=5;g.setLineDash([6,7]);g.stroke();g.setLineDash([]);g.restore();g.lineCap='butt';g.lineJoin='miter';
+  g.fillStyle=C.mane;for(let q=3;q<24;q+=5){const[x,y]=P[q];g.beginPath();g.moveTo(x-6,y-9);g.lineTo(x,y-20);g.lineTo(x+6,y-9);g.closePath();g.fill()}
+  const[hx,hy]=P[24];g.save();g.translate(hx,hy);g.scale(h.dir*.8,.8);g.translate(-188,-76);dkHead(C,{});g.restore();
+  const dx=hx-h.dir*150,dy=kPathY(h,dx);g.save();g.translate(dx,dy);g.scale(.8,.8);g.translate(-112,-152);dkDarius(dkCol(false,false),{pump:SET.reduceFlash?0:Math.abs(Math.sin(performance.now()/1000*4.19))*3});g.restore()}   /* Darius rides along */
+ g.restore()}
+/* ---------- TOURETTE TURRET: art (from the approved mock-up v2, design coords: robot centre 125,92, treads to y 188) and attack pieces ---------- */
+const TR_SC=.68,TR_DY=36,TR_DX=0,SWV={spd:130,thk:11,gw:.8,r0:30},VOL={bars:[17,73,486,542],bw:41,spk:[150,383],sw:67,sh:82,pel:150,tilt:.16,hop:8},TBM={move:.6,warn:1.3,on:1,thk:14};
+let trFlash=0;
+function trCol(pure,low){return pure?{B:'#eef3ff',D:'#9fb8e0',DD:'#8aa0c8',L:'#b9c8e6',E1:'#2a3340',E2:'#3a4658',E3:'#4b5a70',CAP:'#7fffd4',ANT:'#7fffd4'}:{B:low?'#e0287f':'#ff2e88',D:'#b8005a',DD:'#7a0040',L:'#ff86bd',E1:'#2a1220',E2:'#4a2236',E3:'#5e2c44',CAP:low?'#7a2a4a':'#ff86bd',ANT:'#ff86bd'}}
+function trBody(o){const C=trCol(o.pure,o.lw),lw=o.lw,hu=o.hu,pu=o.pulse||0;
+ g.fillStyle=C.DD;g.beginPath();g.moveTo(86,162);g.arcTo(177,162,177,188,13);g.arcTo(177,188,73,188,13);g.arcTo(73,188,73,162,13);g.arcTo(73,162,177,162,13);g.fill();   /* treads */
+ [89,107,125,143,161].forEach(x=>{g.fillStyle=C.D;g.beginPath();g.arc(x,175,7,0,7);g.fill();g.fillStyle=C.DD;g.beginPath();g.arc(x,175,2.5,0,7);g.fill()});
+ g.strokeStyle=C.D;g.lineWidth=2;g.beginPath();g.moveTo(86,162);g.arcTo(177,162,177,188,13);g.arcTo(177,188,73,188,13);g.arcTo(73,188,73,162,13);g.arcTo(73,162,177,162,13);g.stroke();
+ g.save();g.translate(125,160);g.rotate((lw?-.16:0)+(o.sway||0));g.translate(-125,-160);
+ g.fillStyle=C.D;g.fillRect(113,138,24,26);g.fillStyle=C.DD;g.beginPath();g.ellipse(125,146,30,7,0,0,7);g.fill();   /* neck + swivel ring */
+ g.fillStyle=C.D;g.fillRect(64,88,12,12);g.fillRect(174,88,12,12);
+ [58,192].forEach(x=>{g.fillStyle=C.D;g.beginPath();g.arc(x,94,15+pu*1.5,0,7);g.fill();g.fillStyle=C.E1;g.beginPath();g.arc(x,94,9+pu*1.5,0,7);g.fill()});   /* side speakers */
+ dkS(dp('M53 90 h10 M53 94 h10 M53 98 h10 M187 90 h10 M187 94 h10 M187 98 h10'),C.DD,1.5);
+ g.lineCap='round';if(lw){dkS(dp('M125 40 Q122 30 112 27'),C.D,4);g.fillStyle=C.D;g.beginPath();g.arc(109,27,5,0,7);g.fill()}else{dkS(dp('M125 40 L125 24'),C.D,4);g.fillStyle=C.ANT;g.beginPath();g.arc(125,21,5,0,7);g.fill()}g.lineCap='butt';
+ g.fillStyle=C.B;g.beginPath();g.arc(125,92,54,0,7);g.fill();dkS(dp('M103 47 Q125 37 147 47'),C.D,3);dkS(dp('M82 124 Q125 142 168 124'),C.D,2.5);
+ const gone=o.loose||(o.crank!=null&&o.crank>=.3),BOLT=[[166,68],[84,114]];   /* Crank It Up pops 2 bolts off (they stay off: its DEF is down) */
+ g.fillStyle=C.D;(lw?[[84,68],[84,114]]:[[84,68],[166,68],[84,114],[166,114]]).filter(([x,y])=>!(gone&&BOLT.some(b=>b[0]==x&&b[1]==y))).forEach(([x,y])=>{g.beginPath();g.arc(x,y,3,0,7);g.fill()});
+ g.lineCap='round';g.lineJoin='round';if(lw)dkS(dp('M152 52 l-6 10 l7 6 l-5 9 M90 120 l8 4 l-2 8'),'#fff',2);
+ const lk=o.look,lx=lk==null?0:Math.cos(lk)*4,ly=lk==null?0:Math.sin(lk)*4,fl=o.flash||0;   /* the speaker eye (looks the way it aims) */
+ g.fillStyle=C.E1;g.beginPath();g.arc(125,92,28,0,7);g.fill();g.fillStyle=C.E2;g.beginPath();g.arc(125,92,22+pu,0,7);g.fill();g.strokeStyle=C.E1;g.lineWidth=1.5;g.beginPath();g.arc(125,92,16,0,7);g.stroke();
+ g.fillStyle=C.E3;g.beginPath();g.arc(125+lx*.5,92+ly*.5,11+pu,0,7);g.fill();if(o.pure){g.globalAlpha*=.25;g.fillStyle=C.CAP;g.beginPath();g.arc(125,92,13,0,7);g.fill();g.globalAlpha/=.25}
+ const pl=o.polish==null?-1:o.polish,bl=pl>=.86&&pl<.96?Math.max(.12,Math.abs(Math.cos((pl-.86)/.1*Math.PI))):1,cr=Math.max(1.5,7+pu*2+fl*3);   /* Polish Speaker: the eye blinks at the end */
+ g.save();g.globalAlpha*=1-.55*(o.dim||0);g.fillStyle=fl>.3?'#fff':C.CAP;g.beginPath();g.ellipse(125+lx,92+ly,cr,cr*bl,0,0,7);g.fill();g.restore();   /* Turn Down dims it */
+ if(pl>=0){   /* Polish Speaker: a cloth wipes across the eye, then a shine sweeps over the grille and a sparkle pops */
+  if(pl>.06&&pl<.6){const w=(pl-.06)/.54,cx=125+Math.sin(w*Math.PI*4)*20,cy=92+Math.sin(w*Math.PI*2)*5;g.save();g.translate(cx,cy);g.rotate(-.25+Math.sin(w*Math.PI*4)*.18);
+   g.fillStyle='#fff6d8';g.strokeStyle='#c9b98a';g.lineWidth=1.5;g.beginPath();g.rect(-14,-10,28,20);g.fill();g.stroke();g.beginPath();g.moveTo(-14,-2);g.lineTo(14,-2);g.moveTo(-14,4);g.lineTo(14,4);g.stroke();g.restore()}
+  if(pl>=.58&&pl<.84){const w=(pl-.58)/.26,x=92+w*66;g.save();g.beginPath();g.arc(125,92,28,0,7);g.clip();g.globalAlpha*=.85*Math.sin(w*Math.PI);g.strokeStyle='#fff';g.lineCap='round';
+   g.lineWidth=8;g.beginPath();g.moveTo(x-14,60);g.lineTo(x+14,124);g.stroke();g.lineWidth=3;g.beginPath();g.moveTo(x+4,60);g.lineTo(x+32,124);g.stroke();g.restore()}
+  if(pl>=.74&&pl<1){const k=Math.sin((pl-.74)/.26*Math.PI),s=10*k;g.fillStyle='#fff';g.beginPath();g.moveTo(150,66-s);g.lineTo(152,66);g.lineTo(150+s,68);g.lineTo(152,70);g.lineTo(150,70+s);g.lineTo(148,70);g.lineTo(150-s,68);g.lineTo(148,66);g.closePath();g.fill()}}
+ if(o.crank!=null&&o.crank>=.3){const w=(o.crank-.3)/.7;[[166,68,1],[84,114,-1]].forEach(([x,y,d])=>{g.save();g.translate(x+d*70*w,y-55*w+120*w*w);g.rotate(w*12*d);g.fillStyle=C.D;g.beginPath();g.arc(0,0,4.5,0,7);g.fill();g.strokeStyle=C.DD;g.lineWidth=1.5;g.beginPath();g.moveTo(-3,0);g.lineTo(3,0);g.stroke();g.restore()})}   /* the 2 bolts fly off */
+ if(!lw&&!hu){g.save();g.globalAlpha*=.5;dkS(dp('M111 81 A16 16 0 0 1 124 75'),'#fff',2);g.restore()}
+ if(hu||lw)dkS(dp(lw?'M109 79 l7 6 l-4 5 l8 5 l-3 6 M138 100 l6 3':'M109 79 l7 6 l-4 5 l8 5 l-3 6'),'#fff',2);
+ if(hu||(o.crank!=null&&o.crank>=0)){g.save();g.globalAlpha*=.8;dkS(dp('M196 58 l8 -4 l-4 8 l8 -4 M54 60 l-8 -4 l4 8 l-8 -4'),'#fff',2);g.restore()}   /* screech lines (hurt, Crank It Up) */
+ g.lineCap='butt';g.lineJoin='miter';g.restore();
+ if(lw&&!o.rf&&Math.sin(performance.now()/90)>.2){g.fillStyle='#ffd23f';g.fill(dp('M206 104 l4 -9 l3 7 l8 -3 l-6 6 l6 4 l-8 0 l-2 8 l-3 -7 l-8 2 l6 -5 Z'))}}   /* a spark */
+const trEyeY=()=>95+TR_DY+(92-103)*TR_SC;
+const trEye=ox=>[W/2+TR_DX+(ox==null?(S=='dodge'&&bi==10&&trX!=null?trX:0):ox),trEyeY()];
+function drawTurret(pure,hurt,low,card){const t=performance.now()/1000,RF=SET.reduceFlash,lw=low&&!hurt&&!pure,hu=hurt&&!pure,fb=bt-Math.floor(bt);
+ const pulse=RF||card?0:Math.max(0,1-fb*3),flash=Math.max(0,1-(performance.now()-trFlash)/220),ox=!card&&S=='dodge'&&bi==10&&trX!=null?trX:0;
+ /* ACT animations: Polish Speaker (cloth wipe, shine, sparkle, blink), Turn Down (eye shrinks + dims, it settles lower), Crank It Up (shakes, eye flickers, 2 bolts fly off) */
+ const ease=u=>u<0?0:Math.min(1,u/.2)*Math.min(1,(1-u)/.15),uP=card?-1:actAnU('polish'),uQ=card?-1:actAnU('quiet'),uC=card?-1:actAnU('crank'),eQ=ease(uQ),eC=ease(uC),
+  shk=RF?0:eC*Math.sin(t*70)*3,fC=!RF&&uC>=0&&Math.sin(t*30)>0?eC:0;
+ g.save();g.translate((card?0:TR_DX)+ox+shk,(card?0:TR_DY)+eQ*5);g.scale(TR_SC,TR_SC);g.translate(-125,-103);
+ trBody({pure,lw,hu,pulse:pulse*(1-eQ)-1.5*eQ,flash:Math.max(flash,fC),rf:RF,sway:RF||card?0:Math.sin(t*1.6)*.05*(1-eQ),look:card?null:trLook,
+  dim:eQ,polish:uP,crank:uC>=0?uC:null,loose:!card&&!pure&&trDefDrop>0});g.restore()}
+/* Sound Waves */
+const swvR=h=>SWV.r0+(bt-h.b)*SPB()*SWV.spd;
+function drawSwv(h){const[ox,oy]=trEye(),r=swvR(h);g.save();g.beginPath();g.rect(BX,BY,BW,BH);g.clip();g.lineCap='round';
+ g.strokeStyle=PINK;g.lineWidth=SWV.thk;g.beginPath();g.arc(ox,oy,r,h.a+SWV.gw/2,h.a-SWV.gw/2+6.2832);g.stroke();
+ g.strokeStyle='#ffd1e6';g.lineWidth=2;g.stroke();g.lineCap='butt';g.restore()}
+/* Volume Bars: heights change every 2 beats (step s = floor(age/2)) and SNAP there like an audio meter: a fast spring that overshoots and
+   settles (~.25 s). Speakers: they take turns on the song's drum hits (TR_DR): a speaker hops up just before its hit, LANDS on it,
+   squashes and ejects its pellets, and leans the other way each time (so the burst, the landing and the drum line up). */
+function volH(h,q){const age=bt-h.b,s=Math.max(0,Math.floor(age/2)),f=age-s*2,cur=h.hs[Math.min(s,h.hs.length-1)][q],prv=s?h.hs[s-1][q]:cur,ts=f*SPB();
+ return Math.min(BH*.97,Math.max(0,BH*(cur+(prv-cur)*Math.exp(-13*ts)*Math.cos(28*ts))))}
+/* The song's drum hits (1985, the Turret's mp3), measured from the audio: one bit per 16th note in SONG beats at 132 BPM (0 = the
+   breakdown's first beat, 640 slots = intro 32 + one loop 128), hex. The speakers take turns:
+   each drum hit = one speaker lands and fires. */
+const TR_DR=(()=>{const hx='',a=new Uint8Array(hx.length*4);   /* EMPTY by choice: the user picked 'every beat' (2026-11-25). Fill it to make the speakers follow a drum pattern instead. */
+ for(let i=0;i<hx.length;i++){const v=parseInt(hx[i],16);for(let b=0;b<4;b++)a[i*4+b]=(v>>(3-b))&1}return a})();
+/* drum hits from game beat b0 for dur beats, as ages (beats after b0). Game beats -> song beats undo the loop's beat skip (musBt).
+   Not the Turret's song playing (no mp3) -> every beat. */
+function trDrumHits(b0,dur){const D=BOSSES[10],B0=D.introBeats,L=D.loopBeats,W=Math.ceil(L),out=[];
+ if(!TR_DR.length||!(mus&&mus.b.mp3=='turret')){for(let x=Math.ceil(b0);x<b0+dur;x++)out.push(x-b0);return out}
+ for(let x=Math.ceil(b0*4)/4;x<b0+dur;x+=.25){let s=x;if(x>=B0+L){const q=(x-B0)%W;if(q>=L)continue;s=B0+q}const i=Math.round(s*4);if(i>=0&&i<TR_DR.length&&TR_DR[i]&&x-b0>=.25)out.push(x-b0)}return out}
+/* speaker q's hits: index of its last hit at or before `age` (-1 = none yet) */
+function volIx(h,q,age){const a=h.hq[q];let i=h.pi[q];while(i+1<a.length&&a[i+1]<=age)i++;while(i>=0&&a[i]>age)i--;h.pi[q]=i;return i}
+/* hop window before speaker q's next hit: [start, landing] or null */
+function volWin(h,q,age){if(!h.hq)return null;const a=h.hq[q],i=volIx(h,q,age),nx=a[i+1];if(nx==null)return null;const pv=i>=0?a[i]:nx-1,d=Math.min(.5,(nx-pv)*.7);return[nx-d,nx,i]}
+const volHop=(h,q,age)=>{if(age<0||SET.reduceFlash)return 0;const w=volWin(h,q,age);return w&&age>=w[0]?Math.sin((age-w[0])/(w[1]-w[0])*Math.PI)*VOL.hop:0};
+const volSd=k=>((k%2)+2)%2?1:-1;
+const volRock=(q,age,h)=>{if(age<0||SET.reduceFlash||!h||!h.hq)return 0;const i=volIx(h,q,age),w=volWin(h,q,age),u=w&&age>=w[0]?(age-w[0])/(w[1]-w[0]):0,e=u*u*(3-2*u);
+ return(q?-1:1)*VOL.tilt*(volSd(i)+(volSd(i+1)-volSd(i))*e)};   /* tilts while airborne toward its next lean, holds on the ground */
+const volSq=(q,age,h)=>{if(age<0||SET.reduceFlash||!h||!h.hq)return 0;const i=volIx(h,q,age);return i<0?0:Math.max(0,1-(age-h.hq[q][i])*SPB()/.13)};   /* squash on landing */
+function volCone(q,age,h){const x=BX+VOL.spk[q]+VOL.sw/2,a=volRock(q,age,h),L=(VOL.sh-28)*(1-.14*volSq(q,age,h));return[x+Math.sin(a)*L,BY+BH-volHop(h,q,age)-Math.cos(a)*L]}
+function drawVol(h){const age=bt-h.b,F=BY+BH;g.save();g.beginPath();g.rect(BX,BY,BW,BH);g.clip();
+ VOL.bars.forEach((o,q)=>{const x=BX+o,hh=volH(h,q);g.fillStyle=PINK;g.fillRect(x,F-hh,VOL.bw,hh);g.fillStyle='rgba(0,0,0,.28)';for(let y=F-10;y>F-hh+6;y-=10)g.fillRect(x,y,VOL.bw,3);g.fillStyle='#ffd1e6';g.fillRect(x,F-hh,VOL.bw,5)});
+ const s=Math.max(0,Math.floor(age/2));if(age-s*2>1.4&&s+1<h.hs.length){g.strokeStyle=PINK;g.lineWidth=2;g.setLineDash([6,5]);VOL.bars.forEach((o,q)=>{const hh=BH*h.hs[s+1][q];g.strokeRect(BX+o,F-hh,VOL.bw,hh)});g.setLineDash([])}   /* next heights */
+ [0,1].forEach(q=>{const x=BX+VOL.spk[q],px=x+VOL.sw/2,hy=volHop(h,q,age),a=volRock(q,age,h),p=Math.max(0,1-(age-(h['f'+q]==null?-9:h['f'+q]))*SPB()/.25);
+  g.fillStyle=PINK;g.globalAlpha*=.18;g.beginPath();g.ellipse(px,F-2,VOL.sw/2*(1-hy/VOL.hop*.3),4,0,0,7);g.fill();g.globalAlpha/=.18;
+  const sq=volSq(q,age,h);g.save();g.translate(px,F-hy);g.rotate(a);g.scale(1+.12*sq,1-.14*sq);g.translate(-VOL.sw/2,-VOL.sh);g.fillStyle=pkCol('#7a0040',1);g.fillRect(0,0,VOL.sw,VOL.sh);g.strokeStyle=pkCol('#b8005a',1);g.lineWidth=2;g.strokeRect(0,0,VOL.sw,VOL.sh);
+  const cx=VOL.sw/2,r=18+p*4;g.fillStyle='#2a1220';g.beginPath();g.arc(cx,28,r,0,7);g.fill();g.fillStyle='#4a2236';g.beginPath();g.arc(cx,28,r*.66,0,7);g.fill();g.fillStyle=p>.3?'#fff':pkCol('#ff86bd');g.beginPath();g.arc(cx,28,r*.28,0,7);g.fill();
+  g.fillStyle='#2a1220';g.beginPath();g.arc(cx,VOL.sh-18,8,0,7);g.fill();g.restore()});
+ g.restore()}
+/* Beam Fire: the beam's path from the speaker eye, 2 bounces off the walls / floor inside the board */
+function trBeam(ox,a){const[ex,ey]=trEye(ox),dx0=Math.cos(a),dy0=Math.sin(a),k0=(BY-ey)/dy0,P=[[ex,ey],[ex+dx0*k0,BY]];let x=P[1][0],y=BY,dx=dx0,dy=dy0;
+ for(let b=0;b<=2;b++){const tL=dx<0?(BX-x)/dx:1e9,tR=dx>0?(BX+BW-x)/dx:1e9,tB=dy>0?(BY+BH-y)/dy:1e9,tT=dy<0?(BY-y)/dy:1e9,tm=Math.min(tL,tR,tB,tT);x+=dx*tm;y+=dy*tm;P.push([x,y]);if(tm==tT)break;if(tm==tL||tm==tR)dx=-dx;else dy=-dy}return P}
+function drawTbm(h){if(!h.P)return;const e=bt-h.b-TBM.move,ln=P=>{g.beginPath();P.forEach(([x,y],q)=>q?g.lineTo(x,y):g.moveTo(x,y))};g.save();g.lineJoin='round';g.lineCap='round';
+ if(e>=0&&e<TBM.warn){g.globalAlpha*=SET.reduceFlash?.8:.45+.45*Math.abs(Math.sin(e*Math.PI*3));g.strokeStyle=PINK;g.lineWidth=2;g.setLineDash([8,6]);g.save();g.beginPath();g.rect(BX,BY,BW,BH);g.clip();ln(h.P.slice(1));g.stroke();g.restore();g.setLineDash([])}   /* the path, shown first */
+ else if(e>=TBM.warn&&e<TBM.warn+TBM.on){const f=(e-TBM.warn)/TBM.on,w=TBM.thk*(f<.15?f/.15:1-Math.max(0,(f-.7)/.3));
+  ln(h.P);g.strokeStyle=PINK;g.globalAlpha*=.35;g.lineWidth=w+8;g.stroke();g.globalAlpha/=.35;g.lineWidth=w;g.stroke();g.strokeStyle='#fff';g.lineWidth=w*.35;g.stroke()}
+ g.restore()}
 function drawPancy(pure,hurt,low){const t=performance.now()/1000,RF=SET.reduceFlash;let ox=0,oy=0,al=1,sin=false;
  if(S=='dodge'&&bi==8)for(const h of hz){if(h.dead)continue;const a=bt-h.b;
   if(h.t=='pmove'){const[sx,sy]=pancySide(),e=sm2(Math.min(1,a/1.5))*(a>h.dur-1.5?sm2(Math.max(0,(h.dur-a)/1.5)):1);ox=(sx-W/2)*e;oy=(sy-95-PANCY_DY)*e}
@@ -1449,13 +1815,160 @@ else if(i==4)drawRacer(pu,pure,hurt,low);
 else if(i==5)drawTangaBoss(pure,hurt,low);
 else if(i==6)drawSlugBoss(pure,hurt,low);
 else if(i==7)drawNeutlin(pure,hurt,low);
-else if(i==8)drawPancy(pure,hurt,low);
+else if(i==8)drawPancy(pure,hurt,low);else if(i==9)drawDarius(pure,hurt,low);else if(i==10)drawTurret(pure,hurt,low,sc<1);else if(i==11)drawPretender(pure,hurt,low,sc<1);else if(i==12)drawSquareSoulcerer(pu,pure,hurt,low,hy,angry&&!pure,sc<1);
 else{g.fillRect(-72,-12,144,54);if(!pure)for(let k=0;k<4;k++){const dx=18*2/(22+6*pu),l=k?-72+k*36-dx:-72,r=k<3?-36+k*36+dx:72;g.beginPath();g.moveTo(l,-10);if(!k)g.lineTo(-72,-12);g.lineTo(-54+k*36,-34-6*pu);if(k==3)g.lineTo(72,-12);g.lineTo(r,-10);g.fill()}
 if(hurt&&!pure){g.fillStyle='#fff';g.beginPath();g.ellipse(-40,5,9,3.5,0,0,6.29);g.fill();g.fillStyle='#000';g.fillRect(-42,2,4,6);g.strokeStyle='#000';g.lineWidth=3;g.beginPath();g.moveTo(5,-1);g.lineTo(-4,5);g.lineTo(5,11);g.moveTo(35,0);g.lineTo(45,10);g.moveTo(45,0);g.lineTo(35,10);g.stroke()}else{g.fillStyle='#fff';[-40,0,40].forEach(ex=>{g.beginPath();g.arc(ex,5,9,0,6.29);g.fill()});g.fillStyle=pure?'#345':'#000';[-40,0,40].forEach(ex=>{if(pure){g.beginPath();g.arc(ex,5,4,0,6.29);g.fill()}else if(lw&&ex<40)g.fillRect(ex-1,-1,2,12);else if(hy){g.beginPath();g.arc(ex,5,5.5,0,6.29);g.fill()}else g.fillRect(ex-2,0,4,10)});if(lw){g.fillStyle=c;g.beginPath();g.moveTo(30,-5);g.lineTo(50,-5);g.lineTo(50,7.8);g.lineTo(30,2.2);g.closePath();g.fill();g.strokeStyle='#000';g.lineWidth=2.5;g.beginPath();g.moveTo(32,2.8);g.lineTo(48,7.2);g.stroke()}}
 if(lw){const Z=[[-60,32],[-50,30],[-30,38],[-10,30],[10,38],[30,30],[50,38],[70,30]],poly=(pts,col)=>{g.fillStyle=col;g.beginPath();pts.forEach((p,k)=>g[k?'lineTo':'moveTo'](p[0],p[1]));g.closePath();g.fill()},U=Z.map(p=>[p[0],p[1]-11]),D=Z.map(p=>[p[0],p[1]+2]);g.fillStyle='#000';g.fillRect(-63,17,134,24);poly([[-60,19]].concat(U),'#fff');poly(D.concat([[70,40],[-60,40]]),'#fff')}else{g.strokeStyle=pure?'#345':'#000';g.lineWidth=3;g.beginPath();if(pure)g.arc(0,22,14,.2,Math.PI-.2);else{g.moveTo(-60,32);for(let k=0;k<7;k++)g.lineTo(-60+k*20+10,k%2?38:30)}g.stroke()}}
 g.restore()}
+/* ---------- THE PRETENDER (Jack): art (approved mock-ups v7-v9, design 160x220: feet at y 205, mask centre 80,69) and attack pieces ---------- */
+const PR_SC=.7,PR_CARD=.6,PR_DY=93,PMK={warn:2,fly:4,back:1,r:22},PDR={form:1,fall:1,wet:3,dry:.6,gone:2},PCC={seg:8,delay:1,hit:13};
+/* the attack's speed (h.sp, from prSpd: Play Along .75, Scratch the Paint 1.25) stretches or squeezes the mask's flight, the drip's run and the copy's delay */
+const pmkF=h=>PMK.fly/(h.sp||1),pdrF=h=>PDR.fall/(h.sp||1),pccD=h=>PCC.delay/(h.sp||1);
+const prCol=pure=>pure?{cl:'#8a5a35',cd:'#5e3b22',ln:'#4a3020',mk:'#ffd400',lg:'#3b3a44'}:{cl:'#ff2e88',cd:'#b8005a',ln:'#c41f6c',mk:'#ff86bd',lg:'#d4247a'};   /* painted / his real colors */
+const prShuf=(t,per,off)=>{const u=((t+off)%per)/per;return u<.08?Math.sin(u/.08*Math.PI):0};
+const prMaskOff=()=>S=='dodge'&&bi==11&&hz.some(h=>h.t=='pmk'&&bt-h.b>=PMK.warn&&bt-h.b<PMK.warn+pmkF(h));   /* his mask is off while a Mask Boomerang flies */
+/* Idle: breathing, nervous jitter bursts, glancing mask, head sway, a foot tap now and then. Hurt: paint chips show yellow / brown. Low HP: flaking
+   paint, a big chip on the mask, tiny white pupils, slumped, trembling, a dripping sweat drop. Pure (spared): his real yellow mask and brown cloak, calm. */
+function drawPretender(pure,hurt,low,card){const t=performance.now()/1000,RF=SET.reduceFlash,lw=low&&!hurt&&!pure,hu=hurt&&!pure,C=prCol(pure),still=card||RF,off=!card&&prMaskOff();
+ /* ACT animations: Call Him Jack (freezes, mask tilts toward you, a tiny nod), Play Along (shoulders drop, calm sway), Scratch the Paint (flinches, shakes hard, a sweat drop flies) */
+ const ease=u=>u<0?0:Math.min(1,u/.2)*Math.min(1,(1-u)/.15),uJ=card?-1:actAnU('jack'),uA=card?-1:actAnU('along'),uS=card?-1:actAnU('scratch'),eJ=ease(uJ),eA=ease(uA),eS=ease(uS),
+  nod=uJ>=.55&&uJ<.8?Math.sin((uJ-.55)/.25*Math.PI)*4:0;
+ const br=still?0:Math.sin(t*(lw?2.6:1.9)),amp=pure||still?0:(lw?1.1:.45)*(off?2.5:1)*(1-eJ)*(1-.8*eA),burst=Math.sin(t*.9)>.6||lw||off?1:.25,
+  jx=(Math.sin(t*47)+Math.sin(t*31.7))*.5*amp*burst+(RF?0:Math.sin(t*60)*3*eS+Math.sin(t*3)*2*eA),jy=Math.sin(t*39.3)*.3*amp*burst+3*eA-2*eS,sl=lw?4:0,
+  gl=Math.sin(t*.55),look=still||pure||eJ>0?0:Math.abs(gl)>.75?Math.sign(gl)*sm2(Math.min(1,(Math.abs(gl)-.75)/.15))*(lw?2:3):0,
+  tilt=still?0:(lw?-4+Math.sin(t*1.3):Math.sin(t*.8)*1.2)*Math.PI/180,per=lw?2.2:3.4,sL=still?0:prShuf(t,per,0),sR=still?0:prShuf(t,per,lw?1.1:1.7);
+ g.save();g.translate(0,card?0:PR_DY);g.scale(card?PR_CARD:PR_SC,card?PR_CARD:PR_SC);   /* battle .7 (the user asked for him a bit bigger), cards .6 */g.translate(-80,card?-108:-205);
+ [[-sL*2,-sL*5,'M65 160 L75 160 L75 196 L65 196 Z','M61 192 Q61 186 67 186 L76 186 L77 205 L58 205 Q56 199 61 192 Z'],[sR*2,-sR*5,'M85 160 L95 160 L95 196 L85 196 Z','M84 186 L93 186 Q99 186 99 192 Q104 199 102 205 L83 205 Z']].forEach(([dx,dy,lg,bo])=>{g.save();g.translate(dx,dy);dkF(dp(lg),C.lg);dkF(dp(bo),'#2b211c');g.restore()});   /* legs + boots */
+ g.save();g.translate(jx,jy+sl+br*.8);g.translate(80,200);g.scale(1,1+br*.012);g.translate(-80,-200);   /* breathing, jitter, low-HP slump */
+ g.save();g.translate(80,0);g.scale(.85,1);g.translate(-80,0);g.lineCap='round';g.lineJoin='round';   /* the scout cloak */
+ dkF(dp('M80 88 C58 90 44 100 38 114 L24 188 L44 178 L57 187 L80 177 L101 186 L115 177 L140 195 L122 114 C116 100 102 90 80 88 Z'),C.cl);
+ dkF(dp('M122 114 L140 195 L131 186 L118 120 Z'),C.ln);dkF(dp('M80 100 L89 178 L84 179 L76 102 Z'),C.ln);dkS(dp('M48 130 L38 182 M62 132 L57 182 M104 132 L111 180'),C.cd,2);
+ dkF(dp('M80 78 C54 80 36 92 30 108 L35 136 L44 118 L51 144 L60 120 L68 138 L80 120 L92 138 L100 120 L109 144 L116 118 L125 136 L130 108 C124 92 106 80 80 78 Z'),C.cl);
+ dkS(dp('M35 136 L44 118 L51 144 L60 120 L68 138 L80 120 L92 138 L100 120 L109 144 L116 118 L125 136'),C.cd,2);dkS(dp('M46 104 Q62 114 80 110 Q98 114 114 104'),C.cd,3.5);g.restore();
+ const BRN='#8a5a35',YEL='#ffd400';
+ if(hu)dkF(dp('M56 150 l8 -3 l3 7 l-8 4 Z M100 130 l7 2 l-2 7 l-7 -3 Z'),BRN);
+ if(lw)dkF(dp('M48 160 l12 -4 l4 10 l-11 5 Z M94 150 l11 -2 l2 10 l-11 2 Z M64 108 l9 0 l-1 8 l-9 -2 Z M104 112 l7 2 l-3 8 l-6 -3 Z'),BRN);
+ if(prKnown&&!pure&&!card){g.lineCap='round';dkS(dp('M58 140 l14 9 M61 135 l14 9 M65 131 l11 7'),BRN,2.5)}   /* Scratch the Paint: the brown scratch stays */
+ g.save();g.translate(80,104+nod);g.rotate(tilt);g.translate(-80,-104);   /* hood + mask (Call Him Jack: a tiny nod) */
+ dkF(dp('M80 10 C56 12 32 36 29 74 Q31 98 52 106 Q80 114 108 106 Q129 98 131 74 C131 50 123 28 110 14 L118 1 Q98 3 80 10 Z'),C.cl);dkF(dp('M110 14 L118 1 Q106 2 98 6 Z'),C.cd);
+ g.lineCap='round';dkS(dp('M40 40 Q34 60 36 86 M122 60 Q126 78 120 96'),C.cd,2);
+ g.fillStyle='#0a080a';g.beginPath();g.ellipse(80,66,37,40,0,0,7);g.fill();   /* the shadow where his face would be */
+ g.save();g.globalAlpha*=.55;dkF(dp('M45 70 Q46 36 80 27 Q60 38 54 70 Z'),C.cd);g.restore();
+ if(hu)dkF(dp('M100 26 l6 -1 l1 6 l-6 1 Z'),BRN);if(lw)dkF(dp('M38 40 l8 -3 l2 7 l-8 2 Z M120 66 l6 1 l-1 7 l-6 -2 Z'),BRN);
+ if(!off){g.save();g.translate(look,lw?2:0);if(eJ){g.translate(80,69);g.rotate(-.18*eJ);g.translate(-80,-69)}g.fillStyle=C.mk;g.beginPath();g.arc(80,69,31,0,7);g.fill();
+  if(lw){g.save();g.beginPath();g.arc(80,69,31,0,7);g.clip();dkF(dp('M82 36 L114 42 L114 70 L101 66 L97 54 L85 50 Z'),YEL);g.restore();dkF(dp('M57 80 l6 0 l0 6 l-6 -1 Z'),YEL)}
+  if(hu)dkF(dp('M98 52 l6 -2 l2 5 l-5 3 Z M62 82 l5 1 l-1 5 l-5 -2 Z'),YEL);
+  g.fillStyle='#111';[69,91].forEach(ex=>{g.beginPath();g.ellipse(ex+look*.6,61,4.3,8.3,0,0,7);g.fill()});
+  if(lw){g.fillStyle='#fff';[69,91].forEach(ex=>{g.beginPath();g.arc(ex+look*.6,61,1,0,7);g.fill()})}   /* low HP: tiny white pupils */
+  dkS(dp('M60 75 Q80 96 100 75'),'#111',3);g.restore()}
+ if(uS>=.15&&!RF){const f=(uS-.15)/.85;g.save();g.globalAlpha*=1-f;g.translate(f*40,-f*30+f*f*60);dkF(dp('M126 30 q-5 9 0 12 q5 -3 0 -12 Z'),'#9fd8ff');g.restore()}   /* Scratch the Paint: a sweat drop flies off */
+ if(lw&&!RF){const d=(t*.5)%1;g.save();g.globalAlpha*=d>.85?(1-d)/.15:1;g.translate(0,sm2(d)*26);dkF(dp('M126 30 q-5 9 0 12 q5 -3 0 -12 Z'),'#9fd8ff');g.restore()}   /* sweat drop */
+ g.lineCap='butt';g.lineJoin='miter';g.restore();g.restore();g.restore()}
+/* spared: no glow, no sparkles (he was never corrupted): a nervous shake, the paint fades off to his real colors and the chips fall to the floor */
+function prSpare(t,bx,by){const p=Math.min(1,Math.max(0,(t-.5)/1.8)),sh=t<.5?Math.sin(t*90)*3:0;
+ if(p<1){g.globalAlpha=1-p;drawBoss(11,bx+sh,by,0,1,0)}g.globalAlpha=p;drawBoss(11,bx+sh,by,0,1,1);g.globalAlpha=1;
+ const fy=by+PR_DY;for(let i=0;i<26;i++){const s=t-.4-hr(i*7.3)*1.4;if(s<=0)continue;const x0=bx+(hr(i*3.1)-.5)*70+(hr(i*2.7)-.5)*30*Math.min(1,s),y0=by-25+hr(i*5.7)*95,ly=fy-3+(hr(i*9.1)-.5)*8,y=Math.min(ly,y0+300*s*s),rot=y<ly?s*7*(i%2?1:-1):(i%3-1)*.4;
+  g.save();g.translate(x0,y);g.rotate(rot);g.fillStyle=i%3?PINK:'#b8005a';g.fillRect(-3.5,-2.5,7,5);g.restore()}}
+/* Mask Boomerang: path from his face, down into one side, across the board, out the other side and back (Catmull-Rom through the points) */
+const prMaskPos=()=>[W/2,95+PR_DY+(69-205)*PR_SC];
+function prPts(d,row){const[sx,sy]=prMaskPos(),L=W/2-275*d,R=W/2+275*d;return[[sx,sy],[W/2-150*d,150],[L,row-40],[L+25*d,row+15],[W/2,row+25],[R-25*d,row+15],[R,row-40],[W/2+150*d,150],[sx,sy]]}
+function prCR(P,u){const n=P.length-1,f=Math.max(0,Math.min(1,u))*n,i=Math.min(n-1,Math.floor(f)),t=f-i,p0=P[Math.max(0,i-1)],p1=P[i],p2=P[i+1],p3=P[Math.min(n,i+2)],
+ q=k=>.5*(2*p1[k]+(-p0[k]+p2[k])*t+(2*p0[k]-5*p1[k]+4*p2[k]-p3[k])*t*t+(-p0[k]+3*p1[k]-3*p2[k]+p3[k])*t*t*t);return[q(0),q(1)]}
+const pmkP=h=>h.P||(h.P=prPts(h.d,h.row));
+const pmkE=h=>{const u=Math.max(0,Math.min(1,(bt-h.b-PMK.warn)/pmkF(h)));return u*u*(3-2*u)*.35+u*.65};   /* progress along the path */
+function prMask(x,y,rot,r){g.save();g.translate(x,y);g.rotate(rot);g.scale(r/31,r/31);g.fillStyle=pkCol('#ff86bd');g.beginPath();g.arc(0,0,31,0,7);g.fill();
+ g.fillStyle='#111';[-11,11].forEach(ex=>{g.beginPath();g.ellipse(ex,-8,4.3,8.3,0,0,7);g.fill()});g.lineCap='round';dkS(dp('M-20 6 Q0 27 20 6'),'#111',3);g.lineCap='butt';g.restore()}
+function drawPmk(h){const a=bt-h.b,P=pmkP(h);
+ if(a<PMK.warn){g.save();g.globalAlpha*=SET.reduceFlash?.8:.45+.45*Math.abs(Math.sin(a*Math.PI*2));g.strokeStyle=PINK;g.lineWidth=3;g.setLineDash([12,9]);g.beginPath();
+  for(let k=0;k<=96;k++){const[x,y]=prCR(P,k/96);k?g.lineTo(x,y):g.moveTo(x,y)}g.stroke();g.setLineDash([]);g.restore()}   /* the path, shown first */
+ else if(a<PMK.warn+pmkF(h)){const e=pmkE(h),[x,y]=prCR(P,e);prMask(x,y,e*6*Math.PI*h.d,PMK.r)}}   /* spins 3 turns */
+/* Wet Paint */
+const prMix=(a,b,u)=>{const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)),A=p(a),B=p(b);return'rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*u)).join(',')+')'};
+function pdrBlob(x,y,s){g.beginPath();g.moveTo(x,y-12*s);g.quadraticCurveTo(x+9*s,y+2*s,x,y+8*s);g.quadraticCurveTo(x-9*s,y+2*s,x,y-12*s);g.fill()}
+function drawPdr(h){const a=bt-h.b;g.save();g.beginPath();g.rect(BX+2,BY+2,BW-4,BH-4);g.clip();g.fillStyle=PINK;
+ if(a<PDR.form){const s=Math.max(.2,a/PDR.form);pdrBlob(h.x,BY+4+s*6,s)}   /* a drop swells at the top edge */
+ else if(a<PDR.form+pdrF(h)){const u=(a-PDR.form)/pdrF(h),y=BY+10+(h.y-BY-10)*u*u;g.save();g.globalAlpha*=.45;g.fillRect(h.x-2,BY+2,4,y-BY-2);g.restore();pdrBlob(h.x,y,1)}   /* runs down */
+ else{const w=a-PDR.form-pdrF(h),sc=Math.min(1,.3+w*3),dry=Math.max(0,Math.min(1,(w-PDR.wet)/PDR.dry)),fade=Math.max(0,Math.min(1,w-PDR.wet-PDR.dry-PDR.gone+1));
+  g.globalAlpha*=1-fade;if(dry<1){g.save();g.globalAlpha*=.45*(1-dry);g.fillRect(h.x-2,BY+2,4,h.y-BY-2);g.restore()}
+  g.fillStyle=prMix(PINK,'#8a5a35',dry);g.lineJoin='round';g.beginPath();for(let i=0;i<=10;i++){const an=i/10*6.2832,rr=h.r*sc*h.k[i%10],x=h.x+Math.cos(an)*rr,y=h.y+Math.sin(an)*rr*.6;i?g.lineTo(x,y):g.moveTo(x,y)}g.closePath();g.fill();
+  if(dry<1){g.globalAlpha*=.8*(1-dry);g.fillStyle='#ffc2de';g.beginPath();g.ellipse(h.x-h.r*.3*sc,h.y-h.r*.18*sc,h.r*.25*sc,h.r*.08*sc,0,0,7);g.fill()}}   /* wet shine */
+ g.restore()}
+/* Copycat: the fake soul is its target's shape, painted pink (outlined in the target's color in co-op) */
+function drawPcc(h){if(h.x==null)return;const a=bt-h.b,T=players[h.ti];if(!T)return;
+ g.save();g.beginPath();g.rect(BX+2,BY+2,BW-4,BH-4);g.clip();
+ if(h.mir){g.globalAlpha=.5;g.strokeStyle=PINK;g.lineWidth=2;g.setLineDash([8,8]);g.beginPath();g.moveTo(BX+BW/2,BY+4);g.lineTo(BX+BW/2,BY+BH-4);g.stroke();g.setLineDash([])}   /* mirror line */
+ else{const H=h.H[h.ti];if(H&&H.length>1){g.globalAlpha=.25;g.strokeStyle=PINK;g.lineWidth=2;g.beginPath();let st=0;for(const z of H){if(z[0]<bt-pccD(h))continue;st++?g.lineTo(z[1],z[2]):g.moveTo(z[1],z[2])}g.stroke()}}   /* the path it is about to take */
+ let al=Math.min(1,Math.max(0,a));if(a%PCC.seg>=PCC.seg-1&&!SET.reduceFlash&&Math.sin(performance.now()/60)>0)al*=.45;   /* flickers the beat before it switches */
+ g.globalAlpha=al;g.fillStyle=PINK;shp(h.x,h.y,9,T.i);g.fill();g.strokeStyle=players.length>1?T.col:'#ffc2de';g.lineWidth=2;g.stroke();g.restore()}
+/* ---------- SQUARE SOULCERER: art (approved mock-ups v4 body + v5 cracks; design centred on 0,0, body 112 square) and attack pieces ---------- */
+const SQ_SC=.8,SQ_DY=8,QCK={cw:60},QCS={warn:1,fly:.5,stay:1.5,ret:.75},QCP={w:70},QCJ={r:7,sp:330};
+const SQ_CORNER=[[-41,-41,0],[41,-41,90],[41,41,180],[-41,41,270]],
+ SQ_GUARD=['M-56 -26 L-56 -56 L-26 -56 L-26 -46 L-46 -46 L-46 -26 Z','M56 -26 L56 -56 L26 -56 L26 -46 L46 -46 L46 -26 Z','M56 26 L56 56 L26 56 L26 46 L46 46 L46 26 Z','M-56 26 L-56 56 L-26 56 L-26 46 L-46 46 L-46 26 Z'],
+ SQ_FIL=['M-51 -32 Q-51 -51 -32 -51','M51 -32 Q51 -51 32 -51','M51 32 Q51 51 32 51','M-51 32 Q-51 51 -32 51'],
+ SQ_CR=[[56,-14,30,6,8,20],[-56,34,-34,14,-18,10],[-20,56,-16,40,-30,28]],SQ_CR_LOW=SQ_CR.concat([[-30,-56,-12,-34,8,-10],[56,40,34,48,16,56]]);
+const sqHome=c=>[W/2+SQ_CORNER[c][0]*SQ_SC,95+SQ_DY+SQ_CORNER[c][1]*SQ_SC],sqJewel=()=>[W/2,95+SQ_DY-72*SQ_SC];
+const sqGuardOff=c=>S=='dodge'&&bi==12&&hz.some(h=>h.t=='qcs'&&h.c==c&&bt-h.b>=QCS.fly&&bt-h.b<QCS.warn+QCS.stay+QCS.ret);   /* that corner is flying */
+const sqCapeSwing=()=>{if(S!='dodge'||bi!=12)return 0;for(const h of hz)if(h.t=='qcp'){const x=qcpX(h,bt-h.b);if(x!=null)return(x-W/2)/(W/2)}return 0};
+const sqJewelFlare=()=>S=='dodge'&&bi==12&&hz.some(h=>h.t=='qcj'&&bt-h.b>=.6&&bt-h.b<1);
+/* Corrupted: white body, silver armor, crimson cape, sparking pink cracks (more + a pink glow + orbiting squares at low HP). Pure: pale blue, gold
+   trim, royal blue cape, cyan jewel, a soft glow. Mercy ACTs: the jewel turns gold; Challenge: it flares red. Its face is never shown. */
+function drawSquareSoulcerer(pu,pure,hurt,low,happy,angry,card){const now=performance.now(),RF=SET.reduceFlash,t=now/1000;
+ const C=pure?{bd:'#bfe3ff',sv:'#e8eef4',ed:'#c9a640',gd:'#e8b84a',cp:'#1f4fa8',cd:'#163a7d',gm:'#19e3ff'}:{bd:hurt?'#ffd0de':'#f2f2f2',sv:'#aab4c0',ed:'#5d6773',gd:'#8a8f99',cp:'#5a0a2c',cd:'#3a0019',gm:'#ff2d75'};
+ if(happy)C.gm='#ffe27a';if(angry)C.gm='#ff3a3a';
+ g.save();g.translate(0,card?0:SQ_DY);const s=SQ_SC*(1+.03*pu);g.scale(s,s);
+ const glow=(col,r)=>{const gl=g.createRadialGradient(0,0,10,0,0,r);gl.addColorStop(0,col);gl.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=gl;g.fillRect(-r,-r,2*r,2*r)};
+ if(pure)glow('rgba(191,227,255,.45)',115);else if(low)glow('rgba(255,45,117,.35)',110);
+ const sw=card?0:sqCapeSwing()*30,rp=RF||card?0:Math.sin(t*2.2)*3;   /* cape: swings toward a Royal Cape sweep, ripples a little */
+ g.fillStyle=C.cp;g.beginPath();g.moveTo(-50,-40);g.lineTo(50,-40);[[64,96],[36,86],[18,98],[0,88],[-18,98],[-36,86],[-64,96]].forEach(([x,y],k)=>g.lineTo(x+sw+(k%2?rp:-rp),y));g.closePath();g.fill();
+ g.strokeStyle=C.cd;g.lineWidth=2;g.beginPath();[[-36,86,-30,40],[0,88,0,40],[36,86,30,40]].forEach(([x1,y1,x2,y2])=>{g.moveTo(x1+sw,y1);g.lineTo(x2,y2)});g.stroke();
+ g.fillStyle=C.bd;g.beginPath();g.roundRect?g.roundRect(-56,-56,112,112,4):g.rect(-56,-56,112,112);g.fill();
+ g.lineCap='round';for(let c=0;c<4;c++){if(!card&&sqGuardOff(c))continue;dkF(dp(SQ_GUARD[c]),C.sv);dkS(dp(SQ_GUARD[c]),C.ed,2);dkS(dp(SQ_FIL[c]),C.gd,1.6)}   /* corner guards (missing while thrown) */
+ ['M-70 -62 L-40 -62 L-36 -40 L-66 -34 Z','M70 -62 L40 -62 L36 -40 L66 -34 Z'].forEach(d=>{dkF(dp(d),C.sv);dkS(dp(d),C.ed,2)});   /* shoulder plates */
+ g.fillStyle=C.gd;[-62,-46,46,62].forEach(x=>{g.beginPath();g.arc(x,-54,2.4,0,7);g.fill()});
+ dkF(dp('M-24 -62 L-24 -76 L-14 -68 L0 -80 L14 -68 L24 -76 L24 -62 Z'),C.gd);dkS(dp('M-24 -62 L-24 -76 L-14 -68 L0 -80 L14 -68 L24 -76 L24 -62 Z'),C.ed,1.5);   /* crown */
+ const fl=!card&&!RF&&sqJewelFlare(),js=fl?5:3;if(fl||angry){g.save();g.globalAlpha*=.4;g.fillStyle=C.gm;g.fillRect(-9,-81,18,18);g.restore()}g.fillStyle=C.gm;g.fillRect(-js,-72-js,2*js,2*js);
+ g.lineCap='butt';
+ if(!pure){sparkCracks(low?SQ_CR_LOW:SQ_CR,low,now);g.globalAlpha=1;
+  if(low){g.fillStyle=PINK;for(let k=0;k<6;k++){const a=k*1.05+(RF?0:t*1.6),d=92+(RF?0:8*Math.sin(k*3+t*3.3));g.fillRect(Math.cos(a)*d-3.5,Math.sin(a)*d-3.5,7,7)}}}   /* low HP: orbiting squares */
+ g.restore()}
+/* Checkerboard: patterns over the 10x4 grid (c = column 0-9, r = row 0-3) */
+const SQPAT=[(c,r)=>(c+r)%2==0,(c,r)=>(c+r)%2==1,(c,r)=>(c+r)%2==0,(c,r)=>(c+r)%2==1,(c,r)=>c%2==0,(c,r)=>c%2==1,(c,r)=>r%2==0,(c,r)=>r%2==1,(c,r)=>((c>>1)+(r>>1))%2==0,(c,r)=>((c>>1)+(r>>1))%2==1];
+function drawQgrid(h){g.save();g.strokeStyle='#1c1c26';g.lineWidth=1;g.beginPath();for(let c=1;c<10;c++){g.moveTo(BX+c*QCK.cw,BY+2);g.lineTo(BX+c*QCK.cw,BY+BH-2)}for(let r=1;r<4;r++){g.moveTo(BX+2,BY+r*QCK.cw);g.lineTo(BX+BW-2,BY+r*QCK.cw)}g.stroke();g.restore()}
+function drawQck(h){const a=bt-h.b,cw=QCK.cw,pat=SQPAT[h.p];g.save();
+ if(a<h.w){g.globalAlpha*=SET.reduceFlash?.8:.45+.45*Math.abs(Math.sin(a/h.w*Math.PI*3));g.strokeStyle=PINK;g.lineWidth=2.5;g.setLineDash([8,6]);for(let c=0;c<10;c++)for(let r=0;r<4;r++)if(pat(c,r))g.strokeRect(BX+c*cw+4,BY+r*cw+4,cw-8,cw-8);g.setLineDash([])}
+ else{const u=(a-h.w)/h.on;g.globalAlpha*=u<.08?1:.85-.25*u;g.fillStyle=PINK;for(let c=0;c<10;c++)for(let r=0;r<4;r++)if(pat(c,r))g.fillRect(BX+c*cw+3,BY+r*cw+3,cw-6,cw-6)}
+ g.restore()}
+/* Cornerstones */
+const qcsRing=(h,w)=>20+w*(h.big?200:150);   /* shockwave size; trimmed (was 170 / 240) to leave wider gaps */
+function qcsGuard(c,x,y,rot,sc){g.save();g.translate(x,y);g.rotate(rot*Math.PI/180);g.scale(sc,sc);g.lineCap='round';dkF(dp('M-15 15 L-15 -15 L15 -15 L15 -5 L-5 -5 L-5 15 Z'),'#aab4c0');dkS(dp('M-15 15 L-15 -15 L15 -15 L15 -5 L-5 -5 L-5 15 Z'),'#5d6773',2);dkS(dp('M-10 6 Q-10 -10 6 -10'),'#8a8f99',1.6);g.lineCap='butt';g.restore()}
+function drawQcs(h){const a=bt-h.b,[hx,hy]=sqHome(h.c),r0=SQ_CORNER[h.c][2],e=u=>u*u*(3-2*u);
+ if(a<QCS.warn){g.save();g.globalAlpha*=SET.reduceFlash?.8:.45+.45*Math.abs(Math.sin(a*Math.PI*3));g.strokeStyle=PINK;g.lineWidth=3;g.setLineDash([8,6]);g.strokeRect(h.x-28,h.y-28,56,56);g.setLineDash([]);g.restore()}   /* landing marker */
+ let x=hx,y=hy,rot=r0;
+ if(a>=QCS.fly&&a<QCS.warn){const u=e((a-QCS.fly)/(QCS.warn-QCS.fly));x=hx+(h.x-hx)*u;y=hy+(h.y-hy)*u-Math.sin(u*Math.PI)*40;rot=r0+u*360}
+ else if(a>=QCS.warn&&a<QCS.warn+QCS.stay){x=h.x;y=h.y;const w=(a-QCS.warn)/(h.big?.8:1);if(w<1){const s=qcsRing(h,w);g.save();g.globalAlpha*=1-w;g.strokeStyle=PINK;g.lineWidth=9;g.strokeRect(h.x-s/2,h.y-s/2,s,s);g.restore()}}   /* shockwave */
+ else if(a>=QCS.warn+QCS.stay){const u=e(Math.min(1,(a-QCS.warn-QCS.stay)/QCS.ret));x=h.x+(hx-h.x)*u;y=h.y+(hy-h.y)*u;rot=r0+360-u*360}
+ if(a>=QCS.fly)qcsGuard(h.c,x,y,rot,1.35)}
+/* Royal Cape */
+const qcpX=(h,a)=>{if(a<1||a>=1+h.sw)return null;const u=(a-1)/h.sw;return h.dir>0?BX-QCP.w+(BW+2*QCP.w)*u:BX+BW+QCP.w-(BW+2*QCP.w)*u};
+function drawQcp(h){const a=bt-h.b,cx=qcpX(h,a),RF=SET.reduceFlash;g.save();
+ if(a<1){g.globalAlpha*=RF?.8:.45+.45*Math.abs(Math.sin(a*Math.PI*3));g.fillStyle=PINK;const ax=h.dir>0?BX+14:BX+BW-14;g.beginPath();g.moveTo(ax,BY+BH/2-26);g.lineTo(ax+24*h.dir,BY+BH/2);g.lineTo(ax,BY+BH/2+26);g.closePath();g.fill();
+  g.strokeStyle=PINK;g.lineWidth=3;g.setLineDash([8,6]);g.strokeRect(h.dir>0?BX+6:BX+BW-46,h.gy,40,h.gap);g.setLineDash([])}   /* the side it comes from + where the gap is */
+ else if(cx!=null){g.beginPath();g.rect(BX+2,BY+2,BW-4,BH-4);g.clip();const L=cx-QCP.w/2,R=cx+QCP.w/2,wb=RF?0:Math.sin(performance.now()/110)*4,y0=h.gy,y1=h.gy+h.gap;
+  g.translate(wb,0);g.fillStyle=PINK;g.beginPath();g.moveTo(L,BY-10);g.lineTo(R,BY-10);g.lineTo(R,y0);for(let i=6;i>=0;i--)g.lineTo(L+(R-L)*i/6,y0+(i%2?7:-1));g.closePath();
+  g.moveTo(L,y1);for(let i=0;i<=6;i++)g.lineTo(L+(R-L)*i/6,y1-(i%2?7:-1));g.lineTo(R,BY+BH+10);g.lineTo(L,BY+BH+10);g.closePath();g.fill();
+  g.strokeStyle=pkCol('#b8005a',1);g.lineWidth=3;g.beginPath();for(let q=1;q<4;q++){const fx=L+q*QCP.w/4+(RF?0:Math.sin(performance.now()/110+q)*3);g.moveTo(fx,BY);g.lineTo(fx,y0-6);g.moveTo(fx,y1+6);g.lineTo(fx,BY+BH)}g.stroke()}   /* fabric folds */
+ g.restore()}
+/* Crown Jewels: straight lines from the crown, bouncing off the board's walls (bn bounces), then the gem shatters */
+function sqGemPath(an,bn){const[sx,sy]=sqJewel(),P=[[sx,sy]],r=QCJ.r;let x=sx,y=sy,vx=Math.cos(an),vy=Math.sin(an);const te=(BY+2-y)/vy;x+=vx*te;y+=vy*te;P.push([x,y]);
+ for(let b=0;b<=bn;b++){const tx=vx>0?(BX+BW-r-x)/vx:(BX+r-x)/vx,ty=vy>0?(BY+BH-r-y)/vy:(BY+r-y)/vy,tt=Math.min(tx,ty);x+=vx*tt;y+=vy*tt;P.push([x,y]);if(tx<ty)vx=-vx;else vy=-vy}return P}
+const sqCum=P=>{const L=[0];for(let i=1;i<P.length;i++)L.push(L[i-1]+Math.hypot(P[i][0]-P[i-1][0],P[i][1]-P[i-1][1]));return L};
+function qcjPos(h,a){if(a<1)return null;const d=(a-1)*SPB()*QCJ.sp;for(let i=1;i<h.P.length;i++)if(d<=h.L[i]){const u=(d-h.L[i-1])/(h.L[i]-h.L[i-1]);return[h.P[i-1][0]+(h.P[i][0]-h.P[i-1][0])*u,h.P[i-1][1]+(h.P[i][1]-h.P[i-1][1])*u,d]}return null}
+function drawQcj(h){const a=bt-h.b;g.save();
+ if(a<1){g.globalAlpha*=SET.reduceFlash?.75:.35+.4*Math.abs(Math.sin(a*Math.PI*3));g.strokeStyle=PINK;g.lineWidth=2.5;g.setLineDash([9,7]);g.beginPath();h.P.slice(0,4).forEach(([x,y],k)=>k?g.lineTo(x,y):g.moveTo(x,y));g.stroke();g.setLineDash([])}   /* path preview */
+ else{const q=qcjPos(h,a);if(q&&q[1]>BY){g.translate(q[0],q[1]);g.rotate(q[2]*.026);g.fillStyle=PINK;g.fillRect(-QCJ.r,-QCJ.r,2*QCJ.r,2*QCJ.r);g.strokeStyle='#ffd1e6';g.lineWidth=1.5;g.strokeRect(-QCJ.r,-QCJ.r,2*QCJ.r,2*QCJ.r)}}
+ g.restore()}
 /* ---------- Star Soulcerer attack pieces ---------- */
-let lastSoulAtk=-1,lastRacerAtk=-1,lastTangaAtk=-1,lastSlugAtk=-1,lastNeutAtk=-1,lastPancyAtk=-1,pancySlow=0,pancyRush=0,pancySpd=1,pancyWarn=1,neutSulk=0,neutDefDrop=0,slugCaught=0,slugLuck=0,saltKill=0,slugMad=0,tangaNoPom=0,tangaAngry=0;
+let lastSoulAtk=-1,lastRacerAtk=-1,lastTangaAtk=-1,lastSlugAtk=-1,lastNeutAtk=-1,lastPancyAtk=-1,lastDariusAtk=-1,lastTurretAtk=-1,lastPretAtk=-1,lastSqAtk=-1,sqChal=0,sqDuel=0,sqHit=0,prSlow=0,prFast=0,prSpd=1,prKnown=0,trX=null,trLook=null,trQuiet=0,trLoud=0,trQ=0,trDefDrop=0,kiptoSlow=0,dariusMad=0,dkSpd=1,dkMad=0,pancySlow=0,pancyRush=0,pancySpd=1,pancyWarn=1,neutSulk=0,neutDefDrop=0,slugCaught=0,slugLuck=0,saltKill=0,slugMad=0,tangaNoPom=0,tangaAngry=0;
 const TANGA_HEAL=6;   /* slugMad: annoyed after Salt, until the turn's attack ends */
 /* $lug Thug's special ACTs. Returns the ACT to show (text t / t2, mercy m, kill = Salt finished him off).
    luck: +2 lucky coins in his next Make It Rain. pay: costs 10 BC (story fights; not enough = nothing happens).
@@ -1468,6 +1981,15 @@ function actAnStart(id){actAn={id,t0:performance.now()/1000};sfxActAn(id)}
 /* progress 0..1 of the animation `id`, or -1 when it isn't playing (it also stops as soon as the text box is closed) */
 function actAnU(id){if(actAn.id!=id||S!='msg')return -1;const u=(performance.now()/1000-actAn.t0)/ACTAN_DUR;if(u<0||u>1){if(u>1)actAn.id='';return -1}return u}
 function sfxActAn(id){if(!AC)return;const t=T0();
+ if(id=='bump'){tone(140,t+.25,.15,'sine',.3,70);noise(t+.25,.06,.2,1500);tone(1568,t+.3,.12,'square',.07);tone(2093,t+.36,.16,'square',.06);return}   /* Fist Bump: thud + sparkle */
+ if(id=='chin'){for(let k=0;k<10;k++)tone(70+k%2*8,t+k*.08,.09,'sawtooth',.06);tone(523,t+.9,.25,'sine',.1);return}   /* Scratch Chin: a rumbly purr */
+ if(id=='jack'){tone(523,t+.1,.18,'sine',.1);tone(440,t+.35,.35,'sine',.1);return}   /* Call Him Jack: a soft "oh..." */
+ if(id=='along'){for(let k=0;k<6;k++)tone(90+k%2*12,t+k*.07,.08,'sawtooth',.07);noise(t+.6,.5,.06,800);return}   /* Play Along: "rrrgh", then a relieved sigh */
+ if(id=='scratch'){for(let k=0;k<4;k++)noise(t+k*.06,.05,.18,6000);tone(1200,t+.35,.08,'square',.06,1600);tone(1500,t+.47,.08,'square',.06,2000);return}   /* Scratch the Paint: scratch, then panicked beeps */
+ if(id=='polish'){[0,.22,.44].forEach(d=>tone(1300,t+.15+d,.14,'sine',.05,1900));tone(2637,t+1.45,.3,'sine',.08);tone(3520,t+1.53,.25,'sine',.05);return}   /* Polish Speaker: squeak squeak squeak, ding */
+ if(id=='quiet'){[880,660,494,370].forEach((f,k)=>tone(f,t+k*.14,.22,'triangle',.12*(1-k*.22)));return}   /* Turn Down: steps down, getting quieter */
+ if(id=='crank'){tone(180,t,.7,'sawtooth',.1,1400);noise(t+.2,.6,.1,4000);tone(2400,t+.75,.06,'square',.06);tone(2900,t+.88,.06,'square',.06);return}   /* Crank It Up: rising screech, 2 bolt tinks */
+ if(id=='hair'){for(let k=0;k<6;k++)noise(t+k*.05,.04,.12,2600);tone(240,t+.35,.3,'sawtooth',.08,160);noise(t+.7,.35,.08,5000);return}   /* Mess Up Hair: scruffle, growl, steam */
  if(id=='race'){tone(80,t,.55,'sawtooth',.16,300);noise(t+.05,.5,.1,1200);tone(300,t+1.1,.5,'sawtooth',.14,90);tone(988,t+1.75,.1,'triangle',.12);tone(1319,t+1.83,.16,'triangle',.12)}
  else if(id=='pit'){for(let k=0;k<4;k++)noise(t+k*.07,.04,.16,3200);tone(660,t+.38,.1,'triangle',.14);tone(880,t+.46,.2,'triangle',.14)}
  else if(id=='cheer'){[523,659,784,1047].forEach((f,k)=>tone(f,t+k*.07,.16,'triangle',.14));noise(t+.25,.25,.08,6000)}
@@ -1483,10 +2005,18 @@ function sfxActAn(id){if(!AC)return;const t=T0();
 function slugAct(a,d){const o=slugAct0(a,d);if(o.an&&(o.m>0||o.anx)&&!o.kill)actAnStart(o.an);return o}
 function slugAct0(a,d){if(!a.fx)return a;const o={...a};
  /* Neutlin's Share the Hood: everyone under the hood recovers SP. Tug Hood: it sulks (next turn's flavor line, hood stays down until the next attack). */
- if(a.fx=='share'){let any=0;players.forEach(p=>{if(!p.down&&!p.gone&&p.sp!=null){p.sp=Math.min(p.spMax,p.sp+SHARE_SP);any=1}});if(any){if(typeof sfxHeal=='function')sfxHeal();o.t=a.t+'\n* '+(players.length>1?'Everyone recovered ':'You recovered ')+SHARE_SP+' SP.'}}
+ if(a.fx=='share'||a.fx=='bump'){let any=0;players.forEach(p=>{if(!p.down&&!p.gone&&p.sp!=null){p.sp=Math.min(p.spMax,p.sp+SHARE_SP);any=1}});if(any){if(typeof sfxHeal=='function')sfxHeal();o.t=a.t+'\n* '+(players.length>1?'Everyone recovered ':'You recovered ')+SHARE_SP+' SP.'}}
  else if(a.fx=='tug'){neutSulk=1;neutDefDrop=2;BO.chk=BO.chk.replace(/\d+ DEF/,Math.max(0,7-neutDefDrop)+' DEF')}   /* DEF 7 -> 5 until the fight ends (the CHECK text follows) */
  else if(a.fx=='halo')pancySlow=1;     /* Pancy: her next attack runs slower */
  else if(a.fx=='ruffle')pancyRush=1;   /* Pancy: her next attack gives less warning */
+ else if(a.fx=='chin')kiptoSlow=1;     /* Darius & Kipto: Kipto's next attack is slower */
+ else if(a.fx=='hair')dariusMad=1;     /* Darius & Kipto: next attack = a bigger Blob Splat (no Kipto sweep) */
+ else if(a.fx=='duel')sqChal=1;     /* Square Soulcerer: Challenge (respect if no one is hit next turn) */
+ else if(a.fx=='along')prSlow=1;       /* The Pretender: next attack slower */
+ else if(a.fx=='scratch'){prFast=1;prKnown=1}   /* next attack faster; his secret is out */
+ else if(a.fx=='jack'&&prKnown)o.m=50;  /* found out: Call Him Jack lands harder */
+ else if(a.fx=='quiet')trQuiet=1;      /* Tourette Turret: next attack has fewer shots */
+ else if(a.fx=='crank'){trLoud=1;trDefDrop=2;BO.chk=BO.chk.replace(/\d+ DEF/,Math.max(0,8-trDefDrop)+' DEF')}   /* more shots next attack; DEF 8 -> 6 until the fight ends */
  /* Racer's Race: lose normally; if THIS Race fills the mercy meter you win; if it was already full it's a tie. d = mercy this ACT adds. */
  if(a.fx=='race'){if(spare>=100)o.t='* You challenge Racer to a race.\n* You both finish in a tie, neither of you win.';
   else if(spare+d>=100)o.t='* You challenge Racer to a race.\n* You win! Racer is stunned... then absolutely thrilled to finally have a real rival.'}
@@ -1901,7 +2431,7 @@ function drawLens(){
   for(const p of LENS_CR){g.beginPath();p.forEach(([x,y],i)=>i?g.lineTo(x,y):g.moveTo(x,y));g.stroke()}}
  g.restore()}
 /* story fights: a player's SP bar (yellow) under their HP bar; the label flashes red when a dash is tried at 0 SP */
-function spBar(p,x,y,w,h,lx,nx,fs){const f=performance.now()-(p.spF||0)<350,c=f&&Math.floor(performance.now()/60)%2||p.sp<=0?'#f55':'#ff0';g.fillStyle='#553';g.fillRect(x,y,w,h);g.fillStyle='#ff0';g.fillRect(x,y,w*p.sp/p.spMax,h);txt('SP',lx,y+h,fs,c);txt(p.sp+(w>80?' / ':'/')+p.spMax,nx,y+h,fs,c)}
+function spBar(p,x,y,w,h,lx,nx,fs){const f=performance.now()-(p.spF||0)<350,c=f&&Math.floor(performance.now()/60)%2||p.sp<=0?'#f55':'#ff0';g.fillStyle='#553';g.fillRect(x,y,w,h);g.fillStyle=performance.now()-(p.spH||0)<450&&Math.floor(performance.now()/70)%2?'#fff':'#ff0';g.fillRect(x,y,w*p.sp/p.spMax,h);/* flashes white when Darius drains it */txt('SP',lx,y+h,fs,c);txt(p.sp+(w>80?' / ':'/')+p.spMax,nx,y+h,fs,c)}
 /* story: an enemy carrying a Skill Trinket glows with that trinket's color (battle only, never on the hub cards) */
 function drawAura(x,y,col){const t=performance.now()/1000,RF=SET.reduceFlash,p=RF?1:.88+.12*Math.sin(t*3.2);g.save();
 const gr=g.createRadialGradient(x,y,14,x,y,112*p);gr.addColorStop(0,col+'aa');gr.addColorStop(.55,col+'44');gr.addColorStop(1,col+'00');g.fillStyle=gr;g.beginPath();g.arc(x,y,115,0,6.29);g.fill();
@@ -2011,7 +2541,11 @@ else if(h.t=='shellw'){const a=bt-h.b,now=performance.now()/1000,gh=BH/SHELL.n;g
  if(a<SHELL.warn){const ex=h.dir>0?BX+14:BX+BW-14;g.globalAlpha=SET.reduceFlash?.8:.4+.5*Math.abs(Math.sin(now*9));g.fillStyle=PINK;   /* arrows only where shells will be: the gaps have none */
   for(let r=0;r<SHELL.n;r++){if(h.gaps.includes(r))continue;const cy=BY+gh*(r+.5);g.beginPath();g.moveTo(ex+h.dir*8,cy);g.lineTo(ex-h.dir*5,cy-7);g.lineTo(ex-h.dir*5,cy+7);g.closePath();g.fill()}g.globalAlpha=1}
  else{const x=shellX(h);if(x!=null)for(let r=0;r<SHELL.n;r++){if(h.gaps.includes(r))continue;drawShell(x,BY+gh*(r+.5),h.dir*Math.PI/2+Math.sin(now*6+r)*.15)}}g.restore()}
-else if(h.t=='b'&&h.fire)drawFireball(h);else if(h.t=='arw')drawArw(h);else if(h.t=='snk')drawSnk(h);else if(h.t=='col')drawCol(h);else if(h.t=='swp')drawSwp(h);else if(h.t=='smk')drawSmk(h);else if(h.t=='cloud'||h.t=='pmove'||h.t=='pgone'){}   /* Pancy (clouds are drawn after the loop, on top) */
+else if(h.t=='qgrid')drawQgrid(h);else if(h.t=='qck')drawQck(h);else if(h.t=='qcs')drawQcs(h);else if(h.t=='qcp')drawQcp(h);else if(h.t=='qcj')drawQcj(h);   /* Square Soulcerer */
+else if(h.t=='pmk')drawPmk(h);else if(h.t=='pdr')drawPdr(h);else if(h.t=='pcc')drawPcc(h);   /* The Pretender */
+else if(h.t=='swv')drawSwv(h);else if(h.t=='vol')drawVol(h);else if(h.t=='tbm')drawTbm(h);   /* Tourette Turret */
+else if(h.t=='b'&&h.yb)dkBlob(h.x,h.y,h.r);else if(h.t=='blb')drawBlb(h);else if(h.t=='bdr')drawBdr(h);else if(h.t=='ksw'||h.t=='kst')drawKfly(h);else if(h.t=='dkgone'){}   /* Darius & Kipto */
+else if(h.t=='b'&&h.fire)drawFireball(h);else if(h.t=='arw')drawArw(h);else if(h.t=='snk')drawSnk(h);else if(h.t=='col')drawCol(h);else if(h.t=='vup')drawVup(h);else if(h.t=='swp')drawSwp(h);else if(h.t=='smk')drawSmk(h);else if(h.t=='cloud'||h.t=='pmove'||h.t=='pgone'){}   /* Pancy (clouds are drawn after the loop, on top) */
 else if(h.t=='peek')drawPeek(h);else if(h.t=='curt')drawCurt(h);else if(h.t=='stomp')drawStomp(h);
 else if(h.t=='b'&&h.fp){const u=1-h.lf/h.lf0,c=u<.25?'#fff3a0':u<.55?'#ffb12a':u<.8?'#ff5a1f':'#b02a1a';g.globalAlpha=Math.min(1,h.lf/.25)*.9;g.fillStyle=c;g.beginPath();g.arc(h.x,h.y,h.r*(.5+1.1*u),0,6.29);g.fill();g.globalAlpha=1}   /* Racer's low-HP flame puff */
 else if(h.t=='b'&&h.leaf){g.save();g.beginPath();g.rect(BX,BY,BW,BH);g.clip();drawLeaf(h.x,h.y,h.rot||0,h.lf!=null?Math.min(1,h.lf/.4):1);g.restore()}
@@ -2100,9 +2634,9 @@ const fresh=S=='dodge'&&s.di!==myDi;if(fresh)myDi=s.di;
 s.pl.forEach((q,i)=>{const p=players[i];if(q.hp<p.hp)p.hit=performance.now();if(AC){if(q.hp<p.hp)sfxHit();if(p.down&&!q.dn&&q.hp>0&&q.hp<20)sfxUp()}
 p.hp=q.hp;p.inv=q.inv;p.down=q.dn;p.gone=q.g;p.rev=q.rv;
 if(i!=net.me){p.x=q.x;p.y=q.y;p.dash=q.d?.1:0;p.dcd=q.cd}else if(fresh){p.x=q.x;p.y=q.y;p.dash=0;p.tr=[]}});
-if(AC){if(s.mu>=0){const b=BOSSES[s.mu];if(!mus||mus.b!==b){stopMusic();startMusic(b);syncMus(s.bt)}else if(Math.abs((AC.currentTime-mus.t0)/mus.spb-s.bt)>.75)syncMus(s.bt)}else if(mus)stopMusic();
+if(AC){if(s.mu>=0){const b=BOSSES[s.mu];if(!mus||mus.b!==b){stopMusic();startMusic(b);syncMus(s.bt)}else if(Math.abs(musBt((AC.currentTime-mus.t0)/mus.spb)-s.bt)>.75)syncMus(s.bt)}else if(mus)stopMusic();
 if(S=='win'&&prev!='win')jingle()}}
-function syncMus(b){mus.t0=AC.currentTime-b*mus.spb;mus.step=Math.max(0,Math.ceil(b*4));if(mus.src){try{mus.src.stop()}catch(e){}mus.src=null}}
+function syncMus(b){mus.t0=AC.currentTime-musRaw(b)*mus.spb;mus.step=Math.max(0,Math.ceil(b*4));if(mus.src){try{mus.src.stop()}catch(e){}mus.src=null}}
 function gUpdate(dt){tc+=dt*36;if(S=='win')wanim+=dt;bt=gBt+(performance.now()-gT)/1000/gSpb;
 if(S=='atk'){atk.x=Math.min(520,atk.x+dt*480);fb.forEach(b=>{if(!b.done)b.x=Math.min(520,b.x+dt*347)})}
 players.forEach((p,i)=>{if(i==net.me&&S=='dodge')upd(p,dt);else{if(p.dash>0)p.tr.push({x:p.x,y:p.y,a:.6});p.tr.forEach(t=>t.a-=dt*4);p.tr=p.tr.filter(t=>t.a>0)}});

@@ -159,7 +159,7 @@ function drawWell(x, y, on) {
   const by = up ? 21 : 34 + bob;   // bucket: hanging inside, or pulled up holding the potion
   g.strokeStyle = '#d9c9a0'; g.lineWidth = 1.5; g.beginPath(); g.moveTo(43, 19); g.lineTo(43, by); g.stroke();
   g.fillStyle = '#8a5a3a'; g.beginPath(); g.moveTo(37, by); g.lineTo(49, by); g.lineTo(47, by + 7); g.lineTo(39, by + 7); g.closePath(); g.fill();
-  if (up) { g.fillStyle = '#fff'; g.fillRect(41, by - 8, 4, 4); g.fillStyle = '#ff3b5c'; g.beginPath(); g.arc(43, by - 1, 3.5, 0, 7); g.fill(); }   // the HP Potion in the bucket
+  if (up) { g.fillStyle = '#fff'; g.fillRect(41, by - 8, 4, 4); g.fillStyle = '#7dff3d'; g.beginPath(); g.arc(43, by - 1, 3.5, 0, 7); g.fill(); }   // the HP Potion in the bucket (green)
   g.fillStyle = '#111'; g.beginPath(); g.ellipse(43, 44, 29, 6, 0, 0, 7); g.fill();   // the dark hole
   g.fillStyle = '#8f8f99'; g.beginPath(); g.moveTo(14, 44); g.lineTo(14, 58); g.quadraticCurveTo(43, 66, 72, 58); g.lineTo(72, 44); g.quadraticCurveTo(43, 52, 14, 44); g.closePath(); g.fill();   // stone ring
   g.strokeStyle = '#5f5f68'; g.lineWidth = 1.2; g.beginPath(); g.moveTo(14, 51); g.quadraticCurveTo(43, 59, 72, 51);

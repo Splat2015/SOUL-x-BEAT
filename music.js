@@ -16,13 +16,16 @@
    lufs: the song's measured loudness (integrated LUFS, whole file). Every song is played at LUFS_TARGET:
    it is turned up or down by (LUFS_TARGET - lufs) dB, so all mp3s sound equally loud.
    EVERY NEW SONG gets measured and its lufs added here (a song without one plays unchanged). */
-const LUFS_TARGET = -17;
+const LUFS_TARGET = -11;   // raised from -17 in two steps (+6 dB, the user asked for louder music twice). Headroom: the game's output gain is .5 (-6 dB), so the most-boosted song (Agrobacter, peak -2.64 dB, +8.1 dB) peaks at about -0.5 dB at full music volume. This is the ceiling: going higher would clip Agrobacter.
 const TRACKS = {
   corrupted: { file: 'song-agrobacter.js', title: 'Agrobacter (Corrupted Mix)', artist: 'Just Shapes & Beats', lufs: -19.13 },   // peak -2.64 dB
   racer: { file: 'song-racer.js', title: 'RALLY-X A GO GO', artist: 'Hiroyuki Kawada & Nobuyuki Ohnogi', lufs: -12.49 },   // peak -0.11 dB
   tanga: { file: 'song-tanga.js', title: 'TILA EN STEREO', artist: 'Rainbowdragoneyes', lufs: -7.66 },   // peak 0 dB
   neutlin: { file: 'song-neutlin.js', title: 'Come and Find Me (B Mix)', artist: 'Eric Skiff', lufs: -16.84 },   // peak -3.25 dB.   // Neutlin's battle song (CC BY 3.0): 111 BPM, first beat .0635 s; plays 0-4 s once (introBeats 7.2825), then loops 4.0 s to 99.1 s (loopBeats 176 = 44 bars)
   pancy: { file: 'song-pancy.js', title: 'Drifting Deeper', artist: 'Zef (feat. Stemage)', lufs: -16.9 },   // peak -5.65 dB.   // Pancy's battle song: 120 BPM, first beat .087 s; plays 0-16 s once (introBeats 32), then loops 16.1 s to 112.1 s (loopBeats 192 = 48 bars)
+  darius: { file: 'song-darius.js', title: 'Counter Format', artist: 'Shirobon', lufs: -5.24 },   // Darius & Kipto's battle song: 160 BPM, first beat .93 s; plays 0-36.93 s once (introBeats 96), then loops 36.93 s to 96.93 s (loopBeats 160 = 40 bars). Peak 0 dB.
+  turret: { file: 'song-turret.js', title: '1985', artist: 'Sabrepulse', lufs: -4.7 },   // Tourette Turret's battle song: 132 BPM. The file is the user's own cut (music/1985.mp3, starts after the 'hey'): beat 0 (breakdown) .016 s, the breakdown plays once (introBeats 32 = 8 bars), then loops the drop 14.56 s to 72.74 s, the end of the file (loopBeats 128 = 32 bars). Peak 0 dB.
+  pretender: { file: 'song-pretender.js', title: 'Electric Children Sucks', artist: 'Electric Children', lufs: -4.09 },   // The Pretender's battle song: 133.05 BPM, 48 bars (the user's re-uploaded cut). Beat 0 = its first hit at .02 s; loops .02 s -> 86.60 s = beat 192 (introBeats 0, loopBeats 192); the file's last .35 s are silent export padding. Peak 0 dB.
   slug: { file: 'song-slug.js', title: 'Splash Woman', artist: 'Mega Ran', lufs: -12.17 },   // peak 0 dB.   // $lug Thug's battle song (instrumental; 107 BPM, 112 beats loop)   // Tanga's battle song (160 BPM; 32-beat intro plays once, then 128 beats loop)   // Racer's battle song (144 BPM)
 };
 
