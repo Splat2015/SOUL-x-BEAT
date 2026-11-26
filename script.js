@@ -2416,7 +2416,7 @@ function soul(x,y,col,tri,out){if(out){g.fillStyle='#fff';shp(x,y,10,tri);g.fill
 const LENS_CR=[[[0,70],[90,110],[150,100],[260,160],[300,150]],[[90,110],[110,200],[80,280]],[[150,100],[210,40],[240,0]],
  [[800,500],[700,470],[640,520],[540,480],[480,520]],[[700,470],[690,380],[740,300]],[[640,520],[620,600]],[[540,480],[500,430]]];
 let lensC=null,lensG=null,lensS=null;
-const lensOn=()=>{try{if(typeof ST=='undefined'||!ST.fight||typeof cur!='function')return false;const s=cur(),pl=s.players[net.role?net.me:0]||s.players[0];return !!pl&&pl.armor=='sshades'}catch(e){return false}};
+const lensOn=()=>{try{if(typeof ST=='undefined'||!ST.fight||typeof cur!='function')return false;const s=cur(),pl=s.players[net.role?net.me:0]||s.players[0];return !!pl&&String(pl.armor||'').split(':')[0]=='sshades'}catch(e){return false}};   /* the base id: worn gear is stored as 'sshades:29' (DUR) or 'sshades:30:poison' (Skill Trinket), so == 'sshades' only matched a fresh pair */
 function drawLens(){
  if(!lensOn())return;   /* every phase of the fight: intro, win, flee and game over too, not just while the song plays */
  if(!lensC){lensC=document.createElement('canvas');lensC.width=W;lensC.height=H;lensG=lensC.getContext('2d')}
