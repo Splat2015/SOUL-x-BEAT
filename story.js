@@ -80,7 +80,7 @@ const VILLAGES = {
     genoCut: [
       '* ...',
       '* The village has gone quiet.\n* Not a single beat left to hear.',
-      '* The vendors have already retreated from their stands.\n* Fearing for their lives.',
+      '* The vendors have already retreated from\n  their stands.\n* Fearing for their lives.',
       "* Far ahead, the Star statue's light flickers.\n* It knows what you've done.",
     ],
   },
@@ -128,7 +128,7 @@ const VILLAGES = {
       '* ...',
       '* Square Village has gone silent.\n* Not a single track left playing.',
       '* Every door in the village is locked.\n* Only the shopkeepers still dare to look at you.',
-      "* At the heart of the village, the Square statue's crown flickers.\n* It knows what you've done.",
+      "* At the heart of the village, the Square\n  statue's crown flickers.\n* It knows what you've done.",
     ],
     arrive: [
       '* You leave Star Village behind.',
@@ -900,7 +900,7 @@ function pickCard(k) {
 /* $lug Thug's empty card (killed 3 times): his broken glasses can be picked up once */
 function takeShades() {
   AC && sfxSel();
-  hubSay(["* It seems that all that's left of him are some glasses.", '* Take them?'], () =>
+  hubSay(["* It seems that all that's left of him\n  are some glasses.", '* Take them?'], () =>
     askYesNo('', ['Take the broken glasses?'], () => {
       const s = cur();
       if (itemsFull(s)) { hubSay("* Your items are full."); return; }
@@ -1801,7 +1801,7 @@ function drawTextBox() {
   if (ST.tb.fx) {   // corrupted: pink, every letter shaking a little
     g.font = 'bold 22px monospace'; g.fillStyle = '#ff2e88'; g.textAlign = 'left';
     t.slice(0, n).split('\n').forEach((l, i) => { let cx = x + 24; for (const ch of l) { const j = SET.reduceFlash ? 0 : 1.6; g.fillText(ch, cx + (Math.random() - .5) * j, y + 42 + i * 34 + (Math.random() - .5) * j); cx += g.measureText(ch).width; } });
-  } else t.slice(0, n).split('\n').forEach((l, i) => txt(l, x + 24, y + 42 + i * 34, 22, '#fff', 'left', 0, true));
+  } else t.slice(0, n).split('\n').forEach((l, i) => txt(l, x + 24, y + 42 + i * 34, 22, '#fff', 'left', w - 40, true));   // max width: a too-long line shrinks to fit inside the box instead of running past its right edge
   if (n >= t.length && Math.floor(Date.now() / 400) % 2) txt('Enter / Z / Space / A', x + w - 16, y + h - 12, 14, '#888', 'right');
 }
 function panelPlayer(p) {
