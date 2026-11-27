@@ -2353,7 +2353,7 @@ if(e>=slL[slL.length-1].at+.55)showMsg(slMsg,bhp<=0?()=>win(0):startDodge)}
 function slSnap(){const n=performance.now();return slAll.filter(s=>n-s.t0<700).map(s=>({i:s.id,e:+((n-s.t0)/1000).toFixed(2),c:s.col,s:s.st,w:s.w,m:s.m}))}
 function slApply(a){if(!a)return;a.forEach(x=>{if(!slSeen.has(x.i)){slSeen.add(x.i);slAll.push({id:x.i,t0:performance.now()-x.e*1000,col:x.c,st:x.s,snd:0,w:x.w||'',m:x.m||1})}});if(slSeen.size>80)slSeen.clear()}
 /* ---------- Slap Strap hit: a leather strap whips in from the side (m = 1 left, -1 right) and cracks on the boss ---------- */
-function sfxStrap(st){if(!AC)return;noise(T0(),.1,.08,1100);noise(T0()+.11,.05,.4,5500);tone(190,T0()+.11,.12,'square',.14,60);if(st>1){noise(T0()+.19,.05,.4,6500);tone(240,T0()+.19,.12,'square',.12,70)}}
+function sfxStrap(st){if(!AC)return;noise(T0(),.1,.08,1100);const crack=(t,hp,f)=>{noise(t,.07,.9,hp);noise(t,.14,.5,1200);tone(f,t,.16,'square',.3,55)};crack(T0()+.11,5500,190);if(st>1)crack(T0()+.19,6500,240)}   // the crack: a sharp snap + a body thump (loud on purpose)
 function drawStrap(s,e,m){if(e<0||e>.45)return;const cl=(v,a,b)=>Math.max(0,Math.min(1,(v-a)/(b-a))),cx=W/2,cy=100,
 t=cl(e,0,.12),u=t*t*(3-2*t)*.35+t*t*.65,r=cl(e,.12,.4),a=1-cl(e,.3,.45),   // the swing speeds up into the hit, then recoils
 H=[cx-m*175,cy+72],                                                          // the handle, just above the battle box
