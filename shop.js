@@ -93,7 +93,7 @@ function enterShop1() {
   ST.scr = 'shop1';
   ST.shop = { mode: 'menu', menu: 'main', m: 0, cat: null, li: 0, top: 0, line: '', t0: 0, pages: null, pi: 0, after: null };
   AC && sfxGo();
-  if (!s.seen.daniel) shopTalk(DANIEL.intro, () => { s.seen.daniel = 1; storySave(); });
+  if (!s.seen.daniel) shopTalk(DANIEL.intro, () => { s.seen.daniel = 1; storySave(); shopSay(''); });   // the welcome stays in his talk box only (not repeated above the menu)
   else shopSay(DANIEL.greet[Math.floor(Math.random() * DANIEL.greet.length)]);
 }
 function shopSay(line) { ST.shop.line = line; ST.shop.t0 = performance.now(); }
