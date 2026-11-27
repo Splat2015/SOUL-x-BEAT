@@ -2573,7 +2573,7 @@ if(g.measureText(lx(sl)).width<=348)txt(sl,W-12,26,14,'#aaa','right');else{txt('
 /* the second part sits beside the MERCY label, so it gets less room; long credits wrap onto more lines */
 g.font='bold 14px monospace';const rows=[];let cur='';info.split(' ').forEach(w=>{const t=cur?cur+' '+w:w;if(cur&&g.measureText(t).width>270){rows.push(cur);cur=w}else cur=t});rows.push(cur);
 rows.forEach((r,k)=>txt(r,W-12,44+k*18,14,'#aaa','right',270,1))}}
-if(dodge){g.fillStyle='#19e3ff';g.fillRect(0,0,Math.min(1,Math.max(0,(bt-tb)/TL))*W,4);if(bt<tb+2)txt('DODGE!',W/2,170,24,'#19e3ff','center')}}if(S=='lose'||S=='lexit'||loseGo)drawLose();if(S=='intro')drawIntro();if(S=='flee')drawFlee();if(storyFighting()&&ST.poison>0&&BO&&S!='win'&&S!='lose')txt('POISONED  '+ST.poison,12,46,13,'#b45bff');drawSlash();drawLens();if(S=='win'&&wxT)drawWx()}
+if(dodge){g.fillStyle='#19e3ff';g.fillRect(0,0,Math.min(1,Math.max(0,(bt-tb)/TL))*W,4);if(bt<tb+2)txt('DODGE!',W/2,170,24,'#19e3ff','center')}}if(S=='lose'||S=='lexit'||loseGo)drawLose();if(S=='intro')drawIntro();if(S=='flee')drawFlee();if(storyFighting()&&ST.poison>0&&BO&&['menu','tgt','sub','ptg','atk','slash','msg','dodge'].includes(S))txt('POISONED  '+ST.poison,12,46,13,'#b45bff');/* battle screens only: not on the game-over (RETRY / VILLAGE fade), flee or win screens */drawSlash();drawLens();if(S=='win'&&wxT)drawWx()}
 
 /* ---------- online co-op (PeerJS): host runs the game, guest sends its own position + button presses ---------- */
 const net={role:null,peer:null,conn:null,slots:[null,null,null,null],ok:0,code:'',me:0},ALPHA='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',PFX='soulxbeat-',SIGERR=['network','server-error','socket-error','socket-closed','disconnected'];
