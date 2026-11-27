@@ -1262,12 +1262,14 @@ function scrollArrows(x, yUp, yDn, up, dn) {
    STATS rows: 0 weapon, 1 its trinket box, 2 armor, 3 its trinket box, then 'add' (under 4 players) and 'rem' (2+ players; always the last player). */
 const statRows = () => { const n = cur().np; return [0, 1, 2, 3, ...(n < 4 ? ['add'] : []), ...(n > 1 ? ['rem'] : [])]; };
 const STAT_OPT_Y = 342;   // first ADD / REMOVE row (bottom right of STATS)
-/* a new player joins with starter gear and full HP / SP at the party's LV (a slot removed earlier gets its old HP / SP back) */
+/* a new player joins with starter gear and full HP / SP at the party's LV.
+   A slot removed earlier gets its old HP / SP back but NO gear: its gear already went to your items when it left
+   (otherwise removing and re-adding a player would hand out free Wooden Swords / Shields to sell to Daniel). */
 function addPlayer() {
-  const s = cur(), n = s.np;
-  askYesNo('ADD A PLAYER?', ['P' + (n + 1) + ' (' + SHAPE_NAMES[n] + ') joins with a', 'Wooden Sword and Wooden Shield.'], () => {
-    const back = s.left[n];   // this slot was removed before: its HP / SP come back (never above the current max)
-    s.players.push({ ...starterPlayer(), hp: back ? Math.min(back.hp, maxHp(s.lv)) : maxHp(s.lv), sp: back ? Math.min(back.sp, maxSp(s.lv)) : maxSp(s.lv) });
+  const s = cur(), n = s.np, back = s.left[n];   // back: this slot was removed before
+  const lines = back ? ['P' + (n + 1) + ' (' + SHAPE_NAMES[n] + ') rejoins with no gear.', 'Equip them from ITEM.'] : ['P' + (n + 1) + ' (' + SHAPE_NAMES[n] + ') joins with a', 'Wooden Sword and Wooden Shield.'];
+  askYesNo('ADD A PLAYER?', lines, () => {
+    s.players.push({ ...(back ? { weapon: null, armor: null } : starterPlayer()), hp: back ? Math.min(back.hp, maxHp(s.lv)) : maxHp(s.lv), sp: back ? Math.min(back.sp, maxSp(s.lv)) : maxSp(s.lv) });   // HP / SP never above the current max
     delete s.left[n];
     s.np = n + 1; ST.pp = n; ST.pr = 0;
     storySave(); AC && sfxGo();
