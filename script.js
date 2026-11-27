@@ -2345,14 +2345,54 @@ let slL=[],slMsg='',slT=0,slHit=0,slAll=[];const slSeen=new Set();
 function sfxSlash(st){if(!AC)return;noise(T0(),.14,.14,4000);tone(2200,T0(),.12,'sawtooth',.07,500);if(st>1){tone(140,T0()+.06,.3,'sine',.3,50);tone(2600,T0()+.1,.1,'sawtooth',.05,700)}}
 function atkFx(h,tot,msg){if(!h.length){flash=.5;shake=0;showMsg(msg,bhp<=0?()=>win(0):startDodge);return}
 slL=h.map((x,i)=>({d:x.d,at:i*.25}));slMsg=msg;slT=performance.now();slHit=0;
-h.forEach((x,i)=>slAll.push({id:Math.floor(Math.random()*1e9),t0:slT+i*250,col:PCOL[x.k],st:((q)=>q>=25?2:q>=12?1:0)(x.q==null?x.d:x.q),snd:0}));S='slash'}
+h.forEach((x,i)=>slAll.push({id:Math.floor(Math.random()*1e9),t0:slT+i*250,col:PCOL[x.k],st:((q)=>q>=25?2:q>=12?1:0)(x.q==null?x.d:x.q),snd:0,w:wKind(x.k),m:i%2?-1:1}));S='slash'}
+/* which hit animation player k's weapon gets: 'strap' (Slap Strap, the 4-line weapon), 'star' (Twinkle Slinger, the Bullseye weapon), else '' = the slash */
+const wKind=k=>!storyFighting()?'':storyAims(k)?'star':storyBarLines(k)>1?'strap':'';
 function slashStep(){const e=(performance.now()-slT)/1000;while(slHit<slL.length&&e>=slL[slHit].at+.12){bhp=Math.max(0,bhp-slL[slHit].d);flash=.5;shake=6;bhurt=1;slHit++}
 if(e>=slL[slL.length-1].at+.55)showMsg(slMsg,bhp<=0?()=>win(0):startDodge)}
-function slSnap(){const n=performance.now();return slAll.filter(s=>n-s.t0<700).map(s=>({i:s.id,e:+((n-s.t0)/1000).toFixed(2),c:s.col,s:s.st}))}
-function slApply(a){if(!a)return;a.forEach(x=>{if(!slSeen.has(x.i)){slSeen.add(x.i);slAll.push({id:x.i,t0:performance.now()-x.e*1000,col:x.c,st:x.s,snd:0})}});if(slSeen.size>80)slSeen.clear()}
+function slSnap(){const n=performance.now();return slAll.filter(s=>n-s.t0<700).map(s=>({i:s.id,e:+((n-s.t0)/1000).toFixed(2),c:s.col,s:s.st,w:s.w,m:s.m}))}
+function slApply(a){if(!a)return;a.forEach(x=>{if(!slSeen.has(x.i)){slSeen.add(x.i);slAll.push({id:x.i,t0:performance.now()-x.e*1000,col:x.c,st:x.s,snd:0,w:x.w||'',m:x.m||1})}});if(slSeen.size>80)slSeen.clear()}
+/* ---------- Slap Strap hit: a leather strap whips in from the side (m = 1 left, -1 right) and cracks on the boss ---------- */
+function sfxStrap(st){if(!AC)return;noise(T0(),.1,.08,1100);noise(T0()+.11,.05,.4,5500);tone(190,T0()+.11,.12,'square',.14,60);if(st>1){noise(T0()+.19,.05,.4,6500);tone(240,T0()+.19,.12,'square',.12,70)}}
+function drawStrap(s,e,m){if(e<0||e>.45)return;const cl=(v,a,b)=>Math.max(0,Math.min(1,(v-a)/(b-a))),cx=W/2,cy=100,
+t=cl(e,0,.12),u=t*t*(3-2*t)*.35+t*t*.65,r=cl(e,.12,.4),a=1-cl(e,.3,.45),   // the swing speeds up into the hit, then recoils
+H=[cx-m*175,cy+72],                                                          // the handle, just above the battle box
+qb=(p0,p1,p2,t)=>[(1-t)*(1-t)*p0[0]+2*(1-t)*t*p1[0]+t*t*p2[0],(1-t)*(1-t)*p0[1]+2*(1-t)*t*p1[1]+t*t*p2[1]],
+sw=qb([cx-m*150,cy-150],[cx+m*120,cy-140],[cx+m*8,cy+4],u),                  // the tip comes over the top and down onto the boss
+T=[sw[0]+(cx-m*85-sw[0])*r*.55,sw[1]+(cy+55-sw[1])*r*.55],                   // then recoils a little
+dx=T[0]-H[0],dy=T[1]-H[1],nx=-dy,ny=dx,nl=Math.hypot(nx,ny)||1,
+bend=((1-u)*150+Math.sin(r*14)*(1-r)*28)*m,                                  // lagging S-curve: a whip, not a stick
+C1=[H[0]+dx*.33+nx/nl*bend,H[1]+dy*.33+ny/nl*bend],C2=[H[0]+dx*.7-nx/nl*bend*.55,H[1]+dy*.7-ny/nl*bend*.55],N=24,pts=[];
+for(let i=0;i<=N;i++){const k=i/N,z=1-k;pts.push([z*z*z*H[0]+3*z*z*k*C1[0]+3*z*k*k*C2[0]+k*k*k*T[0],z*z*z*H[1]+3*z*z*k*C1[1]+3*z*k*k*C2[1]+k*k*k*T[1]])}
+g.save();g.globalAlpha=a;g.lineCap='round';g.lineJoin='round';
+const seg=(col,w0,w1)=>{for(let i=0;i<N;i++){g.strokeStyle=col;g.lineWidth=w0+(w1-w0)*i/N;g.beginPath();g.moveTo(pts[i][0],pts[i][1]);g.lineTo(pts[i+1][0],pts[i+1][1]);g.stroke()}};
+seg('#3e2412',18,7);seg('#8a5a35',14,4.5);seg('#c08a5a',3.5,1.2);            // outline, leather band, highlight
+g.fillStyle='#3e2412';for(let i=2;i<N-2;i+=3){g.beginPath();g.arc(pts[i][0],pts[i][1],1.4,0,7);g.fill()}   // stitches
+g.fillStyle=s.col;g.save();g.translate(H[0],H[1]);g.rotate(Math.atan2(pts[1][1]-H[1],pts[1][0]-H[0]));g.fillRect(-18,-8,24,16);g.restore();   // grip in the player's color
+if(e>=.1){const k=cl(e,.1,.4),ia=1-k;                                        // the crack: a ring and jagged white spikes
+ g.globalAlpha=ia;g.strokeStyle=s.col;g.lineWidth=5*ia+1;g.beginPath();g.arc(cx,cy,12+60*k,0,7);g.stroke();
+ g.strokeStyle='#fff';g.lineWidth=4*ia+.5;for(let j=0;j<8;j++){const an=j*Math.PI/4+((s.id>>j)%7-3)*.06+(m<0?.39:0),r1=10+22*k,r2=32+(j%2?32:52)*k,mid=(r1+r2)/2,jt=(j%2?7:-7)*ia;
+  g.beginPath();g.moveTo(cx+Math.cos(an)*r1,cy+Math.sin(an)*r1);g.lineTo(cx+Math.cos(an)*mid-Math.sin(an)*jt,cy+Math.sin(an)*mid+Math.cos(an)*jt);g.lineTo(cx+Math.cos(an)*r2,cy+Math.sin(an)*r2);g.stroke()}}
+g.restore()}
+/* ---------- Twinkle Slinger hit: a spinning star of starlight shoots up from below and bursts into little stars ---------- */
+function sfxStar(st){if(!AC)return;tone(1100,T0(),.12,'sine',.1,2400);noise(T0()+.12,.08,.07,7000);tone(1568,T0()+.12,.25,'triangle',.1);tone(2093,T0()+.16,.3,'triangle',.08);if(st>1)tone(2637,T0()+.2,.4,'sine',.07)}
+function starPath(x,y,R,rot){g.beginPath();for(let i=0;i<10;i++){const an=rot+i*Math.PI/5-Math.PI/2,rr=i%2?R*.45:R;g[i?'lineTo':'moveTo'](x+Math.cos(an)*rr,y+Math.sin(an)*rr)}g.closePath()}
+function drawStar(s,e){if(e>.55)return;const cl=(v,a,b)=>Math.max(0,Math.min(1,(v-a)/(b-a))),cx=W/2,cy=100,R=13+3*s.st,x0=cx+s.m*40,y0=BY+BH-20,
+at=t=>{const u=t*t;return[x0+(cx-x0)*u,y0+(cy-y0)*u]};                     // speeds up on its way to the boss
+g.save();
+if(e<.12){const t=e/.12;
+ for(let j=6;j>=1;j--){const tt=Math.max(0,t-j*.06),[tx,ty]=at(tt);g.globalAlpha=.5*(1-j/7);g.fillStyle=s.col;starPath(tx,ty,R*(1-j*.1),e*25-j*.4);g.fill()}   // trail
+ const [x,y]=at(t);g.globalAlpha=1;g.shadowColor=s.col;g.shadowBlur=SET.reduceFlash?0:14;g.fillStyle='#fff6a8';starPath(x,y,R,e*25);g.fill();g.shadowBlur=0;g.fillStyle='#fff';starPath(x,y,R*.45,e*25);g.fill()}
+else{const k=cl(e,.12,.55),ia=1-k,n=s.st>1?16:10;
+ g.globalAlpha=ia*.9;g.fillStyle='#fff';g.beginPath();g.arc(cx,cy,(R+14)*(1-k*.8),0,7);g.fill();                         // flash
+ if(s.st>1){g.globalAlpha=ia;g.strokeStyle='#fff6a8';g.lineWidth=4*ia+1;g.beginPath();g.arc(cx,cy,20+80*k,0,7);g.stroke()}   // perfect: a ring
+ for(let j=0;j<n;j++){const an=j*2*Math.PI/n+(s.id%10)*.06,d=(18+(s.st>1?85:65)*(1-Math.pow(1-k,2)))*(j%2?.75:1);
+  g.globalAlpha=ia;g.fillStyle=j%3?'#fff6a8':s.col;starPath(cx+Math.cos(an)*d,cy+Math.sin(an)*d+k*k*18,8*(1-k*.5),k*8+j);g.fill()}}
+g.restore()}
 function drawSlash(){const now=performance.now(),cl=(v,a,b)=>Math.max(0,Math.min(1,(v-a)/(b-a)));slAll=slAll.filter(s=>now-s.t0<900);if(!slAll.length)return;
 g.save();g.setTransform(1,0,0,1,0,0);
-slAll.forEach(s=>{const e=(now-s.t0)/1000;if(e<0)return;if(!s.snd){s.snd=1;if(e<.3)sfxSlash(s.st)}
+slAll.forEach(s=>{const e=(now-s.t0)/1000;if(e<0)return;if(!s.snd){s.snd=1;if(e<.3)(s.w=='strap'?sfxStrap:s.w=='star'?sfxStar:sfxSlash)(s.st)}
+if(s.w=='strap'){drawStrap(s,e,s.m);if(s.st>1)drawStrap(s,e-.08,-s.m);return}if(s.w=='star'){drawStar(s,e);return}
 const L=[80,105,120][s.st],wd=[7,9,11][s.st],cx=W/2,cy=100,
 stroke=(m,e0)=>{if(e0<0||e0>.35)return;const hd=1-Math.pow(1-cl(e0,0,.12),3),tl=Math.min(hd,Math.pow(cl(e0,.1,.3),2)),a=1-cl(e0,.22,.35),N=14,top=[],bot=[],ix=[];
 for(let i=0;i<=N;i++){const p=tl+(hd-tl)*i/N,x=cx+m*(L*.8-1.6*L*.8*p),y=cy-L*.75+1.5*L*.75*p,hw=wd*Math.sin(Math.PI*i/N)*(.6+.4*(1-p)),nx=.9*m,ny=.8;const nl=Math.hypot(nx,ny);top.push([x+nx/nl*hw,y+ny/nl*hw]);bot.push([x-nx/nl*hw,y-ny/nl*hw]);ix.push([x,y,hw])}
