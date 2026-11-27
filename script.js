@@ -2376,18 +2376,18 @@ if(e>=.1){const k=cl(e,.1,.4),ia=1-k;                                        // 
 g.restore()}
 /* ---------- Twinkle Slinger hit: a spinning star of starlight shoots up from below and bursts into little stars ---------- */
 function sfxStar(st){if(!AC)return;tone(1100,T0(),.12,'sine',.1,2400);noise(T0()+.12,.08,.07,7000);tone(1568,T0()+.12,.25,'triangle',.1);tone(2093,T0()+.16,.3,'triangle',.08);if(st>1)tone(2637,T0()+.2,.4,'sine',.07)}
-function starPath(x,y,R,rot){g.beginPath();for(let i=0;i<10;i++){const an=rot+i*Math.PI/5-Math.PI/2,rr=i%2?R*.45:R;g[i?'lineTo':'moveTo'](x+Math.cos(an)*rr,y+Math.sin(an)*rr)}g.closePath()}
+function spinStar(x,y,R,rot){   /* a 5-point star turned by rot (the Bullseye attack has its own starPath) */g.beginPath();for(let i=0;i<10;i++){const an=rot+i*Math.PI/5-Math.PI/2,rr=i%2?R*.45:R;g[i?'lineTo':'moveTo'](x+Math.cos(an)*rr,y+Math.sin(an)*rr)}g.closePath()}
 function drawStar(s,e){if(e>.55)return;const cl=(v,a,b)=>Math.max(0,Math.min(1,(v-a)/(b-a))),cx=W/2,cy=100,R=13+3*s.st,x0=cx+s.m*40,y0=BY+BH-20,
 at=t=>{const u=t*t;return[x0+(cx-x0)*u,y0+(cy-y0)*u]};                     // speeds up on its way to the boss
 g.save();
 if(e<.12){const t=e/.12;
- for(let j=6;j>=1;j--){const tt=Math.max(0,t-j*.06),[tx,ty]=at(tt);g.globalAlpha=.5*(1-j/7);g.fillStyle=s.col;starPath(tx,ty,R*(1-j*.1),e*25-j*.4);g.fill()}   // trail
- const [x,y]=at(t);g.globalAlpha=1;g.shadowColor=s.col;g.shadowBlur=SET.reduceFlash?0:14;g.fillStyle='#fff6a8';starPath(x,y,R,e*25);g.fill();g.shadowBlur=0;g.fillStyle='#fff';starPath(x,y,R*.45,e*25);g.fill()}
+ for(let j=6;j>=1;j--){const tt=Math.max(0,t-j*.06),[tx,ty]=at(tt);g.globalAlpha=.5*(1-j/7);g.fillStyle=s.col;spinStar(tx,ty,R*(1-j*.1),e*25-j*.4);g.fill()}   // trail
+ const [x,y]=at(t);g.globalAlpha=1;g.shadowColor=s.col;g.shadowBlur=SET.reduceFlash?0:14;g.fillStyle='#fff6a8';spinStar(x,y,R,e*25);g.fill();g.shadowBlur=0;g.fillStyle='#fff';spinStar(x,y,R*.45,e*25);g.fill()}
 else{const k=cl(e,.12,.55),ia=1-k,n=s.st>1?16:10;
  g.globalAlpha=ia*.9;g.fillStyle='#fff';g.beginPath();g.arc(cx,cy,(R+14)*(1-k*.8),0,7);g.fill();                         // flash
  if(s.st>1){g.globalAlpha=ia;g.strokeStyle='#fff6a8';g.lineWidth=4*ia+1;g.beginPath();g.arc(cx,cy,20+80*k,0,7);g.stroke()}   // perfect: a ring
  for(let j=0;j<n;j++){const an=j*2*Math.PI/n+(s.id%10)*.06,d=(18+(s.st>1?85:65)*(1-Math.pow(1-k,2)))*(j%2?.75:1);
-  g.globalAlpha=ia;g.fillStyle=j%3?'#fff6a8':s.col;starPath(cx+Math.cos(an)*d,cy+Math.sin(an)*d+k*k*18,8*(1-k*.5),k*8+j);g.fill()}}
+  g.globalAlpha=ia;g.fillStyle=j%3?'#fff6a8':s.col;spinStar(cx+Math.cos(an)*d,cy+Math.sin(an)*d+k*k*18,8*(1-k*.5),k*8+j);g.fill()}}
 g.restore()}
 function drawSlash(){const now=performance.now(),cl=(v,a,b)=>Math.max(0,Math.min(1,(v-a)/(b-a)));slAll=slAll.filter(s=>now-s.t0<900);if(!slAll.length)return;
 g.save();g.setTransform(1,0,0,1,0,0);
