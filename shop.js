@@ -73,7 +73,11 @@ const DANIEL = {
   dealBuy: "* Enjoy. No, I won't tell you where I got it.",
   noSR: '* No relics, no deal. Those are the rules.',
   refresh: '* Picky, huh? Fine. Let me dig around in the back.',
-  noSell: "* Sorry, no potions or trinkets. I know a gal who'd gladly take 'em. Who? ...Not telling.",   // SELL on a potion / Skill Trinket
+  noSell: [   // SELL on a potion / Skill Trinket: his talk box, one page each, then back to the SELL list
+    "* Sorry, pal. I don't take potions or trinkets.",
+    "* I know a gal who'd gladly take 'em off your hands, though.",
+    '* Who? ...Not telling.',
+  ],
 };
 
 /* ---------- state ---------- */
@@ -121,7 +125,7 @@ function shopPick() {
   const P = ST.shop, s = cur(), r = shopRows(P.cat)[P.li];
   if (!r) return;
   if (P.cat == 'SELL') {
-    if (r.no) { shopSay(DANIEL.noSell); AC && tone(160, T0(), .18, 'square', .12, 90); return; }   // kindly refused: you stay in the list
+    if (r.no) { AC && tone(160, T0(), .18, 'square', .12, 90); shopTalk(DANIEL.noSell, () => { P.mode = 'list'; shopSay(DANIEL.cat.SELL); }); return; }   // kindly refused, then back in the list on the same item
     askYesNo('', ['Sell the ' + r.name, 'for ' + r.price + ' BC?'], () => {
       const k = P.li, e = s.items[k], tr = trinketOf(e);
       s.items.splice(k, 1);
